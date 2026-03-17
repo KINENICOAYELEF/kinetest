@@ -60,15 +60,15 @@ export const AdminDashboard = () => {
         fetchAllStats();
     }, []);
 
-    if (loading) return <div style={{ padding: 20 }}>Cargando datos del curso...</div>;
+    if (loading) return <div className="container"><p>Cargando datos del curso...</p></div>;
 
     return (
-        <div style={{ padding: 20 }}>
-            <h1>Dashboard Administrador \ud83d\udcbb</h1>
+        <div className="container" style={{ maxWidth: 1000 }}>
+            <h1>Dashboard Administrador 💻</h1>
             
-            <div style={{ marginTop: 30, background: 'white', borderRadius: 12, overflow: 'hidden', boxShadow: '0 4px 6px rgba(0,0,0,0.05)' }}>
-                <table style={{ width: '100%', borderCollapse: 'collapse' }}>
-                    <thead style={{ background: '#f8f9fa' }}>
+            <div style={{ marginTop: 30, background: 'rgba(255,255,255,0.03)', borderRadius: 16, overflow: 'hidden', border: '1px solid var(--glass-border)' }}>
+                <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
+                    <thead style={{ background: 'rgba(255,255,255,0.05)', color: 'var(--text-muted)' }}>
                         <tr style={{ textAlign: 'left' }}>
                             <th style={{ padding: 15 }}>Estudiante</th>
                             <th>Notas Unidad</th>
@@ -79,27 +79,33 @@ export const AdminDashboard = () => {
                     </thead>
                     <tbody>
                         {students.map(s => (
-                            <tr key={s.uid} style={{ borderBottom: '1px solid #eee' }}>
+                            <tr key={s.uid} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                                 <td style={{ padding: 15 }}>
                                     <strong>{s.email}</strong>
                                 </td>
                                 <td>
-                                    {Object.entries(s.unitGrades).map(([id, g]) => (
-                                        <span key={id} style={{ margin: '0 5px', padding: '2px 5px', background: '#e3f2fd', borderRadius: 4, fontSize: '0.8rem' }}>
-                                            {id}: {g}
-                                        </span>
-                                    ))}
+                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 4 }}>
+                                        {Object.entries(s.unitGrades).map(([id, g]) => (
+                                            <span key={id} style={{ padding: '2px 6px', background: 'rgba(99, 102, 241, 0.1)', color: 'var(--primary)', borderRadius: 4, fontSize: '0.75rem', fontWeight: 600 }}>
+                                                {id}: {g}
+                                            </span>
+                                        ))}
+                                    </div>
                                 </td>
-                                <td>{s.fridayResults.find(r => r.type === 'A')?.grade || '-'}</td>
-                                <td>{s.fridayResults.find(r => r.type === 'B')?.grade || '-'}</td>
-                                <td>
-                                    <button style={{ fontSize: '0.8rem' }}>Ver Detalle</button>
+                                <td style={{ textAlign: 'center' }}>{s.fridayResults.find(r => r.type === 'A')?.grade || '-'}</td>
+                                <td style={{ textAlign: 'center' }}>{s.fridayResults.find(r => r.type === 'B')?.grade || '-'}</td>
+                                <td style={{ padding: 10 }}>
+                                    <button style={{ fontSize: '0.75rem', padding: '6px 12px', background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)' }}>Ver Detalle</button>
                                 </td>
                             </tr>
                         ))}
                     </tbody>
                 </table>
             </div>
+            
+            <button onClick={() => window.history.back()} className="link-btn" style={{ background: 'none', border: 'none', width: 'auto', margin: '30px auto 0' }}>
+               ← Volver
+            </button>
         </div>
     );
 };

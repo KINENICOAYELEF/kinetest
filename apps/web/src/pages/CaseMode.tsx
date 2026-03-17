@@ -197,40 +197,40 @@ export const CaseMode = () => {
 
     if (viewMode === 'selection') {
         return (
-            <div style={{ padding: 20, maxWidth: 800, margin: '0 auto' }}>
-                <h1>Casos Cl\u00ednicos</h1>
-                <div style={{ display: 'grid', gap: 20, marginTop: 20 }}>
+            <div className="container" style={{ maxWidth: 800 }}>
+                <h1>Casos Clínicos</h1>
+                <p style={{ color: 'var(--text-muted)', marginBottom: 30 }}>Entrénate con escenarios reales y toma decisiones clínicas.</p>
+                <div className="flex-col" style={{ gap: 20 }}>
                     {cases.map(c => (
-                        <div key={c.case_id} style={{ border: '1px solid #ddd', padding: 20, borderRadius: 12, background: 'white' }}>
-                            <h3>{c.title}</h3>
-                            <p>{c.description.slice(0, 150)}...</p>
-                            <button 
-                                onClick={() => startCase(c)}
-                                style={{ background: '#4caf50', color: 'white', border: 'none', padding: '10px 20px', borderRadius: 6, cursor: 'pointer' }}
-                            >
+                        <div key={c.case_id} style={{ background: 'rgba(255,255,255,0.03)', padding: 30, borderRadius: 16, border: '1px solid var(--glass-border)' }}>
+                            <h3 style={{ margin: 0, textAlign: 'left', background: 'none', WebkitTextFillColor: 'white' }}>{c.title}</h3>
+                            <p style={{ margin: '12px 0', fontSize: '0.95rem', color: 'var(--text-muted)' }}>{c.description.slice(0, 150)}...</p>
+                            <button onClick={() => startCase(c)} style={{ width: 'auto', padding: '10px 24px' }}>
                                 Iniciar Caso
                             </button>
                         </div>
                     ))}
-                    {cases.length === 0 && <p>No hay casos cl\u00ednicos disponibles para esta unidad.</p>}
+                    {cases.length === 0 && <p style={{ textAlign: 'center', padding: '40px 0' }}>No hay casos clínicos disponibles para esta unidad.</p>}
                 </div>
-                <button onClick={() => navigate('/units')} style={{ marginTop: 20 }}>Volver</button>
+                <button onClick={() => navigate('/units')} className="link-btn" style={{ background: 'none', border: 'none', width: 'auto', margin: '30px auto' }}>
+                    ← Volver al listado
+                </button>
             </div>
         );
     }
 
     if (viewMode === 'intro') {
         return (
-            <div style={{ padding: 40, maxWidth: 700, margin: '0 auto', textAlign: 'center' }}>
-                <h1 style={{ color: '#2e7d32' }}>{currentCase?.title}</h1>
-                <div style={{ fontSize: '1.2rem', margin: '30px 0', textAlign: 'left', lineHeight: '1.6' }}>
+            <div className="container" style={{ maxWidth: 700 }}>
+                <h1 style={{ background: 'none', WebkitTextFillColor: 'var(--primary)', marginBottom: 20 }}>{currentCase?.title}</h1>
+                <div style={{ fontSize: '1.2rem', margin: '30px 0', textAlign: 'left', lineHeight: '1.8', color: 'var(--text-main)', background: 'rgba(255,255,255,0.03)', padding: 30, borderRadius: 20, border: '1px solid var(--glass-border)' }}>
                     {currentCase?.description}
                 </div>
                 <button 
                     onClick={() => enterNode(currentCase!.nodes[0])}
-                    style={{ background: '#1976d2', color: 'white', border: 'none', padding: '15px 40px', borderRadius: 30, fontSize: '1.1rem', cursor: 'pointer' }}
+                    style={{ fontSize: '1.1rem', padding: '18px 48px', borderRadius: 40 }}
                 >
-                    Comenzar Simulaci\u00f3n
+                    Comenzar Simulación
                 </button>
             </div>
         );
@@ -238,27 +238,28 @@ export const CaseMode = () => {
 
     if (viewMode === 'node' || viewMode === 'reveal') {
         return (
-            <div style={{ padding: 20, maxWidth: 800, margin: '0 auto' }}>
-                <div style={{ background: 'white', padding: 30, borderRadius: 12, boxShadow: '0 4px 10px rgba(0,0,0,0.05)' }}>
-                    <p style={{ whiteSpace: 'pre-wrap', fontSize: '1.1rem', lineHeight: '1.5', color: '#333' }}>
+            <div className="container" style={{ maxWidth: 800 }}>
+                <div style={{ background: 'rgba(255,255,255,0.03)', padding: 40, borderRadius: 20, border: '1px solid var(--glass-border)' }}>
+                    <p style={{ whiteSpace: 'pre-wrap', fontSize: '1.15rem', lineHeight: '1.7', color: 'var(--text-main)', margin: 0 }}>
                         {currentNode?.narrative}
                     </p>
 
                     {currentQuestion && (
-                        <div style={{ marginTop: 30, borderTop: '2px solid #f5f5f5', paddingTop: 20 }}>
-                            <h3>{currentQuestion.content}</h3>
-                            <div style={{ display: 'grid', gap: 10, marginTop: 15 }}>
+                        <div style={{ marginTop: 40, borderTop: '1px solid var(--glass-border)', paddingTop: 30 }}>
+                            <h3 style={{ textAlign: 'left', background: 'none', WebkitTextFillColor: 'white', marginBottom: 20 }}>{currentQuestion.content}</h3>
+                            <div className="flex-col" style={{ gap: 12 }}>
                                 {currentQuestion.options.map((opt, i) => {
                                     const isSelected = selectedOption === i;
                                     const isCorrect = opt.isCorrect;
-                                    let borderColor = '#ddd';
-                                    let bg = 'white';
+                                    let borderColor = 'var(--glass-border)';
+                                    let bg = 'rgba(255,255,255,0.02)';
+                                    let color = 'var(--text-muted)';
                                     
                                     if (selectedOption !== null) {
-                                        if (isCorrect) { borderColor = '#4caf50'; bg = '#e8f5e9'; }
-                                        else if (isSelected) { borderColor = '#f44336'; bg = '#ffebee'; }
+                                        if (isCorrect) { borderColor = 'var(--accent)'; bg = 'rgba(16, 185, 129, 0.1)'; color = 'white'; }
+                                        else if (isSelected) { borderColor = '#f87171'; bg = 'rgba(248, 113, 113, 0.1)'; color = 'white'; }
                                     } else if (isSelected) {
-                                        borderColor = '#1976d2'; bg = '#e3f2fd';
+                                        borderColor = 'var(--primary)'; bg = 'rgba(99, 102, 241, 0.1)'; color = 'white';
                                     }
 
                                     return (
@@ -266,7 +267,7 @@ export const CaseMode = () => {
                                             key={i}
                                             onClick={() => handleAnswer(i)}
                                             disabled={selectedOption !== null}
-                                            style={{ padding: 15, textAlign: 'left', border: '2px solid', borderColor, borderRadius: 8, background: bg, cursor: selectedOption !== null ? 'default' : 'pointer' }}
+                                            style={{ padding: '16px', textAlign: 'left', border: '1px solid', borderColor, borderRadius: 12, background: bg, color, cursor: selectedOption !== null ? 'default' : 'pointer', fontSize: '0.95rem' }}
                                         >
                                             {opt.text}
                                         </button>
@@ -277,12 +278,12 @@ export const CaseMode = () => {
                     )}
 
                     {viewMode === 'reveal' && (
-                        <div style={{ marginTop: 30, background: '#fff9c4', padding: 20, borderRadius: 8 }}>
-                            <h4 style={{ margin: 0, color: '#f57f17' }}> HALLAZGOS / REVELACI\u00d3N </h4>
-                            <p style={{ margin: '10px 0' }}>{currentNode?.reveal}</p>
+                        <div style={{ marginTop: 40, background: 'rgba(251, 192, 45, 0.05)', padding: 24, borderRadius: 16, border: '1px solid rgba(251, 192, 45, 0.1)' }}>
+                            <h4 style={{ margin: 0, color: '#fbc02d', letterSpacing: '1px', fontSize: '0.9rem' }}>🔍 HALLAZGOS / REVELACIÓN</h4>
+                            <p style={{ margin: '16px 0', color: 'white', lineHeight: '1.6' }}>{currentNode?.reveal}</p>
                             <button 
                                 onClick={() => advanceNode(selectedOption!)}
-                                style={{ background: '#f57f17', color: 'white', border: 'none', padding: '10px 20px', borderRadius: 4, cursor: 'pointer', fontWeight: 'bold' }}
+                                style={{ background: '#fbc02d', color: 'black', width: 'auto', padding: '10px 24px' }}
                             >
                                 Continuar
                             </button>
@@ -290,12 +291,12 @@ export const CaseMode = () => {
                     )}
 
                     {selectedOption !== null && !currentNode?.reveal && (
-                         <div style={{ marginTop: 20 }}>
+                         <div style={{ marginTop: 30, display: 'flex', justifyContent: 'center' }}>
                             <button 
                                 onClick={() => advanceNode(selectedOption!)}
-                                style={{ background: '#4caf50', color: 'white', border: 'none', padding: '12px 24px', borderRadius: 4, cursor: 'pointer' }}
+                                style={{ width: 'auto', padding: '12px 32px' }}
                             >
-                                Siguiente Paso
+                                Siguiente Paso →
                             </button>
                          </div>
                     )}
@@ -307,33 +308,35 @@ export const CaseMode = () => {
     if (viewMode === 'soap') {
         const schema = currentCase?.soap_schema!;
         return (
-            <div style={{ padding: 20, maxWidth: 900, margin: '0 auto' }}>
-                <h1 style={{ textAlign: 'center' }}>Resumen SOAP Final</h1>
-                <p style={{ textAlign: 'center', color: '#666' }}>Selecciona los elementos que resumen correctamente este caso cl\u00ednico.</p>
+            <div className="container" style={{ maxWidth: 1000 }}>
+                <h1>Resumen SOAP Final</h1>
+                <p style={{ color: 'var(--text-muted)' }}>Selecciona los elementos que resumen correctamente este caso clínico.</p>
 
-                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(400px, 1fr))', gap: 20, marginTop: 30 }}>
+                <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(350px, 1fr))', gap: 20, marginTop: 40 }}>
                     {Object.entries(schema).map(([key, options]) => (
-                        <div key={key} style={{ background: 'white', padding: 20, borderRadius: 12, border: '1px solid #eee' }}>
-                            <h3 style={{ textTransform: 'capitalize', color: '#1976d2', borderBottom: '2px solid #e3f2fd', paddingBottom: 10 }}>
-                                {key === 'subjective' ? '\uf4dd S: Subjetivo' : 
-                                 key === 'objective' ? '\ud83d\udd0d O: Objetivo' : 
-                                 key === 'assessment' ? '\u2696\ufe0f A: Apreciaci\u00f3n' : 
-                                 '\ud83d\udccb P: Plan'}
+                        <div key={key} style={{ background: 'rgba(255,255,255,0.02)', padding: 25, borderRadius: 16, border: '1px solid var(--glass-border)' }}>
+                            <h3 style={{ textTransform: 'capitalize', textAlign: 'left', background: 'none', WebkitTextFillColor: 'var(--primary)', borderBottom: '1px solid var(--glass-border)', paddingBottom: 15, marginBottom: 20 }}>
+                                {key === 'subjective' ? '📎 S: Subjetivo' : 
+                                 key === 'objective' ? '🔍 O: Objetivo' : 
+                                 key === 'assessment' ? '⚖️ A: Apreciación' : 
+                                 '📋 P: Plan'}
                             </h3>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8, marginTop: 15 }}>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                                 {options.map(opt => (
                                     <button
                                         key={opt}
                                         onClick={() => toggleSoapSelection(key, opt)}
                                         style={{
-                                            padding: '8px 12px',
+                                            padding: '8px 16px',
                                             borderRadius: 20,
                                             border: '1px solid',
-                                            borderColor: soapAnswers[key].includes(opt) ? '#1976d2' : '#ccc',
-                                            background: soapAnswers[key].includes(opt) ? '#e3f2fd' : 'white',
-                                            color: soapAnswers[key].includes(opt) ? '#1976d2' : '#666',
+                                            borderColor: soapAnswers[key].includes(opt) ? 'var(--primary)' : 'var(--glass-border)',
+                                            background: soapAnswers[key].includes(opt) ? 'rgba(99, 102, 241, 0.1)' : 'rgba(255,255,255,0.02)',
+                                            color: soapAnswers[key].includes(opt) ? 'white' : 'var(--text-muted)',
                                             cursor: 'pointer',
-                                            fontSize: '0.9rem'
+                                            fontSize: '0.85rem',
+                                            width: 'auto',
+                                            transition: 'all 0.2s ease'
                                         }}
                                     >
                                         {opt}
@@ -344,10 +347,10 @@ export const CaseMode = () => {
                     ))}
                 </div>
 
-                <div style={{ textAlign: 'center', marginTop: 40 }}>
+                <div style={{ textAlign: 'center', marginTop: 50 }}>
                     <button 
                         onClick={finishCase}
-                        style={{ padding: '15px 40px', background: '#2e7d32', color: 'white', border: 'none', borderRadius: 8, cursor: 'pointer', fontSize: '1.2rem', fontWeight: 'bold' }}
+                        style={{ padding: '18px 60px', borderRadius: 12, background: 'var(--accent)' }}
                     >
                         Finalizar y Guardar Caso
                     </button>

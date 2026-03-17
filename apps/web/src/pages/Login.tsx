@@ -26,20 +26,20 @@ export const Login = () => {
     };
 
     return (
-        <div style={{ maxWidth: 400, margin: '100px auto', padding: 20 }}>
-            <h2>Iniciar Sesi\u00f3n</h2>
-            {error && <p style={{ color: 'red' }}>{error}</p>}
-            <form onSubmit={handleLogin} style={{ display: 'flex', flexDirection: 'column', gap: 10 }}>
+        <div className="container">
+            <h2>Iniciar Sesión</h2>
+            {error && <p className="error-msg">{error}</p>}
+            <form onSubmit={handleLogin} className="flex-col">
                 <input
                     type="email"
-                    placeholder="Correo electr\u00f3nico"
+                    placeholder="Correo electrónico"
                     value={email}
                     onChange={(e) => setEmail(e.target.value)}
                     required
                 />
                 <input
                     type="password"
-                    placeholder="Contrase\u00f1a"
+                    placeholder="Contraseña"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
                     required
@@ -47,7 +47,7 @@ export const Login = () => {
                 <button type="submit">Ingresar</button>
             </form>
             <div style={{ marginTop: 20 }}>
-                <Link to="/reset-password">¿Olvidaste tu contraseña?</Link>
+                <Link to="/reset-password" title="Recuperar acceso">¿Olvidaste tu contraseña?</Link>
             </div>
         </div>
     );

@@ -82,12 +82,12 @@ export const UnitSelection = () => {
     fetchData();
   }, [currentUser]);
 
-  if (loading) return <div style={{ padding: 20 }}>Cargando unidades...</div>;
+  if (loading) return <div className="container"><p>Cargando unidades...</p></div>;
 
   return (
-    <div style={{ padding: 20, maxWidth: 900, margin: '0 auto' }}>
-      <h1>M\u00f3dulos de Aprendizaje</h1>
-      <div style={{ display: 'grid', gap: 20, marginTop: 20 }}>
+    <div className="container" style={{ maxWidth: 800 }}>
+      <h1>Módulos de Aprendizaje</h1>
+      <div className="flex-col" style={{ gap: 20 }}>
         {units.map((unit) => {
           const mastery = masteryData[unit.unit_id] || { attemptsCount: 0 };
           const remainingAttempts = 2 - (mastery.attemptsCount || 0);
@@ -97,66 +97,79 @@ export const UnitSelection = () => {
             <div 
               key={unit.unit_id} 
               style={{ 
-                padding: 20, 
-                border: '1px solid #ddd', 
-                borderRadius: 8, 
-                background: 'white',
+                padding: '24px', 
+                background: 'rgba(255,255,255,0.03)', 
+                borderRadius: '16px',
+                border: '1px solid var(--glass-border)',
                 display: 'flex',
-                justifyContent: 'space-between',
-                alignItems: 'center'
+                flexDirection: 'column',
+                gap: 16
               }}
             >
-              <div style={{ flex: 1 }}>
-                <h3 style={{ margin: '0 0 10px 0' }}>{unit.title}</h3>
-                <p style={{ margin: '0 0 10px 0', color: '#666' }}>{unit.description}</p>
+              <div>
+                <h3 style={{ margin: 0, textAlign: 'left', background: 'none', WebkitTextFillColor: 'white' }}>{unit.title}</h3>
+                <p style={{ margin: '8px 0', fontSize: '14px' }}>{unit.description}</p>
                 {mastery.lastGrade && (
-                    <div style={{ display: 'inline-block', padding: '4px 8px', borderRadius: 4, background: hasPassed ? '#e8f5e9' : '#ffebee', color: hasPassed ? 'green' : 'red', fontWeight: 'bold' }}>
-                        Nota: {mastery.lastGrade} ({mastery.lastScore}%)
+                    <div style={{ 
+                        display: 'inline-block', 
+                        padding: '6px 12px', 
+                        borderRadius: 8, 
+                        background: hasPassed ? 'rgba(16, 185, 129, 0.1)' : 'rgba(239, 68, 68, 0.1)', 
+                        color: hasPassed ? '#34d399' : '#f87171', 
+                        fontWeight: 'bold',
+                        fontSize: '12px',
+                        border: `1px solid ${hasPassed ? 'rgba(16, 185, 129, 0.2)' : 'rgba(239, 68, 68, 0.2)'}`
+                    }}>
+                        Última Nota: {mastery.lastGrade} ({mastery.lastScore}%)
                     </div>
                 )}
               </div>
 
-              <div style={{ display: 'flex', flexDirection: 'column', gap: 10, minWidth: 200, alignItems: 'flex-end' }}>
+              <div style={{ 
+                  display: 'grid', 
+                  gridTemplateColumns: 'repeat(auto-fit, minmax(140px, 1fr))', 
+                  gap: 10 
+              }}>
                 <button 
                   onClick={() => navigate(`/tutor/${unit.unit_id}`)}
-                  style={{ width: '100%', padding: '10px', background: '#f3e5f5', color: '#7b1fa2', border: 'none', borderRadius: 4, cursor: 'pointer', fontWeight: 'bold' }}
+                  style={{ background: '#7c3aed', fontSize: '13px', padding: '10px' }}
                 >
-                  Modo Tutor \ud83d\udc68\u200d\ud83c\udfeb
+                  Modo Tutor 👨‍🏫
                 </button>
                 <button 
                   onClick={() => navigate(`/case/${unit.unit_id}`)}
-                  style={{ width: '100%', padding: '10px', background: '#e8f5e9', color: '#2e7d32', border: 'none', borderRadius: 4, cursor: 'pointer', fontWeight: 'bold' }}
+                  style={{ background: '#059669', fontSize: '13px', padding: '10px' }}
                 >
-                  Casos Cl\u00ednicos \ud83c\udfe5
+                  Casos Clínicos 🏥
                 </button>
                 <button 
                   onClick={() => navigate(`/practice/${unit.unit_id}`)}
-                  style={{ width: '100%', padding: '10px', background: '#e3f2fd', color: '#1976d2', border: 'none', borderRadius: 4, cursor: 'pointer', fontWeight: 'bold' }}
+                  style={{ background: '#2563eb', fontSize: '13px', padding: '10px' }}
                 >
                   Practicar
                 </button>
                 
-                <div style={{ width: '100%', textAlign: 'center' }}>
+                <div className="flex-col" style={{ gap: 4 }}>
                     <button 
                         disabled={remainingAttempts <= 0}
                         onClick={() => navigate(`/exam/${unit.unit_id}`)}
                         style={{ 
-                            width: '100%', 
-                            padding: '10px', 
-                            background: remainingAttempts > 0 ? '#4CAF50' : '#ccc', 
-                            color: 'white', 
-                            border: 'none', 
-                            borderRadius: 4, 
+                            background: remainingAttempts > 0 ? 'var(--secondary)' : '#334155', 
                             cursor: remainingAttempts > 0 ? 'pointer' : 'not-allowed',
-                            fontWeight: 'bold'
+                            fontSize: '13px',
+                            padding: '10px'
                         }}
                     >
                         Rendir Examen
                     </button>
-                    <small style={{ color: remainingAttempts === 0 ? 'red' : '#888' }}>
+                    <small style={{ 
+                        textAlign: 'center', 
+                        fontSize: '11px',
+                        color: remainingAttempts === 0 ? '#f87171' : 'var(--text-muted)' 
+                    }}>
                         {remainingAttempts > 0 
-                            ? `Intentos restantes: ${remainingAttempts}` 
-                            : 'Has agotado tus intentos'}
+                            ? `Intentos: ${remainingAttempts}` 
+                            : 'Sin intentos'}
                     </small>
                 </div>
               </div>
@@ -166,9 +179,10 @@ export const UnitSelection = () => {
       </div>
       <button 
         onClick={() => navigate('/home')} 
-        style={{ marginTop: 30, padding: '10px 20px', background: 'none', border: '1px solid #ccc', cursor: 'pointer' }}
+        className="link-btn"
+        style={{ background: 'none', border: 'none', width: 'auto', margin: '30px auto 0' }}
       >
-        Volver al Inicio
+        ← Volver al Inicio
       </button>
     </div>
   );

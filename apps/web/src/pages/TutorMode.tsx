@@ -194,74 +194,90 @@ export const TutorMode = () => {
         }
     };
 
-    if (loading) return <div style={{ padding: 20 }}>Cargando Tutor...</div>;
-    if (tutorCards.length === 0) return <div style={{ padding: 20 }}>No hay contenido disponible para esta unidad. <button onClick={() => navigate('/units')}>Volver</button></div>;
+    if (loading) return <div className="container"><p>Cargando Tutor...</p></div>;
+    if (tutorCards.length === 0) return (
+        <div className="container">
+            <p>No hay contenido disponible para esta unidad.</p>
+            <button onClick={() => navigate('/units')}>Volver al listado</button>
+        </div>
+    );
 
     const currentCard = tutorCards[currentCardIndex];
     const currentQuestion = viewMode === 'remediation' ? remediationQuestion! : quizQuestions[currentQuizIndex];
 
     return (
-        <div style={{ padding: 20, maxWidth: 800, margin: '0 auto' }}>
+        <div className="container" style={{ maxWidth: 800 }}>
             {viewMode === 'card' ? (
-                <div style={{ background: 'white', padding: 30, borderRadius: 12, boxShadow: '0 4px 6px rgba(0,0,0,0.1)' }}>
-                    <small style={{ color: '#1976d2', fontWeight: 'bold' }}>TEMA {currentCardIndex + 1}</small>
-                    <h1 style={{ marginTop: 10 }}>{currentCard.title}</h1>
-                    <div style={{ fontSize: '1.2rem', lineHeight: '1.6', color: '#333', margin: '20px 0' }}>
+                <div style={{ background: 'rgba(255,255,255,0.03)', padding: 40, borderRadius: 20, border: '1px solid var(--glass-border)', position: 'relative', overflow: 'hidden' }}>
+                    <div style={{ position: 'absolute', top: 0, left: 0, width: 4, height: '100%', background: 'var(--primary)' }} />
+                    <small style={{ color: 'var(--primary)', fontWeight: 'bold', letterSpacing: '1px' }}>TEMA {currentCardIndex + 1}</small>
+                    <h1 style={{ marginTop: 10, textAlign: 'left', background: 'none', WebkitTextFillColor: 'white' }}>{currentCard.title}</h1>
+                    <div style={{ fontSize: '1.2rem', lineHeight: '1.6', color: 'var(--text-muted)', margin: '30px 0' }}>
                         {currentCard.content}
                     </div>
-                    <button 
-                        onClick={startQuizForCard}
-                        style={{ background: '#1976d2', color: 'white', border: 'none', padding: '15px 30px', borderRadius: 8, cursor: 'pointer', fontSize: '1rem', fontWeight: 'bold' }}
-                    >
+                    <button onClick={startQuizForCard}>
                         Entendido, hagamos el Microquiz
                     </button>
                 </div>
             ) : (
-                <div>
-                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 20 }}>
+                <div className="flex-col" style={{ gap: 20 }}>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
                         <span>Microquiz: Pregunta {currentQuizIndex + 1} de {quizQuestions.length}</span>
-                        {viewMode === 'remediation' && <span style={{ background: '#fff9c4', padding: '4px 8px', borderRadius: 4, fontWeight: 'bold', border: '1px solid #fbc02d' }}>\u26a0\ufe0f Remediaci\u00f3n</span>}
+                        {viewMode === 'remediation' && (
+                            <span style={{ 
+                                background: 'rgba(251, 192, 45, 0.1)', 
+                                color: '#fbc02d', 
+                                padding: '4px 10px', 
+                                borderRadius: 10, 
+                                fontWeight: 'bold', 
+                                border: '1px solid rgba(251, 192, 45, 0.2)',
+                                fontSize: '0.75rem'
+                            }}>
+                                ⚠️ Remediación
+                            </span>
+                        )}
                     </div>
 
-                    <div style={{ background: 'white', padding: 30, borderRadius: 12, border: '1px solid #eee' }}>
+                    <div style={{ background: 'rgba(255,255,255,0.03)', padding: 30, borderRadius: 16, border: '1px solid var(--glass-border)' }}>
                         {viewMode === 'remediation' && (
-                            <div style={{ background: '#e3f2fd', padding: 15, borderRadius: 8, marginBottom: 20 }}>
-                                <strong>💡 Refuerzo:</strong> {tutorCards[currentCardIndex].content.slice(0, 100)}...
+                            <div style={{ background: 'rgba(99, 102, 241, 0.05)', padding: 15, borderRadius: 10, marginBottom: 24, border: '1px solid rgba(99, 102, 241, 0.1)', fontSize: '0.9rem' }}>
+                                <strong>💡 Refuerzo:</strong> {tutorCards[currentCardIndex].title}
                             </div>
                         )}
-                        <h2>{currentQuestion.content}</h2>
+                        <h3 style={{ textAlign: 'left', background: 'none', WebkitTextFillColor: 'white', lineHeight: '1.4', margin: 0 }}>{currentQuestion.content}</h3>
 
                         {/* HINTS SECTION */}
                         {!showFeedback && currentQuestion.hints && hintsUsed < currentQuestion.hints.length && (
-                            <div style={{ margin: '20px 0' }}>
+                            <div style={{ margin: '24px 0' }}>
                                 <button 
                                     onClick={() => setHintsUsed(prev => prev + 1)}
-                                    style={{ background: '#f5f5f5', border: '1px solid #ccc', padding: '8px 16px', borderRadius: 4, cursor: 'pointer' }}
+                                    style={{ background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', fontSize: '0.85rem', width: 'auto', padding: '10px 20px' }}
                                 >
-                                    \ud83d\udca1 Ver Pista ({hintsUsed + 1}/{currentQuestion.hints.length})
+                                    💡 Ver Pista ({hintsUsed + 1}/{currentQuestion.hints.length})
                                 </button>
                                 {hintsUsed > 0 && (
-                                    <div style={{ marginTop: 10, padding: 10, background: '#fff9c4', borderRadius: 4 }}>
+                                    <div style={{ marginTop: 12, padding: 16, background: 'rgba(251, 192, 45, 0.05)', borderRadius: 10, border: '1px solid rgba(251, 192, 45, 0.1)', color: '#fbc02d', fontSize: '0.9rem' }}>
                                         {currentQuestion.hints.slice(0, hintsUsed).map((h, i) => (
-                                            <p key={i} style={{ margin: '5px 0' }}>\u2022 {h}</p>
+                                            <p key={i} style={{ margin: '4px 0', color: 'inherit' }}>• {h}</p>
                                         ))}
                                     </div>
                                 )}
                             </div>
                         )}
 
-                        <div style={{ display: 'grid', gap: 12, marginTop: 20 }}>
+                        <div className="flex-col" style={{ gap: 12, marginTop: 24 }}>
                             {currentQuestion.options.map((opt, i) => {
                                 const isCorrect = opt.isCorrect;
                                 const isSelected = selectedOption === i;
-                                let borderColor = '#ddd';
-                                let bg = 'white';
+                                let borderColor = 'var(--glass-border)';
+                                let bg = 'rgba(255,255,255,0.02)';
+                                let color = 'var(--text-muted)';
 
                                 if (showFeedback) {
-                                    if (isCorrect) { borderColor = '#4caf50'; bg = '#e8f5e9'; }
-                                    else if (isSelected) { borderColor = '#f44336'; bg = '#ffebee'; }
+                                    if (isCorrect) { borderColor = 'var(--accent)'; bg = 'rgba(16, 185, 129, 0.1)'; color = 'white'; }
+                                    else if (isSelected) { borderColor = '#f44336'; bg = 'rgba(244, 67, 54, 0.1)'; color = 'white'; }
                                 } else if (isSelected) {
-                                    borderColor = '#1976d2'; bg = '#e3f2fd';
+                                    borderColor = 'var(--primary)'; bg = 'rgba(99, 102, 241, 0.1)'; color = 'white';
                                 }
 
                                 return (
@@ -269,7 +285,7 @@ export const TutorMode = () => {
                                         key={i}
                                         onClick={() => handleAnswer(i)}
                                         disabled={showFeedback}
-                                        style={{ padding: 15, textAlign: 'left', border: '2px solid', borderColor, borderRadius: 8, background: bg, cursor: showFeedback ? 'default' : 'pointer' }}
+                                        style={{ padding: 16, textAlign: 'left', border: '1px solid', borderColor, borderRadius: 12, background: bg, color, cursor: showFeedback ? 'default' : 'pointer', fontSize: '0.95rem' }}
                                     >
                                         {opt.text}
                                     </button>
@@ -278,13 +294,10 @@ export const TutorMode = () => {
                         </div>
 
                         {showFeedback && (
-                            <div style={{ marginTop: 20, padding: 20, background: '#f5f5f5', borderRadius: 8 }}>
-                                <h3 style={{ margin: 0 }}>Explicaci\u00f3n:</h3>
-                                <p style={{ margin: '10px 0' }}>{currentQuestion.rationale}</p>
-                                <button 
-                                    onClick={nextStep}
-                                    style={{ background: '#4caf50', color: 'white', border: 'none', padding: '12px 24px', borderRadius: 4, cursor: 'pointer', fontWeight: 'bold' }}
-                                >
+                            <div style={{ marginTop: 32, padding: 24, background: 'rgba(255,255,255,0.02)', borderRadius: 12, border: '1px solid var(--glass-border)' }}>
+                                <h3 style={{ margin: 0, textAlign: 'left', WebkitTextFillColor: 'var(--primary)', fontSize: '1rem', background: 'none' }}>Explicación:</h3>
+                                <p style={{ margin: '12px 0', fontSize: '0.95rem', color: 'var(--text-main)' }}>{currentQuestion.rationale}</p>
+                                <button onClick={nextStep} style={{ background: 'var(--accent)', marginTop: 10 }}>
                                     Continuar
                                 </button>
                             </div>

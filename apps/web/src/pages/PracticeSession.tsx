@@ -137,62 +137,76 @@ export const PracticeSession = () => {
     navigate('/home');
   };
 
-  if (loading) return <div style={{ padding: 20 }}>Iniciando sesi\u00f3n...</div>;
-  if (questions.length === 0) return <div style={{ padding: 20 }}>No hay preguntas disponibles en esta unidad. <button onClick={() => navigate('/home')}>Volver</button></div>;
+  if (loading) return <div className="container"><p>Iniciando sesión de práctica...</p></div>;
+  if (questions.length === 0) return (
+    <div className="container">
+      <p>No hay preguntas disponibles para esta unidad.</p>
+      <button onClick={() => navigate('/home')}>Volver al inicio</button>
+    </div>
+  );
 
   const currentQuestion = questions[currentIndex];
 
   return (
-    <div style={{ padding: 20, maxWidth: 600, margin: '0 auto' }}>
-      <div style={{ marginBottom: 20, display: 'flex', justifyContent: 'space-between' }}>
-        <span>Pregunta {currentIndex + 1} de {questions.length}</span>
-        <button onClick={finishSession} style={{ background: '#f44336', color: 'white', border: 'none', padding: '5px 10px', cursor: 'pointer' }}>Salir</button>
+    <div className="container" style={{ maxWidth: 800 }}>
+      <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 24, fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+        <span>Práctica • Pregunta {currentIndex + 1} de {questions.length}</span>
+        <button onClick={finishSession} className="link-btn" style={{ background: 'none', border: 'none', width: 'auto', padding: 0, color: '#f87171' }}>
+          Salir
+        </button>
       </div>
 
-      <div style={{ marginBottom: 30 }}>
-        <h2>{currentQuestion.content}</h2>
-      </div>
+      <div style={{ background: 'rgba(255,255,255,0.03)', padding: 30, borderRadius: 16, border: '1px solid var(--glass-border)' }}>
+        <h3 style={{ textAlign: 'left', background: 'none', WebkitTextFillColor: 'white', lineHeight: '1.4', margin: 0 }}>{currentQuestion.content}</h3>
+        
+        <div className="flex-col" style={{ gap: 12, marginTop: 24 }}>
+          {currentQuestion.options.map((opt, i) => {
+            let borderColor = 'var(--glass-border)';
+            let bg = 'rgba(255,255,255,0.02)';
+            let color = 'var(--text-muted)';
 
-      <div style={{ display: 'grid', gap: 10 }}>
-        {currentQuestion.options.map((opt, i) => {
-          let bgColor = 'white';
-          if (showFeedback) {
-            if (opt.isCorrect) bgColor = '#e8f5e9';
-            else if (selectedOption === i) bgColor = '#ffebee';
-          }
+            if (showFeedback) {
+              if (opt.isCorrect) { borderColor = 'var(--accent)'; bg = 'rgba(16, 185, 129, 0.1)'; color = 'white'; }
+              else if (selectedOption === i) { borderColor = '#f87171'; bg = 'rgba(248, 113, 113, 0.1)'; color = 'white'; }
+            } else if (selectedOption === i) {
+              borderColor = 'var(--primary)'; bg = 'rgba(99, 102, 241, 0.1)'; color = 'white';
+            }
 
-          return (
-            <button
-              key={i}
-              onClick={() => handleAnswer(i)}
-              disabled={showFeedback}
-              style={{
-                padding: 15,
-                textAlign: 'left',
-                border: '1px solid #ddd',
-                borderRadius: 8,
-                background: bgColor,
-                cursor: showFeedback ? 'default' : 'pointer',
-                fontSize: '1rem'
-              }}
-            >
-              {opt.text}
-            </button>
-          );
-        })}
-      </div>
-
-      {showFeedback && (
-        <div style={{ marginTop: 20, padding: 15, background: '#f0f4f8', borderRadius: 8 }}>
-          <h4 style={{ color: currentQuestion.options[selectedOption!].isCorrect ? 'green' : 'red', marginTop: 0 }}>
-            {currentQuestion.options[selectedOption!].isCorrect ? '¡Correcto!' : 'Incorrecto'}
-          </h4>
-          <p><strong>Explicaci\u00f3n:</strong> {currentQuestion.rationale}</p>
-          <button onClick={nextQuestion} style={{ marginTop: 10, padding: '10px 20px', background: '#2196f3', color: 'white', border: 'none', borderRadius: 4, cursor: 'pointer' }}>
-            {currentIndex < questions.length - 1 ? 'Siguiente' : 'Finalizar'}
-          </button>
+            return (
+              <button
+                key={i}
+                onClick={() => handleAnswer(i)}
+                disabled={showFeedback}
+                style={{
+                  padding: 16,
+                  textAlign: 'left',
+                  border: '1px solid',
+                  borderColor,
+                  borderRadius: 12,
+                  background: bg,
+                  color,
+                  cursor: showFeedback ? 'default' : 'pointer',
+                  fontSize: '0.95rem'
+                }}
+              >
+                {opt.text}
+              </button>
+            );
+          })}
         </div>
-      )}
+
+        {showFeedback && (
+          <div style={{ marginTop: 32, padding: 24, background: 'rgba(255,255,255,0.02)', borderRadius: 12, border: '1px solid var(--glass-border)' }}>
+            <h4 style={{ color: currentQuestion.options[selectedOption!].isCorrect ? 'var(--accent)' : '#f87171', marginTop: 0, fontSize: '1.1rem' }}>
+              {currentQuestion.options[selectedOption!].isCorrect ? '¡Excelente! Correcto' : 'Ups, respuesta incorrecta'}
+            </h4>
+            <p style={{ margin: '12px 0', fontSize: '0.95rem', color: 'var(--text-main)' }}><strong>Explicación:</strong> {currentQuestion.rationale}</p>
+            <button onClick={nextQuestion} style={{ marginTop: 10 }}>
+              {currentIndex < questions.length - 1 ? 'Siguiente Pregunta' : 'Finalizar Sesión'}
+            </button>
+          </div>
+        )}
+      </div>
     </div>
   );
 };

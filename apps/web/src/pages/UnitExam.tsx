@@ -179,77 +179,86 @@ export const UnitExam = () => {
     return `${mins}:${secs < 10 ? '0' : ''}${secs}`;
   };
 
-  if (loading && !examFinished) return <div style={{ padding: 20 }}>Cargando examen...</div>;
-  if (questions.length === 0) return <div style={{ padding: 20 }}>No hay preguntas para esta unidad. <button onClick={() => navigate('/home')}>Volver</button></div>;
+  if (loading && !examFinished) return <div className="container"><p>Cargando examen oficial...</p></div>;
+  if (questions.length === 0) return (
+    <div className="container">
+      <p>No hay preguntas disponibles para esta unidad.</p>
+      <button onClick={() => navigate('/home')}>Volver al inicio</button>
+    </div>
+  );
 
   if (examFinished && results) {
     return (
-      <div style={{ padding: 40, textAlign: 'center', maxWidth: 600, margin: '0 auto' }}>
+      <div className="container" style={{ maxWidth: 600 }}>
         <h1>Examen Finalizado</h1>
-        <div style={{ fontSize: '1.5rem', margin: '20px 0' }}>
-            <p>Puntaje: {results.score} / {results.total}</p>
-            <p>Porcentaje: {results.percent}%</p>
-            <h2 style={{ color: results.grade >= 4.0 ? 'green' : 'red', fontSize: '3rem' }}>
-                Nota: {results.grade}
-            </h2>
+        <div className="flex-col" style={{ gap: 10, margin: '40px 0' }}>
+            <p style={{ color: 'var(--text-muted)' }}>Puntaje: {results.score} de {results.total}</p>
+            <p style={{ color: 'var(--text-muted)' }}>Porcentaje: {results.percent}%</p>
+            <div style={{ fontSize: '4.5rem', fontWeight: 'bold', color: results.grade >= 4.0 ? 'var(--accent)' : '#f87171' }}>
+                {results.grade}
+            </div>
+            <p style={{ fontWeight: 600, color: results.grade >= 4.0 ? 'var(--accent)' : '#f87171' }}>
+                {results.grade >= 4.0 ? '¡UNIDAD APROBADA!' : 'UNIDAD REPROBADA'}
+            </p>
         </div>
-        <button 
-            onClick={() => navigate('/units')}
-            style={{ padding: '15px 30px', background: '#2196f3', color: 'white', border: 'none', borderRadius: 8, cursor: 'pointer' }}
-        >
-            Volver a Unidades
-        </button>
+        <button onClick={() => navigate('/units')}>Volver al Listado de Unidades</button>
       </div>
     );
   }
 
   const currentQuestion = questions[currentIndex];
-  const isWarningTime = timeLeft <= 5 * 60; // 5 minutes left (40m mark)
+  const isWarningTime = timeLeft <= 300; // 5 minutes left
 
   return (
-    <div style={{ padding: 20, maxWidth: 800, margin: '0 auto' }}>
+    <div className="container" style={{ maxWidth: 800 }}>
       <div style={{ 
           position: 'sticky', 
           top: 0, 
-          background: 'white', 
-          padding: '10px 0', 
-          borderBottom: '1px solid #eee', 
+          background: 'rgba(10, 10, 15, 0.8)', 
+          backdropFilter: 'blur(10px)',
+          padding: '16px 0', 
+          borderBottom: '1px solid var(--glass-border)', 
           display: 'flex', 
           justifyContent: 'space-between',
           alignItems: 'center',
-          zIndex: 10
+          zIndex: 100,
+          marginBottom: 30
       }}>
-        <span>Pregunta {currentIndex + 1} de {questions.length}</span>
+        <span style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Pregunta {currentIndex + 1} de {questions.length}</span>
         <div style={{ 
-            color: isWarningTime ? 'red' : 'black', 
+            color: isWarningTime ? '#f87171' : 'white', 
             fontWeight: 'bold',
-            fontSize: '1.2rem',
-            padding: '5px 10px',
-            borderRadius: 4,
-            background: isWarningTime ? '#ffebee' : 'transparent'
+            fontSize: '1.3rem',
+            padding: '4px 12px',
+            borderRadius: 8,
+            background: isWarningTime ? 'rgba(248, 113, 113, 0.1)' : 'rgba(255,255,255,0.05)',
+            border: `1px solid ${isWarningTime ? 'rgba(248, 113, 113, 0.2)' : 'var(--glass-border)'}`
         }}>
-            Tiempo restante: {formatTime(timeLeft)}
+            {formatTime(timeLeft)}
         </div>
-        <button onClick={finishExam} style={{ background: '#ff9800', color: 'white', border: 'none', padding: '8px 16px', cursor: 'pointer', borderRadius: 4 }}>Entregar Examen</button>
+        <button onClick={finishExam} className="link-btn" style={{ background: 'none', border: 'none', width: 'auto', padding: 0 }}>
+          Entregar
+        </button>
       </div>
 
-      <div style={{ marginTop: 30, minHeight: '300px' }}>
-        <h2>{currentQuestion.content}</h2>
+      <div style={{ background: 'rgba(255,255,255,0.03)', padding: 30, borderRadius: 16, border: '1px solid var(--glass-border)', minHeight: '300px' }}>
+        <h3 style={{ textAlign: 'left', background: 'none', WebkitTextFillColor: 'white', lineHeight: '1.4', margin: 0 }}>{currentQuestion.content}</h3>
         
-        <div style={{ display: 'grid', gap: 12, marginTop: 20 }}>
+        <div className="flex-col" style={{ gap: 12, marginTop: 24 }}>
           {currentQuestion.options.map((opt, i) => (
             <button
               key={i}
               onClick={() => handleSelectOption(i)}
               style={{
-                padding: 15,
+                padding: 16,
                 textAlign: 'left',
-                border: '2px solid',
-                borderColor: answers[currentIndex] === i ? '#2196f3' : '#ddd',
-                borderRadius: 8,
-                background: answers[currentIndex] === i ? '#e3f2fd' : 'white',
+                border: '1px solid',
+                borderColor: answers[currentIndex] === i ? 'var(--primary)' : 'var(--glass-border)',
+                background: answers[currentIndex] === i ? 'rgba(99, 102, 241, 0.1)' : 'rgba(255,255,255,0.02)',
+                color: answers[currentIndex] === i ? 'white' : 'var(--text-muted)',
+                borderRadius: 12,
                 cursor: 'pointer',
-                fontSize: '1rem'
+                fontSize: '0.95rem'
               }}
             >
               {opt.text}
@@ -258,31 +267,23 @@ export const UnitExam = () => {
         </div>
       </div>
 
-      <div style={{ marginTop: 40, display: 'flex', justifyContent: 'space-between' }}>
+      <div style={{ marginTop: 32, display: 'flex', justifyContent: 'space-between', gap: 16 }}>
         <button 
             disabled={currentIndex === 0}
             onClick={() => setCurrentIndex(currentIndex - 1)}
-            style={{ padding: '10px 20px', cursor: 'pointer' }}
+            style={{ background: 'rgba(255,255,255,0.05)', color: 'white', border: '1px solid var(--glass-border)' }}
         >
             Anterior
         </button>
-        <div>
-            {currentIndex < questions.length - 1 ? (
-                <button 
-                    onClick={() => setCurrentIndex(currentIndex + 1)}
-                    style={{ padding: '10px 20px', background: '#2196f3', color: 'white', border: 'none', borderRadius: 4, cursor: 'pointer' }}
-                >
-                    Siguiente
-                </button>
-            ) : (
-                <button 
-                    onClick={finishExam}
-                    style={{ padding: '10px 20px', background: '#4CAF50', color: 'white', border: 'none', borderRadius: 4, cursor: 'pointer' }}
-                >
-                    Finalizar y Entregar
-                </button>
-            )}
-        </div>
+        {currentIndex < questions.length - 1 ? (
+            <button onClick={() => setCurrentIndex(currentIndex + 1)}>
+                Siguiente
+            </button>
+        ) : (
+            <button onClick={finishExam} style={{ background: 'var(--accent)' }}>
+                Finalizar y Entregar
+            </button>
+        )}
       </div>
     </div>
   );

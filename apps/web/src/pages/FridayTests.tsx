@@ -101,23 +101,22 @@ export const FridayTests = () => {
         }
     };
 
-    if (loading) return <div style={{ padding: 20 }}>Preparando examen...</div>;
+    if (loading) return <div className="container"><p>Preparando tu examen de viernes...</p></div>;
 
     if (!testType) {
         return (
-            <div style={{ padding: 40, textAlign: 'center' }}>
-                <h1>\ud83d\uddd3\ufe0f Viernes de Evaluaci\u00f3n</h1>
-                <p>Hoy toca demostrar lo aprendido durante el ciclo. Debes completar ambos tests.</p>
-                <div style={{ display: 'flex', gap: 20, justifyContent: 'center', marginTop: 30 }}>
+            <div className="container">
+                <h1>📅 Viernes de Evaluación</h1>
+                <p>Hoy toca demostrar lo aprendido durante el ciclo. Debes completar ambos tests para obtener tu certificación semanal.</p>
+                <div className="flex-col" style={{ gap: 16 }}>
                     <button 
                         onClick={() => startTest('A')}
-                        style={{ padding: '20px 40px', background: '#1976d2', color: 'white', borderRadius: 12, border: 'none', cursor: 'pointer', fontSize: '1.2rem' }}
                     >
                         Iniciar Test A
                     </button>
                     <button 
                         onClick={() => startTest('B')}
-                        style={{ padding: '20px 40px', background: '#7b1fa2', color: 'white', borderRadius: 12, border: 'none', cursor: 'pointer', fontSize: '1.2rem' }}
+                        style={{ background: 'var(--secondary)' }}
                     >
                         Iniciar Test B
                     </button>
@@ -128,12 +127,12 @@ export const FridayTests = () => {
 
     if (finished && results) {
         return (
-            <div style={{ padding: 40, textAlign: 'center' }}>
+            <div className="container">
                 <h1>Test {testType} Completado</h1>
-                <div style={{ fontSize: '2rem', margin: '20px 0' }}>
-                    Nota: <span style={{ color: results.grade >= 4.0 ? 'green' : 'red' }}>{results.grade}</span>
+                <div style={{ fontSize: '3rem', margin: '30px 0', fontWeight: 'bold' }}>
+                    Nota: <span style={{ color: results.grade >= 4.0 ? 'var(--accent)' : '#f87171' }}>{results.grade}</span>
                 </div>
-                <button onClick={() => navigate('/home')} style={{ padding: '10px 20px' }}>Volver al Inicio</button>
+                <button onClick={() => navigate('/home')}>Volver al Panel de Inicio</button>
             </div>
         );
     }
@@ -141,27 +140,31 @@ export const FridayTests = () => {
     const q = questions[currentIndex];
 
     return (
-        <div style={{ padding: 20, maxWidth: 800, margin: '0 auto' }}>
-            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 20 }}>
-                <span>Test {testType} - Pregunta {currentIndex + 1}/40</span>
-                <span style={{ fontWeight: 'bold' }}>Tiempo: {Math.floor(timeLeft / 60)}:{String(timeLeft % 60).padStart(2, '0')}</span>
+        <div className="container" style={{ maxWidth: 800 }}>
+            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 24, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                <span>Test {testType} • Pregunta {currentIndex + 1} de 40</span>
+                <span style={{ fontWeight: 'bold', color: timeLeft < 300 ? '#f87171' : 'white' }}>
+                    ⌛ {Math.floor(timeLeft / 60)}:{String(timeLeft % 60).padStart(2, '0')}
+                </span>
             </div>
 
-            <div style={{ background: 'white', padding: 30, borderRadius: 12, boxShadow: '0 4px 12px rgba(0,0,0,0.1)' }}>
-                <h2>{q?.content}</h2>
-                <div style={{ display: 'grid', gap: 12, marginTop: 20 }}>
+            <div style={{ background: 'rgba(255,255,255,0.03)', padding: '30px', borderRadius: '16px', border: '1px solid var(--glass-border)' }}>
+                <h3 style={{ textAlign: 'left', background: 'none', WebkitTextFillColor: 'white', lineHeight: '1.4', margin: 0 }}>{q?.content}</h3>
+                
+                <div className="flex-col" style={{ gap: 12, marginTop: 24 }}>
                     {q?.options.map((opt, i) => (
                         <button
                             key={i}
                             onClick={() => setAnswers({ ...answers, [currentIndex]: i })}
                             style={{ 
-                                padding: 15, 
+                                padding: '16px', 
                                 textAlign: 'left', 
-                                border: '2px solid', 
-                                borderColor: answers[currentIndex] === i ? '#1976d2' : '#eee',
-                                background: answers[currentIndex] === i ? '#f1f8ff' : 'white',
-                                borderRadius: 8,
-                                cursor: 'pointer'
+                                border: '1px solid', 
+                                borderColor: answers[currentIndex] === i ? 'var(--primary)' : 'var(--glass-border)',
+                                background: answers[currentIndex] === i ? 'rgba(99, 102, 241, 0.1)' : 'rgba(255,255,255,0.02)',
+                                color: answers[currentIndex] === i ? 'white' : 'var(--text-muted)',
+                                borderRadius: '12px',
+                                fontSize: '0.95rem'
                             }}
                         >
                             {opt.text}
@@ -169,12 +172,18 @@ export const FridayTests = () => {
                     ))}
                 </div>
                 
-                <div style={{ marginTop: 30, display: 'flex', justifyContent: 'space-between' }}>
-                    <button disabled={currentIndex === 0} onClick={() => setCurrentIndex(prev => prev - 1)}>Anterior</button>
+                <div style={{ marginTop: 32, display: 'flex', justifyContent: 'space-between', gap: 16 }}>
+                    <button 
+                        disabled={currentIndex === 0} 
+                        onClick={() => setCurrentIndex(prev => prev - 1)}
+                        style={{ background: 'rgba(255,255,255,0.05)', color: 'white', border: '1px solid var(--glass-border)' }}
+                    >
+                        Anterior
+                    </button>
                     {currentIndex < 39 ? (
-                        <button onClick={() => setCurrentIndex(prev => prev + 1)} style={{ background: '#1976d2', color: 'white', border: 'none', padding: '10px 20px', borderRadius: 4 }}>Siguiente</button>
+                        <button onClick={() => setCurrentIndex(prev => prev + 1)}>Siguiente</button>
                     ) : (
-                        <button onClick={() => handleSubmit()} style={{ background: '#4caf50', color: 'white', border: 'none', padding: '10px 20px', borderRadius: 4 }}>Finalizar Test</button>
+                        <button onClick={() => handleSubmit()} style={{ background: 'var(--accent)' }}>Finalizar Test</button>
                     )}
                 </div>
             </div>

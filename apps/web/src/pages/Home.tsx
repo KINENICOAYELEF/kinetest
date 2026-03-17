@@ -11,30 +11,27 @@ export const Home = () => {
     };
 
     return (
-        <div style={{ padding: 20 }}>
+        <div className="container">
             <h1>Panel de Estudiante</h1>
-            <p>Bienvenido, {userProfile?.email}</p>
+            <p>Bienvenido, <strong>{userProfile?.email}</strong></p>
             
-            <div style={{ marginTop: 30 }}>
-                <h2>Pr\u00e1ctica</h2>
-                <button 
-                  onClick={() => navigate('/units')} 
-                  style={{ 
-                    padding: '15px 30px', 
-                    fontSize: '1.2rem', 
-                    cursor: 'pointer', 
-                    background: '#4CAF50', 
-                    color: 'white', 
-                    border: 'none', 
-                    borderRadius: 8 
-                  }}
-                >
-                  Ir a Practicar por Unidades
+            <div style={{ marginTop: 30 }} className="flex-col">
+                <h3>Práctica Inteligente</h3>
+                <button onClick={() => navigate('/dashboard')}>
+                    Mi Progreso y Cumplimiento
+                </button>
+                <button onClick={() => navigate('/friday')} style={{ background: 'var(--secondary)' }}>
+                    Examen de Viernes
+                </button>
+                <button onClick={() => navigate('/units')} style={{ background: 'var(--accent)' }}>
+                    Ir a Practicar por Unidades
                 </button>
             </div>
 
-            <div style={{ marginTop: 50 }}>
-                <button onClick={handleLogout} style={{ padding: '8px 16px', background: '#ccc', border: 'none', cursor: 'pointer' }}>Cerrar sesi\u00f3n</button>
+            <div style={{ marginTop: 40 }}>
+                <button onClick={handleLogout} style={{ background: 'rgba(255,255,255,0.1)', color: 'var(--text-muted)' }}>
+                    Cerrar sesión
+                </button>
             </div>
         </div>
     );
