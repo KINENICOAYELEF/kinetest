@@ -3,10 +3,9 @@ from firebase_admin import credentials, firestore
 import json
 import os
 
-def initialize_firebase():
+def initialize_firebase(cert_path):
     if not firebase_admin._apps:
-        # Assumes serviceAccountKey.json is in the same directory
-        cred = credentials.Certificate('serviceAccountKey.json')
+        cred = credentials.Certificate(cert_path)
         firebase_admin.initialize_app(cred)
     return firestore.client()
 
@@ -27,8 +26,8 @@ def upload_collection(db, collection_name, items, id_field):
     print(f"  Successfully uploaded {count} documents to {collection_name}")
 
 if __name__ == "__main__":
-    input_file = "sample_output/normalized_bank.json"
-    cert_file = "serviceAccountKey.json"
+    input_file = "/Users/nicoayelefparraguez/Downloads/app preguntas/tools/ingest_notebooklm/sample_output/normalized_bank.json"
+    cert_file = "/Users/nicoayelefparraguez/Downloads/kinetest-9e4c1-firebase-adminsdk-fbsvc-655c29307c.json"
     
     if not os.path.exists(input_file):
         print(f"Error: {input_file} not found.")
@@ -39,7 +38,7 @@ if __name__ == "__main__":
         exit(1)
 
     try:
-        db = initialize_firebase()
+        db = initialize_firebase(cert_file)
         
         with open(input_file, 'r', encoding='utf-8') as f:
             data = json.load(f)

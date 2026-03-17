@@ -11,9 +11,7 @@ service cloud.firestore {
     function isAdmin() {
       return isSignedIn() && (
         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin'
-        // El prompt pide un adminUID fijo tambi\u00e9n.
-        // Reemplazar ADMIN_UID_AQUI por el UID real del admin si se requiere hardcodeo.
-        || request.auth.uid == 'ADMIN_UID_AQUI' 
+        || request.auth.uid == 'OCxaQqfteHN2T4SVz2vsfDooEel2' 
       );
     }
     

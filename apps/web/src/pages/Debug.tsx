@@ -66,9 +66,24 @@ export const Debug = () => {
                     ) : (
                         <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))', gap: 20 }}>
                             {Object.entries(counts).map(([name, count]) => (
-                                <div key={name} style={{ background: 'rgba(255,255,255,0.05)', padding: 20, borderRadius: 16, textAlign: 'center', border: '1px solid var(--glass-border)' }}>
+                                <div key={name} style={{ 
+                                    background: 'rgba(255,255,255,0.05)', 
+                                    padding: 20, 
+                                    borderRadius: 16, 
+                                    textAlign: 'center', 
+                                    border: count > 0 ? '1px solid #4ade80' : '1px solid #f87171',
+                                    transition: 'all 0.3s ease'
+                                }}>
                                     <h4 style={{ margin: 0, textTransform: 'capitalize', color: 'var(--text-muted)' }}>{name}</h4>
-                                    <div style={{ fontSize: '2rem', fontWeight: 'bold', marginTop: 10 }}>{count}</div>
+                                    <div style={{ 
+                                        fontSize: '2.5rem', 
+                                        fontWeight: 'bold', 
+                                        marginTop: 10,
+                                        color: count > 0 ? '#fff' : '#f87171'
+                                    }}>{count}</div>
+                                    <p style={{ margin: '5px 0 0', fontSize: '0.8rem', opacity: 0.6 }}>
+                                        {count > 0 ? '✅ Datos Cargados' : '❌ Vacío'}
+                                    </p>
                                 </div>
                             ))}
                         </div>
