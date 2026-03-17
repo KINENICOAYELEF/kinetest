@@ -1,0 +1,73 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Funciones auxiliares
+    function isSignedIn() {
+      return request.auth != null;
+    }
+    
+    function isAdmin() {
+      return isSignedIn() && (
+        get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin'
+        // El prompt pide un adminUID fijo tambi\u00e9n.
+        // Reemplazar ADMIN_UID_AQUI por el UID real del admin si se requiere hardcodeo.
+        || request.auth.uid == 'ADMIN_UID_AQUI' 
+      );
+    }
+    
+    function isStudent() {
+      return isSignedIn() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'student';
+    }
+
+    // Colecciones de Administraci\u00f3n y Contenido
+    match /config/{document=**} {
+      allow read, write: if isAdmin();
+    }
+    match /groups/{document=**} {
+      allow read, write: if isAdmin();
+    }
+    
+    // Colecciones de Contenido (Lectura para estudiantes, escritura para admins)
+    match /units/{document=**} {
+      allow read: if isStudent() || isAdmin();
+      allow write: if isAdmin();
+    }
+    match /questions/{document=**} {
+      allow read: if isStudent() || isAdmin();
+      allow write: if isAdmin();
+    }
+    match /cases/{document=**} {
+      allow read: if isStudent() || isAdmin();
+      allow write: if isAdmin();
+    }
+    
+    // Colecciones Globales de Sesiones
+    match /sessions/{sessionId} {
+      allow read, write: if isAdmin();
+      allow create: if isSignedIn() && request.resource.data.uid == request.auth.uid;
+      allow update: if isSignedIn() && resource.data.uid == request.auth.uid;
+    }
+
+    // Colecci\u00f3n de Usuarios y sus Subcolecciones
+    match /users/{userId} {
+      // Un usuario s\u00f3lo puede leer/escribir su propio documento, el Admin puede todo.
+      allow read, write: if (isSignedIn() && request.auth.uid == userId) || isAdmin();
+      
+      // Subcolecciones dentro de users (attempts, mastery)
+      match /attempts/{attemptId} {
+        // Un alumno no puede leer attempts de otro
+        allow read, write: if (isSignedIn() && request.auth.uid == userId) || isAdmin();
+      }
+      match /mastery/{masteryId} {
+        allow read, write: if (isSignedIn() && request.auth.uid == userId) || isAdmin();
+      }
+    }
+    
+    // Fallback denegado general
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

@@ -1,0 +1,22 @@
+# Dependencies
+node_modules
+.pnpm-store
+
+# Build output
+dist
+build
+
+# Environment variables
+.env
+.env.local
+
+# Firebase
+.firebase
+firestore.indexes.json
+serviceAccountKey.json
+
+# IDEs and OS
+.vscode
+.idea
+.DS_Store
+*.log

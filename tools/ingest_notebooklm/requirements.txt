@@ -1,0 +1,4 @@
+notebooklm
+requests
+firebase-admin
+pyyaml

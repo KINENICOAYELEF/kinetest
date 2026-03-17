@@ -1,0 +1,14 @@
+[
+  {
+    "type": "UNIT",
+    "raw_body": "unit_id: kine_intro_01\ntitle: Introducci\\u00f3n a la Kinesiolog\\u00eda\ndescription: Conceptos b\\u00e1sicos y terminolog\\u00eda.\ntags: basico, intro\norder: 1"
+  },
+  {
+    "type": "CASE",
+    "raw_body": "case_id: case_lumb_01\ntitle: Dolor Lumbar Agudo\ndescription: Paciente de 45 a\\u00f1os con dolor en zona lumbar tras levantar peso.\nquestions:\n  - q_lumb_001\n  - q_lumb_002"
+  },
+  {
+    "type": "QUESTION",
+    "raw_body": "unit_id: kine_intro_01\nquestion_id: q_lumb_001\nfamily_id: f_lumb_01\ntype: multiple_choice\ncontent: ¿Cu\\u00e1l es la primera acci\\u00f3n recomendada?\noptions:\n- text: Reposo absoluto\n  isCorrect: false\n- text: Movilizaci\\u00f3n temprana controlada\n  isCorrect: true\n- text: Aplicaci\\u00f3n de calor intenso\n  isCorrect: false\ndifficulty: 2\nestimated_time_sec: 60\nhints:\n- Considera gu\\u00edas cl\\u00ednicas actuales.\n- El reposo prolongado suele ser contraproducente.\nrationale: La evidencia actual sugiere que la movilizaci\\u00f3n temprana ayuda a la recuperaci\\u00f3n funcional.\ntags: columna, lumbar"
+  }
+]
