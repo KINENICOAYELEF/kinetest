@@ -35,22 +35,31 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
             setCurrentUser(user);
             if (user) {
-                // Fetch or create user profile
+                // Admin UID from env or fixed for this project
+                const ADMIN_UID = import.meta.env.VITE_ADMIN_UID || 'P3jG9xL2...'; // Fallback logic
+                
                 const userDocRef = doc(db, 'users', user.uid);
                 const userDoc = await getDoc(userDocRef);
 
+                let profile: UserProfile;
+                
                 if (userDoc.exists()) {
-                    setUserProfile(userDoc.data() as UserProfile);
+                    profile = userDoc.data() as UserProfile;
+                    // Force admin role if UID matches, even if Firestore says otherwise (for recovery)
+                    if (user.uid === ADMIN_UID && profile.role !== 'admin') {
+                        profile.role = 'admin';
+                        await setDoc(userDocRef, { role: 'admin' }, { merge: true });
+                    }
                 } else {
                     // Create initial user profile
-                    const newProfile: UserProfile = {
+                    profile = {
                         uid: user.uid,
                         email: user.email,
-                        role: 'student', // Default role for testing/first login
+                        role: user.uid === ADMIN_UID ? 'admin' : 'student',
                     };
-                    await setDoc(userDocRef, newProfile);
-                    setUserProfile(newProfile);
+                    await setDoc(userDocRef, profile);
                 }
+                setUserProfile(profile);
             } else {
                 setUserProfile(null);
             }

@@ -12,6 +12,7 @@ import { CaseMode } from './pages/CaseMode';
 import { StudentDashboard } from './pages/StudentDashboard';
 import { AdminDashboard } from './pages/AdminDashboard';
 import { FridayTests } from './pages/FridayTests';
+import { Debug } from './pages/Debug';
 import { ProtectedRoute } from './components/ProtectedRoute';
 
 function App() {
@@ -35,10 +36,10 @@ function App() {
                         <Route path="/friday" element={<FridayTests />} />
                     </Route>
 
-                    {/* Protected Route for Admins */}
                     <Route element={<ProtectedRoute allowedRole="admin" />}>
                         <Route path="/admin" element={<Admin />} />
                         <Route path="/admin/dashboard" element={<AdminDashboard />} />
+                        <Route path="/debug" element={<Debug />} />
                     </Route>
 
                     {/* Catch-all redirect */}
