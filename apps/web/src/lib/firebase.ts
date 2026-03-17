@@ -11,6 +11,18 @@ const firebaseConfig = {
     appId: import.meta.env.VITE_FIREBASE_APP_ID
 };
 
+// Registro de diagnóstico (seguro, no muestra las llaves)
+console.log('Firebase Configuration Check:', {
+    hasApiKey: !!firebaseConfig.apiKey,
+    hasAuthDomain: !!firebaseConfig.authDomain,
+    hasProjectId: !!firebaseConfig.projectId,
+    apiKeyLength: firebaseConfig.apiKey?.length
+});
+
+if (!firebaseConfig.apiKey) {
+    console.error('CRITICAL: Firebase API Key is missing! Check GitHub Secrets.');
+}
+
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
 export const db = getFirestore(app);
