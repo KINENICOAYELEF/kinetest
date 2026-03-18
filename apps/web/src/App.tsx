@@ -13,6 +13,7 @@ import { StudentDashboard } from './pages/StudentDashboard';
 import { AdminDashboard } from './pages/AdminDashboard';
 import { FridayTests } from './pages/FridayTests';
 import { Debug } from './pages/Debug';
+import { AdminSetup } from './pages/AdminSetup';
 import { ProtectedRoute } from './components/ProtectedRoute';
 
 function App() {
@@ -40,6 +41,7 @@ function App() {
                         <Route path="/admin" element={<Admin />} />
                         <Route path="/admin/dashboard" element={<AdminDashboard />} />
                         <Route path="/debug" element={<Debug />} />
+                        <Route path="/admin/setup" element={<AdminSetup />} />
                     </Route>
 
                     {/* Catch-all redirect */}
