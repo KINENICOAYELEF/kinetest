@@ -8,9 +8,15 @@ export default defineConfig({
     VitePWA({
       registerType: 'autoUpdate',
       includeAssets: ['favicon.ico', 'apple-touch-icon.png', 'mask-icon.svg'],
+      workbox: {
+        globPatterns: ['**/*.{js,css,html,ico,png,svg}'],
+        cleanupOutdatedCaches: true,
+        skipWaiting: true,
+        clientsClaim: true,
+      },
       manifest: {
-        name: 'Kine Poli App',
-        short_name: 'KinePoli',
+        name: 'Kine Test App',
+        short_name: 'KineTest',
         description: 'App PWA para preguntas adaptativas en kinesiolog\u00eda',
         theme_color: '#ffffff',
         icons: [
