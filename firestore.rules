@@ -43,7 +43,9 @@ service cloud.firestore {
     
     // Colecciones Globales de Sesiones
     match /sessions/{sessionId} {
-      allow read, write: if isAdmin();
+      // Permitir lectura si es admin o si la sesi\u00f3n pertenece al usuario
+      allow read: if isAdmin() || (isSignedIn() && resource.data.uid == request.auth.uid);
+      allow write: if isAdmin();
       allow create: if isSignedIn() && request.resource.data.uid == request.auth.uid;
       allow update: if isSignedIn() && resource.data.uid == request.auth.uid;
     }

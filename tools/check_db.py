@@ -8,10 +8,10 @@ def check_collections():
 
     collections = ['units', 'questions', 'cases', 'config']
     for col in collections:
-        docs = list(db.collection(col).limit(5).stream())
-        print(f"Collection '{col}': {len(docs)} documents (sampled)")
+        docs = list(db.collection(col).stream())
+        print(f"Collection '{col}': {len(docs)} documents")
         for doc in docs:
-            print(f"  - ID: {doc.id}")
+            print(f"  - ID: {doc.id} | Data: {doc.to_dict()}")
 
 if __name__ == "__main__":
     check_collections()
