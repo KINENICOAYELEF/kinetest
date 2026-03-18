@@ -11,15 +11,11 @@ service cloud.firestore {
     function isAdmin() {
       return isSignedIn() && (
         get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin'
-        || request.auth.uid == 'OCxaQqfteHN2T4SVz2vsfDooEel2' 
+        || request.auth.uid == 'OCxaQqfteHN2T4SVz2vsfDooEel2'
       );
     }
     
-    function isStudent() {
-      return isSignedIn() && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'student';
-    }
-
-    // Colecciones de Administraci\u00f3n y Contenido
+    // Colecciones de Administraci\u00f3n
     match /config/{document=**} {
       allow read, write: if isAdmin();
     }
@@ -27,45 +23,46 @@ service cloud.firestore {
       allow read, write: if isAdmin();
     }
     
-    // Colecciones de Contenido (Lectura para estudiantes, escritura para admins)
+    // Colecciones de Contenido (Lectura P\u00daBLICA para usuarios autenticados)
+    // Esto asegura que estudiantes y admins vean las preguntas SIEMPRE
     match /units/{document=**} {
-      allow read: if isStudent() || isAdmin();
+      allow read: if isSignedIn();
       allow write: if isAdmin();
     }
     match /questions/{document=**} {
-      allow read: if isStudent() || isAdmin();
+      allow read: if isSignedIn();
       allow write: if isAdmin();
     }
     match /cases/{document=**} {
-      allow read: if isStudent() || isAdmin();
+      allow read: if isSignedIn();
       allow write: if isAdmin();
     }
     
-    // Colecciones Globales de Sesiones
+    // Sesiones y Datos Privados
     match /sessions/{sessionId} {
-      // Permitir lectura si es admin o si la sesi\u00f3n pertenece al usuario
       allow read: if isAdmin() || (isSignedIn() && resource.data.uid == request.auth.uid);
       allow write: if isAdmin();
       allow create: if isSignedIn() && request.resource.data.uid == request.auth.uid;
       allow update: if isSignedIn() && resource.data.uid == request.auth.uid;
     }
 
-    // Colecci\u00f3n de Usuarios y sus Subcolecciones
     match /users/{userId} {
-      // Un usuario s\u00f3lo puede leer/escribir su propio documento, el Admin puede todo.
       allow read, write: if (isSignedIn() && request.auth.uid == userId) || isAdmin();
       
-      // Subcolecciones dentro de users (attempts, mastery)
-      match /attempts/{attemptId} {
-        // Un alumno no puede leer attempts de otro
+      match /attempts/{document=**} {
         allow read, write: if (isSignedIn() && request.auth.uid == userId) || isAdmin();
       }
-      match /mastery/{masteryId} {
+      match /mastery/{document=**} {
+        allow read, write: if (isSignedIn() && request.auth.uid == userId) || isAdmin();
+      }
+      match /tag_mastery/{document=**} {
+        allow read, write: if (isSignedIn() && request.auth.uid == userId) || isAdmin();
+      }
+      match /family_mastery/{document=**} {
         allow read, write: if (isSignedIn() && request.auth.uid == userId) || isAdmin();
       }
     }
     
-    // Fallback denegado general
     match /{document=**} {
       allow read, write: if false;
     }
