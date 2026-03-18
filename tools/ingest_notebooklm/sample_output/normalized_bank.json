@@ -1,72 +1,1360 @@
 {
   "units": [
     {
-      "unit_id": "kine_intro_01",
-      "title": "Introducción a la Kinesiología",
-      "description": "Conceptos básicos y terminología.",
-      "tags": ["basico", "intro"],
+      "unit_id": "unit_kine_01",
+      "title": "Neuropatías Periféricas y Clínica",
+      "description": "Evaluación y tratamiento de neuropatías en miembros superiores e inferiores.",
+      "tags": [
+        "neuropatia",
+        "neurodinamica"
+      ],
       "order": 1,
       "tutor_cards": [
         {
-          "id": "card_01",
-          "title": "Principios de Movilización",
-          "content": "La movilización temprana es clave en la recuperación funcional. Evita el reposo prolongado.",
-          "tag": "columna"
+          "id": "tc_01_01",
+          "title": "Neuropatía vs Dolor Neuropático",
+          "content": "La neuropatía implica una pérdida objetiva de conducción...",
+          "tag": "clinica"
+        }
+      ]
+    },
+    {
+      "unit_id": "unit_kine_02",
+      "title": "Neurociencia del Dolor",
+      "description": "Mecanismos de sensibilización central y dolor nociplástico.",
+      "tags": [
+        "dolor",
+        "neurociencia"
+      ],
+      "order": 2,
+      "tutor_cards": [
+        {
+          "id": "tc_02_01",
+          "title": "Dolor Nociplástico",
+          "content": "Surge de una nocicepción alterada...",
+          "tag": "mecanismos"
+        }
+      ]
+    },
+    {
+      "unit_id": "unit_kine_03",
+      "title": "Biomecánica Aplicada",
+      "description": "Principios de biomecánica y control motor.",
+      "tags": [
+        "biomecanica",
+        "control_motor"
+      ],
+      "order": 3,
+      "tutor_cards": [
+        {
+          "id": "tc_03_01",
+          "title": "Foco Externo",
+          "content": "Mejora la automaticidad...",
+          "tag": "aprendizaje"
         }
       ]
     }
   ],
   "questions": [
     {
-      "unit_id": "kine_intro_01",
-      "question_id": "q_lumb_001",
-      "family_id": "f_lumb_01",
-      "type": "multiple_choice",
-      "content": "¿Cuál es la primera acción recomendada?",
+      "question_id": "q_unit_kine_01_000",
+      "family_id": "f_unit_kine_01_100",
+      "content": "¿Cuál es la principal diferencia clínica entre una neuropatía y el dolor neuropático según el material proporcionado?",
       "options": [
         {
-          "text": "Reposo absoluto",
-          "isCorrect": false
+          "text": "La neuropatía implica una pérdida objetiva de la conducción, mientras que el dolor neuropático se asocia con la irritabilidad del sistema somatosensorial.",
+          "isCorrect": true,
+          "rationale": "La neuropatía se define por signos negativos como la pérdida de fuerza y sensibilidad, mientras que el dolor surge de descargas ectópicas e inflamación."
         },
         {
-          "text": "Movilización temprana controlada",
-          "isCorrect": true
+          "text": "La neuropatía es siempre dolorosa, mientras que el dolor neuropático puede ser asintomático en fases crónicas.",
+          "isCorrect": false,
+          "rationale": "Muchos pacientes con neuropatía, como aquellos con estenosis de canal avanzada, pueden presentar pérdida de función sin experimentar dolor significativo."
         },
         {
-          "text": "Aplicación de calor intenso",
-          "isCorrect": false
+          "text": "El dolor neuropático sigue estrictamente una lógica anatómica, a diferencia de la neuropatía que es extraterritorial.",
+          "isCorrect": false,
+          "rationale": "En realidad, el dolor neuropático suele ser difícil de explicar y puede presentarse de forma extraterritorial debido a la sensibilización central."
+        },
+        {
+          "text": "La neuropatía solo afecta a las fibras motoras, mientras que el dolor neuropático solo afecta a las fibras sensitivas tipo $C$.",
+          "isCorrect": false,
+          "rationale": "Ambas condiciones pueden involucrar diversos tipos de fibras nerviosas, afectando funciones tanto motoras como sensitivas y autonómicas."
         }
       ],
       "difficulty": 2,
-      "estimated_time_sec": 60,
-      "hints": [
-        "Considera guías clínicas actuales.",
-        "El reposo prolongado suele ser contraproducente."
+      "tags": [
+        "clinica",
+        "kinesiologia"
       ],
-      "rationale": "La evidencia actual sugiere que la movilización temprana ayuda a la recuperación funcional.",
-      "tags": ["columna", "lumbar"]
+      "rationale": "La neuropatía se define por signos negativos como la pérdida de fuerza y sensibilidad, mientras que el dolor surge de descargas ectópicas e inflamación.",
+      "hints": [
+        "Relaciona los conceptos de 'signos negativos' frente a 'síntomas positivos' de irritabilidad."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_01_001",
+      "family_id": "f_unit_kine_01_101",
+      "content": "En la clasificación de Asbury y Fields (1984), ¿qué caracteriza al 'dolor troncular'?",
+      "options": [
+        {
+          "text": "Es un dolor nociceptivo de la conjuntiva del nervio mediado por la irritación de los nervi nervorum.",
+          "isCorrect": true,
+          "rationale": "Este dolor depende de la activación de las fibras $C$ que inervan al propio nervio y se percibe como una cuerda o cable de acero a lo largo de su trayecto."
+        },
+        {
+          "text": "Se percibe exclusivamente en la terminal nerviosa a distancia de la lesión original.",
+          "isCorrect": false,
+          "rationale": "Esa descripción corresponde más bien al dolor disestésico, el cual se proyecta hacia el territorio distal de inervación del nervio."
+        },
+        {
+          "text": "Es un dolor que no responde a las técnicas de terapia manual o movilización neural.",
+          "isCorrect": false,
+          "rationale": "El dolor troncular suele responder significativamente bien a las técnicas de neurodinámica y terapia manual dirigidas a la interfaz del nervio."
+        },
+        {
+          "text": "Se origina por la pérdida total de mielina en las fibras $A \\beta$.",
+          "isCorrect": false,
+          "rationale": "El dolor troncular es una respuesta nociceptiva de las estructuras de soporte del nervio, no depende exclusivamente de la desmielinización de fibras rápidas."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Este dolor depende de la activación de las fibras $C$ que inervan al propio nervio y se percibe como una cuerda o cable de acero a lo largo de su trayecto.",
+      "hints": [
+        "Este tipo de dolor se describe a menudo como una sensación de 'cuerda' que sigue el trayecto del nervio."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_01_002",
+      "family_id": "f_unit_kine_01_102",
+      "content": "Para diferenciar una plexopatía lumbosacra de una lesión del nervio ciático, ¿qué hallazgo clínico es determinante?",
+      "options": [
+        {
+          "text": "La pérdida de fuerza en la extensión, abducción y rotación externa de la cadera.",
+          "isCorrect": true,
+          "rationale": "Estas funciones dependen de los nervios glúteos superior e inferior, que se originan en el plexo pero no forman parte del nervio ciático."
+        },
+        {
+          "text": "La presencia de debilidad en la flexión dorsal del tobillo y el dedo gordo.",
+          "isCorrect": false,
+          "rationale": "Tanto el nervio ciático como una plexopatía que involucre las raíces $L4-L5$ podrían causar debilidad en la musculatura distal de la pierna."
+        },
+        {
+          "text": "La ausencia de reflejo rotuliano en la exploración física.",
+          "isCorrect": false,
+          "rationale": "El reflejo rotuliano depende del nervio femoral ($L3-L4$), por lo que no es la prueba específica para diferenciar el ciático de una plexopatía lumbosacra distal."
+        },
+        {
+          "text": "La aparición de hormigueos exclusivamente en la planta del pie.",
+          "isCorrect": false,
+          "rationale": "Los síntomas sensitivos distales son comunes a ambas patologías y no permiten localizar la lesión de forma proximal o distal al plexo."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Estas funciones dependen de los nervios glúteos superior e inferior, que se originan en el plexo pero no forman parte del nervio ciático.",
+      "hints": [
+        "Piensa en los músculos proximales de la cadera que no están inervados por las ramas del ciático."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_01_003",
+      "family_id": "f_unit_kine_01_103",
+      "content": "Durante la exploración de la sensibilidad, ¿cómo se deben valorar las fibras tipo $C$ frente a las fibras $A \\beta$?",
+      "options": [
+        {
+          "text": "Las fibras $A \\beta$ requieren un estímulo dinámico (pincel), mientras que las fibras $C$ se valoran con un estímulo estático (aguja).",
+          "isCorrect": true,
+          "rationale": "Las fibras mecanorreceptoras se adaptan rápido y necesitan movimiento, mientras que las fibras nociceptivas tipo $C$ no se adaptan y responden al contacto estático."
+        },
+        {
+          "text": "Ambas fibras deben valorarse únicamente con estímulos térmicos como monedas calientes.",
+          "isCorrect": false,
+          "rationale": "Aunque la sensibilidad térmica depende de las fibras $C$, las fibras $A \\beta$ se encargan de la mecanocepción y requieren pruebas táctiles específicas."
+        },
+        {
+          "text": "Las fibras $C$ se exploran mediante el test de fuerza de Daniels en grado $3$.",
+          "isCorrect": false,
+          "rationale": "La escala de Daniels se utiliza para evaluar la función motora, no la integridad de las fibras sensitivas aferentes."
+        },
+        {
+          "text": "La exploración de fibras $A \\beta$ es innecesaria ya que las fibras $C$ siempre se afectan primero en neuropatías compresivas.",
+          "isCorrect": false,
+          "rationale": "Aunque estudios recientes sugieren que las fibras $C$ pueden afectarse precozmente, es fundamental evaluar todas las modalidades para un diagnóstico completo."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Las fibras mecanorreceptoras se adaptan rápido y necesitan movimiento, mientras que las fibras nociceptivas tipo $C$ no se adaptan y responden al contacto estático.",
+      "hints": [
+        "Recuerda cuál de estos grupos de fibras tiene una mayor velocidad de adaptación ante el estímulo."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_01_004",
+      "family_id": "f_unit_kine_01_104",
+      "content": "En el contexto de la mielopatía cervical, ¿qué combinación de signos neurológicos es característica?",
+      "options": [
+        {
+          "text": "Signos de neurona motora inferior en miembros superiores y neurona motora superior en miembros inferiores.",
+          "isCorrect": true,
+          "rationale": "La compresión medular afecta las raíces locales (NMI) y las vías descendentes que controlan los niveles inferiores (NMS)."
+        },
+        {
+          "text": "Pérdida de fuerza bilateral en el bíceps con hiperreflexia aquilea aislada.",
+          "isCorrect": false,
+          "rationale": "Si bien puede haber hiperreflexia distal, la mielopatía suele presentar un cuadro más complejo de coordinación y equilibrio."
+        },
+        {
+          "text": "Dolor radicular intenso en el brazo que mejora inmediatamente al realizar la maniobra de Spurling.",
+          "isCorrect": false,
+          "rationale": "La maniobra de Spurling es una técnica de provocación que suele aumentar los síntomas, no aliviarlos."
+        },
+        {
+          "text": "Atrofia selectiva de los músculos aductores de la cadera sin afectación de la destreza manual.",
+          "isCorrect": false,
+          "rationale": "Uno de los signos cardinales de la mielopatía cervical es precisamente la pérdida de destreza y coordinación fina en las manos."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "La compresión medular afecta las raíces locales (NMI) y las vías descendentes que controlan los niveles inferiores (NMS).",
+      "hints": [
+        "Considera cómo la lesión en el cuello afecta el control motor 'por encima' y 'por debajo' del nivel medular dañado."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_01_005",
+      "family_id": "f_unit_kine_01_105",
+      "content": "De acuerdo con la historia natural de las hernias de disco, ¿cuál de los siguientes tipos tiene mayor probabilidad de reabsorción espontánea?",
+      "options": [
+        {
+          "text": "Hernia secuestrada.",
+          "isCorrect": true,
+          "rationale": "Al estar el material nuclear fuera del anillo y expuesto, el sistema inmunitario lo reconoce como extraño y lo ataca, facilitando su reabsorción en unos 3 meses."
+        },
+        {
+          "text": "Protrusión discal.",
+          "isCorrect": false,
+          "rationale": "Las protrusiones, al no presentar rotura del anillo fibroso, tienen una tasa de reabsorción mucho menor comparada con las extrusiones o secuestros."
+        },
+        {
+          "text": "Degeneración discal leve.",
+          "isCorrect": false,
+          "rationale": "La degeneración es un proceso crónico de desgaste que no implica necesariamente la salida de material nuclear susceptible de ser reabsorbido rápidamente."
+        },
+        {
+          "text": "Hernia contenida por el ligamento longitudinal posterior.",
+          "isCorrect": false,
+          "rationale": "Aunque el ligamento puede proteger, la reabsorción es más lenta si el material no está en contacto directo con la respuesta inmunitaria del espacio epidural."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Al estar el material nuclear fuera del anillo y expuesto, el sistema inmunitario lo reconoce como extraño y lo ataca, facilitando su reabsorción en unos 3 meses.",
+      "hints": [
+        "El contacto directo del material nuclear con el sistema inmunitario acelera el proceso de 'limpieza'."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_01_006",
+      "family_id": "f_unit_kine_01_106",
+      "content": "¿Qué utilidad clínica tiene el test de Craig en la valoración de un paciente con sospecha de síndrome isquiofemoral?",
+      "options": [
+        {
+          "text": "Determinar el grado de antetorsión femoral que podría reducir el espacio entre el isquion y el trocánter menor.",
+          "isCorrect": true,
+          "rationale": "Una antetorsión excesiva modifica la mecánica de la cadera y puede predisponer al atrapamiento del nervio ciático en el espacio isquiofemoral."
+        },
+        {
+          "text": "Identificar la presencia de una hernia de disco extruida en el nivel $L5-S1$.",
+          "isCorrect": false,
+          "rationale": "El test de Craig es una prueba ortopédica para la cadera y no evalúa la integridad de los discos intervertebrales lumbares."
+        },
+        {
+          "text": "Valorar la fuerza del músculo piramidal mediante una contracción isométrica en decúbito prono.",
+          "isCorrect": false,
+          "rationale": "Para evaluar el piramidal se utilizan otras maniobras como el test activo o el estiramiento específico, no la medición del ángulo de torsión femoral."
+        },
+        {
+          "text": "Medir la longitud de los músculos isquiotibiales para descartar una rotura fibrilar.",
+          "isCorrect": false,
+          "rationale": "Aunque se realiza con la rodilla flexionada, su objetivo es la alineación rotacional del fémur, no la extensibilidad muscular de la cadena posterior."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Una antetorsión excesiva modifica la mecánica de la cadera y puede predisponer al atrapamiento del nervio ciático en el espacio isquiofemoral.",
+      "hints": [
+        "Esta prueba se realiza en decúbito prono buscando el punto de mayor lateralidad del trocánter mayor."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_01_007",
+      "family_id": "f_unit_kine_01_107",
+      "content": "En el tratamiento de la meralgia parestésica, ¿cuál es el objetivo del entrenamiento en discriminación táctil?",
+      "options": [
+        {
+          "text": "Recuperar la representación cortical de la zona afectada que se ha 'emborronado' debido al dolor crónico.",
+          "isCorrect": true,
+          "rationale": "En lesiones nerviosas con mucho dolor, el paciente pierde la capacidad de discriminar estímulos táctiles, lo que requiere un reentrenamiento sensorial progresivo."
+        },
+        {
+          "text": "Fortalecer el músculo cuádriceps para liberar la presión sobre el ligamento inguinal.",
+          "isCorrect": false,
+          "rationale": "El nervio femorocutáneo lateral es puramente sensitivo; el fortalecimiento motor no es el mecanismo de acción de la discriminación táctil."
+        },
+        {
+          "text": "Aumentar la velocidad de conducción de las fibras $A \\beta$ mediante estímulos térmicos.",
+          "isCorrect": false,
+          "rationale": "El entrenamiento busca mejorar la interpretación central del estímulo (agudeza táctil), no modificar directamente la velocidad de conducción periférica."
+        },
+        {
+          "text": "Reducir la inflamación intraneural mediante la aplicación de presión mecánica rítmica.",
+          "isCorrect": false,
+          "rationale": "Este entrenamiento es una estrategia de reeducación sensorial, no una técnica antiinflamatoria mecánica sobre el tronco nervioso."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "En lesiones nerviosas con mucho dolor, el paciente pierde la capacidad de discriminar estímulos táctiles, lo que requiere un reentrenamiento sensorial progresivo.",
+      "hints": [
+        "Considera cómo el cerebro procesa la información sensitiva de una zona que ha estado sometida a dolor constante."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_01_008",
+      "family_id": "f_unit_kine_01_108",
+      "content": "Según el material, ¿por qué el ejercicio aeróbico es preferible sobre el trabajo excéntrico o isométrico en casos de sensibilización central?",
+      "options": [
+        {
+          "text": "Porque estos últimos pueden aumentar la hiperexcitabilidad del sistema nervioso central.",
+          "isCorrect": true,
+          "rationale": "El ejercicio aeróbico moderado ayuda a la inhibición descendente del dolor, mientras que el esfuerzo extremo de fuerza puede sobreestimular un sistema ya sensible."
+        },
+        {
+          "text": "Debido a que el ejercicio aeróbico agota más rápido los depósitos de fosfocreatina.",
+          "isCorrect": false,
+          "rationale": "El sistema ATP-PC se agota en esfuerzos cortos de alta intensidad, no en el ejercicio aeróbico de larga duración."
+        },
+        {
+          "text": "Porque los tendones solo pueden adaptarse mediante estímulos de baja intensidad y alta frecuencia.",
+          "isCorrect": false,
+          "rationale": "Los tendones y nervios requieren cargas específicas para adaptarse; la preferencia por el ejercicio aeróbico aquí se debe a la modulación del dolor central."
+        },
+        {
+          "text": "Para evitar la aparición de lactato, que es el principal causante del dolor neuropático espontáneo.",
+          "isCorrect": false,
+          "rationale": "El lactato es un metabolito del ejercicio anaeróbico, pero no es la causa fisiopatológica del dolor neuropático por descargas ectópicas."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "El ejercicio aeróbico moderado ayuda a la inhibición descendente del dolor, mientras que el esfuerzo extremo de fuerza puede sobreestimular un sistema ya sensible.",
+      "hints": [
+        "Piensa en el impacto del estrés físico intenso en un sistema somatosensorial con umbrales de activación bajos."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_01_009",
+      "family_id": "f_unit_kine_01_109",
+      "content": "Al realizar el diagnóstico diferencial de una radiculopatía $C6$, ¿qué hallazgo indicaría que el problema NO es el nervio mediano a nivel del túnel carpiano?",
+      "options": [
+        {
+          "text": "Debilidad en el músculo pronador redondo y pérdida de sensibilidad en el triángulo palmar.",
+          "isCorrect": true,
+          "rationale": "El pronador redondo es inervado por el mediano proximal al túnel carpiano y el triángulo palmar depende de la rama cutánea palmar que no entra en el túnel."
+        },
+        {
+          "text": "Parestesias en el primer y segundo dedo con signo de Tinel positivo en la muñeca.",
+          "isCorrect": false,
+          "rationale": "Estos hallazgos son típicos del síndrome del túnel carpiano y no permiten descartar una radiculopatía cervical $C6$ de forma aislada."
+        },
+        {
+          "text": "Atrofia de la eminencia tenar y debilidad en la pinza del pulgar.",
+          "isCorrect": false,
+          "rationale": "La debilidad motora en la mano es común en el atrapamiento distal del nervio mediano."
+        },
+        {
+          "text": "Pérdida del reflejo tricipital durante la exploración de los reflejos osteotendinosos.",
+          "isCorrect": false,
+          "rationale": "El reflejo tricipital corresponde principalmente al nivel $C7$, por lo que no es el indicador específico para el nivel $C6$."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "El pronador redondo es inervado por el mediano proximal al túnel carpiano y el triángulo palmar depende de la rama cutánea palmar que no entra en el túnel.",
+      "hints": [
+        "Busca músculos y zonas sensitivas inervadas por el nervio mediano ANTES de que este llegue a la muñeca."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_01_010",
+      "family_id": "f_unit_kine_01_110",
+      "content": "¿Qué papel juegan los 'atractores' en la organización del movimiento dentro de un sistema complejo?",
+      "options": [
+        {
+          "text": "Son elementos clave y básicos que se automatizan para dar estabilidad al patrón de movimiento.",
+          "isCorrect": true,
+          "rationale": "Los atractores son las configuraciones estables del sistema nervioso que permiten movimientos armónicos, mientras que los fluctuadores permiten la adaptación periférica."
+        },
+        {
+          "text": "Representan las variaciones aleatorias que ocurren cuando el entorno es impredecible.",
+          "isCorrect": false,
+          "rationale": "Esa descripción corresponde a los fluctuadores, que son los elementos que se adaptan a las condiciones cambiantes del entorno."
+        },
+        {
+          "text": "Son los receptores de estiramiento del tendón que activan el reflejo miotático.",
+          "isCorrect": false,
+          "rationale": "Los atractores son un concepto de la teoría de sistemas dinámicos para la organización motora, no una estructura anatómica sensorial específica."
+        },
+        {
+          "text": "Se encargan exclusivamente de la fase de agotamiento en el principio de supercompensación.",
+          "isCorrect": false,
+          "rationale": "La supercompensación es un principio fisiológico del entrenamiento, distinto a la organización del patrón motor mediante atractores."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Los atractores son las configuraciones estables del sistema nervioso que permiten movimientos armónicos, mientras que los fluctuadores permiten la adaptación periférica.",
+      "hints": [
+        "Son los componentes 'fijos' o constantes alrededor de los cuales se organiza una actividad motora."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_01_011",
+      "family_id": "f_unit_kine_01_111",
+      "content": "En el tratamiento del síndrome del túnel cubital, ¿por qué se podría pautar un ejercicio excéntrico para el flexor carpi ulnaris?",
+      "options": [
+        {
+          "text": "Porque este músculo puede actuar como estabilizador del codo y su hiperactividad o rigidez puede comprimir el nervio.",
+          "isCorrect": true,
+          "rationale": "El nervio cubital pasa bajo la arcada del flexor carpi ulnaris; mejorar su control y longitud mediante el trabajo excéntrico puede liberar presión."
+        },
+        {
+          "text": "Para aumentar la tensión neural y facilitar la regeneración de los axones seccionados.",
+          "isCorrect": false,
+          "rationale": "El objetivo no es aumentar la tensión sobre el nervio irritable, sino mejorar la interfaz mecánica para disminuir la compresión."
+        },
+        {
+          "text": "Debido a que el flexor carpi ulnaris es el principal extensor del codo en carga.",
+          "isCorrect": false,
+          "rationale": "El flexor carpi ulnaris, como su nombre indica, es un flexor de la muñeca y aductor cubital, no un extensor del codo."
+        },
+        {
+          "text": "Para estimular exclusivamente la vía metabólica anaeróbica aláctica de las fibras tipo $I$.",
+          "isCorrect": false,
+          "rationale": "El trabajo excéntrico busca adaptaciones mecánicas y de control motor, y no se limita únicamente a una vía metabólica específica de fibras lentas."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "El nervio cubital pasa bajo la arcada del flexor carpi ulnaris; mejorar su control y longitud mediante el trabajo excéntrico puede liberar presión.",
+      "hints": [
+        "Considera la relación anatómica de este músculo con el canal por el que discurre el nervio en el codo."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_01_012",
+      "family_id": "f_unit_kine_01_112",
+      "content": "Según el modelo de supercompensación, ¿qué ocurre durante la 'fase de alarma'?",
+      "options": [
+        {
+          "text": "El organismo responde ante el estrés disminuyendo temporalmente sus capacidades funcionales.",
+          "isCorrect": true,
+          "rationale": "Tras la aplicación de una carga (choque), el cuerpo entra en fatiga y reduce su rendimiento antes de iniciar la fase de adaptación."
+        },
+        {
+          "text": "Se alcanza el punto máximo de rendimiento por encima del nivel inicial.",
+          "isCorrect": false,
+          "rationale": "Eso ocurre en la fase de supercompensación propiamente dicha, después de que el cuerpo se ha recuperado del estímulo."
+        },
+        {
+          "text": "El tejido colágeno del nervio se vuelve permanentemente fibrótico.",
+          "isCorrect": false,
+          "rationale": "La fibrosis es una consecuencia de la patofisiología de la compresión crónica, no una fase normal del ciclo de supercompensación del entrenamiento."
+        },
+        {
+          "text": "Se activan únicamente las vías de oxidación de las grasas para ahorrar glucógeno.",
+          "isCorrect": false,
+          "rationale": "La respuesta metabólica depende de la intensidad del estímulo, no es una característica definitoria única de la fase de alarma."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Tras la aplicación de una carga (choque), el cuerpo entra en fatiga y reduce su rendimiento antes de iniciar la fase de adaptación.",
+      "hints": [
+        "Es la reacción inmediata de 'choque' tras recibir un estímulo de carga o ejercicio."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_01_013",
+      "family_id": "f_unit_kine_01_113",
+      "content": "En la exploración del síndrome del desfiladero torácico, ¿cómo se diferencia la implicación de la primera costilla frente a los escalenos?",
+      "options": [
+        {
+          "text": "Si los síntomas mejoran al descender la costilla pero reaparecen tras una inspiración profunda, los escalenos están involucrados.",
+          "isCorrect": true,
+          "rationale": "La inspiración profunda activa los escalenos; si esta acción reproduce el dolor tras haberlo aliviado mecánicamente, confirma su relevancia clínica."
+        },
+        {
+          "text": "Si el test de Spurling es positivo, el problema es puramente costal.",
+          "isCorrect": false,
+          "rationale": "El test de Spurling evalúa la compresión de la raíz nerviosa en el agujero de conjunción cervical, no el espacio del desfiladero torácico."
+        },
+        {
+          "text": "El alivio inmediato al elevar el brazo por encima de la cabeza confirma que la costilla está fracturada.",
+          "isCorrect": false,
+          "rationale": "La elevación del brazo suele aumentar la tensión en el desfiladero; el alivio podría ocurrir en algunas radiculopatías, pero no confirma una fractura."
+        },
+        {
+          "text": "Los escalenos solo se afectan si hay pérdida de fuerza en el tríceps y reflejo $C7$ disminuido.",
+          "isCorrect": false,
+          "rationale": "La afectación del tríceps orienta hacia la raíz $C7$, mientras que el desfiladero suele afectar de forma más global al plexo braquial."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "La inspiración profunda activa los escalenos; si esta acción reproduce el dolor tras haberlo aliviado mecánicamente, confirma su relevancia clínica.",
+      "hints": [
+        "Considera qué estructura se activa voluntariamente para elevar la caja torácica durante la respiración superior."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_01_014",
+      "family_id": "f_unit_kine_01_114",
+      "content": "¿Cuál es la utilidad del entrenamiento interválico de alta intensidad (HIIT) en pacientes con dolor neuropático de tipo isquémico?",
+      "options": [
+        {
+          "text": "Aumentar la tolerancia al dolor isquémico y crear mejores adaptaciones que el ejercicio aeróbico extensivo.",
+          "isCorrect": true,
+          "rationale": "Se ha observado que la exposición sistemática a este tipo de estrés metabólico mejora la capacidad del paciente para tolerar síntomas isquémicos neurales."
+        },
+        {
+          "text": "Bloquear definitivamente la conducción en las fibras $C$ para eliminar la sensación de ardor.",
+          "isCorrect": false,
+          "rationale": "El ejercicio no busca dañar la fibra nerviosa para silenciarla, sino mejorar la fisiología y la modulación del dolor."
+        },
+        {
+          "text": "Evitar la aparición de agujetas mediante la reducción del volumen máximo de oxígeno ($VO_{2} max$).",
+          "isCorrect": false,
+          "rationale": "Al contrario, el HIIT se asocia con frecuencia a la aparición de agujetas y su objetivo principal es aumentar el $VO_{2} max$."
+        },
+        {
+          "text": "Sustituir por completo el uso de fármacos antiinflamatorios en la fase aguda de una hernia extruida.",
+          "isCorrect": false,
+          "rationale": "En fases agudas e inflamatorias, el HIIT podría ser demasiado irritante; su aplicación es más útil en fases subagudas o en mecanismos específicos."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Se ha observado que la exposición sistemática a este tipo de estrés metabólico mejora la capacidad del paciente para tolerar síntomas isquémicos neurales.",
+      "hints": [
+        "Se relaciona con la adaptación del organismo ante la falta temporal de oxígeno y nutrientes en los tejidos."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_02_000",
+      "family_id": "f_unit_kine_02_200",
+      "content": "¿Cuál de los tres tipos de dolor reconocidos recientemente por la IASP se describe como aquel que surge de una nocicepción alterada, a pesar de que no hay evidencia clara de daño tisular real o amenaza de este?",
+      "options": [
+        {
+          "text": "Dolor nociceptivo",
+          "isCorrect": false,
+          "rationale": "Este tipo de dolor se manifiesta directamente por el daño real o potencial de los tejidos no neurales y la activación de los nociceptores."
+        },
+        {
+          "text": "Dolor nociplástico",
+          "isCorrect": true,
+          "rationale": "El dolor nociplástico, a menudo impulsado por la sensibilización central, se caracteriza por una señalización neural anormal sin un daño tisular o nervioso evidente."
+        },
+        {
+          "text": "Dolor neuropático",
+          "isCorrect": false,
+          "rationale": "Este dolor es el resultado de una lesión o enfermedad primaria del sistema somatosensorial, no simplemente de una alteración en la nocicepción."
+        },
+        {
+          "text": "Dolor psicógeno",
+          "isCorrect": false,
+          "rationale": "Aunque el término se usaba históricamente, la ciencia actual clasifica estos síntomas dentro del marco neurobiológico de la sensibilización central o dolor nociplástico."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Este tipo de dolor se manifiesta directamente por el daño real o potencial de los tejidos no neurales y la activación de los nociceptores.",
+      "hints": [
+        "Este término fue introducido en 2017 para describir un tercer mecanismo distinto al daño tisular o nervioso."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_02_001",
+      "family_id": "f_unit_kine_02_201",
+      "content": "En el contexto de la activación glial y la neuroinflamación, ¿qué sustancias se liberan habitualmente aumentando la excitabilidad de las neuronas del sistema nervioso central?",
+      "options": [
+        {
+          "text": "GABA y Glicina",
+          "isCorrect": false,
+          "rationale": "Estas sustancias son generalmente neurotransmisores inhibitorios cuya acción se ve reducida o bloqueada durante la sensibilización central."
+        },
+        {
+          "text": "Acetilcolina y Dopamina",
+          "isCorrect": false,
+          "rationale": "Si bien son importantes en el sistema nervioso, no son los mediadores proinflamatorios clave descritos en el modelo de activación glial para el dolor crónico."
+        },
+        {
+          "text": "$BDNF$, $IL-1\\beta$ y $TNF-\\alpha$",
+          "isCorrect": true,
+          "rationale": "La sobreactivación glial resulta en un estado neuroinflamatorio caracterizado por niveles altos de estas citoquinas y factores neurotróficos que amplifican la señal del dolor."
+        },
+        {
+          "text": "Serotonina y Endorfinas",
+          "isCorrect": false,
+          "rationale": "Estas sustancias suelen formar parte de los sistemas descendentes de inhibición del dolor, los cuales suelen fallar en pacientes con sensibilización central."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Estas sustancias son generalmente neurotransmisores inhibitorios cuya acción se ve reducida o bloqueada durante la sensibilización central.",
+      "hints": [
+        "Busca mediadores proinflamatorios y factores neurotróficos derivados del cerebro mencionados en el material."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_02_002",
+      "family_id": "f_unit_kine_02_202",
+      "content": "Según el modelo de intervención en fisioterapia propuesto, ¿cuál es el criterio para elegir entre 'Actividad Graduada Conductual' y 'Exposición In Vivo' al tratar a un paciente con miedo al movimiento?",
+      "options": [
+        {
+          "text": "La duración de los síntomas de dolor",
+          "isCorrect": false,
+          "rationale": "La elección se basa en la naturaleza amenazante percibida de la actividad, no en cuánto tiempo ha persistido el dolor."
+        },
+        {
+          "text": "El nivel de amenaza percibida de la actividad (escala 0-100)",
+          "isCorrect": true,
+          "rationale": "Si el paciente puntúa la actividad por encima de $70/100$ en términos de amenaza, se indica la exposición in vivo; de lo contrario, se prefiere la actividad graduada."
+        },
+        {
+          "text": "La presencia de hallazgos en la resonancia magnética",
+          "isCorrect": false,
+          "rationale": "Las intervenciones basadas en neurociencia priorizan las creencias y comportamientos del paciente sobre los hallazgos patoanatómicos aislados."
+        },
+        {
+          "text": "La edad y el nivel de condición física previa",
+          "isCorrect": false,
+          "rationale": "Aunque son factores contextuales, el algoritmo de decisión clínica se centra específicamente en el miedo y la evitación relacionados con el dolor."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "La elección se basa en la naturaleza amenazante percibida de la actividad, no en cuánto tiempo ha persistido el dolor.",
+      "hints": [
+        "La decisión depende de qué tan peligrosa considera el paciente que es una actividad específica para su cuerpo."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_02_003",
+      "family_id": "f_unit_kine_02_203",
+      "content": "De acuerdo con el estudio de validación de Paul Hodges, ¿cuál de las siguientes características resultó ser un criterio 'obligatorio' para la identificación clínica del dolor nociplástico?",
+      "options": [
+        {
+          "text": "Distribución regional del dolor",
+          "isCorrect": true,
+          "rationale": "La distribución regional se considera un requisito fundamental, a diferencia de los patrones localizados típicos del dolor nociceptivo."
+        },
+        {
+          "text": "Presencia de fatiga y problemas cognitivos",
+          "isCorrect": false,
+          "rationale": "Aunque son comorbilidades comunes, el estudio indicó que añaden poco valor discriminatorio ya que pueden presentarse en varios tipos de dolor."
+        },
+        {
+          "text": "Signos claros de inflamación tisular",
+          "isCorrect": false,
+          "rationale": "La inflamación es una característica del dolor nociceptivo y su ausencia ayuda a distinguir el dolor nociplástico."
+        },
+        {
+          "text": "Déficits sensoriales en una distribución neuroanatómica plausible",
+          "isCorrect": false,
+          "rationale": "Esta es una característica clave para clasificar el dolor como neuropático, no nociplástico."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "La distribución regional se considera un requisito fundamental, a diferencia de los patrones localizados típicos del dolor nociceptivo.",
+      "hints": [
+        "Se refiere a cómo se extiende el dolor en el cuerpo del paciente según el mapa del dolor."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_02_004",
+      "family_id": "f_unit_kine_02_204",
+      "content": "La 'hipótesis del doble golpe' (double-hit hypothesis) en la sensibilización central sugiere que:",
+      "options": [
+        {
+          "text": "Dos medicamentos diferentes son necesarios para bloquear el dolor.",
+          "isCorrect": false,
+          "rationale": "La hipótesis se refiere a mecanismos biológicos de susceptibilidad, no a protocolos de farmacología."
+        },
+        {
+          "text": "Un evento traumático previo 'prepara' las glías, haciendo que un segundo estresor provoque una respuesta exagerada.",
+          "isCorrect": true,
+          "rationale": "Las microglías pueden ser sensibilizadas o 'cebadas' por un primer evento, resultando en una neuroinflamación excesiva ante un segundo trauma o estrés severo."
+        },
+        {
+          "text": "El dolor debe sentirse en ambos lados del cuerpo para ser centralizado.",
+          "isCorrect": false,
+          "rationale": "Aunque el dolor bilateral es común en la sensibilización central, la hipótesis del doble golpe describe el proceso etiológico, no la distribución."
+        },
+        {
+          "text": "El sistema nervioso periférico y el central deben estar dañados simultáneamente.",
+          "isCorrect": false,
+          "rationale": "El dolor nociplástico ocurre precisamente cuando no hay evidencia de daño estructural en ninguno de los dos sistemas."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "La hipótesis se refiere a mecanismos biológicos de susceptibilidad, no a protocolos de farmacología.",
+      "hints": [
+        "Relaciona eventos temporales y cómo el sistema inmune del cerebro recuerda traumas pasados."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_02_005",
+      "family_id": "f_unit_kine_02_205",
+      "content": "¿Qué porcentaje aproximado de adultos en todo el mundo se estima que padece dolor crónico según las investigaciones recientes mencionadas en el artículo de Hyunjoong Kim?",
+      "options": [
+        {
+          "text": "$10.5\\%$",
+          "isCorrect": false,
+          "rationale": "Este valor es demasiado bajo comparado con las estimaciones globales actuales de la carga de enfermedad por dolor."
+        },
+        {
+          "text": "$30.3\\%$",
+          "isCorrect": true,
+          "rationale": "El material cita que aproximadamente el $30.3\\%$ de los adultos a nivel mundial sufren de dolor persistente, lo que representa un gran desafío socioeconómico."
+        },
+        {
+          "text": "$50.0\\%$",
+          "isCorrect": false,
+          "rationale": "Aunque el impacto es masivo, el $50\\%$ excedería las cifras documentadas por la mayoría de las organizaciones de salud."
+        },
+        {
+          "text": "$15.2\\%$",
+          "isCorrect": false,
+          "rationale": "Esta cifra subestima la prevalencia reportada en los estudios neurocientíficos contemporáneos citados."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Este valor es demasiado bajo comparado con las estimaciones globales actuales de la carga de enfermedad por dolor.",
+      "hints": [
+        "Es una cifra que indica que casi uno de cada tres adultos se ve afectado."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_02_006",
+      "family_id": "f_unit_kine_02_206",
+      "content": "En el caso clínico de 'Geoff', quien tuvo dolor durante 35 años, ¿cuál fue el error fundamental que impidió su recuperación hasta que se realizó una evaluación vascular?",
+      "options": [
+        {
+          "text": "No recibió suficiente terapia cognitivo-conductual.",
+          "isCorrect": false,
+          "rationale": "Recibió múltiples intervenciones psicológicas, pero estas no abordaron la causa biológica subyacente."
+        },
+        {
+          "text": "Se asumió que su dolor era puramente 'sensibilización central' debido a la cronicidad.",
+          "isCorrect": true,
+          "rationale": "Debido a que el dolor había durado décadas, los clínicos 'explicaron' sus síntomas mediante la sensibilización central, ignorando una patología vascular real (estenosis ilíaca)."
+        },
+        {
+          "text": "Sus ejercicios de extensión de McKenzie fueron realizados de forma incorrecta.",
+          "isCorrect": false,
+          "rationale": "Aunque los ejercicios cambiaron su dolor, no eran el tratamiento adecuado porque su problema no era de origen discal."
+        },
+        {
+          "text": "No se utilizó el 'Central Sensitization Inventory' (CSI) a tiempo.",
+          "isCorrect": false,
+          "rationale": "El CSI es una herramienta de cribado, pero en este caso el problema fue un fallo en el razonamiento clínico para descartar patologías médicas graves."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Recibió múltiples intervenciones psicológicas, pero estas no abordaron la causa biológica subyacente.",
+      "hints": [
+        "A veces los clínicos se dejan llevar por la 'moda' de un diagnóstico funcional y olvidan realizar exámenes físicos básicos bajo condiciones de esfuerzo."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_02_007",
+      "family_id": "f_unit_kine_02_207",
+      "content": "La Terapia Funcional Cognitiva (CFT) se divide en tres etapas principales. ¿Cuál de las siguientes describe correctamente parte de este proceso?",
+      "options": [
+        {
+          "text": "Primero el tratamiento farmacológico, luego la cirugía y finalmente el ejercicio.",
+          "isCorrect": false,
+          "rationale": "La CFT es una intervención no farmacológica y no quirúrgica centrada en el comportamiento y la cognición."
+        },
+        {
+          "text": "Comprensión del paciente, modificación de comportamientos/creencias y reaprendizaje funcional.",
+          "isCorrect": true,
+          "rationale": "La CFT integra la reestructuración cognitiva, el cambio de comportamiento y el reentrenamiento del movimiento para abordar cambios neuroplásticos."
+        },
+        {
+          "text": "Reposo absoluto, masoterapia y educación pasiva.",
+          "isCorrect": false,
+          "rationale": "Estas estrategias suelen ser contraproducentes en la sensibilización central, donde se busca el empoderamiento activo del paciente."
+        },
+        {
+          "text": "Bloqueos nerviosos seguidos de entrenamiento de fuerza de alta intensidad.",
+          "isCorrect": false,
+          "rationale": "La CFT se enfoca en movimientos funcionales y la reducción del miedo, no necesariamente en protocolos de fuerza tradicionales o invasivos."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "La CFT es una intervención no farmacológica y no quirúrgica centrada en el comportamiento y la cognición.",
+      "hints": [
+        "Se trata de un enfoque integrado que va desde la mentalidad del paciente hasta su forma de moverse en el mundo real."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_02_008",
+      "family_id": "f_unit_kine_02_208",
+      "content": "¿Qué efecto tiene el ejercicio físico regular sobre las células gliales en el contexto de la sensibilización central según los estudios en animales?",
+      "options": [
+        {
+          "text": "Aumenta la producción de citoquinas proinflamatorias como la $IL-6$.",
+          "isCorrect": false,
+          "rationale": "El ejercicio moderado tiene el efecto opuesto, promoviendo un cambio hacia fenotipos antiinflamatorios."
+        },
+        {
+          "text": "Provoca la muerte celular (apoptosis) de las neuronas circundantes.",
+          "isCorrect": false,
+          "rationale": "Al contrario, el ejercicio es neuroprotector y mejora la salud sináptica."
+        },
+        {
+          "text": "Reduce la proliferación microglial y promueve un cambio hacia un fenotipo antiinflamatorio ($M2$).",
+          "isCorrect": true,
+          "rationale": "El ejercicio ayuda a normalizar la actividad glial y reduce la neuroinflamación, lo que contribuye a disminuir la sensibilidad al dolor."
+        },
+        {
+          "text": "Bloquea permanentemente todos los receptores de glutamato.",
+          "isCorrect": false,
+          "rationale": "El ejercicio modula la transmisión, pero no bloquea los receptores necesarios para el funcionamiento normal del sistema nervioso."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "El ejercicio moderado tiene el efecto opuesto, promoviendo un cambio hacia fenotipos antiinflamatorios.",
+      "hints": [
+        "El ejercicio actúa como un modulador del 'sistema inmune' del cerebro."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_02_009",
+      "family_id": "f_unit_kine_02_209",
+      "content": "Según el algoritmo de reconocimiento clínico de Nijs et al., ¿qué criterio se debe evaluar inmediatamente después de descartar que el dolor sea predominantemente neuropático?",
+      "options": [
+        {
+          "text": "Si el dolor es desproporcionado a la naturaleza de la lesión o patología.",
+          "isCorrect": true,
+          "rationale": "Este se considera el primer 'criterio de paso' (go/no-go) para identificar la sensibilización central: la falta de proporción entre el daño tisular y la experiencia de dolor."
+        },
+        {
+          "text": "La puntuación exacta en una escala analógica visual de $0$ a $10$.",
+          "isCorrect": false,
+          "rationale": "Aunque la intensidad es importante, el algoritmo se centra en la naturaleza y distribución del dolor más que en su magnitud bruta."
+        },
+        {
+          "text": "La presencia de antecedentes familiares de fibromialgia.",
+          "isCorrect": false,
+          "rationale": "Los antecedentes familiares pueden ser un factor de riesgo, pero no forman parte de los criterios diagnósticos directos del algoritmo."
+        },
+        {
+          "text": "El nivel de fuerza muscular en las extremidades inferiores.",
+          "isCorrect": false,
+          "rationale": "La evaluación de la fuerza es parte del examen físico general, pero no discrimina entre tipos de mecanismos de dolor central."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Este se considera el primer 'criterio de paso' (go/no-go) para identificar la sensibilización central: la falta de proporción entre el daño tisular y la experiencia de dolor.",
+      "hints": [
+        "Se trata de comparar lo que vemos en las pruebas de imagen o examen físico con lo que el paciente describe sentir."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_03_000",
+      "family_id": "f_unit_kine_03_300",
+      "content": "¿Cuál de las siguientes funciones se ha descubierto recientemente como una función del sistema propioceptivo que va más allá del control motor consciente?",
+      "options": [
+        {
+          "text": "La regulación del desarrollo esquelético y la alineación de la columna.",
+          "isCorrect": true,
+          "rationale": "Estudios recientes indican que la información propioceptiva es vital para la curación de fracturas y el mantenimiento de la alineación espinal para prevenir la escoliosis."
+        },
+        {
+          "text": "La interpretación de estímulos visuales para el equilibrio.",
+          "isCorrect": false,
+          "rationale": "Aunque el sistema visual complementa al propioceptivo, la interpretación visual es una función del sistema sensorial visual, no una función intrínseca de la propiocepción."
+        },
+        {
+          "text": "El aumento de la fuerza contráctil de las fibras extrafusales.",
+          "isCorrect": false,
+          "rationale": "La propiocepción informa sobre el estado del músculo, pero no genera directamente el aumento de la fuerza contráctil de las fibras extrafusales."
+        },
+        {
+          "text": "La producción de calor metabólico durante el ejercicio intenso.",
+          "isCorrect": false,
+          "rationale": "La termogénesis es un proceso metabólico muscular, no una función regulada directamente por el feedback de los husos musculares."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Estudios recientes indican que la información propioceptiva es vital para la curación de fracturas y el mantenimiento de la alineación espinal para prevenir la escoliosis.",
+      "hints": [
+        "Piense en las implicaciones clínicas a largo plazo mencionadas en pacientes con escoliosis idiopática."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_03_001",
+      "family_id": "f_unit_kine_03_301",
+      "content": "En el contexto del aprendizaje motor, ¿qué efecto tiene promover un 'foco externo' de atención en comparación con un 'foco interno'?",
+      "options": [
+        {
+          "text": "Facilita la automaticidad y mejora la eficiencia del movimiento.",
+          "isCorrect": true,
+          "rationale": "El foco externo permite que el sistema motor se organice de forma inconsciente, reduciendo la actividad muscular innecesaria y mejorando la precisión."
+        },
+        {
+          "text": "Aumenta la actividad electromiográfica (EMG) para generar más potencia.",
+          "isCorrect": false,
+          "rationale": "En realidad, un foco externo tiende a reducir la actividad EMG innecesaria, indicando una mayor eficiencia neuromuscular."
+        },
+        {
+          "text": "Permite al aprendiz ser más consciente de cada articulación involucrada.",
+          "isCorrect": false,
+          "rationale": "Centrarse en las articulaciones es característico de un foco interno, lo cual suele interferir con los procesos de control automático."
+        },
+        {
+          "text": "Garantiza un aprendizaje más rápido pero menos duradero en el tiempo.",
+          "isCorrect": false,
+          "rationale": "El foco externo ha demostrado mejorar tanto la adquisición inicial como la retención a largo plazo de las habilidades motoras."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "El foco externo permite que el sistema motor se organice de forma inconsciente, reduciendo la actividad muscular innecesaria y mejorando la precisión.",
+      "hints": [
+        "Considere qué tipo de foco permite que el cuerpo 'sepa qué hacer' sin una supervisión consciente constante."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_03_002",
+      "family_id": "f_unit_kine_03_302",
+      "content": "De acuerdo con el 'Principio del Tamaño de Henneman', ¿en qué orden se reclutan las unidades motoras durante una contracción muscular progresiva?",
+      "options": [
+        {
+          "text": "Primero las motoneuronas pequeñas (fibras tipo I) y luego las grandes (fibras tipo II).",
+          "isCorrect": true,
+          "rationale": "Las fibras de contracción lenta y resistentes a la fatiga tienen un umbral de excitación más bajo y se activan antes que las fibras rápidas."
+        },
+        {
+          "text": "Primero las motoneuronas grandes para generar la fuerza inicial necesaria.",
+          "isCorrect": false,
+          "rationale": "Las motoneuronas grandes requieren una mayor estimulación sináptica para despolarizarse, por lo que se reclutan más tarde."
+        },
+        {
+          "text": "Se reclutan todas simultáneamente bajo la ley del 'todo o nada'.",
+          "isCorrect": false,
+          "rationale": "La ley del todo o nada se aplica a la fibra individual o unidad motora, pero el reclutamiento del pool de motoneuronas es gradual."
+        },
+        {
+          "text": "El orden es aleatorio y depende exclusivamente de la velocidad de la tarea.",
+          "isCorrect": false,
+          "rationale": "Aunque la velocidad influye, el tamaño del cuerpo celular de la motoneurona determina un orden jerárquico de reclutamiento basado en el umbral."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Las fibras de contracción lenta y resistentes a la fatiga tienen un umbral de excitación más bajo y se activan antes que las fibras rápidas.",
+      "hints": [
+        "Piense en qué tipo de fibras son más eficientes para tareas de baja intensidad y larga duración."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_03_003",
+      "family_id": "f_unit_kine_03_303",
+      "content": "Al analizar la señal de Electromiografía de Superficie (sEMG), ¿por qué es un error asumir que una mayor amplitud equivale directamente a una mayor producción de fuerza?",
+      "options": [
+        {
+          "text": "Porque la amplitud depende de factores como la longitud del músculo y la frecuencia de descarga.",
+          "isCorrect": true,
+          "rationale": "Un músculo en acortamiento puede mostrar alta amplitud EMG debido a un mayor esfuerzo neurofisiológico para compensar su desventaja mecánica."
+        },
+        {
+          "text": "Porque la sEMG solo mide la fuerza de las fibras tipo II.",
+          "isCorrect": false,
+          "rationale": "La sEMG captura la sumatoria de potenciales de acción de todas las unidades motoras activas dentro de su área de captura, no solo las tipo II."
+        },
+        {
+          "text": "Porque la señal eléctrica siempre viaja más lento que la contracción mecánica.",
+          "isCorrect": false,
+          "rationale": "Aunque existe un retraso electromecánico, esto no invalida la relación entre amplitud y fuerza, sino que la desplaza en el tiempo."
+        },
+        {
+          "text": "Porque la grasa subcutánea amplifica falsamente la señal eléctrica.",
+          "isCorrect": false,
+          "rationale": "El tejido adiposo actúa como un filtro pasabajos e aislante, lo que en realidad disminuye la amplitud de la señal capturada."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Un músculo en acortamiento puede mostrar alta amplitud EMG debido a un mayor esfuerzo neurofisiológico para compensar su desventaja mecánica.",
+      "hints": [
+        "Recuerde qué sucede con el esfuerzo del sistema nervioso cuando un músculo está en una posición mecánicamente desfavorable."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_03_004",
+      "family_id": "f_unit_kine_03_304",
+      "content": "En la ejecución de una sentadilla búlgara (Split Squat), ¿cómo afecta la inclinación del tronco hacia adelante a la cinética de la extremidad inferior?",
+      "options": [
+        {
+          "text": "Aumenta el brazo de momento sobre la cadera, favoreciendo el trabajo del glúteo mayor.",
+          "isCorrect": true,
+          "rationale": "Al proyectar el centro de masa del tronco hacia adelante, se incrementa la distancia al eje de la cadera, exigiendo más torque a la musculatura posterior."
+        },
+        {
+          "text": "Reduce la carga sobre la rodilla y la transfiere totalmente al tobillo.",
+          "isCorrect": false,
+          "rationale": "Si bien reduce el brazo de momento en la rodilla, la carga se redistribuye principalmente hacia la cadera, no exclusivamente al tobillo."
+        },
+        {
+          "text": "Disminuye la estabilidad al alejar el centro de masa de la base de sustentación.",
+          "isCorrect": false,
+          "rationale": "Aunque el centro de masa se desplaza, la sentadilla búlgara mantiene el centro de masa dentro de los apoyos si se ejecuta correctamente; el cambio principal es en los brazos de momento."
+        },
+        {
+          "text": "Elimina la participación de los cuádriceps en el ascenso concéntrico.",
+          "isCorrect": false,
+          "rationale": "Los cuádriceps siguen trabajando para extender la rodilla, aunque su demanda relativa disminuye en comparación con la de la cadera."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Al proyectar el centro de masa del tronco hacia adelante, se incrementa la distancia al eje de la cadera, exigiendo más torque a la musculatura posterior.",
+      "hints": [
+        "Considere la relación entre la posición de la 'línea de gravedad' del tronco y el eje de rotación de la articulación coxofemoral."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_03_005",
+      "family_id": "f_unit_kine_03_305",
+      "content": "¿Qué distingue a un isométrico de tipo 'Overcoming' (Pushing) de uno de tipo 'Yielding' (Holding)?",
+      "options": [
+        {
+          "text": "En el 'Overcoming' se intenta mover una resistencia inamovible, mientras que en el 'Yielding' se resiste a una carga que intenta movernos.",
+          "isCorrect": true,
+          "rationale": "El primero se asocia neurofisiológicamente a una intención concéntrica y el segundo a una intención excéntrica de mantenimiento."
+        },
+        {
+          "text": "El 'Overcoming' se realiza con cargas ligeras y el 'Yielding' con cargas máximas.",
+          "isCorrect": false,
+          "rationale": "Ambos pueden realizarse con cargas altas, pero la diferencia radica en la intención del movimiento (empujar vs. sostener)."
+        },
+        {
+          "text": "Solo el isométrico 'Yielding' produce adaptaciones en el tejido conectivo.",
+          "isCorrect": false,
+          "rationale": "Ambos tipos de isométricos someten al tendón y al músculo a tensión mecánica, promoviendo adaptaciones estructurales."
+        },
+        {
+          "text": "El 'Overcoming' requiere que el músculo se alargue activamente durante la tarea.",
+          "isCorrect": false,
+          "rationale": "Por definición, en un ejercicio isométrico no hay un cambio significativo en la longitud macroscópica del músculo."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "El primero se asocia neurofisiológicamente a una intención concéntrica y el segundo a una intención excéntrica de mantenimiento.",
+      "hints": [
+        "Piense en la diferencia entre intentar empujar una pared y sostener una mancuerna pesada sin que baje."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_03_006",
+      "family_id": "f_unit_kine_03_306",
+      "content": "Sobre el complejo del hombro, ¿cuál es la función de la articulación escapulotorácica durante la elevación del brazo?",
+      "options": [
+        {
+          "text": "Proporcionar una base móvil que orienta la cavidad glenoidea para mantener la congruencia con el húmero.",
+          "isCorrect": true,
+          "rationale": "El deslizamiento de la escápula sobre el tórax es esencial para alcanzar rangos máximos de movimiento y mantener la estabilidad articular."
+        },
+        {
+          "text": "Bloquear el movimiento de la clavícula para evitar luxaciones.",
+          "isCorrect": false,
+          "rationale": "La clavícula debe moverse (elevación y rotación) para permitir que la escápula rote; el bloqueo sería patológico."
+        },
+        {
+          "text": "Actuar como la única articulación verdadera que une el brazo al esqueleto axial.",
+          "isCorrect": false,
+          "rationale": "La escapulotorácica es una articulación funcional o 'falsa'; la única unión ósea verdadera es la esternoclavicular."
+        },
+        {
+          "text": "Generar el torque necesario para la rotación interna del húmero.",
+          "isCorrect": false,
+          "rationale": "Esta función recae principalmente en los músculos que actúan sobre la articulación glenohumeral, como el subescapular."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "El deslizamiento de la escápula sobre el tórax es esencial para alcanzar rangos máximos de movimiento y mantener la estabilidad articular.",
+      "hints": [
+        "Recuerde que la escápula y el húmero deben trabajar en una relación rítmica coordinada."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_03_007",
+      "family_id": "f_unit_kine_03_307",
+      "content": "En el estudio del Reflejo de Hoffmann ($H$), ¿qué sucede cuando se aumenta la intensidad del estímulo eléctrico más allá del punto necesario para obtener la respuesta máxima ($H_{max}$)?",
+      "options": [
+        {
+          "text": "La amplitud del reflejo disminuye debido a la colisión con impulsos antidrómicos en los axones motores.",
+          "isCorrect": true,
+          "rationale": "Al estimular los axones motores directamente, se genera un impulso hacia la médula que choca con el reflejo que viene de regreso, cancelándolo."
+        },
+        {
+          "text": "La amplitud aumenta linealmente hasta activar todas las fibras musculares.",
+          "isCorrect": false,
+          "rationale": "Esto describe la curva de la Onda $M$, no el reflejo $H$, el cual tiene una fase de descenso característica."
+        },
+        {
+          "text": "El tiempo de latencia se reduce a la mitad por la mayor velocidad de conducción.",
+          "isCorrect": false,
+          "rationale": "La latencia del reflejo $H$ es constante ya que depende de la distancia del arco monosináptico; solo la Onda $M$ tiene una latencia más corta por ser directa."
+        },
+        {
+          "text": "Se produce una inhibición recíproca inmediata de los músculos antagonistas.",
+          "isCorrect": false,
+          "rationale": "Aunque existe inhibición recíproca en el sistema nervioso, el descenso de la curva del reflejo $H$ es un fenómeno puramente axonal y de colisión."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "Al estimular los axones motores directamente, se genera un impulso hacia la médula que choca con el reflejo que viene de regreso, cancelándolo.",
+      "hints": [
+        "Considere qué sucede cuando un mensaje eléctrico intenta viajar 'hacia arriba' por un cable que ya está enviando un mensaje 'hacia abajo'."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_03_008",
+      "family_id": "f_unit_kine_03_308",
+      "content": "En relación con la distrofia muscular de Duchenne (DMD), ¿cuál es una observación inusual sobre los husos musculares en comparación con las fibras extrafusales?",
+      "options": [
+        {
+          "text": "Las fibras intrafusales suelen estar relativamente preservadas de la degeneración.",
+          "isCorrect": true,
+          "rationale": "A pesar de la ausencia de distrofina, los husos musculares en pacientes con DMD mantienen una morfología casi normal, posiblemente por la compensación con utrofina."
+        },
+        {
+          "text": "Los husos musculares desaparecen por completo en las primeras etapas de la enfermedad.",
+          "isCorrect": false,
+          "rationale": "Las investigaciones muestran que el número de husos musculares se mantiene estable incluso en etapas avanzadas de la DMD."
+        },
+        {
+          "text": "Las fibras intrafusales hipertrofian masivamente para compensar la debilidad general.",
+          "isCorrect": false,
+          "rationale": "No se observa hipertrofia, sino una preservación o ligeros cambios en el tejido conectivo capsular."
+        },
+        {
+          "text": "La distrofina es la única proteína que se mantiene presente en el ecuador del huso.",
+          "isCorrect": false,
+          "rationale": "En la DMD, la distrofina está ausente por definición genética; es la utrofina la que se sobreexpresa en modelos de ratón."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "A pesar de la ausencia de distrofina, los husos musculares en pacientes con DMD mantienen una morfología casi normal, posiblemente por la compensación con utrofina.",
+      "hints": [
+        "Recuerde que los pacientes con DMD conservan ciertas capacidades propioceptivas a pesar de su severa debilidad motora."
+      ]
+    },
+    {
+      "question_id": "q_unit_kine_03_009",
+      "family_id": "f_unit_kine_03_309",
+      "content": "¿Cómo influye el uso de 'feedback' normativo positivo (hacer creer al aprendiz que su desempeño es superior al promedio) en el aprendizaje motor?",
+      "options": [
+        {
+          "text": "Mejora la retención y el aprendizaje al aumentar la autoeficacia y el interés en la tarea.",
+          "isCorrect": true,
+          "rationale": "La convicción de ser 'bueno' en una tarea actúa como una profecía autocumplida, optimizando los estados motivacionales para el aprendizaje."
+        },
+        {
+          "text": "Distrae al aprendiz de los errores técnicos que debe corregir.",
+          "isCorrect": false,
+          "rationale": "Si bien el feedback se enfoca en el éxito, los estudios muestran que esto es más efectivo que enfocarse constantemente en los errores para la retención a largo plazo."
+        },
+        {
+          "text": "Reduce la velocidad de adquisición porque el aprendiz se vuelve 'complaciente'.",
+          "isCorrect": false,
+          "rationale": "Los datos indican lo contrario: los aprendices con feedback positivo suelen mostrar un mejor desempeño en pruebas de transferencia y retención."
+        },
+        {
+          "text": "Solo funciona en niños, no teniendo efecto en adultos o expertos.",
+          "isCorrect": false,
+          "rationale": "Los principios de motivación y autoeficacia a través del feedback positivo han demostrado ser efectivos en diversas poblaciones y niveles de habilidad."
+        }
+      ],
+      "difficulty": 2,
+      "tags": [
+        "clinica",
+        "kinesiologia"
+      ],
+      "rationale": "La convicción de ser 'bueno' en una tarea actúa como una profecía autocumplida, optimizando los estados motivacionales para el aprendizaje.",
+      "hints": [
+        "Considere el impacto psicológico de sentirse competente durante el proceso de práctica."
+      ]
     }
   ],
   "cases": [
     {
-      "case_id": "case_lumb_01",
-      "unit_id": "kine_intro_01",
-      "title": "Dolor Lumbar Agudo",
-      "description": "Paciente de 45 años con dolor en zona lumbar tras levantar peso.",
+      "case_id": "case_neuro_01",
+      "unit_id": "unit_kine_01",
+      "title": "Túnel Carpiano en Computista",
+      "description": "Paciente secretaria con dolor nocturno en mano derecha y parestesias.",
       "type": "linear",
       "nodes": [
         {
-          "node_id": "node_1",
-          "narrative": "El paciente ingresa con dolor punzante en L5-S1.",
-          "question_id": "q_lumb_001",
-          "reveal": "La evaluación muestra limitación en flexión."
+          "node_id": "n1",
+          "narrative": "Llega con dolor 7/10. Realizas prueba de Phalen.",
+          "question": "¿Cuál es la sospecha principal?",
+          "options": [
+            {
+              "text": "STC",
+              "isCorrect": true
+            },
+            {
+              "text": "Artritis",
+              "isCorrect": false
+            }
+          ],
+          "reveal": "Phalen positivo confirma compromiso en el túnel."
         }
       ],
       "soap_schema": {
-        "subjective": ["Dolor lumbar", "Inicio súbito"],
-        "objective": ["Lasegue (+)", "Reflejos conservados"],
-        "assessment": ["Lumbago mecánico"],
-        "plan": ["Movilización", "Educación"]
+        "subjective": [
+          "Dolor nocturno"
+        ],
+        "objective": [
+          "Phalen (+)"
+        ],
+        "assessment": [
+          "STC"
+        ],
+        "plan": [
+          "Nervous gliding"
+        ]
       }
     }
   ]
