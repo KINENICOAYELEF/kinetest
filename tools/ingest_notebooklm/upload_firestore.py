@@ -44,7 +44,25 @@ if __name__ == "__main__":
             data = json.load(f)
         
         # Upload each main collection
-        upload_collection(db, "units", data.get("units", []), "unit_id")
+        units = data.get("units", [])
+        for unit in units:
+            unit_id = unit.get("unit_id")
+            if not unit_id: continue
+            
+            # Extract subcollections before uploading main doc
+            tutor_cards = unit.pop("tutor_cards", [])
+            
+            # Upload main unit doc
+            db.collection("units").document(unit_id).set(unit)
+            
+            # Upload tutor_cards subcollection
+            if tutor_cards:
+                print(f"Uploading {len(tutor_cards)} tutor cards for unit {unit_id}...")
+                for card in tutor_cards:
+                    card_id = card.get("id")
+                    if card_id:
+                        db.collection("units").document(unit_id).collection("tutor_cards").document(card_id).set(card)
+
         upload_collection(db, "questions", data.get("questions", []), "question_id")
         upload_collection(db, "cases", data.get("cases", []), "case_id")
         

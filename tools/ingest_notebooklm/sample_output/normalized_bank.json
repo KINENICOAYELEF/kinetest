@@ -2,10 +2,18 @@
   "units": [
     {
       "unit_id": "kine_intro_01",
-      "title": "Introducci\\u00f3n a la Kinesiolog\\u00eda",
-      "description": "Conceptos b\\u00e1sicos y terminolog\\u00eda.",
-      "tags": "basico, intro",
-      "order": 1
+      "title": "Introducción a la Kinesiología",
+      "description": "Conceptos básicos y terminología.",
+      "tags": ["basico", "intro"],
+      "order": 1,
+      "tutor_cards": [
+        {
+          "id": "card_01",
+          "title": "Principios de Movilización",
+          "content": "La movilización temprana es clave en la recuperación funcional. Evita el reposo prolongado.",
+          "tag": "columna"
+        }
+      ]
     }
   ],
   "questions": [
@@ -14,40 +22,52 @@
       "question_id": "q_lumb_001",
       "family_id": "f_lumb_01",
       "type": "multiple_choice",
-      "content": "¿Cu\\u00e1l es la primera acci\\u00f3n recomendada?",
+      "content": "¿Cuál es la primera acción recomendada?",
       "options": [
         {
           "text": "Reposo absoluto",
           "isCorrect": false
         },
         {
-          "text": "Movilizaci\\u00f3n temprana controlada",
+          "text": "Movilización temprana controlada",
           "isCorrect": true
         },
         {
-          "text": "Aplicaci\\u00f3n de calor intenso",
+          "text": "Aplicación de calor intenso",
           "isCorrect": false
         }
       ],
       "difficulty": 2,
       "estimated_time_sec": 60,
       "hints": [
-        "Considera gu\\u00edas cl\\u00ednicas actuales.",
+        "Considera guías clínicas actuales.",
         "El reposo prolongado suele ser contraproducente."
       ],
-      "rationale": "La evidencia actual sugiere que la movilizaci\\u00f3n temprana ayuda a la recuperaci\\u00f3n funcional.",
-      "tags": "columna, lumbar"
+      "rationale": "La evidencia actual sugiere que la movilización temprana ayuda a la recuperación funcional.",
+      "tags": ["columna", "lumbar"]
     }
   ],
   "cases": [
     {
       "case_id": "case_lumb_01",
+      "unit_id": "kine_intro_01",
       "title": "Dolor Lumbar Agudo",
-      "description": "Paciente de 45 a\\u00f1os con dolor en zona lumbar tras levantar peso.",
-      "questions": [
-        "q_lumb_001",
-        "q_lumb_002"
-      ]
+      "description": "Paciente de 45 años con dolor en zona lumbar tras levantar peso.",
+      "type": "linear",
+      "nodes": [
+        {
+          "node_id": "node_1",
+          "narrative": "El paciente ingresa con dolor punzante en L5-S1.",
+          "question_id": "q_lumb_001",
+          "reveal": "La evaluación muestra limitación en flexión."
+        }
+      ],
+      "soap_schema": {
+        "subjective": ["Dolor lumbar", "Inicio súbito"],
+        "objective": ["Lasegue (+)", "Reflejos conservados"],
+        "assessment": ["Lumbago mecánico"],
+        "plan": ["Movilización", "Educación"]
+      }
     }
   ]
 }
