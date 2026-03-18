@@ -9,8 +9,10 @@ interface CaseNode {
     narrative: string;
     reveal?: string;
     question_id?: string;
-    next_rules?: Record<number, string>; // Maps option index to next node_id
-    next_node_id?: string; // For linear steps
+    question?: string; // Inline question
+    options?: { text: string; isCorrect: boolean }[]; // Inline options
+    next_rules?: Record<number, string>;
+    next_node_id?: string;
 }
 
 interface Case {
@@ -112,6 +114,14 @@ export const CaseMode = () => {
             if (qDoc.exists()) {
                 setCurrentQuestion({ question_id: qDoc.id, ...qDoc.data() } as Question);
             }
+        } else if (node.question && node.options) {
+            // Support inline questions
+            setCurrentQuestion({
+                question_id: `inline_${node.node_id}`,
+                content: node.question,
+                options: node.options,
+                rationale: node.reveal || "Correcto."
+            } as Question);
         }
         setViewMode('node');
     };
