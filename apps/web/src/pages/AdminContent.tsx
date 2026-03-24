@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { db } from '../lib/firebase';
-import { collection, getDocs, doc, updateDoc } from 'firebase/firestore';
+import { collection, getDocs, doc, updateDoc, deleteDoc } from 'firebase/firestore';
 import { useNavigate } from 'react-router-dom';
 
 interface Question {
@@ -56,6 +56,17 @@ export const AdminContent = () => {
         }
     };
 
+    const deleteQuestion = async (id: string) => {
+        if (!window.confirm("¿Estás seguro de que quieres eliminar esta pregunta permanentemente? Esta acción no se puede deshacer.")) return;
+        try {
+            await deleteDoc(doc(db, 'questions', id));
+            setQuestions(prev => prev.filter(q => q.question_id !== id));
+        } catch (e) {
+            console.error("Error deleting:", e);
+            alert("Error al eliminar la pregunta.");
+        }
+    };
+
     const startEditing = (q: Question) => {
         setEditingId(q.question_id);
         setEditForm({ ...q, hints: q.hints || ['', '', ''] });
@@ -78,6 +89,7 @@ export const AdminContent = () => {
     const filtered = questions.filter(q => filterStatus === 'all' || q.status === filterStatus);
     const countDrafts = questions.filter(q => q.status === 'draft').length;
     const countApproved = questions.filter(q => q.status === 'approved').length;
+    const countRejected = questions.filter(q => q.status === 'rejected').length;
     
     if (loading) return <div className="container"><p>Cargando banco de preguntas...</p></div>;
 
@@ -103,12 +115,14 @@ export const AdminContent = () => {
                 >
                     Aprobadas ({countApproved})
                 </button>
-                <button 
-                    onClick={() => setFilterStatus('rejected')}
-                    style={{ background: filterStatus === 'rejected' ? '#f87171' : 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', whiteSpace: 'nowrap' }}
-                >
-                    Rechazadas
-                </button>
+                {countRejected > 0 && (
+                    <button 
+                        onClick={() => setFilterStatus('rejected')}
+                        style={{ background: filterStatus === 'rejected' ? '#f87171' : 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', whiteSpace: 'nowrap' }}
+                    >
+                        Rechazadas ({countRejected})
+                    </button>
+                )}
                 <button 
                     onClick={() => setFilterStatus('all')}
                     style={{ background: filterStatus === 'all' ? 'var(--primary)' : 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', whiteSpace: 'nowrap' }}
@@ -246,11 +260,9 @@ export const AdminContent = () => {
                                             ✓ Aprobar
                                         </button>
                                     )}
-                                    {q.status !== 'rejected' && (
-                                        <button onClick={() => updateStatus(q.question_id, 'rejected')} style={{ background: 'transparent', border: '1px solid #f87171', color: '#f87171', flex: 1 }}>
-                                            ✗ Rechazar
-                                        </button>
-                                    )}
+                                    <button onClick={() => deleteQuestion(q.question_id)} style={{ background: 'transparent', border: '1px solid #f87171', color: '#f87171', flex: 1 }}>
+                                        ✗ Eliminar
+                                    </button>
                                 </div>
                             </>
                         )}
