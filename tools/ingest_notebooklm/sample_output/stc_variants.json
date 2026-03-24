@@ -1,0 +1,122 @@
+{
+  "questions": [
+    {
+      "unit_id": "neuropatias_01",
+      "question_id": "q_stc_v1_anat",
+      "family_id": "fam_stc_pedagogica",
+      "type": "multiple_choice",
+      "content": "Un kinesiólogo evalúa a una paciente con sospecha de Síndrome del Túnel Carpiano (STC) severo. Al examinar la sensibilidad de la mano, nota que la paciente presenta hipoestesia en la cara palmar de los tres primeros dedos y mitad radial del cuarto, pero conserva la sensibilidad intacta en el triángulo palmar de la eminencia tenar. ¿Qué fundamento anatómico justifica este hallazgo clínico y es clave considerar en caso de una eventual liberación quirúrgica del retináculo flexor?",
+      "options": [
+        {
+          "text": "El nervio cutáneo palmar es rama del nervio mediano, pero nace proximal al túnel del carpo y discurre superficial al ligamento transverso.",
+          "isCorrect": true
+        },
+        {
+          "text": "La inervación sensitiva de la eminencia tenar depende de la anastomosis de Martin-Gruber, vehiculizada a través del nervio cubital.",
+          "isCorrect": false
+        },
+        {
+          "text": "El atrapamiento en el STC afecta únicamente las fibras motoras de C8-T1, preservando las fibras sensitivas que transitan por el canal de Guyon.",
+          "isCorrect": false
+        },
+        {
+          "text": "El nervio mediano se bifurca dentro del túnel carpiano, y la rama cutánea tenar siempre transita profunda a los tendones flexores superficiales.",
+          "isCorrect": false
+        }
+      ],
+      "difficulty": 3,
+      "hints": [
+        "Pista 1: Recuerda qué rama del nervio mediano da la sensibilidad al triángulo palmar de la mano.",
+        "Pista 2: Piensa en el recorrido anatómico de las ramas del nervio mediano justo antes de ingresar al túnel carpiano.",
+        "Pista 3: Considera qué estructura neural pasa por encima del ligamento transverso del carpo y, por ende, no se comprime en un STC clásico."
+      ],
+      "rationale": "Esta variante 1 se enfoca estrictamente en el comportamiento anatómico local (retináculo y nervio cutáneo palmar). A diferencia de la variante 2, que evalúa test provocativos de evaluación física, y de la variante 3, que exige razonamiento clínico a nivel segmentario proximal (radiculopatía), esta variante busca que el estudiante comprenda por qué la indemnidad de la eminencia tenar confirma que la lesión es a nivel del túnel y no superior.",
+      "learning_pearl": "El nervio cutáneo palmar nace proximal al túnel del carpo y discurre superficial al ligamento transverso (retináculo flexor), por lo que la sensibilidad del triángulo palmar se preserva en un Síndrome del Túnel Carpiano puro.",
+      "tags": [
+        "stc",
+        "anatomia_clinica",
+        "biomecanica_local"
+      ],
+      "status": "draft"
+    },
+    {
+      "unit_id": "neuropatias_01",
+      "question_id": "q_stc_v2_clinica",
+      "family_id": "fam_stc_pedagogica",
+      "type": "multiple_choice",
+      "content": "Durante la evaluación funcional de un paciente oficinista con dolor y parestesias nocturnas en la mano dominante, se aplican pruebas ortopédicas para confirmar un STC. El kinesiólogo solicita al paciente que mantenga los dorsos de las manos enfrentados con las muñecas en flexión palmar máxima sostenida. Tras 30 segundos, el paciente relata un aumento de los hormigueos, y para aliviarse, realiza instintivamente una sacudida vigorosa de las manos. Adicionalmente, el examinador aplica presión directa sobre el ligamento transverso, reproduciendo la misma clínica. ¿Qué conjunto de pruebas ortopédicas y signos clínicos se describen en este escenario?",
+      "options": [
+        {
+          "text": "Prueba de Tinel, Signo de Froment y Maniobra de distracción.",
+          "isCorrect": false
+        },
+        {
+          "text": "Prueba de Phalen, Signo de Flick (sacudida) y Maniobra de compresión carpiana (Durkan).",
+          "isCorrect": true
+        },
+        {
+          "text": "Prueba de Phalen Invertida, Prueba de discriminación de dos puntos y Signo de Wartenberg.",
+          "isCorrect": false
+        },
+        {
+          "text": "Scratch Collapse Test, Signo de Tinel y Prueba de estrés en pronación sostenida.",
+          "isCorrect": false
+        }
+      ],
+      "difficulty": 2,
+      "hints": [
+        "Pista 1: La flexión máxima sostenida de muñeca que aumenta la presión intraneural corresponde a un test provocativo clásico.",
+        "Pista 2: El paciente instintivamente intenta restablecer el flujo sanguíneo y axoplasmático sacudiendo la mano, lo cual se incluye en la regla de Wainner.",
+        "Pista 3: La presión directa sobre el nervio en la zona del carpo recibe un nombre específico de compresión."
+      ],
+      "rationale": "A diferencia de la variante 1 (puramente anatómica) y la variante 3 (diagnóstico diferencial proximal), esta variante 2 se centra en el núcleo de la evaluación funcional kinesiológica local, abordando los test ortopédicos provocativos (Phalen, compresión) y los signos clínicos compensatorios (Flick) que confirman la mecanosensibilidad del nervio mediano.",
+      "learning_pearl": "La prueba de Phalen y la compresión carpiana aumentan la isquemia y presión intraneural en el STC, mientras que el signo de Flick (sacudida rápida) restablece temporalmente la perfusión venosa neural, aliviando las parestesias nocturnas características.",
+      "tags": [
+        "stc",
+        "evaluacion_funcional",
+        "pruebas_ortopedicas"
+      ],
+      "status": "draft"
+    },
+    {
+      "unit_id": "neuropatias_01",
+      "question_id": "q_stc_v3_ddx",
+      "family_id": "fam_stc_pedagogica",
+      "type": "multiple_choice",
+      "content": "Un paciente de 45 años consulta por parestesias de predominio distal en el brazo derecho. Refiere hormigueos en los dedos pulgar, índice y medio. El kinesiólogo busca establecer un diagnóstico diferencial preciso entre una lesión periférica (Síndrome del Túnel Carpiano) y una radiculopatía cervical C6. ¿Qué hallazgo objetivo en el examen físico neurológico confirmaría que la disfunción corresponde a una radiculopatía C6 y NO a un STC?",
+      "options": [
+        {
+          "text": "Atrofia severa y debilidad aislada en el músculo abductor corto del pulgar (Abductor Pollicis Brevis).",
+          "isCorrect": false
+        },
+        {
+          "text": "Hipoestesia confinada estrictamente a la cara palmar distal de los tres primeros dedos, con reflejos osteotendinosos de miembro superior indemnes.",
+          "isCorrect": false
+        },
+        {
+          "text": "Prueba de Phalen positiva a los 15 segundos y exacerbación de síntomas con posturas en flexión de muñeca.",
+          "isCorrect": false
+        },
+        {
+          "text": "Debilidad concomitante en la flexión y supinación de codo (músculo bíceps y braquiorradial) junto con disminución del reflejo bicipital.",
+          "isCorrect": true
+        }
+      ],
+      "difficulty": 4,
+      "hints": [
+        "Pista 1: El nervio mediano a nivel del carpo está compuesto predominantemente por fibras motoras C8-T1 para los músculos intrínsecos de la mano.",
+        "Pista 2: Una compresión periférica a nivel de la muñeca no puede generar debilidad motora ni alterar reflejos en la musculatura del brazo o antebrazo.",
+        "Pista 3: Considera qué músculos comparten la inervación de la raíz C6 pero pertenecen a distintos nervios periféricos (ej. musculocutáneo, radial)."
+      ],
+      "rationale": "Mientras la variante 1 evalúa la anatomía específica de la muñeca y la variante 2 repasa las pruebas ortopédicas locales, esta variante 3 escala en complejidad hacia el razonamiento clínico avanzado. Obliga al estudiante a diferenciar una compresión distal de una disfunción radicular superior mediante la correcta interpretación de miotomas (bíceps/braquiorradial) y reflejos correspondientes al nivel C6.",
+      "learning_pearl": "El diagnóstico diferencial efectivo exige evaluar músculos inervados por la misma raíz espinal pero por distinto nervio periférico. La debilidad en el bíceps (nervio musculocutáneo) y alteración del reflejo bicipital confirman un compromiso radicular C6, descartando un atrapamiento aislado en el túnel carpiano.",
+      "tags": [
+        "stc",
+        "diagnostico_diferencial",
+        "razonamiento_clinico",
+        "radiculopatia_cervical"
+      ],
+      "status": "draft"
+    }
+  ]
+}
