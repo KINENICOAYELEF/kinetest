@@ -69,7 +69,7 @@ export const UnitExam = () => {
 
         // 4. ADAPTIVE SELECTION with UNIQUE FAMILIES
         const approvedQuestions = allQuestions.filter(q => q.status === 'approved' || q.status === undefined);
-        const selected = selectAdaptiveQuestions(approvedQuestions, mData, 40, true);
+        const selected = selectAdaptiveQuestions(approvedQuestions, mData, 40);
         setQuestions(selected);
         
         // Start Timer

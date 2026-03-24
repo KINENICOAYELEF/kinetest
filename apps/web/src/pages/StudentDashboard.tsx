@@ -111,7 +111,7 @@ export const StudentDashboard = () => {
                             <tr key={tag} style={{ borderBottom: '1px solid rgba(255,255,255,0.05)' }}>
                                 <td style={{ padding: '12px 5px' }}><strong>{tag}</strong></td>
                                 <td style={{ color: 'var(--primary)' }}>{Math.round(data.score * 100)}%</td>
-                                <td>{data.streak} 🔥</td>
+                                <td>{data.repetitions || 0} 🔥</td>
                                 <td style={{ fontSize: '0.8rem' }}>{data.nextDueAt ? new Date(data.nextDueAt).toLocaleDateString() : 'N/A'}</td>
                             </tr>
                         ))}

@@ -50,7 +50,7 @@ export const FridayTests = () => {
 
             // 3. Adaptive selection (40 questions, unique families)
             const approvedQ = allQ.filter(q => q.status === 'approved' || q.status === undefined);
-            const selected = selectAdaptiveQuestions(approvedQ, mData, 40, true);
+            const selected = selectAdaptiveQuestions(approvedQ, mData, 40);
             setQuestions(selected);
 
             // Start Timer
