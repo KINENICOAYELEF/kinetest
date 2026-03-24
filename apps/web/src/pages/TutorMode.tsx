@@ -17,11 +17,13 @@ interface Question {
     content: string;
     options: { text: string; isCorrect: boolean }[];
     rationale: string;
+    learning_pearl?: string;
     difficulty: number;
     tags: string[];
     family_id?: string;
     hints?: string[];
     status?: string;
+    unit_id?: string;
 }
 
 export const TutorMode = () => {
@@ -297,13 +299,24 @@ export const TutorMode = () => {
                         </div>
 
                         {showFeedback && (
-                            <div style={{ marginTop: 32, padding: 24, background: 'rgba(255,255,255,0.02)', borderRadius: 12, border: '1px solid var(--glass-border)' }}>
-                                <h3 style={{ margin: 0, textAlign: 'left', WebkitTextFillColor: 'var(--primary)', fontSize: '1rem', background: 'none' }}>Explicación:</h3>
-                                <p style={{ margin: '12px 0', fontSize: '0.95rem', color: 'var(--text-main)' }}>{currentQuestion.rationale}</p>
-                                <button onClick={nextStep} style={{ background: 'var(--accent)', marginTop: 10 }}>
-                                    Continuar
-                                </button>
+                            <div style={{ marginTop: 25, animation: 'fadeIn 0.5s' }}>
+                            <div style={{ background: 'rgba(255,255,255,0.05)', padding: 20, borderRadius: 16, border: '1px solid var(--glass-border)' }}>
+                                <h4 style={{ color: selectedOption !== null && currentQuestion.options[selectedOption].isCorrect ? 'var(--accent)' : '#f87171', marginBottom: 10 }}>
+                                    {selectedOption !== null && currentQuestion.options[selectedOption].isCorrect ? '¡Excelente Razonamiento!' : 'Oportunidad de Aprendizaje'}
+                                </h4>
+                                <p style={{ fontSize: '0.95rem', lineHeight: 1.6 }}>{currentQuestion.rationale}</p>
+                                
+                                {currentQuestion.learning_pearl && (
+                                    <div style={{ marginTop: 15, padding: 12, background: 'rgba(16, 185, 129, 0.1)', borderRadius: 12, border: '1px dashed var(--accent)', display: 'flex', gap: 10, alignItems: 'center' }}>
+                                        <span style={{ fontSize: '1.2rem' }}>💡</span>
+                                        <p style={{ margin: 0, fontSize: '0.9rem', color: 'var(--accent)', fontWeight: 'bold' }}>
+                                            Perla Clínica: {currentQuestion.learning_pearl}
+                                        </p>
+                                    </div>
+                                )}
                             </div>
+                            <button onClick={nextStep} style={{ marginTop: 20 }}>Continuar</button>
+                        </div>
                         )}
                     </div>
                 </div>

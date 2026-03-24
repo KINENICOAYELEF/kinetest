@@ -28,9 +28,11 @@ Document ID: `{question_id}` (ej: `q_kine_001`)
 | `options` | array[object]| `{ text: string, isCorrect: boolean }` |
 | `difficulty` | number | 1 (f\u00e1cil) a 5 (dif\u00edcil) |
 | `estimated_time_sec`| number | Tiempo estimado de respuesta |
-| `hints` | array[string]| M\u00e1ximo 3 pistas |
-| `rationale` | string | Explicaci\u00f3n de la respuesta correcta |
+| `hints` | array[string]| 3 pistas progresivas (1: Sutil, 2: Conceptual, 3: Directa) |
+| `rationale` | string | Explicación profunda: por qué es correcta y por qué las otras son falsas |
+| `learning_pearl`| string | (Nuevo) "Perla de aprendizaje": resumen de 1 frase del concepto clave |
 | `tags` | array[string]| Etiquetas (habilidad, tema) |
+| `status` | string | `draft` (default), `approved`, `rejected` |
 
 ## 3. Casos Cl\u00ednicos (Case)
 Colecci\u00f3n: `cases`

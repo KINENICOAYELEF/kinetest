@@ -11,6 +11,7 @@ interface Question extends AdaptiveQuestion {
   content: string;
   options: { text: string; isCorrect: boolean }[];
   rationale: string;
+  learning_pearl?: string;
   tags: string[];
   difficulty: number;
   family_id?: string;

@@ -8,6 +8,7 @@ interface Question {
     content: string;
     options: { text: string; isCorrect: boolean }[];
     rationale: string;
+    learning_pearl?: string;
     difficulty: number;
     tags: string[];
     family_id?: string;
@@ -126,6 +127,11 @@ export const AdminContent = () => {
                         
                         <div style={{ marginTop: 15, fontSize: '0.85rem', color: 'var(--text-muted)', background: 'rgba(0,0,0,0.2)', padding: 12, borderRadius: 8 }}>
                             <strong>Racional:</strong> {q.rationale || 'Sin justificación provista.'}
+                            {q.learning_pearl && (
+                                <div style={{ marginTop: 8, color: 'var(--accent)', fontWeight: 'bold' }}>
+                                    💡 Perla: {q.learning_pearl}
+                                </div>
+                            )}
                         </div>
 
                         <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>

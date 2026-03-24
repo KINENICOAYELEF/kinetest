@@ -10,6 +10,7 @@ interface Question {
   content: string;
   options: { text: string; isCorrect: boolean }[];
   rationale: string;
+  learning_pearl?: string;
   difficulty: number;
   tags: string[];
   family_id?: string;

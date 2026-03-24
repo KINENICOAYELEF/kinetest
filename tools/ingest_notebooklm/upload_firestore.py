@@ -26,7 +26,12 @@ def upload_collection(db, collection_name, items, id_field):
     print(f"  Successfully uploaded {count} documents to {collection_name}")
 
 if __name__ == "__main__":
+    import sys
+    
     input_file = "/Users/nicoayelefparraguez/Downloads/app preguntas/tools/ingest_notebooklm/sample_output/normalized_bank.json"
+    if len(sys.argv) > 1:
+        input_file = sys.argv[1]
+        
     cert_file = "/Users/nicoayelefparraguez/Downloads/kinetest-9e4c1-firebase-adminsdk-fbsvc-655c29307c.json"
     
     if not os.path.exists(input_file):

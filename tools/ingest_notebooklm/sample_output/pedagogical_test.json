@@ -1,0 +1,82 @@
+{
+  "questions": [
+    {
+      "unit_id": "neuropatias_01",
+      "question_id": "q_neuro_001",
+      "type": "multiple_choice",
+      "content": "Acude a consulta kinesiológica una paciente de 45 años refiriendo parestesias de predominio nocturno en los primeros tres dedos de la mano derecha. En la evaluación sensitiva, usted detecta hipoestesia en el pulpejo de los dedos 1, 2 y 3, pero la sensibilidad en el triángulo palmar (eminencia tenar proximal) está completamente indemne. ¿Cuál es el razonamiento clínico anatómico que justifica este hallazgo sensitivo específico?",
+      "options": [
+        {
+          "text": "La lesión se ubica a nivel de la raíz nerviosa C6 (radiculopatía), la cual clásicamente no compromete la sensibilidad del triángulo palmar debido a la superposición de dermatomas.",
+          "isCorrect": false
+        },
+        {
+          "text": "El cuadro corresponde a un Síndrome del Pronador, donde el nervio mediano se comprime a nivel del codo, preservando selectivamente las fibras cutáneas superficiales de la mano.",
+          "isCorrect": false
+        },
+        {
+          "text": "La compresión se localiza en el túnel del carpo, un espacio inextensible que es distal al punto de emergencia del nervio cutáneo palmar, el cual viaja superficial al retináculo flexor.",
+          "isCorrect": true
+        },
+        {
+          "text": "El paciente presenta una lesión del nervio interóseo anterior (Síndrome de Kiloh-Nevin), el cual posee fibras mixtas que preservan la sensibilidad proximal de la palma.",
+          "isCorrect": false
+        }
+      ],
+      "difficulty": 4,
+      "hints": [
+        "Pista 1: Recuerda la distribución anatómica exacta de las ramas del nervio mediano justo antes de ingresar a la muñeca.",
+        "Pista 2: La preservación del triángulo palmar es clave para diferenciar un atrapamiento distal de uno proximal.",
+        "Pista 3: Un síndrome del pronador tendría predominio diurno y afectaría la sensibilidad de la eminencia tenar."
+      ],
+      "rationale": "La preservación de la sensibilidad en el triángulo palmar es un hallazgo patognomónico del Síndrome del Túnel Carpiano (STC). El nervio cutáneo palmar, rama del nervio mediano, se bifurca y emerge antes de que el nervio ingrese al túnel del carpo, por lo que viaja por fuera del ligamento transverso inextensible y no sufre compresión. Una radiculopatía C6 afectaría la sensibilidad de forma más difusa abarcando el antebrazo, mientras que el Síndrome del Pronador (atrapamiento en el codo) compromete toda la inervación distal, incluyendo la eminencia tenar, y tiene un patrón de predominio diurno dependiente de la actividad.",
+      "learning_pearl": "La indemnidad sensitiva del triángulo palmar permite diferenciar un Síndrome del Túnel Carpiano de un atrapamiento proximal del nervio mediano (como el Síndrome del Pronador).",
+      "tags": [
+        "neuropatia",
+        "mano",
+        "diagnostico_diferencial",
+        "nervio_mediano"
+      ],
+      "status": "draft"
+    },
+    {
+      "unit_id": "neuropatias_01",
+      "question_id": "q_neuro_002",
+      "type": "multiple_choice",
+      "content": "Un paciente acude a rehabilitación con parestesias en los dedos anular y meñique, acompañadas de debilidad en la musculatura intrínseca de la mano. Al análisis biomecánico de la postura, usted observa una 'garra cubital', pero nota que es clínicamente muy leve. Considerando la neurofisiología de la lesión nerviosa, ¿por qué la garra cubital es MENOS pronunciada en un atrapamiento proximal (Túnel Cubital en el codo) en comparación con un atrapamiento distal (Canal de Guyón en la muñeca)?",
+      "options": [
+        {
+          "text": "En una compresión proximal, el extensor de los dedos (inervado por el nervio radial) se inhibe por mecanismos de retroalimentación, evitando la hiperextensión compensatoria de las metacarpofalángicas.",
+          "isCorrect": false
+        },
+        {
+          "text": "En el atrapamiento proximal, se pierde también la inervación motora sobre el flexor profundo de los dedos (4º y 5º), por lo que desaparece la tracción flexora sobre las falanges distales que acentúa la garra.",
+          "isCorrect": true
+        },
+        {
+          "text": "En una lesión distal en el Canal de Guyón, el músculo palmar corto se hiperactiva, generando mayor tensión sobre el retináculo flexor y traccionando los dedos hacia la garra.",
+          "isCorrect": false
+        },
+        {
+          "text": "Las compresiones proximales afectan de forma exclusiva a las fibras sensitivas (C8-T1), por lo que los desequilibrios motores de la mano sólo aparecen cuando el nervio se atrapa a nivel de la muñeca.",
+          "isCorrect": false
+        }
+      ],
+      "difficulty": 5,
+      "hints": [
+        "Pista 1: Analiza qué músculos se inervan en el antebrazo antes de llegar al Canal de Guyón.",
+        "Pista 2: La garra ocurre por la tracción sin oposición del extensor de los dedos y el flexor profundo de los dedos cuando los lumbricales fallan.",
+        "Pista 3: Si el nervio se lesiona en el codo, tanto los lumbricales como el flexor profundo pierden su inervación."
+      ],
+      "rationale": "La 'garra cubital' se produce biomecánicamente por el desequilibrio entre la musculatura extrínseca e intrínseca. Si la lesión es distal (Canal de Guyón), los lumbricales se paralizan; sin su oposición, el extensor de los dedos lleva la articulación metacarpofalángica a extensión, y el flexor profundo de los dedos (que está indemne al haber sido inervado proximal a la muñeca) tracciona pasivamente las falanges distales hacia la flexión, acentuando la garra. Sin embargo, en un atrapamiento proximal (Túnel Cubital), el nervio pierde también la capacidad de conducir hacia el flexor profundo de los dedos 4 y 5 en el antebrazo; al no haber tracción flexora distal, la garra es clínicamente mucho menos marcada (lo que se conoce como la paradoja cubital).",
+      "learning_pearl": "Una lesión proximal del nervio cubital produce una garra menos severa que una lesión distal debido a la parálisis concurrente del flexor profundo de los dedos 4 y 5.",
+      "tags": [
+        "neuropatia",
+        "biomecanica",
+        "nervio_cubital",
+        "razonamiento_clinico"
+      ],
+      "status": "draft"
+    }
+  ]
+}
