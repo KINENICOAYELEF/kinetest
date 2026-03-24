@@ -42,7 +42,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
             setCurrentUser(user);
             if (user) {
-                const isSuperAdmin = user.email === 'nicolas.ayelef@gmail.com';
+                const isSuperAdmin = user.email?.toLowerCase() === 'nicolas.ayelef@gmail.com';
                 
                 const userDocRef = doc(db, 'users', user.uid);
                 const userDoc = await getDoc(userDocRef);

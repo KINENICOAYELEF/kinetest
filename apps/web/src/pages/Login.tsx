@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import { useNavigate, Link } from 'react-router-dom';
 import { auth } from '../lib/firebase';
@@ -10,6 +10,19 @@ export const Login = () => {
     const [error, setError] = useState('');
     const navigate = useNavigate();
     const { userProfile, loginWithGoogle } = useAuth();
+
+    // Auto-redirect when profile is loaded
+    useEffect(() => {
+        if (userProfile) {
+            if (userProfile.role === 'admin') {
+                navigate('/admin');
+            } else if (userProfile.role === 'pending') {
+                navigate('/pending');
+            } else {
+                navigate('/home');
+            }
+        }
+    }, [userProfile, navigate]);
 
     const handleGoogleLogin = async () => {
         try {
@@ -23,13 +36,6 @@ export const Login = () => {
         e.preventDefault();
         try {
             await signInWithEmailAndPassword(auth, email, password);
-            if (userProfile?.role === 'admin') {
-                navigate('/admin');
-            } else if (userProfile?.role === 'pending') {
-                navigate('/pending');
-            } else {
-                navigate('/home');
-            }
         } catch (err: any) {
             setError(err.message || 'Error al iniciar sesi\u00f3n');
         }
