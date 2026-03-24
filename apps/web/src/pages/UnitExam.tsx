@@ -14,6 +14,7 @@ interface Question {
   tags: string[];
   family_id?: string;
   difficulty: number;
+  status?: string;
 }
 
 export const UnitExam = () => {
@@ -66,7 +67,8 @@ export const UnitExam = () => {
         }
 
         // 4. ADAPTIVE SELECTION with UNIQUE FAMILIES
-        const selected = selectAdaptiveQuestions(allQuestions, mData, 40, true);
+        const approvedQuestions = allQuestions.filter(q => q.status === 'approved' || q.status === undefined);
+        const selected = selectAdaptiveQuestions(approvedQuestions, mData, 40, true);
         setQuestions(selected);
         
         // Start Timer

@@ -13,6 +13,7 @@ interface Question {
   difficulty: number;
   tags: string[];
   family_id?: string;
+  status?: string;
 }
 
 export const PracticeSession = () => {
@@ -61,7 +62,8 @@ export const PracticeSession = () => {
         })) as Question[];
 
         // 4. ADAPTIVE SELECTION
-        const selected = selectAdaptiveQuestions(allQuestions, mData, 20);
+        const approvedQuestions = allQuestions.filter(q => q.status === 'approved' || q.status === undefined);
+        const selected = selectAdaptiveQuestions(approvedQuestions, mData, 20);
         setQuestions(selected);
         
         setStartTime(Date.now());

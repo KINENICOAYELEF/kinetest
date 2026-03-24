@@ -14,6 +14,7 @@ interface Question extends AdaptiveQuestion {
   tags: string[];
   difficulty: number;
   family_id?: string;
+  status?: string;
 }
 
 export const FridayTests = () => {
@@ -47,7 +48,8 @@ export const FridayTests = () => {
             const allQ = qSnap.docs.map(d => ({ question_id: d.id, ...d.data() } as Question));
 
             // 3. Adaptive selection (40 questions, unique families)
-            const selected = selectAdaptiveQuestions(allQ, mData, 40, true);
+            const approvedQ = allQ.filter(q => q.status === 'approved' || q.status === undefined);
+            const selected = selectAdaptiveQuestions(approvedQ, mData, 40, true);
             setQuestions(selected);
 
             // Start Timer

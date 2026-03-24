@@ -63,7 +63,12 @@ if __name__ == "__main__":
                     if card_id:
                         db.collection("units").document(unit_id).collection("tutor_cards").document(card_id).set(card)
 
-        upload_collection(db, "questions", data.get("questions", []), "question_id")
+        questions_to_upload = data.get("questions", [])
+        for q in questions_to_upload:
+            if "status" not in q:
+                q["status"] = "draft"
+        
+        upload_collection(db, "questions", questions_to_upload, "question_id")
         upload_collection(db, "cases", data.get("cases", []), "case_id")
         
         print("\nAll uploads completed successfully!")

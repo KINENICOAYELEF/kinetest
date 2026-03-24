@@ -1,9 +1,9 @@
 import { createContext, useContext, useEffect, useState } from 'react';
-import { User, onAuthStateChanged } from 'firebase/auth';
+import { User, onAuthStateChanged, GoogleAuthProvider, signInWithPopup } from 'firebase/auth';
 import { doc, getDoc, setDoc } from 'firebase/firestore';
 import { auth, db } from '../lib/firebase';
 
-export type Role = 'admin' | 'student';
+export type Role = 'admin' | 'student' | 'pending';
 
 export interface UserProfile {
     uid: string;
@@ -16,12 +16,14 @@ interface AuthContextType {
     currentUser: User | null;
     userProfile: UserProfile | null;
     loading: boolean;
+    loginWithGoogle: () => Promise<any>;
 }
 
 const AuthContext = createContext<AuthContextType>({
     currentUser: null,
     userProfile: null,
     loading: true,
+    loginWithGoogle: async () => {},
 });
 
 export const useAuth = () => useContext(AuthContext);
@@ -31,12 +33,16 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const [userProfile, setUserProfile] = useState<UserProfile | null>(null);
     const [loading, setLoading] = useState(true);
 
+    const loginWithGoogle = async () => {
+        const provider = new GoogleAuthProvider();
+        return signInWithPopup(auth, provider);
+    };
+
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, async (user) => {
             setCurrentUser(user);
             if (user) {
-                // Admin UID from env or fixed for this project
-                const ADMIN_UID = import.meta.env.VITE_ADMIN_UID || 'P3jG9xL2...'; // Fallback logic
+                const isSuperAdmin = user.email === 'nicolas.ayelef@gmail.com';
                 
                 const userDocRef = doc(db, 'users', user.uid);
                 const userDoc = await getDoc(userDocRef);
@@ -46,7 +52,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                 if (userDoc.exists()) {
                     profile = userDoc.data() as UserProfile;
                     // Force admin role if UID matches, even if Firestore says otherwise (for recovery)
-                    if (user.uid === ADMIN_UID && profile.role !== 'admin') {
+                    if (isSuperAdmin && profile.role !== 'admin') {
                         profile.role = 'admin';
                         await setDoc(userDocRef, { role: 'admin' }, { merge: true });
                     }
@@ -55,7 +61,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
                     profile = {
                         uid: user.uid,
                         email: user.email,
-                        role: user.uid === ADMIN_UID ? 'admin' : 'student',
+                        role: isSuperAdmin ? 'admin' : 'pending',
                     };
                     await setDoc(userDocRef, profile);
                 }
@@ -70,7 +76,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     }, []);
 
     return (
-        <AuthContext.Provider value={{ currentUser, userProfile, loading }}>
+        <AuthContext.Provider value={{ currentUser, userProfile, loading, loginWithGoogle }}>
             {!loading && children}
         </AuthContext.Provider>
     );

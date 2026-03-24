@@ -15,6 +15,9 @@ export const ProtectedRoute = ({ allowedRole }: ProtectedRouteProps) => {
     }
 
     if (allowedRole && userProfile?.role !== allowedRole) {
+        if (userProfile?.role === 'pending') {
+            return <Navigate to="/pending" replace />;
+        }
         return <Navigate to={userProfile?.role === 'admin' ? '/admin' : '/home'} replace />;
     }
 

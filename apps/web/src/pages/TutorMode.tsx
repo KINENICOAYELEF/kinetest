@@ -21,6 +21,7 @@ interface Question {
     tags: string[];
     family_id?: string;
     hints?: string[];
+    status?: string;
 }
 
 export const TutorMode = () => {
@@ -71,9 +72,11 @@ export const TutorMode = () => {
                 const cards = cardsSnap.docs.map(d => ({ id: d.id, ...d.data() } as TutorCard));
                 setTutorCards(cards);
 
-                // 4. Questions
+                // 4. Questions (Filter only approved)
                 const qSnap = await getDocs(query(collection(db, 'questions'), where('unit_id', '==', unitId)));
-                const questions = qSnap.docs.map(d => ({ question_id: d.id, ...d.data() } as Question));
+                const questions = qSnap.docs
+                    .map(d => ({ question_id: d.id, ...d.data() } as Question))
+                    .filter(q => q.status === 'approved' || q.status === undefined); // undefined fallback for old data
                 setAllQuestions(questions);
 
             } catch (e) {
