@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "question_id": "sdpf_diff_instability",
+      "family_id": "diff_diagnosis_sdpf",
+      "content": "Un paciente joven presenta aprehensión al intentar desplazar la patela hacia lateral de forma manual, y refiere que la rodilla 'se le sale' en giros bruscos. No hay dolor sordo retro-rotuliano típico. ¿Qué diferencia este cuadro del SDPF?",
+      "options": [
+        { "text": "Inestabilidad Patelofemoral (Subluxación/Luxación), que requiere enfoque en estabilizadores pasivos y activos específicos.", "isCorrect": true },
+        { "text": "Es simplemente un SDPF de grado severo.", "isCorrect": false },
+        { "text": "Rotura del ligamento cruzado posterior.", "isCorrect": false },
+        { "text": "Artritis séptica de rodilla.", "isCorrect": false }
+      ],
+      "rationale": "La inestabilidad (aprehensión lateral) es una patología estructural distinta al SDPF. El SDPF es un síndrome de sobrecarga articular, mientras que la la inestabilidad implica fallo del MPFL o tróclea plana.",
+      "learning_pearl": "El SDPF duele pero es estable; la inestabilidad puede no doler tanto pero 'se sale'.",
+      "hints": ["La prueba de aprehensión es positiva.", "El síntoma principal es el miedo a que la rótula se mueva.", "Diferencia sobrecarga de inestabilidad."],
+      "difficulty": 4,
+      "tags": ["Diferencial", "Instabilidad", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_biomech_tilt",
+      "family_id": "biomech_mods_sdpf",
+      "content": "Al observar un 'Patellar Tilt' lateral excesivo en reposo y movimiento, sospechas de una tensión excesiva del retináculo lateral. ¿Qué ejercicio de cadena cinética cerrada tiene mayor impacto en normalizar dinámicamente este alineamiento?",
+      "options": [
+        { "text": "Fortalecimiento de los rotadores externos de cadera (Glúteo Mayor) para controlar la rotación femoral.", "isCorrect": true },
+        { "text": "Estiramiento pasivo del ligamento colateral medial.", "isCorrect": false },
+        { "text": "Extensiones de rodilla en máquina (Leg Extension) con mucho peso.", "isCorrect": false },
+        { "text": "Ejercicios de equilibrio en una sola pierna sin calzado.", "isCorrect": false }
+      ],
+      "rationale": "El 'tilt' lateral dinámico a menudo es una rotación interna del fémur por debajo de la patela. Al fortalecer los rotadores externos, 'enderezamos' el fémur y mejoramos el tracking patelar.",
+      "learning_pearl": "A veces la patela no es la que se mueve, sino el fémur que gira por debajo de ella.",
+      "hints": ["Considera el fémur como la base de la patela.", "¿Qué músculo evita que el fémur colapse hacia adentro?", "Visión proximal del problema."],
+      "difficulty": 4,
+      "tags": ["Biomecánica", "Cadera", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_neuro_catast",
+      "family_id": "neuroscience_sdpf",
+      "content": "Un paciente con SDPF afirma: 'Si me duele la rodilla al caminar, es porque el hueso se está moliendo cada vez más'. Este pensamiento se conoce como catastrofismo. ¿Qué impacto real tiene esto en su recuperación?",
+      "options": [
+        { "text": "Aumenta la sensibilización del sistema nervioso y disminuye el umbral del dolor (duele más con menos estímulo).", "isCorrect": true },
+        { "text": "No tiene impacto, el dolor es solo biológico y depende del cartílago.", "isCorrect": false },
+        { "text": "Acelera la cicatrización del cartílago por estrés emocional.", "isCorrect": false },
+        { "text": "Indica que el paciente es más inteligente y precavido.", "isCorrect": false }
+      ],
+      "rationale": "El catastrofismo es un potente modulador 'top-down' que amplifica la señal de dolor en el cerebro, manteniendo al paciente en un círculo de miedo y evitación.",
+      "learning_pearl": "Cambiar la narrativa del paciente es tan importante como fortalecer su glúteo.",
+      "hints": ["Relación mente-cuerpo en dolor crónico.", "¿Qué pasa con la alarma si siempre pensamos en desastre?", "Modulación central del dolor."],
+      "difficulty": 3,
+      "tags": ["Neurociencia", "Psicosocial", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_prog_stairs",
+      "family_id": "progression_sdpf",
+      "content": "¿Por qué bajar escaleras suele ser más doloroso que subirlas para un paciente con SDPF?",
+      "options": [
+        { "text": "La contracción excéntrica del cuádriceps genera mayores fuerzas de compresión patelofemoral.", "isCorrect": true },
+        { "text": "Al bajar, la rótula se sale de su surco de forma natural.", "isCorrect": false },
+        { "text": "Los ligamentos cruzados se tensan más al bajar.", "isCorrect": false },
+        { "text": "La gravedad empuja el líquido articular hacia arriba.", "isCorrect": false }
+      ],
+      "rationale": "Durante el descenso, el cuádriceps debe controlar la caída de forma excéntrica, lo que requiere una tensión masiva que 'aplasta' la patela contra el fémur de forma más intensa que al subir.",
+      "learning_pearl": "El control excéntrico es el desafío final para una rodilla con SDPF.",
+      "hints": ["Tipo de contracción involucrada.", "Vector de fuerza generado contra el fémur.", "Considera la demanda mecánica del descenso."],
+      "difficulty": 3,
+      "tags": ["Fisiopatología", "Funcionalidad", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_bracing_vs_tape",
+      "family_id": "adjunct_sdpf",
+      "content": "Un paciente te pregunta si es mejor usar una rodillera con 'agujero para el centro' o taping de McConnell. Según la literatura analizada, ¿cuál es el consejo clínico?",
+      "options": [
+        { "text": "Ambos tienen efectos similares y temporales; elige el que le dé más confianza al paciente para moverse.", "isCorrect": true },
+        { "text": "La rodillera es obligatoria para curar el cartílago.", "isCorrect": false },
+        { "text": "El taping es superior porque corrige la anatomía ósea.", "isCorrect": false },
+        { "text": "Ninguno sirve y están prohibidos.", "isCorrect": false }
+      ],
+      "rationale": "La evidencia muestra que tanto el brace como el tape actúan de forma similar, principalmente mediante propiocepción y reducción subjetiva del dolor.",
+      "learning_pearl": "Elige la herramienta que permita al paciente hacer sus ejercicios sin miedo.",
+      "hints": ["Efectividad comparada de órtesis.", "¿Qué buscamos con estos implementos?", "Foco en la adherencia al ejercicio."],
+      "difficulty": 3,
+      "tags": ["Adjuntos", "Tratamiento", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_orthotics_foot",
+      "family_id": "adjunct_sdpf",
+      "content": "¿En qué perfil de paciente con SDPF tiene mayor sentido recomendar el uso de plantillas (ortesis de pie)?",
+      "options": [
+        { "text": "Pacientes con pie excesivamente pronado que reportan alivio inmediato al testeat la plantilla en clínica.", "isCorrect": true },
+        { "text": "En todos los pacientes con SDPF de forma preventiva.", "isCorrect": false },
+        { "text": "Solo en pacientes con debilidad de cuádriceps.", "isCorrect": false },
+        { "text": "En pacientes que solo tienen dolor al estar sentados.", "isCorrect": false }
+      ],
+      "rationale": "Las plantillas no son para todos; son más efectivas en aquellos con biomecánica de pie alterada que muestran una respuesta sintomática positiva inmediata.",
+      "learning_pearl": "Las plantillas son un 'ajuste' de la entrada sensorial, no una cura mágica universal.",
+      "hints": ["No generalices el uso de órtesis.", "Prueba de alivio inmediato.", "Relación pie-rodilla específica."],
+      "difficulty": 4,
+      "tags": ["Adjuntos", "Pie", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_metrics_strength",
+      "family_id": "outcomes_sdpf",
+      "content": "Para dar el alta a un deportista con SDPF, además de no tener dolor, ¿qué medida objetiva es vital según los estándares de rehabilitación funcional?",
+      "options": [
+        { "text": "Simetría de fuerza de cuádriceps superior al 90% respecto a la pierna sana (LSI).", "isCorrect": true },
+        { "text": "Que pueda tocarse la punta de los pies sin doblar las rodillas.", "isCorrect": false },
+        { "text": "Que la rótula se mueva libremente al tacto.", "isCorrect": false },
+        { "text": "Que el paciente se sienta 'bien' subjetivamente.", "isCorrect": false }
+      ],
+      "rationale": "La debilidad persistente del cuádriceps es un factor de riesgo de recurrencia. La simetría de fuerza es una métrica de seguridad clave.",
+      "learning_pearl": "Sin un cuádriceps fuerte (simétrico), el riesgo de recaída es alto.",
+      "hints": ["Busca una medida medible y comparable.", "¿Qué músculo protege la articulación?", "LSI (Limb Symmetry Index)."],
+      "difficulty": 4,
+      "tags": ["Evaluación", "Retorno", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_recurrence_edu",
+      "family_id": "outcomes_sdpf",
+      "content": "El SDPF tiene una alta tasa de recurrencia (vuelve a doler). ¿Cuál es la mejor estrategia para prevenir esto a largo plazo?",
+      "options": [
+        { "text": "Continuar con un programa de mantenimiento de fuerza y educación en gestión de carga autónoma.", "isCorrect": true },
+        { "text": "Usar siempre cintas de kinesiología para realizar deporte.", "isCorrect": false },
+        { "text": "Evitar cualquier actividad que haya causado dolor en el pasado.", "isCorrect": false },
+        { "text": "Tomar antiinflamatorios antes de cada entrenamiento.", "isCorrect": false }
+      ],
+      "rationale": "La educación empodera al paciente para ajustar sus cargas y mantener la capacidad de sus tejidos, evitando los picos de estrés homeostático que causan el dolor.",
+      "learning_pearl": "La rehabilitación termina cuando el paciente es su propio kinesiólogo.",
+      "hints": ["Foco en la autonomía del paciente.", "¿Cómo mantenemos lo ganado?", "Capacidad de carga vs Demanda."],
+      "difficulty": 3,
+      "tags": ["Manejo", "Educación", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    }
+  ]
+}

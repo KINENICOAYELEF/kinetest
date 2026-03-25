@@ -186,14 +186,14 @@ export const AdminContent = () => {
                                         style={{ background: 'rgba(0,0,0,0.2)', color: 'white', border: '1px solid var(--glass-border)', padding: 10, borderRadius: 8 }}
                                     />
                                 ))}
-
-                                <label style={{ fontSize: '0.8rem', color: 'var(--accent)' }}>Racional (Explicación)</label>
-                                <textarea 
-                                    value={editForm.rationale} 
-                                    onChange={e => setEditForm({...editForm, rationale: e.target.value})}
-                                    style={{ background: 'rgba(0,0,0,0.2)', color: 'white', border: '1px solid var(--glass-border)', padding: 12, borderRadius: 8, minHeight: 80 }}
-                                />
-
+                                <div className="form-group" style={{ marginBottom: 20 }}>
+                                    <label style={{ display: 'block', marginBottom: 8, fontSize: '0.9rem', color: 'var(--primary)' }}>Justificación Clínica (Interpretación)</label>
+                                    <textarea 
+                                        value={editForm.rationale}
+                                        onChange={(e) => setEditForm({ ...editForm, rationale: e.target.value })}
+                                        style={{ width: '100%', minHeight: 100, background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)', borderRadius: 8, padding: 12, color: 'white', fontSize: '0.95rem' }}
+                                    />
+                                </div>
                                 <label style={{ fontSize: '0.8rem', color: 'var(--accent)' }}>Perla Clínica</label>
                                 <input 
                                     value={editForm.learning_pearl || ''} 
@@ -243,7 +243,7 @@ export const AdminContent = () => {
                                 )}
                                 
                                 <div style={{ marginTop: 15, fontSize: '0.85rem', color: 'var(--text-muted)', background: 'rgba(0,0,0,0.2)', padding: 12, borderRadius: 8 }}>
-                                    <strong>Racional:</strong> {q.rationale || 'Sin justificación provista.'}
+                                    <strong>Justificación Clínica:</strong> {q.rationale || 'Sin justificación provista.'}
                                     {q.learning_pearl && (
                                         <div style={{ marginTop: 8, color: 'var(--accent)', fontWeight: 'bold' }}>
                                             💡 Perla: {q.learning_pearl}

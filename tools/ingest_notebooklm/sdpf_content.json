@@ -1,0 +1,143 @@
+{
+  "units": [
+    {
+      "unit_id": "sdpf",
+      "title": "Síndrome de Dolor Patelofemoral",
+      "description": "Explora la biomecánica, evaluación y manejo clínico del SDPF basado en la evidencia del TFG."
+    }
+  ],
+  "questions": [
+    {
+      "question_id": "sdpf_hip_bio",
+      "family_id": "hip_superiority_sdpf",
+      "content": "Un paciente de 25 años con dolor peripatular al subir escaleras inicia rehabilitación. Según la evidencia actual del TFG analizado, ¿por qué se prioriza el fortalecimiento de los abductores y rotadores externos de cadera sobre el cuádriceps aislado en las fases iniciales?",
+      "options": [
+        { "text": "Porque reducen el momento de valgo dinámico y la presión en la faceta lateral de la patela.", "isCorrect": true },
+        { "text": "Porque el cuádriceps está contraindicado en presencia de dolor patelofemoral.", "isCorrect": false },
+        { "text": "Porque la cadera responde más rápido a la hipertrofia que la rodilla.", "isCorrect": false },
+        { "text": "Porque el dolor patelofemoral es primariamente una patología de la articulación coxofemoral.", "isCorrect": false }
+      ],
+      "rationale": "El fortalecimiento de cadera controla el fémur en el plano frontal y transverso, evitando el colapso medial que aumenta el estrés en la articulación patelofemoral.",
+      "learning_pearl": "El control 'proximal' (cadera) es clave para reducir el estrés 'local' (rodilla) en el SDPF.",
+      "hints": [
+        "Piensa en el valgo dinámico.",
+        "Considera el vector de fuerza sobre la faceta lateral.",
+        "El control del fémur es más eficiente desde la cadera."
+      ],
+      "difficulty": 3,
+      "tags": ["Biomecánica", "Cadera", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_hip_clin",
+      "family_id": "hip_superiority_sdpf",
+      "content": "Durante la evaluación de un corredor con SDPF, observas un signo de Trendelenburg leve y caída de la pelvis contralateral durante el apoyo monopodal. ¿Cuál es la implicancia clínica de este hallazgo para el dolor de rodilla?",
+      "options": [
+        { "text": "Aumento de la carga lateral en la articulación patelofemoral debido a la aducción femoral compensatoria.", "isCorrect": true },
+        { "text": "Debilidad primaria del vasto medial oblicuo (VMO).", "isCorrect": false },
+        { "text": "Inestabilidad de los ligamentos colaterales de la rodilla.", "isCorrect": false },
+        { "text": "Necesidad inmediata de ortesis plantares para corregir la pronación.", "isCorrect": false }
+      ],
+      "rationale": "La debilidad de los abductores de cadera provoca una aducción femoral relativa, lo que desplaza el vector de la fuerza patelofemoral hacia lateral.",
+      "learning_pearl": "La 'caída pélvica' en apoyo monopodal es un predictor clínico de aumento de presión patelofemoral.",
+      "hints": [
+        "Relaciona la pelvis con la posición del fémur.",
+        "¿Hacia dónde se va el fémur si la pelvis cae?",
+        "Busca la relación con el estrés lateral."
+      ],
+      "difficulty": 3,
+      "tags": ["Clínica", "Evaluación", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_hip_treat",
+      "family_id": "hip_superiority_sdpf",
+      "content": "En un protocolo de ejercicios para SDPF, se decide implementar un programa de 8 semanas enfocado en glúteo medio y mayor. ¿Qué resultado funcional se espera según las revisiones sistemáticas citadas en el TFG?",
+      "options": [
+        { "text": "Disminución del dolor y mejora funcional superior al fortalecimiento de rodilla solo.", "isCorrect": true },
+        { "text": "Desaparición total de la crepitación rotuliana.", "isCorrect": false },
+        { "text": "Aumento del espacio articular femorrotuliano visible en radiografía.", "isCorrect": false },
+        { "text": "Eliminación de la necesidad de educación al paciente.", "isCorrect": false }
+      ],
+      "rationale": "La combinación de cadera y rodilla, o cadera sola, muestra mejores resultados en dolor y función que el cuádriceps aislado en el SDPF.",
+      "learning_pearl": "Fortalecer la cadera no solo mejora la biomecánica, sino que reduce el dolor de forma más efectiva que solo tratar la rodilla.",
+      "hints": [
+        "Compara los grupos de tratamiento habituales.",
+        "La función depende del control motor multiarticular.",
+        "El TFG destaca la superioridad funcional del enfoque proximal."
+      ],
+      "difficulty": 2,
+      "tags": ["Tratamiento", "Ejercicio", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_edu_load",
+      "family_id": "load_management_sdpf",
+      "content": "Un paciente con SDPF pregunta si debe dejar de correr por completo debido al dolor. Según los principios de gestión de carga y educación, ¿cuál es la recomendación más adecuada?",
+      "options": [
+        { "text": "Mantener actividad dentro de un umbral de dolor tolerable (VAS < 3) que se recupere en 24 horas.", "isCorrect": true },
+        { "text": "Reposo absoluto hasta que el dolor desaparezca por completo.", "isCorrect": false },
+        { "text": "Correr solo si usa rodilleras compresivas de alta gama.", "isCorrect": false },
+        { "text": "Evitar cualquier actividad que genere cualquier nivel de molestia.", "isCorrect": false }
+      ],
+      "rationale": "La educación moderna promueve el 'Active Loading' y el reposo relativo, evitando la kinesiofobia y manteniendo la capacidad de carga del tejido.",
+      "learning_pearl": "El reposo absoluto es contraproducente; la clave es la dosificación óptima de la carga.",
+      "hints": [
+        "Evita el catastrofismo.",
+        "Busca un semáforo de dolor.",
+        "La recuperación en 24h es un indicador de tolerancia."
+      ],
+      "difficulty": 3,
+      "tags": ["Educación", "Manejo", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_edu_myth",
+      "family_id": "load_management_sdpf",
+      "content": "Al explicar la fisiopatología del SDPF a un paciente, éste menciona que leyó que su rodilla está 'desgastada'. ¿Cómo debe abordar el kinesiólogo esta creencia según el TFG?",
+      "options": [
+        { "text": "Desmitificar el desgaste y explicar que el dolor es un problema de gestión de carga y sensibilidad tisular.", "isCorrect": true },
+        { "text": "Confirmar que efectivamente hay un desgaste y que debe operarse.", "isCorrect": false },
+        { "text": "Decirle que no lea cosas en internet pero no explicar la causa real.", "isCorrect": false },
+        { "text": "Sugerir inyecciones de colágeno para 'rellenar' el supuesto desgaste.", "isCorrect": false }
+      ],
+      "rationale": "La educación en neurociencia del dolor y el modelo de estrés tisular ayudan a reducir el miedo al movimiento (kinesiofobia).",
+      "learning_pearl": "En SDPF, el dolor no es igual a daño estructural severo, sino a una baja tolerancia a la carga.",
+      "hints": [
+        "El lenguaje crea realidad en el paciente.",
+        "Enfócate en la resiliencia del tejido.",
+        "La educación es el primer paso del tratamiento."
+      ],
+      "difficulty": 3,
+      "tags": ["Comunicación", "Educación", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_load_dye",
+      "family_id": "load_management_sdpf",
+      "content": "Un deportista presenta irritación patelofemoral después de aumentar su volumen de entrenamiento de 20km a 50km semanales en 7 días. ¿Cuál es el concepto técnico que explica esta lesión según el modelo de Dye?",
+      "options": [
+        { "text": "Superación de la 'Envolvente de Función' (Envelope of Function) y fallo en la homeostasis tisular.", "isCorrect": true },
+        { "text": "Inflamación aguda del ligamento cruzado anterior.", "isCorrect": false },
+        { "text": "Desalineación ósea irreversible de la tróclea femoral.", "isCorrect": false },
+        { "text": "Sobrecrecimiento de tejido sinovial por exceso de fricción.", "isCorrect": false }
+      ],
+      "rationale": "El modelo de Dye explica que el tejido tiene una ventana de carga segura; salir de ella bruscamente rompe la homeostasis y genera dolor.",
+      "learning_pearl": "Menos es más: respeta la tasa de adaptación del tejido progresivamente.",
+      "hints": [
+        "Scott Dye propuso un término muy específico.",
+        "No es un daño macroscópico, sino homeostático.",
+        "Relaciónalo con la 'envolvente'."
+      ],
+      "difficulty": 4,
+      "tags": ["Fisiopatología", "Carga", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    }
+  ]
+}

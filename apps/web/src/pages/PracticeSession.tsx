@@ -4,6 +4,7 @@ import { collection, query, where, getDocs, addDoc, serverTimestamp, doc, setDoc
 import { db } from '../lib/firebase';
 import { useAuth } from '../context/AuthContext';
 import { selectAdaptiveQuestions, updateTagMastery, TagMastery } from '../utils/adaptiveEngine';
+import { shuffleArray } from '../utils/shuffle';
 
 interface Question {
   question_id: string;
@@ -30,6 +31,7 @@ export const PracticeSession = () => {
   const [sessionId, setSessionId] = useState<string | null>(null);
   const [startTime, setStartTime] = useState<number>(Date.now());
   const [userMastery, setUserMastery] = useState<Record<string, TagMastery>>({});
+  const [shuffledOptions, setShuffledOptions] = useState<any[]>([]);
 
   useEffect(() => {
     const startSession = async () => {
@@ -150,6 +152,12 @@ export const PracticeSession = () => {
 
   const currentQuestion = questions[currentIndex];
 
+  useEffect(() => {
+    if (currentQuestion?.options) {
+      setShuffledOptions(shuffleArray(currentQuestion.options));
+    }
+  }, [currentQuestion]);
+
   return (
     <div className="container" style={{ maxWidth: 800 }}>
       <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 24, fontSize: '0.85rem', color: 'var(--text-muted)' }}>
@@ -163,22 +171,23 @@ export const PracticeSession = () => {
         <h3 style={{ textAlign: 'left', background: 'none', WebkitTextFillColor: 'white', lineHeight: '1.4', margin: 0 }}>{currentQuestion.content}</h3>
         
         <div className="flex-col" style={{ gap: 12, marginTop: 24 }}>
-          {currentQuestion.options.map((opt, i) => {
+          {shuffledOptions.map((opt, i) => {
             let borderColor = 'var(--glass-border)';
             let bg = 'rgba(255,255,255,0.02)';
             let color = 'var(--text-muted)';
+            const isSelected = selectedOption !== null && shuffledOptions[selectedOption] === opt;
 
             if (showFeedback) {
               if (opt.isCorrect) { borderColor = 'var(--accent)'; bg = 'rgba(16, 185, 129, 0.1)'; color = 'white'; }
-              else if (selectedOption === i) { borderColor = '#f87171'; bg = 'rgba(248, 113, 113, 0.1)'; color = 'white'; }
-            } else if (selectedOption === i) {
+              else if (isSelected) { borderColor = '#f87171'; bg = 'rgba(248, 113, 113, 0.1)'; color = 'white'; }
+            } else if (isSelected) {
               borderColor = 'var(--primary)'; bg = 'rgba(99, 102, 241, 0.1)'; color = 'white';
             }
 
             return (
               <button
-                key={i}
-                onClick={() => handleAnswer(i)}
+                key={opt.text}
+                onClick={() => handleAnswer(currentQuestion.options.indexOf(opt))}
                 disabled={showFeedback}
                 style={{
                   padding: 16,
@@ -200,8 +209,8 @@ export const PracticeSession = () => {
 
         {showFeedback && (
           <div style={{ marginTop: 32, padding: 24, background: 'rgba(255,255,255,0.02)', borderRadius: 12, border: '1px solid var(--glass-border)' }}>
-            <h4 style={{ color: currentQuestion.options[selectedOption!].isCorrect ? 'var(--accent)' : '#f87171', marginTop: 0, fontSize: '1.1rem' }}>
-              {currentQuestion.options[selectedOption!].isCorrect ? '¡Excelente! Correcto' : 'Ups, respuesta incorrecta'}
+            <h4 style={{ color: (selectedOption !== null && shuffledOptions[selectedOption]?.isCorrect) ? 'var(--accent)' : '#f87171', marginTop: 0, fontSize: '1.1rem' }}>
+              {(selectedOption !== null && shuffledOptions[selectedOption]?.isCorrect) ? '¡Excelente! Correcto' : 'Ups, respuesta incorrecta'}
             </h4>
             <p style={{ margin: '12px 0', fontSize: '0.95rem', color: 'var(--text-main)' }}><strong>Explicación:</strong> {currentQuestion.rationale}</p>
             <button onClick={nextQuestion} style={{ marginTop: 10 }}>

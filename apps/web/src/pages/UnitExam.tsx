@@ -5,6 +5,7 @@ import { db } from '../lib/firebase';
 import { useAuth } from '../context/AuthContext';
 import { calculateChileanGrade } from '../utils/gradeCalculator';
 import { selectAdaptiveQuestions, calculateNextMastery, TagMastery } from '../utils/adaptiveEngine';
+import { shuffleArray } from '../utils/shuffle';
 
 interface Question {
   question_id: string;
@@ -31,6 +32,7 @@ export const UnitExam = () => {
   const [timeLeft, setTimeLeft] = useState(45 * 60); // 45 minutes
   const [examFinished, setExamFinished] = useState(false);
   const [results, setResults] = useState<{ score: number; total: number; percent: number; grade: number } | null>(null);
+  const [shuffledOptions, setShuffledOptions] = useState<any[][]>([]);
   
   const timerRef = useRef<NodeJS.Timeout | null>(null);
 
@@ -71,6 +73,10 @@ export const UnitExam = () => {
         const approvedQuestions = allQuestions.filter(q => q.status === 'approved' || q.status === undefined);
         const selected = selectAdaptiveQuestions(approvedQuestions, mData, 40);
         setQuestions(selected);
+        
+        // Prepare shuffled options for all selected questions
+        const shuffled = selected.map(q => shuffleArray(q.options));
+        setShuffledOptions(shuffled);
         
         // Start Timer
         timerRef.current = setInterval(() => {
@@ -113,9 +119,10 @@ export const UnitExam = () => {
     // Calculate Results
     let correctCount = 0;
     questions.forEach((q, idx) => {
-        const selected = answers[idx];
-        if (selected !== undefined && q.options[selected].isCorrect) {
-            correctCount++;
+        const selectedIndex = answers[idx];
+        if (selectedIndex !== undefined) {
+            const selectedOpt = shuffledOptions[idx][selectedIndex];
+            if (selectedOpt.isCorrect) correctCount++;
         }
     });
 
@@ -248,9 +255,9 @@ export const UnitExam = () => {
         <h3 style={{ textAlign: 'left', background: 'none', WebkitTextFillColor: 'white', lineHeight: '1.4', margin: 0 }}>{currentQuestion.content}</h3>
         
         <div className="flex-col" style={{ gap: 12, marginTop: 24 }}>
-          {currentQuestion.options.map((opt, i) => (
+          {shuffledOptions[currentIndex]?.map((opt, i) => (
             <button
-              key={i}
+              key={opt.text}
               onClick={() => handleSelectOption(i)}
               style={{
                 padding: 16,

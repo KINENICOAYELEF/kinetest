@@ -1,0 +1,154 @@
+{
+  "questions": [
+    {
+      "question_id": "eva_pain_gs_01",
+      "family_id": "pain_classification",
+      "content": "Paciente varón de 45 años con dolor lumbar y en piernas de 2 años de evolución tras accidente de tránsito menor. El comportamiento mecánico es impredecible (sin patrón on/off claro); a veces duele al caminar, otras al estar sentado. Presenta alta kinesiophobia y creencias de daño, afirmando que su columna está 'desmoronándose' y el dolor le quema. Los hallazgos de examen muestran alodinia generalizada en el cuadrante inferior, reflejos y sensibilidad conservados (sin déficit neurológico), umbrales de dolor a la presión (PPT) disminuidos globalmente y sumación temporal elevada. ¿Cuál es el mecanismo de dolor predominante y la estrategia terapéutica de primera línea?",
+      "options": [
+        {"text": "A) Predominio neuropático periférico; requiere apertura de forámenes lumbares, movilización neural (sliders) y educación en el flujo sanguíneo del nervio.", "isCorrect": false},
+        {"text": "B) Predominio nociplástico (sensibilización central); requiere Educación en Neurociencia del Dolor (PNE) para reconceptualizar creencias, ejercicio aeróbico y exposición gradual.", "isCorrect": true},
+        {"text": "C) Predominio nociceptivo; requiere terapia manual focalizada en la articulación sacroilíaca y fortalecimiento del core para estabilizar la columna 'desmoronada'.", "isCorrect": false},
+        {"text": "D) Mecanismo mixto nociceptivo-neuropático; requiere el uso estricto de TENS de alta frecuencia para bloquear el dolor antes de cualquier intervención de movimiento.", "isCorrect": false}
+      ],
+      "rationale": "El caso presenta características clínicas clásicas del dolor nociplástico. A pesar de que el paciente describe síntomas que podrían parecer neuropáticos (ardor o quemazón), la ausencia de déficits neurológicos reales, como sensibilidad protectora alterada o reflejos ausentes, y la falta de un patrón de distribución anatómica o dermatomal estricta descartan el dolor neuropático verdadero. Además, la pérdida de un comportamiento mecánico predecible (sin un patrón on/off dependiente de la carga) y los claros hallazgos de alteración en el procesamiento central (como la sumación temporal elevada, el PPT disminuido globalmente y la alodinia generalizada) confirman una profunda sensibilización central. Los distractores mecánicos o neuropáticos son incorrectos porque no abordan el procesamiento aberrante del sistema nervioso ni los fuertes impulsores psicosociales. La estrategia terapéutica nunca debe enfocarse en 'estabilizar' estructuras biológicas de forma aislada, sino en abordar las cogniciones desadaptativas mediante PNE y restaurar la función mediante exposición gradual.",
+      "learning_pearl": "La expansión del dolor más allá de los dermatomas, la pérdida del patrón on/off y los reflejos intactos diferencian el dolor nociplástico del neuropático verdadero.",
+      "hints": ["Comportamiento mecánico impredecible.", "PPT bajo globalmente."],
+      "difficulty": 4, "tags": ["Evaluación", "Dolor"], "unit_id": "evaluacion", "status": "draft"
+    },
+    {
+      "question_id": "eva_pain_gs_02",
+      "family_id": "pain_classification",
+      "content": "Mujer de 32 años, 8 meses post esguince de tobillo. El edema resolvió, pero el dolor se expandió a toda la pierna. El comportamiento mecánico inicial de dolor solo al cargar peso (on/off) se perdió, siendo ahora un dolor sordo y constante. Exhibe alto catastrofismo y miedo al movimiento, evitando toda actividad deportiva por temor a 'romper los ligamentos'. En el examen físico destaca: alodinia local extendida a la rodilla, PPT disminuido tanto en el tobillo afectado como en el hombro contralateral, y marcada sumación temporal. ¿Cuál es el mecanismo de dolor predominante y la estrategia terapéutica de primera línea?",
+      "options": [
+        {"text": "A) Sensibilización periférica (Nociceptivo); requiere terapia manual localizada en el tobillo para modular la inflamación residual y vendaje funcional.", "isCorrect": false},
+        {"text": "B) Predominio neuropático; requiere test neurodinámicos del nervio sural y tensión gradual para liberar atrapamientos periféricos.", "isCorrect": false},
+        {"text": "C) Sensibilización central (Nociplástico); requiere PNE para reducir la amenaza percibida, ejercicio aeróbico generalizado y exposición progresiva a la carga.", "isCorrect": true},
+        {"text": "D) Nociceptivo por inestabilidad; requiere exclusivamente ejercicios de propiocepción estricta y fortalecimiento isométrico en rango libre de dolor.", "isCorrect": false}
+      ],
+      "rationale": "Este caso ilustra magistralmente la transición de un dolor nociceptivo agudo a un estado de sensibilización central, característico del dolor nociplástico. La clave clínica fundamental para descartar una sensibilización puramente periférica es la expansión territorial de los síntomas y la presencia de un umbral de dolor a la presión (PPT) disminuido en una zona anatómica totalmente remota y no relacionada (como el hombro contralateral). En un cuadro estrictamente nociceptivo con sensibilización periférica, la hiperalgesia se mantendría confinada estrictamente al tejido lesionado inicial y existiría un claro patrón mecánico on/off frente a las cargas tisulares. La marcada sumación temporal, el alto nivel de catastrofismo y la evitación por miedo refuerzan fuertemente el mecanismo nociplástico central. Los distractores son incorrectos porque proponen intervenciones locales basadas en tejidos o nervios específicos, lo cual es ineficaz cuando el sistema nervioso central está generalizadamente hiperexcitable.",
+      "learning_pearl": "La disminución del PPT en sitios anatómicos distantes al tejido originalmente lesionado es un sello clínico definitivo de la sensibilización central (dolor nociplástico).",
+      "hints": ["PPT bajo en hombro contralateral.", "Pérdida del patrón mecánico on/off."],
+      "difficulty": 4, "tags": ["Evaluación", "Dolor"], "unit_id": "evaluacion", "status": "draft"
+    },
+    {
+      "question_id": "eva_pain_gs_03",
+      "family_id": "pain_classification",
+      "content": "Mujer de 55 años con dolor cervical insidioso. El comportamiento mecánico es nulo (sin on/off), relata que le duele 'solo de pensar en moverse'. Un terapeuta previo le dijo que sus articulaciones estaban 'desgastadas y su cuello era inestable' (nocebo severo), por lo que usa un collarín permanentemente, mostrando creencias de daño extremas y evitación. Hallazgos de examen: hipervigilancia extrema al acercarse a su cuello, alodinia severa a la palpación superficial en cuello y hombros, PPT globalmente bajo y sumación temporal presente. Rechaza el movimiento activo. ¿Cuál es el mecanismo de dolor predominante y la estrategia terapéutica de primera línea?",
+      "options": [
+        {"text": "A) Predominio nociplástico impulsado por iatrogenia (nocebo); requiere des-educación del modelo estructural, PNE para reconceptualizar el dolor y destete gradual del collarín.", "isCorrect": true},
+        {"text": "B) Nociceptivo por inestabilidad clínica; requiere educación sobre higiene postural y ejercicios de control motor cervical profundo manteniendo el collarín en fase aguda.", "isCorrect": false},
+        {"text": "C) Neuropático de origen central; requiere manipulación torácica de alta velocidad para generar inhibición descendente y alivio rápido.", "isCorrect": false},
+        {"text": "D) Nociplástico; requiere forzar el movimiento cervical activo inmediato para romper el ciclo de miedo-evitación, ignorando el dolor.", "isCorrect": false}
+      ],
+      "rationale": "El relato clínico muestra un caso clásico donde el lenguaje médico iatrogénico (efecto nocebo por frases como 'desgastadas' e 'inestable') ha actuado como el principal impulsor psicosocial, generando un estado de miedo extremo, hipervigilancia y conductas de evitación mal adaptativas (uso del collarín). Esto ha desencadenado una profunda sensibilización central, evidenciada por la pérdida total de un patrón mecánico on/off, la alodinia severa, el PPT bajo y la sumación temporal, consolidando un diagnóstico de dolor nociplástico. Los distractores que sugieren inestabilidad real caen en el mismo modelo biomédico erróneo que causó el problema inicial. Por otro lado, forzar el movimiento activo inmediato sin modificar previamente la cognición (creencias) o realizar manipulaciones estructurales no aborda la raíz del problema y puede aumentar la amenaza percibida. La estrategia correcta exige imperativamente 'des-educar' el modelo de daño tisular antes de reeducar, utilizando PNE para disminuir el valor de amenaza del movimiento.",
+      "learning_pearl": "Las palabras pueden actuar como potentes nocebos que inducen sensibilización central; la des-educación estructural es el paso vital antes de cualquier exposición física.",
+      "hints": ["Efecto nocebo quirúrgico/estructural.", "Pérdida del patrón on/off."],
+      "difficulty": 5, "tags": ["Evaluación", "Dolor"], "unit_id": "evaluacion", "status": "draft"
+    },
+    {
+      "question_id": "eva_pain_gs_04",
+      "family_id": "pain_classification",
+      "content": "Hombre de 40 años con dolor irradiado al brazo derecho de 4 años de evolución. Tuvo cirugía cervical hace 2 años con normalización de reflejos y fuerza, pero el dolor persiste y ahora fluctúa entre ambos brazos (comportamiento mecánico inconsistente, sin on/off claro). Teme que 'los nervios quedaron aplastados para siempre' (factores psicosociales). Examen: Test de Spurling negativo, examen neurológico de sensibilidad protectora normal, ULTT reproduce síntomas bilateralmente pero de forma inconstante, PPT disminuido globalmente y sumación temporal positiva. ¿Cuál es el mecanismo de dolor predominante y la estrategia terapéutica de primera línea?",
+      "options": [
+        {"text": "A) Neuropático radicular crónico; requiere movilizaciones neurales (tensioners) vigorosas para liberar las adherencias postquirúrgicas de las raíces nerviosas.", "isCorrect": false},
+        {"text": "B) Nociceptivo secundario a cirugía; requiere terapia manual enfocada en el tejido cicatricial y movilizaciones articulares cervicales grado IV.", "isCorrect": false},
+        {"text": "C) Predominio nociplástico; requiere PNE utilizando la metáfora del 'sistema de alarma ultrasensible' y ejercicio aeróbico progresivo.", "isCorrect": true},
+        {"text": "D) Neuropático periférico; requiere intervenciones para aumentar el espacio, el movimiento y el flujo sanguíneo neural de forma estricta.", "isCorrect": false}
+      ],
+      "rationale": "Aunque el dolor del paciente tuvo un origen neuropático comprobado (que llevó a la cirugía hace 2 años), la presentación clínica actual ha mutado. La normalización de los signos neurológicos duros (fuerza y reflejos intactos) y el Test de Spurling negativo descartan un compromiso radicular mecánico activo. Además, el hecho de que el dolor ahora fluctúe entre ambos brazos, presente un ULTT inconstante, un PPT disminuido globalmente y sumación temporal positiva, indica un claro predominio nociplástico o de sensibilización central impulsado por el miedo a un daño permanente. Las opciones que sugieren tratar al paciente bajo un modelo estrictamente neuropático (liberación de adherencias, neurodinamia agresiva o mejora del espacio/flujo sanguíneo) fallarán porque la disfunción ya no reside en el tejido periférico o en el contenedor neural, sino en el procesamiento central hiperactivo. La metáfora del 'sistema de alarma' de la PNE es ideal para reconceptualizar este escenario neuroplástico aberrante.",
+      "learning_pearl": "Un dolor de origen neuropático histórico puede evolucionar hacia un dolor nociplástico puro; los síntomas bilaterales fluctuantes y la sumación temporal confirman esta transición neuroplástica.",
+      "hints": ["Dolor bilateral fluctuante.", "Reflejos y fuerza normales post-cirugía."],
+      "difficulty": 4, "tags": ["Evaluación", "Dolor"], "unit_id": "evaluacion", "status": "draft"
+    },
+    {
+      "question_id": "eva_pain_gs_05",
+      "family_id": "pain_classification",
+      "content": "Deportista de 28 años con dolor anterior de rodilla de 8 meses. El comportamiento mecánico es un claro patrón on/off: el dolor solo aparece al hacer sentadillas pesadas, cediendo rápido en reposo. Expresa miedo a que su cartílago esté 'desapareciendo' (creencia de daño). Hallazgos de examen: hiperalgesia localizada estrictamente en el tendón patelar (PPT bajo local), pero el PPT en el antebrazo y hombro es completamente normal. La sumación temporal es negativa y la Modulación Condicionada del Dolor (CPM) está intacta. ¿Cuál es el mecanismo de dolor predominante y la estrategia terapéutica de primera línea?",
+      "options": [
+        {"text": "A) Nociplástico; requiere educación en neurociencia pura, evitando toda terapia orientada a tejidos locales debido a sus creencias de desgaste del cartílago.", "isCorrect": false},
+        {"text": "B) Predominio nociceptivo con sensibilización periférica; requiere educación para mitigar creencias erróneas combinada con manejo de carga y carga progresiva localizada.", "isCorrect": true},
+        {"text": "C) Neuropático de ramas cutáneas; requiere movilización neural del nervio femoral y modalidades analgésicas pasivas locales.", "isCorrect": false},
+        {"text": "D) Sensibilización central; requiere un programa multidisciplinario de salud mental y ejercicios globales de bajo impacto sin cargar la rodilla.", "isCorrect": false}
+      ],
+      "rationale": "Este escenario clínico describe un cuadro clásico de dolor predominantemente nociceptivo con presencia de sensibilización exclusivamente periférica. La clave diagnóstica recae en la presencia de un patrón mecánico altamente predecible y estricto (on/off exacto con la carga patelar), acompañado de un sistema de modulación central que funciona correctamente (la Modulación Condicionada del Dolor o CPM está intacta, y la sumación temporal es negativa). Aunque el PPT está bajo localmente, el hecho de que el PPT a distancia (antebrazo/hombro) sea completamente normal descarta contundentemente una sensibilización central o dolor nociplástico. A pesar de tener una creencia de daño errónea, la neurofisiología de su dolor sigue siendo periférica. Los distractores fallan al proponer enfoques de sensibilización central, evitando erróneamente la carga de los tejidos, lo cual es precisamente el estímulo mecánico necesario para adaptar el tendón bajo un modelo nociceptivo bien manejado.",
+      "learning_pearl": "Un PPT localmente bajo acompañado de un PPT normal a distancia y un sistema CPM intacto descartan el dolor nociplástico y confirman una sensibilización puramente periférica.",
+      "hints": ["Patrón mecánico on/off estricto.", "CPM intacto."],
+      "difficulty": 4, "tags": ["Evaluación", "Dolor"], "unit_id": "evaluacion", "status": "draft"
+    },
+    {
+      "question_id": "eva_pain_gs_06",
+      "family_id": "pain_classification",
+      "content": "Hombre de 50 años con dolor lumbar continuo de 5 años. Refiere que un quiropráctico le diagnosticó 'el sacro fuera de lugar comprimiendo la médula' (nocebo severo), generando hipervigilancia al inclinarse. El comportamiento mecánico es errático, el dolor fluctúa sin relación con cargas (sin on/off). Hallazgos de examen: alodinia lumbar severa al roce, PPT globalmente reducido y sumación temporal exacerbada. Al intentar evaluar manualmente la articulación sacroilíaca, el paciente hiperventila y se retira bruscamente. ¿Cuál es el mecanismo de dolor predominante y la estrategia terapéutica de primera línea?",
+      "options": [
+        {"text": "A) Nociceptivo discogénico; requiere ejercicios de extensión repetida (McKenzie) para centralizar la compresión descrita.", "isCorrect": false},
+        {"text": "B) Predominio nociplástico impulsado por nocebos estructurales; requiere PNE para cambiar el paradigma biomecánico y exposición conductual gradual al movimiento de flexión.", "isCorrect": true},
+        {"text": "C) Nociceptivo sacroilíaco; requiere una manipulación de alta velocidad (thrust) para realinear estructuralmente la pelvis y disminuir la entrada nociceptiva.", "isCorrect": false},
+        {"text": "D) Neuropático crónico; requiere tracción lumbar mecánica para descomprimir las raíces nerviosas y educación sobre el espacio neural.", "isCorrect": false}
+      ],
+      "rationale": "La narrativa de 'un hueso fuera de lugar comprimiendo la médula' representa uno de los nocebos biomecánicos más destructivos en la práctica clínica, induciendo un miedo al movimiento masivo y conductas de protección aberrantes. Clínicamente, el paciente carece de un patrón mecánico reproducible y presenta signos innegables de hiperexcitabilidad del sistema nervioso central (alodinia al roce, PPT reducido de forma global y sumación temporal exacerbada), lo que cataloga su dolor como estrictamente nociplástico. Cualquier intento de tratar a este paciente bajo un modelo estructural nociceptivo (opciones como re-alineación con thrust, manipulaciones articulares o protocolos rígidos direccionales) validará e incrementará sus miedos biomecánicos subyacentes, empeorando el cuadro. El tratamiento primario, por tanto, debe ser cognitivo mediante PNE para neutralizar la falsa creencia de asimetría o inestabilidad, promoviendo luego un movimiento lúdico y sin amenazas.",
+      "learning_pearl": "El uso de lenguaje correctivo estructural frente a un dolor nociplástico fuertemente influenciado por nocebos perpetúa la discapacidad; la des-educación biomecánica es esencial.",
+      "hints": ["Hiperventilación al tacto.", "Nocebo de realineación estructural."],
+      "difficulty": 5, "tags": ["Evaluación", "Dolor"], "unit_id": "evaluacion", "status": "draft"
+    },
+    {
+      "question_id": "eva_pain_gs_07",
+      "family_id": "pain_classification",
+      "content": "Mujer de 60 años con dolor de hombros bilateral de 3 años. El comportamiento mecánico es inconsistente (sin on/off): a veces eleva los brazos 150 grados sin dolor, otras le duele a los 60 grados. Relata que el dolor empeora 'cuando se siente triste o estresada', y siente que su cuerpo está 'roto por dentro' (factores psicosociales). Hallazgos de examen: disminución generalizada del PPT en extremidades inferiores y tronco, alodinia difusa, y sumación temporal fuertemente positiva, sin verdadera restricción capsular articular. ¿Cuál es el mecanismo de dolor predominante y la estrategia terapéutica de primera línea?",
+      "options": [
+        {"text": "A) Nociceptivo por capsulitis adhesiva; requiere movilizaciones articulares pasivas agresivas para restaurar la artrocinemática glenohumeral.", "isCorrect": false},
+        {"text": "B) Neuropático de origen cervical; requiere deslizamientos cervicales laterales y tracción manual para descomprimir las raíces.", "isCorrect": false},
+        {"text": "C) Predominio nociplástico; requiere PNE, ejercicio aeróbico global de baja intensidad y educación sobre higiene del sueño y modulación del estrés.", "isCorrect": true},
+        {"text": "D) Nociceptivo por tendinopatía degenerativa; requiere un programa de carga excéntrica estricto para los rotadores externos.", "isCorrect": false}
+      ],
+      "rationale": "La presentación clínica se aleja completamente de una disfunción anatómica localizada en el hombro. La inconsistencia extrema en la respuesta mecánica (capacidad de elevar los brazos libremente en ciertas ocasiones frente a fuertes restricciones en otras) descarta de plano un problema estructural fijo como la capsulitis adhesiva o una tendinopatía clásica. Que el dolor esté modulado directamente por el estado emocional ('triste o estresada'), sumado a hallazgos psicofísicos de alteración del procesamiento central (PPT bajo generalizado en zonas no relacionadas como las piernas, alodinia y sumación temporal), define indudablemente un mecanismo nociplástico. Los distractores asumen un origen biológico-tisular erróneo que llevaría al fracaso terapéutico o a un sobrediagnóstico. La intervención de primera línea debe apuntar al sistema nervioso de manera global, incluyendo PNE, ejercicio aeróbico para inducir hipoalgesia endógena y manejo de factores psicosociales y del estrés.",
+      "learning_pearl": "Un comportamiento mecánico articular altamente variable e inconsistente, influenciado fuertemente por estados de ánimo, es un potente indicador clínico de procesamiento doloroso nociplástico.",
+      "hints": ["Relación directa con estrés/tristeza.", "Variabilidad mecánica extrema."],
+      "difficulty": 4, "tags": ["Evaluación", "Dolor"], "unit_id": "evaluacion", "status": "draft"
+    },
+    {
+      "question_id": "eva_pain_gs_08",
+      "family_id": "pain_classification",
+      "content": "Mujer de 35 años, a un año de un accidente con latigazo cervical (whiplash). El dolor se ha expandido a la mandíbula y espalda media. Perdió el comportamiento mecánico (sin on/off), el dolor es constante. Teme sufrir otro accidente y dice que su cuello es 'de cristal' (creencias de daño severas). Hallazgos de examen: hiperalgesia al frío, alodinia extendida por la columna torácica, PPT global bajo, sumación temporal elevada y Modulación Condicionada del Dolor (CPM) disfuncional. ¿Cuál es el mecanismo de dolor predominante y la estrategia terapéutica de primera línea?",
+      "options": [
+        {"text": "A) Predominio nociplástico (Sensibilización Central); requiere PNE, movimiento activo general libre de amenaza y ejercicios de discriminación sensorial.", "isCorrect": true},
+        {"text": "B) Nociceptivo facetario crónico; requiere terapia manual focalizada mediante movilizaciones articulares cervicales de grados bajos para nutrir el cartílago.", "isCorrect": false},
+        {"text": "C) Neuropático severo; requiere derivación inmediata para manejo con gabapentinoides y neurodinamia de alta tensión en extremidades superiores.", "isCorrect": false},
+        {"text": "D) Nociceptivo por inestabilidad ligamentosa; requiere inmovilización relativa prolongada y contracciones isométricas subclínicas del cuello.", "isCorrect": false}
+      ],
+      "rationale": "Este caso es un ejemplo paradigmático de la evolución de un traumatismo agudo hacia una Sensibilización Central consolidada (Dolor Nociplástico). La expansión territorial del dolor hacia áreas previamente no afectadas (mandíbula, zona dorsal), la presencia de hiperalgesia térmica (frío), alodinia extendida, y sobre todo, una Modulación Condicionada del Dolor (CPM) disfuncional o ineficaz, son evidencias irrefutables de que los sistemas descendentes inhibitorios del cerebro están fallando y las vías facilitadoras están sobreexcitadas. La pérdida del patrón mecánico on/off valida que el dolor ya no depende de la carga tisular cervical real. Los distractores enfocados en tratar el dolor como si aún residiera en las facetas articulares (terapia manual local) o en la inestabilidad de los ligamentos fracasarán, ya que la entrada nociceptiva periférica no es el principal impulsor de la experiencia dolorosa. Se requiere un enfoque 'Top-Down' combinando PNE con ejercicio lúdico y reentrenamiento sensorial.",
+      "learning_pearl": "La hiperalgesia al frío, unida a una Modulación Condicionada del Dolor (CPM) fallida, son marcadores neurofisiológicos clave de la sensibilización central generalizada (nociplástico).",
+      "hints": ["Hiperalgesia al frío.", "CPM disfuncional."],
+      "difficulty": 5, "tags": ["Evaluación", "Dolor"], "unit_id": "evaluacion", "status": "draft"
+    },
+    {
+      "question_id": "eva_pain_gs_09",
+      "family_id": "pain_classification",
+      "content": "Hombre diabético de 48 años con dolor urente y punzante en ambos pies de 6 meses de evolución. El comportamiento mecánico muestra un on/off asociado al reposo nocturno y al roce con las sábanas. Expresa angustia por temor a 'terminar amputado' (creencias de daño). Hallazgos de examen: pérdida de sensación protectora con monofilamento en los pulpejos, reflejos aquilianos bilateralmente ausentes y alodinia mecánica localizada estrictamente en la zona plantar. El PPT en extremidades superiores es normal y no presenta sumación temporal proximal. ¿Cuál es el mecanismo de dolor predominante y la estrategia terapéutica de primera línea?",
+      "options": [
+        {"text": "A) Predominio nociplástico; requiere exclusiva Educación en Neurociencia del Dolor centrada en desensibilizar la corteza somatosensorial y psicoterapia.", "isCorrect": false},
+        {"text": "B) Nociceptivo plantar; requiere estiramientos intensos de la fascia plantar y terapia manual de las articulaciones del mediopié.", "isCorrect": false},
+        {"text": "C) Predominio neuropático; requiere educación en salud neural, fomento de la microcirculación y espacio, y manejo médico sistémico de su patología de base.", "isCorrect": true},
+        {"text": "D) Mecanismo mixto nociceptivo-nociplástico; requiere manipulaciones espinales lumbares para alterar las aferencias nociceptivas disfuncionales hacia los pies.", "isCorrect": false}
+      ],
+      "rationale": "El paciente presenta un cuadro indudable de polineuropatía diabética, el cual es el arquetipo del dolor neuropático periférico. Las claves para diferenciarlo de un cuadro nociplástico difuso radican en la presencia clara de signos neurológicos negativos reales: pérdida de la sensibilidad protectora documentada con monofilamento y arreflexia aquílea. Además, aunque presenta dolor severo y alodinia, estos síntomas se encuentran estrictamente localizados en un patrón simétrico distal ('en calcetín') y no hay evidencia de hiperexcitabilidad central a distancia, dado que el PPT en sus extremidades superiores es completamente normal y carece de sumación temporal generalizada. Seleccionar el distractor nociplástico ignoraría la enfermedad o lesión comprobada del sistema somatosensorial periférico. Las opciones nociceptivas estructurales son igualmente erróneas. El tratamiento fisioterapéutico debe basarse en el marco neuropático, enfocándose en la función neurodinámica, optimización del entorno neural y prevención de complicaciones metabólicas.",
+      "learning_pearl": "La presencia de signos neurológicos negativos simétricos reales y un PPT proximal normal son concluyentes para distinguir el dolor neuropático de la sensibilización central nociplástica.",
+      "hints": ["Pérdida de sensibilidad protectora.", "PPT proximal normal."],
+      "difficulty": 5, "tags": ["Evaluación", "Dolor"], "unit_id": "evaluacion", "status": "draft"
+    },
+    {
+      "question_id": "eva_pain_gs_10",
+      "family_id": "pain_classification",
+      "content": "Mujer de 42 años con dolor pélvico y lumbar crónico. Un cirujano le dictaminó que tenía 'la columna de una anciana de 80 años' (nocebo severo), provocando un terror intenso a quedar paralítica. Abandonó su actividad física (creencias de daño, evitación). El comportamiento mecánico es impredecible, con dolor que no responde a posturas o cargas específicas (pérdida de on/off). Examen: significativa sumación temporal, alodinia difusa, y PPT bajo en toda la pelvis, sin ningún déficit neurológico motor o sensitivo demostrable. ¿Cuál es el mecanismo de dolor predominante y la estrategia terapéutica de primera línea?",
+      "options": [
+        {"text": "A) Predominio nociceptivo por degeneración discal severa; requiere ejercicios estrictos de estabilización del core para proteger la anatomía envejecida.", "isCorrect": false},
+        {"text": "B) Predominio neuropático; requiere neurodinamia de los nervios pélvicos y lumbares en posiciones de descarga.", "isCorrect": false},
+        {"text": "C) Predominio nociplástico; requiere des-educación atacando el nocebo con datos normativos de resonancias en asintomáticos, y reenfoque hacia metas funcionales.", "isCorrect": true},
+        {"text": "D) Sensibilización periférica; requiere modalidades electroterapéuticas pasivas exclusivas hasta eliminar el dolor por completo antes de intentar el movimiento.", "isCorrect": false}
+      ],
+      "rationale": "El diagnóstico médico estructurado de manera amenazante ('columna de una anciana de 80 años') ha funcionado como una poderosa iatrogenia verbal, creando creencias de fragilidad y un catastrofismo severo. Esto generó inactividad y facilitó la sensibilización del sistema nervioso central (dolor nociplástico), confirmado por la falta de un patrón mecánico predecible, alodinia difusa, PPT bajo global y sumación temporal. La ausencia de hallazgos neurológicos descarta el dolor neuropático, y el fallo del patrón mecánico on/off descarta un origen puramente nociceptivo. Tratarla bajo el modelo propuesto por los distractores nociceptivos (estabilización para 'proteger' la columna) no solo fracasará, sino que validará e entenderá la creencia de que su columna es frágil. La intervención crítica es neutralizar este nocebo específico mediante la Educación en Neurociencia del Dolor, presentándole evidencia de que los hallazgos degenerativos en las imágenes son normales e indolores en gran parte de la población sana, para luego iniciar el movimiento sin temor.",
+      "learning_pearl": "Exponer datos normativos poblacionales que demuestran que las anomalías estructurales son comunes en individuos asintomáticos es vital para neutralizar fuertes nocebos biomédicos.",
+      "hints": ["Iatrogenia verbal intensa.", "PPT bajo global."],
+      "difficulty": 5, "tags": ["Evaluación", "Dolor"], "unit_id": "evaluacion", "status": "draft"
+    }
+  ]
+}

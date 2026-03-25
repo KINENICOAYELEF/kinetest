@@ -1,0 +1,155 @@
+{
+  "units": [
+    {
+      "unit_id": "sdpf",
+      "title": "SDPF Avanzado: Razonamiento Clínico",
+      "description": "Banco de alta complejidad sobre diagnóstico diferencial, progresión de carga y neurociencia."
+    }
+  ],
+  "questions": [
+    {
+      "question_id": "sdpf_diff_hoffa_1",
+      "family_id": "diff_diagnosis_sdpf",
+      "content": "Un paciente reporta dolor agudo 'detrás de la rótula' que aumenta específicamente al bloquear la rodilla en extensión completa. Al examen, la presión sobre el tendón rotuliano es negativa, pero la presión profunda medial y lateral al tendón en extensión genera dolor severo. ¿Cuál es la sospecha principal?",
+      "options": [
+        { "text": "Síndrome de la Grasa de Hoffa (Hoffitis).", "isCorrect": true },
+        { "text": "Síndrome de Dolor Patelofemoral clásico.", "isCorrect": false },
+        { "text": "Tendinopatía Rotuliana proximal.", "isCorrect": false },
+        { "text": "Desgarro del menisco medial.", "isCorrect": false }
+      ],
+      "rationale": "La grasa de Hoffa es extremadamente sensible a la compresión en extensión completa. El SDPF suele doler más en flexión (carga) y la tendinopatía es local al tendón.",
+      "learning_pearl": "El dolor en extensión terminal es un 'red flag' para la grasa de Hoffa, no para el SDPF típico.",
+      "hints": ["Observa el rango de movimiento que gatilla el dolor.", "La ubicación es profunda, no superficial en el tendón.", "¿Qué estructura se pinza en extensión?"],
+      "difficulty": 4,
+      "tags": ["Diferencial", "Clínica", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_diff_tendon_1",
+      "family_id": "diff_diagnosis_sdpf",
+      "content": "Un basquetbolista refiere que su dolor de rodilla 'desaparece' después de los primeros 10 minutos de entrenamiento, pero regresa con más intensidad al enfriarse al día siguiente. ¿Qué sugiere este comportamiento mecánico?",
+      "options": [
+        { "text": "Tendinopatía Rotuliana (Efecto de calentamiento del colágeno).", "isCorrect": true },
+        { "text": "Síndrome de Dolor Patelofemoral (Irritación sinovial).", "isCorrect": false },
+        { "text": "Osteoartritis incipiente.", "isCorrect": false },
+        { "text": "Inestabilidad rotuliana crónica.", "isCorrect": false }
+      ],
+      "rationale": "El 'efecto de calentamiento' es característico de las tendinopatías. El SDPF suele ser persistente o empeorar progresivamente con la carga acumulada sin ese alivio inicial claro.",
+      "learning_pearl": "Si el dolor 'se calienta', piensa en tendón; si el dolor 'se acumula', piensa en articulación.",
+      "hints": ["El comportamiento temporal del dolor es clave.", "¿Qué tejido mejora su elasticidad con el calor/movimiento inicial?", "El SDPF no suele presentar este alivio fásico."],
+      "difficulty": 3,
+      "tags": ["Diferencial", "Terapia", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_biomech_trunk",
+      "family_id": "biomech_mods_sdpf",
+      "content": "Durante un análisis de carrera en un paciente con SDPF, decides sugerir una ligera inclinación del tronco hacia adelante (lean forward). ¿Cuál es el objetivo biomecánico de esta intervención?",
+      "options": [
+        { "text": "Aumentar la demanda en la cadena posterior y reducir el brazo de palanca de la rodilla.", "isCorrect": true },
+        { "text": "Aumentar la presión patelofemoral para estimular el cartílago.", "isCorrect": false },
+        { "text": "Reducir el trabajo de los glúteos para evitar la fatiga.", "isCorrect": false },
+        { "text": "Centrar el eje de gravedad sobre el retropié.", "isCorrect": false }
+      ],
+      "rationale": "La inclinación anterior del tronco traslada el centro de masas hacia adelante, reduciendo el momento extensor de la rodilla y, por ende, el estrés sobre la patela.",
+      "learning_pearl": "Pequeños cambios en el tronco pueden aliviar grandes cargas en la rodilla.",
+      "hints": ["Piensa en el momento de fuerza (brazo de palanca).", "¿Cómo afecta la posición del tronco al cuádriceps?", "El objetivo es descargar la articulación irritada."],
+      "difficulty": 4,
+      "tags": ["Biomecánica", "Carrera", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_cadence_mod",
+      "family_id": "biomech_mods_sdpf",
+      "content": "Un corredor con SDPF persistente recibe la instrucción de aumentar su frecuencia de paso (cadencia) en un 10%. Biomecánicamente, ¿qué efecto tiene esto en la articulación patelofemoral?",
+      "options": [
+        { "text": "Reduce la longitud del paso y disminuye la fuerza de reacción del suelo en cada impacto.", "isCorrect": true },
+        { "text": "Aumenta el tiempo de vuelo y el impacto vertical.", "isCorrect": false },
+        { "text": "Obliga a una caída de talón más agresiva.", "isCorrect": false },
+        { "text": "No tiene efecto real en la rodilla, solo en el tobillo.", "isCorrect": false }
+      ],
+      "rationale": "Una cadencia más alta distribuye la carga total en más pasos de menor intensidad, reduciendo el pico de presión patelofemoral en cada ciclo.",
+      "learning_pearl": "Más pasos = Menos estrés por paso. Una regla de oro para la rodilla del corredor.",
+      "hints": ["Relación entre número de pasos y fuerza de impacto.", "¿Qué pasa con la longitud del paso si das más pasos por minuto?", "Es una de las intervenciones con más evidencia en carrera."],
+      "difficulty": 3,
+      "tags": ["Biomecánica", "Carrera", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_neuro_image",
+      "family_id": "neuroscience_sdpf",
+      "content": "Un paciente te muestra una resonancia que indica 'Condromalacia Grado II' y está muy angustiado pensando que su rodilla está rota. ¿Cuál es la interpretación clínica correcta basada en la neurociencia del dolor y el SDPF?",
+      "options": [
+        { "text": "Existe una pobre correlación entre el daño del cartílago en la imagen y los niveles de dolor reportados.", "isCorrect": true },
+        { "text": "La imagen es el factor determinante para decidir si el paciente debe operarse.", "isCorrect": false },
+        { "text": "Un grado II significa que el paciente no podrá volver a correr nunca.", "isCorrect": false },
+        { "text": "El dolor siempre es proporcional al desgaste del cartílago.", "isCorrect": false }
+      ],
+      "rationale": "Muchos sujetos asintomáticos tienen hallazgos de condromalacia. El dolor en SDPF suele ser un problema de sensibilidad tisular y gestión de carga, no solo un cambio estructural.",
+      "learning_pearl": "Tratamos personas y funciones, no fotos de resonancias.",
+      "hints": ["¿Todos los que tienen 'desgaste' tienen dolor?", "Considera sujetos sanos con imágenes 'anormales'.", "Enfócate en la resiliencia y no en la estructura."],
+      "difficulty": 3,
+      "tags": ["Neurociencia", "Educación", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_neuro_pain",
+      "family_id": "neuroscience_sdpf",
+      "content": "Un paciente con SDPF crónico evita subir escaleras porque 'siente que se está rompiendo el cartílago'. ¿Qué concepto de educación es fundamental para este paciente?",
+      "options": [
+        { "text": "El dolor es un sistema de alarma que puede estar hipersensible, no un medidor de daño estructural.", "isCorrect": true },
+        { "text": "Confirmar que las escaleras son peligrosas y debe evitarlas para siempre.", "isCorrect": false },
+        { "text": "Decirle que el dolor está solo en su mente y que no es real.", "isCorrect": false },
+        { "text": "Explicar que el cartílago se regenera con reposo absoluto.", "isCorrect": false }
+      ],
+      "rationale": "Educar en el modelo de sensibilidad vs daño ayuda a reducir la kinesiofobia y permite una exposición gradual al movimiento.",
+      "learning_pearl": "Hurt ≠ Harm. El dolor es una alarma, no un diagnóstico de ruptura.",
+      "hints": ["¿Qué es el dolor desde un punto de vista biológico?", "¿Es posible tener dolor sin daño?", "Busca empoderar al paciente."],
+      "difficulty": 3,
+      "tags": ["Neurociencia", "Educación", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_prog_iso",
+      "family_id": "progression_sdpf",
+      "content": "Un paciente en fase aguda de SDPF no tolera estocadas ni sentadillas dinámicas debido al dolor (VAS 7/10). ¿Cuál es la estrategia de carga inicial recomendada según el TFG?",
+      "options": [
+        { "text": "Ejercicios isométricos en rangos libres de dolor para generar analgesia por inducción motora.", "isCorrect": true },
+        { "text": "Reposo absoluto en cama por 2 semanas.", "isCorrect": false },
+        { "text": "Continuar con las estocadas aunque el dolor sea insoportable para 'fortalecer'.", "isCorrect": false },
+        { "text": "Aplicar solo ultrasonido y tens hasta que el dolor baje a 0.", "isCorrect": false }
+      ],
+      "rationale": "La isometría ayuda a mantener el tono muscular y tiene un efecto analgésico sistémico, permitiendo cargar el tejido sin la irritación de la fricción dinámica.",
+      "learning_pearl": "La isometría es el puente seguro entre el dolor y la función dinámica.",
+      "hints": ["Busca una forma de cargar sin movimiento articular.", "¿Qué tipo de contracción genera analgesia?", "Analgesia inducida por ejercicio."],
+      "difficulty": 2,
+      "tags": ["Progresión", "Ejercicio", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_prog_return",
+      "family_id": "progression_sdpf",
+      "content": "¿Cuál es el criterio clínico más fiable para decidir que un paciente con SDPF puede progresar de ejercicios de fuerza a ejercicios de impacto (pliometría)?",
+      "options": [
+        { "text": "Ausencia de dolor exacerbagado en las 24 horas posteriores a la sesión previa de carga controlada.", "isCorrect": true },
+        { "text": "Que el paciente ya no sienta crepitación al caminar.", "isCorrect": false },
+        { "text": "Que la resonancia magnética salga 100% limpia.", "isCorrect": false },
+        { "text": "Que haya pasado un tiempo estándar de 3 semanas de tratamiento.", "isCorrect": false }
+      ],
+      "rationale": "La respuesta del tejido a las 24h es el 'estándar de oro' para monitorear la tolerancia homeostática en patologías de carga como el SDPF.",
+      "learning_pearl": "La 'regla de las 24 horas' es tu mejor brújula para progresar carga.",
+      "hints": ["El tiempo de recuperación tisular.", "¿Cómo sabemos si nos pasamos de carga?", "Homeostasis vs Irritación."],
+      "difficulty": 3,
+      "tags": ["Progresión", "Carga", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    }
+  ]
+}

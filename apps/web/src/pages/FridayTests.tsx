@@ -5,6 +5,7 @@ import { db } from '../lib/firebase';
 import { useAuth } from '../context/AuthContext';
 import { calculateChileanGrade } from '../utils/gradeCalculator';
 import { selectAdaptiveQuestions, TagMastery, Question as AdaptiveQuestion } from '../utils/adaptiveEngine';
+import { shuffleArray } from '../utils/shuffle';
 
 interface Question extends AdaptiveQuestion {
   question_id: string;
@@ -30,6 +31,7 @@ export const FridayTests = () => {
     const [finished, setFinished] = useState(false);
     const [loading, setLoading] = useState(false);
     const [results, setResults] = useState<{ score: number; grade: number } | null>(null);
+    const [shuffledOptions, setShuffledOptions] = useState<any[][]>([]);
     const timerRef = useRef<NodeJS.Timeout | null>(null);
 
     const startTest = async (type: 'A' | 'B') => {
@@ -52,6 +54,7 @@ export const FridayTests = () => {
             const approvedQ = allQ.filter(q => q.status === 'approved' || q.status === undefined);
             const selected = selectAdaptiveQuestions(approvedQ, mData, 40);
             setQuestions(selected);
+            setShuffledOptions(selected.map(q => shuffleArray(q.options)));
 
             // Start Timer
             timerRef.current = setInterval(() => {
@@ -79,7 +82,10 @@ export const FridayTests = () => {
 
         let correct = 0;
         questions.forEach((q, i) => {
-            if (answers[i] !== undefined && q.options[answers[i]].isCorrect) correct++;
+            if (answers[i] !== undefined) {
+                const selectedOpt = shuffledOptions[i][answers[i]];
+                if (selectedOpt.isCorrect) correct++;
+            }
         });
 
         const percent = Math.round((correct / questions.length) * 100);
@@ -155,9 +161,9 @@ export const FridayTests = () => {
                 <h3 style={{ textAlign: 'left', background: 'none', WebkitTextFillColor: 'white', lineHeight: '1.4', margin: 0 }}>{q?.content}</h3>
                 
                 <div className="flex-col" style={{ gap: 12, marginTop: 24 }}>
-                    {q?.options.map((opt, i) => (
+                    {shuffledOptions[currentIndex]?.map((opt, i) => (
                         <button
-                            key={i}
+                            key={opt.text}
                             onClick={() => setAnswers({ ...answers, [currentIndex]: i })}
                             style={{ 
                                 padding: '16px', 

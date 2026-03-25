@@ -1,66 +1,43 @@
-# Contrato de Contenido - Kine Poli App
+# Contrato de Calidad Pedagógica: KineTest
 
-Este documento define el formato estricto que debe seguir el contenido para ser aceptado por el motor de ingesta.
+Este documento define los estándares de formato y contenido para mantener la excelencia clínica y técnica en toda la plataforma.
 
-## 1. Unidades (Unit)
-Colecci\u00f3n: `units`
-Document ID: `{unit_id}` (ej: `kine_base_01`)
+---
 
-| Campo | Tipo | Descripci\u00f3n |
+## 1. Preguntas de Selección Múltiple (Anti-Memorización)
+
+| Elemento | Longitud Recomendada | Requisito Pedagógico |
 | :--- | :--- | :--- |
-| `unit_id` | string | Identificador \u00fanico de la unidad |
-| `title` | string | T\u00edtulo de la unidad |
-| `description` | string | Breve resumen del contenido |
-| `tags` | array[string]| Etiquetas para categorizaci\u00f3n |
-| `order` | number | Orden de aparici\u00f3n |
+| **Enunciado** | 200 - 450 caracteres | Debe ser un **Caso Clínico**. Prohibido preguntas teóricas aisladas (ej. "¿Qué es X?"). |
+| **Opciones (4)** | Máx. 100 car. cada una | Distractores plausibles. Evitar "Todas las anteriores" o "Ninguna". |
+| **Justificación Clínica** | 300 - 600 caracteres | Debe explicar el **RAZONAMIENTO CLÍNICO**. ¿Por qué es la mejor opción? ¿Por qué fallan las otras? |
+| **Perla Clínica** | Máx. 150 caracteres | Una "regla de oro" de alto impacto para la retención a largo plazo. |
+| **Pistas (3 niveles)** | Crecientes (80-150 car.) | Nivel 1: Sutil. Nivel 2: Conceptual. Nivel 3: Aplicación directa. |
 
-## 2. Preguntas (Question)
-Colecci\u00f3n: `questions`
-Document ID: `{question_id}` (ej: `q_kine_001`)
+---
 
-| Campo | Tipo | Descripci\u00f3n |
+## 2. Casos Clínicos (Aprendizaje Basado en Problemas)
+
+| Elemento | Longitud Recomendada | Requisito Pedagógico |
 | :--- | :--- | :--- |
-| `unit_id` | string | ID de la unidad a la que pertenece |
-| `question_id` | string | Identificador \u00fanico de la pregunta |
-| `family_id` | string | ID para agrupar variantes de la misma pregunta |
-| `type` | string | `multiple_choice`, `true_false`, etc. |
-| `content` | string | El texto de la pregunta |
-| `options` | array[object]| `{ text: string, isCorrect: boolean }` |
-| `difficulty` | number | 1 (f\u00e1cil) a 5 (dif\u00edcil) |
-| `estimated_time_sec`| number | Tiempo estimado de respuesta |
-| `hints` | array[string]| 3 pistas progresivas (1: Sutil, 2: Conceptual, 3: Directa) |
-| `rationale` | string | Explicación profunda: por qué es correcta y por qué las otras son falsas |
-| `learning_pearl`| string | (Nuevo) "Perla de aprendizaje": resumen de 1 frase del concepto clave |
-| `tags` | array[string]| Etiquetas (habilidad, tema) |
-| `status` | string | `draft` (default), `approved`, `rejected` |
+| **Presentación** | 600 - 1200 caracteres | Historia clínica completa: Anamnesis, Evaluación física y Pruebas. |
+| **Estructura** | 3-5 sub-preguntas | Deben seguir un flujo: Diagnóstico -> Evaluación -> Tratamiento -> Progresión. |
+| **Feedback Contextual** | 400 - 800 caracteres | Explicación detallada de las consecuencias de la decisión tomada en el caso. |
 
-## 3. Casos Cl\u00ednicos (Case)
-Colecci\u00f3n: `cases`
-Document ID: `{case_id}` (ej: `case_ank_01`)
+---
 
-| Campo | Tipo | Descripci\u00f3n |
+## 3. Teoría Esencial (Fisiología y Mecanismos)
+
+| Elemento | Longitud Recomendada | Requisito Pedagógico |
 | :--- | :--- | :--- |
-| `case_id` | string | Identificador \u00fanico del caso |
-| `title` | string | T\u00edtulo del caso |
-| `description` | string | Historia cl\u00ednica inicial |
-| `questions` | array[string]| IDs de preguntas generales (opcional) |
-| `type` | string | `linear` o `branched` |
-| `nodes` | array[object]| (Solo para branched) Lista de nodos narrativos |
-| `soap_schema` | object | (Opcional) Definici\u00f3n de campos SOAP para el final |
+| **Enunciado** | 200 - 400 caracteres | Debe explicar un **MECANISMO**. Prohibido preguntar "¿Qué es X?". Ejemplo: "¿Cómo influye el mecanismo Y en la resolución del tejido?". |
+| **Uso de Evidencia** | Adaptativo | Si se basa en un ECA (Ensayo Clínico), **prohibido preguntar porcentajes**. Preguntar por la conclusión aplicable o la utilidad clínica del hallazgo. |
+| **Justificación** | 300 - 500 caracteres | Debe conectar la teoría con la práctica. "¿Por qué este principio teórico cambia mi forma de evaluar?". |
 
-### 3.1 Detalle de Nodos (Branched Case Only)
-Cada objeto en el array `nodes` sigue esta estructura:
+---
 
-- `node_id`: string
-- `narrative`: string (texto inicial del nodo)
-- `reveal`: string (texto que aparece tras responder, antes de pasar al siguiente nodo)
-- `question_id`: string (ID de la pregunta vinculada a este nodo)
-- `next_rules`: map[`choice_index`] -> `node_id` (define el camino seg\u00fan la respuesta)
+## 4. Reglas de Oro Actualizadas (Anti-Estadística)
 
-### 3.2 Resumen SOAP
-Define una lista de checklists o selecciones m\u00faltiples para:
-- **S**ubjetivo
-- **O**bjetivo
-- **A**preciaci\u00f3n
-- **P**lan (Tratamiento)
-
+1.  **Cero Estadísticas**: Aunque la fuente sea un estudio científico, el alumno no debe memorizar que el "15% falló". Debe aprender **por qué** falló o qué principio se descubrió.
+2.  **Utilidad Autónoma**: La pregunta debe poder responderse con el conocimiento extraído, sin que el alumno necesite haber leído el artículo original.
+3.  **De la Teoría a la Práctica**: Toda pregunta de teoría debe terminar con una "Perla Clínica" que la aplique a un paciente real.

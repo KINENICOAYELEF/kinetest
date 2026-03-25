@@ -1,0 +1,148 @@
+{
+  "questions": [
+    {
+      "question_id": "sdpf_diff_meniscus",
+      "family_id": "diff_diagnosis_sdpf",
+      "content": "Un paciente presenta dolor al realizar sentadillas profundas. Notas que el dolor es intermitente, se localiza en la línea articular medial y a veces reporta una sensación de 'bloqueo' o 'atrapamiento'. ¿Qué diagnóstico diferencial cobra fuerza frente al SDPF?",
+      "options": [
+        { "text": "Lesión del menisco medial.", "isCorrect": true },
+        { "text": "Síndrome de Dolor Patelofemoral severo.", "isCorrect": false },
+        { "text": "Artritis reumatoide juvenil.", "isCorrect": false },
+        { "text": "Plica sinovial hipertrófica.", "isCorrect": false }
+      ],
+      "rationale": "El bloqueo mecánico y el dolor puntual en la interlínea articular son banderas rojas para meniscos. El SDPF suele ser peripatelar y difuso, sin bloqueos reales.",
+      "learning_pearl": "El 'bloqueo' es meniscal hasta que se demuestre lo contrario; el SDPF es 'fricción' e 'irritación'.",
+      "hints": ["Los síntomas mecánicos (bloqueos) no son típicos de SDPF.", "¿Dónde se localiza el dolor exactamente?", "Busca la estructura intraarticular."],
+      "difficulty": 3,
+      "tags": ["Diferencial", "Clínica", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_biomech_foot",
+      "family_id": "biomech_mods_sdpf",
+      "content": "Un corredor con SDPF presenta una pronación excesiva del pie (pie plano dinámico) durante la fase de apoyo. ¿Por qué esto aumenta el dolor de rodilla según los principios de cadena cinética?",
+      "options": [
+        { "text": "La pronación induce una rotación interna tibial, lo que aumenta el estrés en el valgo de rodilla.", "isCorrect": true },
+        { "text": "La pronación bloquea la rodilla en extensión.", "isCorrect": false },
+        { "text": "Obliga al cuádriceps a desactivarse por completo.", "isCorrect": false },
+        { "text": "Aumenta la dorsiflexión del tobillo de forma excesiva.", "isCorrect": false }
+      ],
+      "rationale": "El pie es el primer eslabón; su colapso medial (pronación) arrastra a la tibia a rotación interna, lo que altera el alineamiento patelofemoral (vector Q).",
+      "learning_pearl": "La rodilla está 'atrapada' entre el colapso del pie y la debilidad de la cadera.",
+      "hints": ["Sigue el movimiento de los huesos hacia arriba.", "¿Qué le pasa a la tibia si el arco colapsa?", "Relaciona pie con rodilla."],
+      "difficulty": 4,
+      "tags": ["Biomecánica", "Cadena Cinética", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_neuro_sens",
+      "family_id": "neuroscience_sdpf",
+      "content": "Un paciente con SDPF de 2 años de evolución reporta dolor incluso al roce de la sábana por la noche (alodinia) y dolor en áreas distantes de la rodilla. ¿Qué fenómeno fisiopatológico está ocurriendo?",
+      "options": [
+        { "text": "Sensibilización Central (Procesamiento del dolor alterado en el SNC).", "isCorrect": true },
+        { "text": "Degeneración masiva del cartílago hialino.", "isCorrect": false },
+        { "text": "Falta de estiramiento de los isquiotibiales.", "isCorrect": false },
+        { "text": "Infección articular crónica.", "isCorrect": false }
+      ],
+      "rationale": "Cuando el dolor se vuelve crónico y sensible a estímulos no nocivos (como el roce), el problema migra de la rodilla al sistema nervioso central.",
+      "learning_pearl": "En dolor crónico, el 'volumen' del cerebro está muy alto; hay que bajarlo con educación y movimiento gradual.",
+      "hints": ["Dolor al roce = Alodinia.", "¿El problema está solo en la rodilla?", "Considera el sistema de procesamiento central."],
+      "difficulty": 5,
+      "tags": ["Neurociencia", "Cronicidad", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_prog_squat",
+      "family_id": "progression_sdpf",
+      "content": "Durante la progresión de ejercicios, el paciente ya tolera sentadillas isométricas a 30°. ¿Cuál es el siguiente paso lógico para aumentar la carga patelofemoral de forma controlada?",
+      "options": [
+        { "text": "Sentadillas dinámicas en rango corto (0-45°) controlando el valgo.", "isCorrect": true },
+        { "text": "Sentadillas profundas a 120° con peso máximo.", "isCorrect": false },
+        { "text": "Correr 5km en terreno inclinado.", "isCorrect": false },
+        { "text": "Volver a reposo para asegurar que no duela.", "isCorrect": false }
+      ],
+      "rationale": "La carga patelofemoral aumenta con el ángulo de flexión. Pasar de isométrico a un rango dinámico corto permite una adaptación progresiva del estrés tisular.",
+      "learning_pearl": "Más grados de flexión = Más presión. Progresa el rango antes que el peso.",
+      "hints": ["Relaciona el ángulo de la rodilla con la presión.", "Paso gradual del isométrico al dinámico.", "Controla la calidad del movimiento."],
+      "difficulty": 2,
+      "tags": ["Progresión", "Ejercicio", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_tape_logic",
+      "family_id": "adjunct_sdpf",
+      "content": "Aplicas un vendaje patelar (Taping de McConnell) a un paciente para que pueda entrenar. ¿Cuál es el principal mecanismo de acción aceptado por la evidencia moderna?",
+      "options": [
+        { "text": "Input propioceptivo y analgésico que altera la percepción del dolor por el SNC.", "isCorrect": true },
+        { "text": "Realineación mecánica permanente de la rótula.", "isCorrect": false },
+        { "text": "Aumento del flujo sanguíneo intraarticular.", "isCorrect": false },
+        { "text": "Sustitución mecánica del ligamento patelofemoral medial.", "isCorrect": false }
+      ],
+      "rationale": "Aunque se pensaba que movía la rótula, hoy sabemos que el efecto es principalmente neurofisiológico (propiocepción y alivio de síntomas para permitir el ejercicio).",
+      "learning_pearl": "El tape 'engaña' al dolor de forma temporal para que el músculo pueda trabajar.",
+      "hints": ["¿Es posible mover un hueso con cinta?", "Efecto neural vs mecánico.", "Facilitación de la carga."],
+      "difficulty": 4,
+      "tags": ["Adjuntos", "Tape", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_vmo_myth",
+      "family_id": "adjunct_sdpf",
+      "content": "Un estudiante de kinesiología afirma que el SDPF se soluciona 'aislando' el Vasto Medial Oblicuo (VMO). Según las revisiones sistemáticas, ¿cuál es la postura correcta?",
+      "options": [
+        { "text": "Es imposible aislar el VMO; se debe fortalecer el cuádriceps de forma global junto con la cadera.", "isCorrect": true },
+        { "text": "El VMO se activa solo haciendo aducción de cadera mientras se extiende la rodilla.", "isCorrect": false },
+        { "text": "Aislar el VMO es el estándar de oro del tratamiento.", "isCorrect": false },
+        { "text": "No se debe fortalecer el cuádriceps, solo la cadera.", "isCorrect": false }
+      ],
+      "rationale": "La neuroanatomía no permite una activación aislada voluntaria del VMO sin el resto del cuádriceps. El éxito clínico viene del fortalecimiento global y control motor cadera-rodilla.",
+      "learning_pearl": "No pierdas tiempo buscando el VMO aislado; busca un cuádriceps fuerte y una cadera estable.",
+      "hints": ["¿Puede una sola porción muscular contraerse sola?", "Considera la evidencia sobre ejercicios selectivos.", "Global vs Aislado."],
+      "difficulty": 3,
+      "tags": ["Mitos", "Ejercicio", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_surg_cons",
+      "family_id": "outcomes_sdpf",
+      "content": "Un paciente joven con SDPF crónico (sin luxaciones previas) considera la cirugía de liberación del retináculo lateral. ¿Qué dice el TFG sobre el éxito a largo plazo comparado con el tratamiento conservador?",
+      "options": [
+        { "text": "El tratamiento conservador (ejercicio) tiene resultados iguales o superiores a la cirugía.", "isCorrect": true },
+        { "text": "La cirugía es superior y evita la artritis futura.", "isCorrect": false },
+        { "text": "La cirugía es obligatoria si el dolor dura más de 6 meses.", "isCorrect": false },
+        { "text": "La liberación lateral ya no se practica en ningún país.", "isCorrect": false }
+      ],
+      "rationale": "En ausencia de inestabilidad mecánica severa, la cirugía no ha demostrado superar el manejo kine en SDPF crónico.",
+      "learning_pearl": "La 'bisturización' del dolor raramente es la solución en el SDPF.",
+      "hints": ["Compara efectividad de ejercicio vs bisturí.", "Criterios para cirugía en SDPF.", "Evidencia a largo plazo."],
+      "difficulty": 4,
+      "tags": ["Clínica", "Evidencia", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    },
+    {
+      "question_id": "sdpf_squat_pressure",
+      "family_id": "outcomes_sdpf",
+      "content": "¿En qué rango de flexión de rodilla se produce el pico máximo de estrés de compresión en la articulación patelofemoral durante una sentadilla dinámica?",
+      "options": [
+        { "text": "Entre los 60° y 90° de flexión.", "isCorrect": true },
+        { "text": "En los primeros 15° de flexión.", "isCorrect": false },
+        { "text": "En extensión completa (0°).", "isCorrect": false },
+        { "text": "A partir de los 120° la presión disminuye por el efecto hamacas.", "isCorrect": false }
+      ],
+      "rationale": "El vector de fuerza patelofemoral aumenta con la flexión, alcanzando picos críticos entre los 60-90 grados donde la superficie de contacto también es máxima.",
+      "learning_pearl": "Controla el rango de 60-90° en pacientes irritables durante el ejercicio funcional.",
+      "hints": ["¿Cuándo es mayor el vector resultante hacia atrás?", "Relación ángulo vs compresión.", "Punto de mayor irritabilidad mecánica."],
+      "difficulty": 4,
+      "tags": ["Biomecánica", "Ejercicio", "SDPF"],
+      "unit_id": "sdpf",
+      "status": "draft"
+    }
+  ]
+}

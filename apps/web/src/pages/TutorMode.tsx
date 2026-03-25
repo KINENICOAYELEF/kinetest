@@ -4,6 +4,7 @@ import { collection, query, where, getDocs, addDoc, serverTimestamp, doc, setDoc
 import { db } from '../lib/firebase';
 import { useAuth } from '../context/AuthContext';
 import { selectAdaptiveQuestions, updateTagMastery, TagMastery, selectVariant } from '../utils/adaptiveEngine';
+import { shuffleArray } from '../utils/shuffle';
 
 interface TutorCard {
     id: string;
@@ -209,6 +210,13 @@ export const TutorMode = () => {
 
     const currentCard = tutorCards[currentCardIndex];
     const currentQuestion = viewMode === 'remediation' ? remediationQuestion! : quizQuestions[currentQuizIndex];
+    const [shuffledOptions, setShuffledOptions] = useState<any[]>([]);
+
+    useEffect(() => {
+        if (currentQuestion?.options) {
+            setShuffledOptions(shuffleArray(currentQuestion.options));
+        }
+    }, [currentQuestion]);
 
     return (
         <div className="container" style={{ maxWidth: 800 }}>
@@ -271,9 +279,9 @@ export const TutorMode = () => {
                         )}
 
                         <div className="flex-col" style={{ gap: 12, marginTop: 24 }}>
-                            {currentQuestion.options.map((opt, i) => {
+                            {shuffledOptions.map((opt, i) => {
                                 const isCorrect = opt.isCorrect;
-                                const isSelected = selectedOption === i;
+                                const isSelected = selectedOption !== null && shuffledOptions[selectedOption] === opt;
                                 let borderColor = 'var(--glass-border)';
                                 let bg = 'rgba(255,255,255,0.02)';
                                 let color = 'var(--text-muted)';
@@ -287,8 +295,8 @@ export const TutorMode = () => {
 
                                 return (
                                     <button
-                                        key={i}
-                                        onClick={() => handleAnswer(i)}
+                                        key={opt.text}
+                                        onClick={() => handleAnswer(shuffledOptions.indexOf(opt))}
                                         disabled={showFeedback}
                                         style={{ padding: 16, textAlign: 'left', border: '1px solid', borderColor, borderRadius: 12, background: bg, color, cursor: showFeedback ? 'default' : 'pointer', fontSize: '0.95rem' }}
                                     >
