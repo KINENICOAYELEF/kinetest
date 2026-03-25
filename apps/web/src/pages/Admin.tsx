@@ -18,6 +18,7 @@ export const Admin = () => {
                 <p style={{ color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 30 }}>Este es un espacio restringido exclusivo para cuentas con rol 'admin'.</p>
                 <div className="flex-col" style={{ gap: 16 }}>
                     <button onClick={() => navigate('/admin/dashboard')}>Ver Estadísticas Estudiantes</button>
+                    <button onClick={() => navigate('/admin/units')} style={{ background: '#3b82f6' }}>Gestionar Unidades (Visibilidad)</button>
                     <button onClick={() => navigate('/admin/content')} style={{ background: '#f59e0b' }}>Gestionar Contenido (Aprobaciones)</button>
                     <button onClick={handleLogout} className="link-btn" style={{ background: 'none', border: 'none', width: 'auto', margin: '10px auto', color: '#f87171' }}>Cerrar sesión</button>
                 </div>

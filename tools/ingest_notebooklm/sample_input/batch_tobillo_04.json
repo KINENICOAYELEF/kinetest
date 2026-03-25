@@ -1,0 +1,144 @@
+{
+  "questions": [
+    {
+      "question_id": "tobillo_path_01",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un paciente sufre un esguince lateral de tobillo severo por inversión. Tras la fase aguda, el paciente mantiene inestabilidad rotatoria medial y déficit persistente de flexión dorsal. Más allá de la laxitud ligamentosa aislada, ¿qué alteración estructural artrocinemática es frecuentemente observada en estos pacientes y contribuye directamente a esta inestabilidad de la mortaja tibioperoneoastragalina?",
+      "options": [
+        "A) Falla posicional posterior del peroné en la articulación tibioperonea proximal.",
+        "B) Falla posicional anterior del peroné en la articulación tibioperonea distal.",
+        "C) Subluxación medial persistente de la articulación subastragalina.",
+        "D) Alteración posicional en flexión plantar del primer metatarsiano sobre el cuneiforme."
+      ],
+      "rationale": "Los pacientes con un esguince lateral de tobillo frecuentemente presentan una disrupción de la mortaja debido a una falla posicional anterior del peroné en la articulación tibioperonea distal [1]. Esta alteración estructural contribuye significativamente a la inestabilidad de la articulación talocrural, manifestándose específicamente como un exceso de inversión en el plano frontal y rotación medial en el plano transversal [1]. Clínicamente, se ha observado que los individuos con un esguince subagudo exhiben una disminución en el juego articular anteroposterior del peroné, junto con un incremento en el cajón posteroanterior de la articulación talocrural [1]. Estos cambios limitan mecánicamente la artrocinemática normal, impidiendo el correcto deslizamiento posterior del astrágalo y alterando la estabilidad intraarticular, lo que justifica la restricción en la flexión dorsal y la sensación de fallo que reportan los pacientes [1, 2].",
+      "learning_pearl": "El esguince lateral de tobillo no es exclusivamente una lesión ligamentosa; frecuentemente induce una falla posicional anterior del peroné que altera la mortaja talocrural y requiere evaluación y movilización articular específica."
+    },
+    {
+      "question_id": "tobillo_path_02",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un corredor de resistencia es diagnosticado con tendinopatía de Aquiles insercional crónica tras fracasar en un programa previo de rehabilitación. En la planificación de su nuevo protocolo de carga mecánica excéntrica, ¿qué modificación biomecánica es esencial aplicar en comparación con el protocolo estándar para la tendinopatía de la porción media, con el fin de optimizar la tolerancia y recuperación del tendón?",
+      "options": [
+        "A) Fomentar la carga concéntrica de alta velocidad suprimiendo completamente la fase excéntrica lenta.",
+        "B) Realizar los ejercicios de elevación y descenso del talón permitiendo la máxima flexión dorsal al bajar sobre un escalón.",
+        "C) Restringir el rango de movimiento evitando llegar a la flexión dorsal completa durante la carga excéntrica.",
+        "D) Mantener la rodilla en flexión estricta de 90 grados para aislar exclusivamente la porción insercional del músculo sóleo."
+      ],
+      "rationale": "El manejo de la tendinopatía de Aquiles varía biomecánicamente dependiendo de si la lesión se ubica en la porción media o en la inserción calcánea [3]. Para la tendinopatía insercional, la evidencia indica que el entrenamiento de fuerza excéntrica para los flexores plantares puede optimizarse cuando el ejercicio se ejecuta utilizando un rango de flexión dorsal menor al completo [4]. Biomecánicamente, la flexión dorsal máxima somete a la zona insercional del tendón de Aquiles a fuerzas de compresión excesivas contra la tuberosidad superior del calcáneo, lo cual exacerba la irritación de los tejidos peritendinosos y del propio tendón afectado [4]. Modificar el rango evitando el estiramiento final protege la zona de inserción mientras permite los beneficios celulares y estructurales de la mecanotransducción generada por la carga excéntrica progresiva [4].",
+      "learning_pearl": "En la tendinopatía de Aquiles insercional, los protocolos de carga excéntrica deben realizarse desde el suelo o limitando la flexión dorsal máxima para evitar la compresión mecánica dañina del tendón contra el calcáneo."
+    },
+    {
+      "question_id": "tobillo_path_03",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Caso clínico: Mujer de 50 años, corredora activa, reporta dolor punzante en el talón medial al dar los primeros pasos en la mañana. Sin embargo, a diferencia de un cuadro típico fascial, su dolor empeora con la actividad a medida que avanza el día, se asocia a dolor quemante plantar y se localiza justo anterior al reborde posterior del talón, con irradiación hacia el tobillo medial al evertir y abducir el pie. ¿Qué diagnóstico diferencial anatómico es el más probable?",
+      "options": [
+        "A) Fasciopatía plantar aguda primaria.",
+        "B) Neuropatía de Baxter (atrapamiento de la primera rama del nervio plantar lateral).",
+        "C) Síndrome del túnel tarsiano proximal clásico.",
+        "D) Atrapamiento del nervio plantar medial en el nudo de Henry (Pie de Trotador)."
+      ],
+      "rationale": "La neuropatía de Baxter implica el atrapamiento de la primera rama del nervio plantar lateral, a menudo comprimida entre la fascia del abductor del dedo gordo y el músculo cuadrado plantar [5]. Aunque tanto la fasciopatía plantar como la neuropatía de Baxter pueden presentar dolor con los primeros pasos, existen marcadas diferencias clínicas [6]. En la afección de Baxter, el dolor tiende a exacerbarse con la actividad continua y no disminuye con la actividad ligera, a diferencia del patrón típico de la fasciopatía plantar [6]. Topográficamente, el dolor puntual en la neuropatía de Baxter se localiza más proximal, justo anterior al borde posterior del talón, mientras que en la fasciopatía la máxima sensibilidad está en la inserción de la fascia en el tubérculo calcáneo medial [6]. Además, la provocación del dolor al realizar eversión y abducción del pie, combinada con irradiación proximal o distal a lo largo de la cara plantar lateral, consolida la sospecha de atrapamiento nervioso en lugar de patología aponeurótica [6].",
+      "learning_pearl": "El dolor en el talón que empeora sistemáticamente con la actividad, no cede al entrar en calor y cursa con quemazón proximal, sugiere fuertemente una Neuropatía de Baxter, requiriendo diagnóstico diferencial estricto frente a la fasciopatía plantar."
+    },
+    {
+      "question_id": "tobillo_path_04",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "En un paciente que ha desarrollado una Deformidad Plana Colapsante Progresiva (PCFD), el fisioterapeuta nota la incapacidad de invertir el calcáneo durante la prueba de elevación unilateral del talón. Desde un punto de vista artrocinemático y biomecánico, ¿qué alteración secundaria a la disfunción del tendón tibial posterior genera directamente el colapso del arco longitudinal medial durante la marcha?",
+      "options": [
+        "A) La debilidad del tendón tibial posterior incrementa la fuerza del músculo tibial anterior, provocando un arrastre rotacional del escafoides hacia la flexión dorsal pura.",
+        "B) La insuficiencia del tendón tibial posterior reduce la capacidad funcional para bloquear las articulaciones tarsianas transversas en supinación, perdiendo la palanca rígida necesaria para el despegue.",
+        "C) La lesión del tibial posterior traslada inmediatamente la carga hacia los músculos peroneos, los cuales subluxan el hueso cuboides en dirección plantar y medial.",
+        "D) La incapacidad de eversión estira pasivamente el ligamento calcaneocuboideo, provocando un impacto dorsolateral crónico en el mediopié."
+      ],
+      "rationale": "El músculo y tendón tibial posterior, junto con los ligamentos deltoideo y glenoideo (spring ligament), proporcionan un soporte dinámico y pasivo primario al arco longitudinal medial debido a sus extensas inserciones plantares [7]. Biomecánicamente, la insuficiencia del tendón tibial posterior resulta en una capacidad disminuida del pie para bloquear las articulaciones del tarso transverso (articulación de Chopart) hacia la posición de supinación [7]. Este bloqueo es imperativo biomecánicamente para convertir el pie en una palanca rígida efectiva durante la fase de empuje (despegue) en el ciclo de la marcha [7, 8]. Sin este bloqueo, las fuerzas se disipan y se incrementa radicalmente el estrés mecánico sobre los tejidos conectivos plantares adyacentes; esta sobrecarga progresiva conduce subsecuentemente al colapso del arco longitudinal medial, abducción patológica del antepié y deformidad en valgo del retropié [7].",
+      "learning_pearl": "El bloqueo de la articulación mediotarsiana en supinación por acción del tibial posterior es fundamental para la propulsión eficiente; su fracaso detona el colapso secuencial característico del pie plano adquirido en el adulto."
+    },
+    {
+      "question_id": "tobillo_path_05",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un baloncestista acude a rehabilitación tres semanas después de sufrir un esguince por inversión del tobillo. Refiere dolor localizado en el mediopié lateral y la sensación persistente de 'tener una piedra en el zapato' al apoyar el pie. A la evaluación, se evidencia un signo del cuarto metatarsiano caído. ¿Cuál es la patomecánica neuromuscular subyacente que explica con mayor precisión la etiología de este síndrome del cuboides?",
+      "options": [
+        "A) El espasmo adaptativo del músculo tibial posterior ante el fallo lateral origina un varo rígido del retropié que encaja el cuboides contra el calcáneo de forma irreversible.",
+        "B) Una subluxación dorsal aguda del hueso cuboides inducida por la rotura total del ligamento bifurcado durante la inversión forzada.",
+        "C) La contracción fuerte y refleja del músculo peroneo lateral largo durante el esguince por inversión genera una tracción que contribuye a la subluxación plantar-medial del cuboides.",
+        "D) Una hipermovilidad compensatoria del primer radio que aplana el arco transverso distal, desplazando mecánicamente el cuboides hacia el dorso del pie."
+      ],
+      "rationale": "El síndrome del cuboides representa una falla posicional del hueso cuboides con respecto a la articulación mediotarsiana y el calcáneo, y se identifica frecuentemente tras lesiones por inversión del tobillo [9, 10]. Durante un mecanismo agudo de inversión excesiva, el músculo peroneo lateral largo (cuyo tendón discurre bajo el surco del cuboides) experimenta una contracción refleja contundente en un intento por estabilizar el pie y detener la supinación [10]. Esta fuerte tracción del tendón del peroneo lateral largo ejerce una fuerza direccional que contribuye activamente a la subluxación plantar y medial del cuboides [10]. Clínicamente, esta disfunción restringe la movilidad dorsolateral del hueso, ocasionando dolor mediotarsiano severo y la sensación de pisar un objeto duro [9, 11]. Adicionalmente, el 'signo del cuarto metatarsiano caído' aparece porque la base del cuarto metatarsiano acompaña al cuboides en su desviación plantar [12].",
+      "learning_pearl": "El síndrome del cuboides secundario a un esguince por inversión suele originarse por la enérgica contracción defensiva del peroneo largo, arrastrando al cuboides hacia una fijación plantar-medial dolorosa."
+    },
+    {
+      "question_id": "tobillo_path_06",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un recluta militar reporta dolor focalizado y profundo en la región dorsal del mediopié tras haber incrementado abruptamente la intensidad de las marchas. A la palpación, el fisioterapeuta encuentra extrema sensibilidad sobre el hueso navicular. Las radiografías iniciales son negativas para fractura evidente. Según las guías de manejo de fracturas por estrés en extremidad inferior, ¿qué categorización tiene esta lesión y cuál es el paso clínico subsecuente más apropiado?",
+      "options": [
+        "A) Es una fractura por estrés de alto riesgo; dada la propensión al retraso en consolidación por mala vascularización, está indicada una resonancia magnética (RM) y manejo altamente restrictivo de carga.",
+        "B) Corresponde a una fractura por estrés de bajo riesgo similar a la del peroné; requiere únicamente modificación de la actividad manteniendo carga de peso completa a tolerancia durante tres semanas.",
+        "C) Se trata de un síndrome del cuboides con dolor referido medialmente; se debe descartar fractura mediante ecografía en tiempo real y aplicar manipulaciones de grado V (whip) inmediatas.",
+        "D) Es una lesión tendinosa aguda del extensor largo de los dedos; las radiografías negativas descartan totalmente fractura, debiendo iniciar fortalecimiento isocinético excéntrico intenso."
+      ],
+      "rationale": "Las fracturas por estrés son lesiones óseas microscópicas secundarias a cargas mecánicas sobrepasando la capacidad de remodelación del tejido [13]. Es imperativo diferenciar clínicamente las zonas anatómicas según su potencial de curación. El hueso navicular se clasifica inequívocamente como un sitio de 'alto riesgo' para fracturas por estrés, al igual que el quinto metatarsiano, los sesamoideos y el astrágalo [14]. Las zonas de alto riesgo se caracterizan por estar sometidas a grandes fuerzas de cizallamiento y por poseer regiones de vascularidad disminuida, lo que las hace inherentemente propensas a consolidación retardada o formación de pseudoartrosis si no se manejan de manera conservadora estricta [14]. Dado que las radiografías iniciales tienen baja sensibilidad para confirmar microcallos tempranos, en atletas o pacientes con alta exigencia funcional donde se sospecha lesión en un área de alto riesgo, se considera clínicamente apropiado y necesario realizar una Resonancia Magnética (RM) para confirmar el daño tisular profundo e instruir de inmediato un control de carga restrictivo [15].",
+      "learning_pearl": "Las sospechas de fractura por estrés en el navicular son emergencias ortopédicas relativas (sitio de alto riesgo por hipovascularidad) que exigen inmovilización estricta y uso precoz de RM, ignorando radiografías negativas."
+    },
+    {
+      "question_id": "tobillo_path_07",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Una paciente con fascitis plantar (fasciopatía) crónica muestra durante el examen funcional una limitación anatómica severa en la extensión de la primera articulación metatarsofalángica (MTP) (< 30 grados). Desde un punto de vista biomecánico enfocado en el ciclo de la marcha, ¿cómo impacta directamente este déficit articular en la evolución de su fasciopatía plantar?",
+      "options": [
+        "A) Desactiva el mecanismo de Windlass durante la fase de despegue (toe-off), impidiendo que el arco se eleve y se cree una palanca rígida, sobrecargando así mecánicamente la inserción de la aponeurosis.",
+        "B) Induce una tensión patológica exclusiva en la cápsula dorsal de la articulación, lo que afloja pasivamente la fascia plantar, previniendo su curación por falta de mecanotransducción.",
+        "C) Ocasiona que el tendón tibial anterior compense excesivamente generando un aumento en el arco transversal y compresión de los nervios interdigitales.",
+        "D) Provoca una marcha en estepaje que elimina la necesidad de flexión plantar del tobillo, trasladando el peso al borde lateral del pie y acortando crónicamente la musculatura fibular."
+      ],
+      "rationale": "La fasciopatía plantar a menudo está vinculada a una biomecánica anormal del complejo del pie y el tobillo, lo que resulta en microdesgarros y degeneración del tejido aponeurótico [16]. Durante el examen de individuos con fasciopatía plantar, es crucial evaluar el rango de movimiento (ROM) en extensión de la primera articulación metatarsofalángica (MTP), el cual debe alcanzar al menos 65° para permitir una extensión adecuada de la extremidad inferior durante la fase final de la marcha [17]. Biomecánicamente, la extensión de la primera MTP activa el mecanismo de Windlass, el cual tensa de forma natural la fascia plantar, aproxima el calcáneo a las cabezas metatarsianas, eleva el arco longitudinal medial y convierte el pie en una palanca propulsiva rígida [17, 18]. Una limitación sustancial en la extensión de la primera MTP (hallux limitus) neutraliza este eficiente mecanismo estabilizador, obligando a los tejidos blandos y a la propia fascia a absorber fuerzas de carga y cizallamiento deletéreas prolongadas, perpetuando el daño estructural crónico en su inserción calcánea [16, 19].",
+      "learning_pearl": "La extensión adecuada de la primera MTP (>65°) es un prerrequisito innegociable para el correcto funcionamiento del mecanismo de Windlass; su limitación asegura una absorción defectuosa de las cargas y perpetúa el daño en la fascia plantar."
+    },
+    {
+      "question_id": "tobillo_path_08",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un fisioterapeuta está tratando a una paciente con inestabilidad crónica de tobillo (CAI) que presenta episodios repetitivos de esguinces laterales. Los estudios neurofisiológicos contemporáneos han demostrado que la patogenia subyacente trasciende el mero fallo ligamentoso periférico. ¿Qué déficit sensoriomotor de origen central y periférico es una consecuencia directa demostrada en pacientes con CAI, fundamentando la inclusión del entrenamiento de control postural estático y dinámico?",
+      "options": [
+        "A) La denervación total y necrosis de la musculatura extrínseca flexora de los dedos que conduce de forma irreversible a una marcha atáxica.",
+        "B) Excitabilidad motora central inhibida y alteraciones en el mapa cortical del músculo peroneo lateral largo, sumadas a deficiencias propioceptivas periféricas.",
+        "C) Radiculopatía compresiva retrograda a nivel lumbosacro mediada por inflamación simpática de la vaina del nervio sural.",
+        "D) Disminución dramática y exclusiva de la fuerza concéntrica máxima de los músculos flexores plantares y dorsales que elimina el reflejo miotático rotuliano."
+      ],
+      "rationale": "Las lesiones laterales por inversión del tobillo y la posterior inestabilidad crónica (CAI) generan deficiencias que van mucho más allá de la laxitud articular. Frecuentemente se asocian con importantes alteraciones neurológicas tanto periféricas como centrales [20]. Existen evidencias sólidas sobre la desaferenciación originada en el tejido conectivo lesionado y daños en nervios periféricos, pero también destacan las inhibiciones motoras a nivel espinal y cortical [20]. Se ha evidenciado una disminución en la excitabilidad motora central dirigida a estabilizadores clave, así como alteraciones morfológicas específicas en el área del mapa cortical correspondiente al músculo peroneo lateral largo en pacientes con CAI [20]. Estos cambios neurofisiológicos integrales alteran profundamente la somatosensación, la propiocepción articular y la capacidad para activar la musculatura reactiva de forma oportuna tras una perturbación [20]. Por ende, las estrategias de rehabilitación modernas exigen ejercicios enfocados en el control motor, balance dinámico y la facilitación neuromuscular, apuntando a reorganizar estas alteraciones cortico-espinales para la prevención secundaria eficaz [21, 22].",
+      "learning_pearl": "La inestabilidad crónica del tobillo induce un remodelado inhibitorio en la corteza motora cerebral (específicamente en la representación del peroneo largo), demandando rehabilitación neuromuscular que desafíe el control sensoriomotor central."
+    },
+    {
+      "question_id": "tobillo_path_09",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Al evaluar clínicamente la alineación estática en un paciente con sospecha de disfunción avanzada del tendón tibial posterior (PTTD), el clínico visualiza el pie desde la región posterior y nota la presencia del signo de los 'demasiados dedos' (too many toes sign). Anatómicamente, ¿cuál es la explicación precisa de este hallazgo de observación?",
+      "options": [
+        "A) Una subluxación rotacional interna del calcáneo asociada a atrofia masiva del cojinete graso plantar, exponiendo visualmente las falanges laterales.",
+        "B) La posición excesiva de abducción del antepié en relación con el retropié, combinada con la eversión del calcáneo, resultado del fallo del soporte medial.",
+        "C) La formación de osteofitos dorsales severos en las articulaciones metatarsofalángicas menores que protruyen lateralmente el compartimento del antepié.",
+        "D) La debilidad paralítica de los músculos intrínsecos dorsales originando una postura patológica en 'garra' que se hace evidente lateralmente."
+      ],
+      "rationale": "El signo de los 'demasiados dedos' ('too many toes' sign) es un hallazgo de observación clásico en la evaluación de deformidades severas del pie, particularmente característico en el contexto del pie plano adquirido del adulto o la disfunción progresiva del tendón tibial posterior (PCFD/AAFD) [23]. Biomecánicamente, este signo clínico se hace evidente debido a la combinación de una marcada eversión (valgo) del retropié y, predominantemente, a la abducción patológica severa del antepié en el plano transversal [23, 24]. Cuando las estructuras de soporte del arco longitudinal medial (el tendón tibial posterior, el ligamento glenoideo y la cápsula medial) fallan o ceden, el sistema de soporte longitudinal claudica [7]. La insuficiencia de estos elementos para contrarrestar las fuerzas laterales genera que el antepié se desplace lateralmente (abducción forefoot) con respecto al retropié, permitiendo que el examinador, desde una vista posterior al talón, observe el margen lateral del antepié y los dedos menores asomándose más allá de la silueta normal del tobillo [23].",
+      "learning_pearl": "El signo de los 'demasiados dedos' no indica crecimiento óseo lateral, sino un fallo profundo de los tejidos mediales que permite el colapso del arco y la desalineación estructural en abducción del antepié visible desde posterior."
+    },
+    {
+      "question_id": "tobillo_path_10",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "En la patología de la porción media del tendón de Aquiles, las guías de práctica clínica recomiendan evaluar la irritabilidad tisular para clasificar el estado de la tendinopatía (aguda vs. no aguda) antes de prescribir el tipo de carga mecánica. ¿Qué conjunto de características clínicas ubica a un paciente inequívocamente en la categoría de presentación 'no aguda', posibilitando el inicio de protocolos de carga pesada y lenta?",
+      "options": [
+        "A) Presencia de enrojecimiento local, calor, hinchazón focal severa e inicio de síntomas menor a 3 meses que limitan actividades de baja exigencia como caminar despacio.",
+        "B) Síntomas limitados exclusivamente a hiperqueratosis plantar posterior, parestesias en reposo y ausencia total de dolor a la palpación tendinosa profunda.",
+        "C) Ausencia de enrojecimiento, calor e inflamación visible, con síntomas que llevan más de 3 meses y que solo se provocan ante actividades de alta intensidad (correr o saltar).",
+        "D) Crepitación dolorosa difusa a lo largo de todo el recorrido del nervio sural acompañada de incapacidad de soportar peso sobre el talón afectado de manera repentina."
+      ],
+      "rationale": "Las directrices de la práctica clínica establecidas por la AOPT para la tendinopatía de Aquiles en la porción media indican una clasificación clara basada en la irritabilidad y el tiempo de evolución de los síntomas para dirigir la intervención terapéutica [25]. Los pacientes se clasifican en la categoría 'no aguda' (non-acute) cuando presentan un cuadro clínico caracterizado por la ausencia de signos cardinales de inflamación aguda (sin enrojecimiento, sin calor palpable, sin hinchazón aguda evidente), una duración de los síntomas que excede los 3 meses de cronicidad, y una respuesta de dolor que se detona primariamente bajo actividades de carga elástica de alta intensidad, tales como la carrera, cambios de dirección o el salto repetitivo [25]. Para los individuos con síntomas no agudos, está altamente indicado el uso estructurado de ejercicios de carga mecánica, incluyendo el entrenamiento excéntrico o de carga pesada a baja velocidad, así como el manejo integral de toda la cadena cinética de la extremidad inferior [26]. Por el contrario, los casos agudos con eritema y limitación severa para caminar exigen intervenciones de descarga inicial y educación hasta reducir la reactividad [25, 27].",
+      "learning_pearl": "El inicio de cargas mecánicas pesadas en el tendón de Aquiles requiere la confirmación de una etapa 'no aguda', definida por la cronicidad (>3 meses) y la provocación sintomática exclusiva bajo altas demandas elásticas."
+    }
+  ]
+}

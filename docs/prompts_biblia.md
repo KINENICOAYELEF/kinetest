@@ -23,10 +23,10 @@ Cuando me pidas contenido, yo aplicaré internamente estas reglas de oro:
 2.  **Teoría Aplicada**: Si la fuente es teórica, crearé preguntas sobre **mecanismos de acción** y cómo afectan al paciente, no definiciones de diccionario.
 3.  **Independencia del Alumno**: Las preguntas se diseñan para que el alumno aprenda algo nuevo aunque no tenga acceso a tus fuentes originales.
 4.  **Formato Premium**: Yo me encargo de que cada pregunta tenga:
-    - Caso Clínico o Problema de Mecanismo.
-    - Justificación Clínica profunda (>400 car.).
-    - 3 Pistas progresivas.
-    - Perla Clínica de alto impacto.
+    1.  'content': Un caso clínico real y complejo de 8-10 líneas. Debe integrar múltiples variables (historia, comportamiento circadiano, pruebas especiales, test-retest, contexto biopsicosocial).
+    2.  'options': 4 alternativas extensas que compitan en lógica clínica.
+    3.  'rationale': Explicación de 600+ caracteres. OBLIGATORIO: Identifica y utiliza el marco de razonamiento clínico (ej. Banderas Amarillas, Mecanismos de IASP, etc.) que sea más fiel a las fuentes proporcionadas en el cuaderno. No fuerces modelos externos no presentes.
+    4.  'learning_pearl': Una lección magistral que resuma el caso.
 
 ---
 

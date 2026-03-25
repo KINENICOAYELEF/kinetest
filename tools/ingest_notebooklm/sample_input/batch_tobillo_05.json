@@ -1,0 +1,144 @@
+{
+  "questions": [
+    {
+      "question_id": "tobillo_case_41",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un atleta universitario con inestabilidad crónica de tobillo (CAI) completa un bloque de 4 semanas de rehabilitación. En su evaluación inicial, registró un puntaje de 80 en la subescala de Actividades de la Vida Diaria (ADL) y 60 en la subescala de Deportes (Sports) del Foot and Ankle Ability Measure (FAAM). Basado en los valores de la Diferencia Mínima Clínicamente Importante (MCID) establecidos para esta herramienta, ¿qué puntajes de seguimiento indicarían un cambio clínico real y significativo para el retorno a la participación?",
+      "options": [
+        "A) ADL > 86 puntos y Sports > 66 puntos.",
+        "B) ADL > 88 puntos y Sports > 69 puntos.",
+        "C) ADL > 85 puntos y Sports > 68 puntos.",
+        "D) ADL = 100 puntos y Sports = 100 puntos."
+      ],
+      "rationale": "El Foot and Ankle Ability Measure (FAAM) es un instrumento de resultados reportados por el paciente (PROM) ampliamente validado, diseñado para evaluar de manera integral el rendimiento físico en trastornos musculoesqueléticos de la pierna, pie y tobillo. La literatura establece que la Diferencia Mínima Clínicamente Importante (MCID) durante un período de 4 semanas es de 8 puntos para la subescala ADL y de 9 puntos para la subescala de Deportes. En este escenario, para que el cambio sea clínicamente significativo partiendo de 80 y 60, los puntajes deben superar los 88 y 69 puntos respectivamente. Es fundamental destacar clínicamente que alcanzar un puntaje del 100% no es un criterio apropiado ni realista para determinar el retorno al deporte, ya que los valores normativos en poblaciones atléticas sanas suelen ser inferiores al máximo (por ejemplo, promedios de 88 a 93 dependiendo de la edad).",
+      "learning_pearl": "La MCID del FAAM es de 8 puntos para ADL y 9 para Deportes en 4 semanas. No se requiere un puntaje perfecto (100%) para autorizar el retorno deportivo."
+    },
+    {
+      "question_id": "tobillo_case_42",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un paciente con un esguince de la sindesmosis (esguince alto de tobillo) se encuentra en la Fase III de un protocolo de rehabilitación de tres etapas. Según los criterios de progresión funcional basados en la evidencia, ¿qué hito clínico específico debe lograr exitosamente el paciente antes de ser autorizado para iniciar maniobras explosivas y un retorno completo al deporte?",
+      "options": [
+        "A) Completar 15 saltos unilaterales desde los dedos del pie sin compensaciones y pasar pruebas funcionales.",
+        "B) Lograr una distancia de alcance simétrica en el Star Excursion Balance Test (SEBT) y caminar sin dolor.",
+        "C) Mantener el equilibrio unipodal con los ojos cerrados durante 20 segundos sin usar los brazos.",
+        "D) Demostrar una rotación externa indolora del astrágalo durante la prueba de Kleiger."
+      ],
+      "rationale": "El tratamiento de los esguinces de la sindesmosis requiere un enfoque escalonado debido al tiempo prolongado de recuperación y la inestabilidad inherente de la mortaja tibioperonea. En el marco de un programa de rehabilitación de tres fases, la Fase III implica la transición a la carga completa, el uso de soporte profiláctico (como un vendaje o férula) y la introducción progresiva de ejercicios pliométricos y específicos del deporte (como trotar, correr, hacer recortes y maniobras explosivas). Sin embargo, los criterios estrictos para la progresión y autorización del retorno deportivo exigen que el atleta demuestre una capacidad de carga dinámica y control motor excepcionales. Específicamente, el atleta debe ser capaz de completar 15 saltos unilaterales ('hops') impulsándose desde los dedos del pie, además de aprobar pruebas funcionales exhaustivas y estar mentalmente preparado, antes de recibir el alta definitiva.",
+      "learning_pearl": "Para el retorno al deporte tras un esguince alto de tobillo, la tolerancia a cargas de alto impacto se evalúa exigiendo 15 saltos unilaterales continuos desde el antepié."
+    },
+    {
+      "question_id": "tobillo_case_43",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Una paciente presenta dolor en el mediopié tras un incremento en su volumen de entrenamiento. La evaluación del sistema de movimiento revela un índice FPI-6 de +7, hipermovilidad del mediopié y una extremidad inferior en rotación medial. Durante la prueba de elevación del talón (heel raise test), se observa una ausencia de inversión del calcáneo. Basado en el diagnóstico del sistema de movimiento, ¿qué paquete de intervenciones está directamente justificado?",
+      "options": [
+        "A) Látigo cuboideo (cuboid whip), fortalecimiento del fibular largo y pivotes hacia afuera.",
+        "B) Movilización navicular (whip), ejercicios de pie corto (short foot) y vendaje anti-pronación (modified low Dye).",
+        "C) Movilizaciones del primer MTP, estiramiento del tríceps sural y cuña lateral en el calzado.",
+        "D) Movilización en distracción del astrágalo, estiramiento del flexor largo del dedo gordo y pivotes hacia afuera."
+      ],
+      "rationale": "La paciente presenta un cuadro clásico de postura anormal del pie pronado, diagnosticada objetivamente mediante un FPI-6 mayor a +4, hipermovilidad del mediopié y rotación medial compensatoria de la extremidad inferior. La incapacidad para invertir el calcáneo durante el ascenso del talón es un signo patognomónico de insuficiencia o debilidad del músculo tibial posterior. El plan de tratamiento basado en deficiencias para esta postura pronada se centra en restaurar el soporte del arco medial y controlar la hipermovilidad. Por lo tanto, las intervenciones magistrales incluyen la terapia manual dirigida al navicular (como el navicular whip o deslizamientos PA), ejercicios de control neuromuscular intrínseco y extrínseco (como el 'short foot' y fortalecimiento específico del tibial posterior), y el uso de técnicas de vendaje como el modified low Dye para descargar mecánicamente las estructuras mediales durante la fase de rehabilitación.",
+      "learning_pearl": "Un FPI-6 positivo alto junto con ausencia de inversión del calcáneo indica disfunción del tibial posterior y postura pronada, requiriendo intervenciones de soporte medial y control motor."
+    },
+    {
+      "question_id": "tobillo_case_44",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un corredor de fondo se presenta con dolor crónico en el borde lateral del mediopié. La valoración clínica destaca un FPI-6 de -3, una extremidad inferior rotada lateralmente y un arco longitudinal marcadamente rígido. Se detecta debilidad a la eversión resistida con el tobillo en flexión plantar. Según el modelo de deficiencias estructurales, ¿cuál de los siguientes abordajes terapéuticos aborda específicamente la patomecánica de este paciente?",
+      "options": [
+        "A) Movilización PA del navicular, elevación del arco medial y ejercicios de pivote interno.",
+        "B) Deslizamiento lateral de la articulación subtalar, fortalecimiento del fibular largo (flexión plantar del primer radio) y pivotes hacia afuera.",
+        "C) Estiramiento del tríceps sural, uso de ortesis rígida total y vendaje para inmovilizar el hallux.",
+        "D) Movilización AP de la articulación tarsometatarsiana y ejercicios de fortalecimiento del tibial posterior."
+      ],
+      "rationale": "El cuadro clínico describe un trastorno del sistema de movimiento caracterizado por una postura anormal del pie supinado. Esto se evidencia por el FPI-6 negativo, la rigidez del mediopié (hipomovilidad), la rotación lateral de la pierna y la debilidad selectiva de los músculos fibulares (encargados de la eversión en flexión plantar y la flexión plantar del primer radio). En pacientes con pie supinado, la incapacidad de la articulación calcaneocuboidea para atenuar las fuerzas y el déficit del fibular largo impiden una adecuada transición de cargas. Las intervenciones dirigidas por deficiencia para este fenotipo incluyen la terapia manual focalizada en el cuboides y la articulación subtalar (como el deslizamiento lateral o el 'cuboid whip' para mejorar la eversión y movilidad dorsolateral), ejercicios de flexión plantar del primer radio para fortalecer el fibular largo y pivotes hacia afuera (outward pivots) para mejorar el control transversal lumbopélvico y del arco lateral.",
+      "learning_pearl": "La postura supinada anormal (FPI-6 < 0) cursa con hipomovilidad calcaneocuboidea y debilidad del fibular largo, requiriendo movilización lateral y fortalecimiento eversor."
+    },
+    {
+      "question_id": "tobillo_case_45",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un bailarín clásico presenta dolor crónico en la región posteromedial del tobillo que se exacerba profundamente durante los relevés (flexión plantar extrema). Se sospecha un diagnóstico diferencial entre pinzamiento posterior y tendinopatía del Flexor Hallucis Longus (FHL). ¿Cuál hallazgo en la exploración clínica aísla mecánicamente y confirma la tendinopatía del FHL?",
+      "options": [
+        "A) La flexión dorsal pasiva del tobillo alivia por completo los síntomas retro-maleolares.",
+        "B) La prueba de resistencia del FHL provoca dolor cuando el tobillo está en posición neutra, pero es indolora cuando el tobillo está en máxima flexión plantar.",
+        "C) Se observa una desviación lateral del hallux acompañada de un signo de 'pseudo hallux rigidus' irreversible en flexión plantar.",
+        "D) La palpación del tubérculo medial del calcáneo desencadena un dolor urente que se irradia distalmente."
+      ],
+      "rationale": "La tendinopatía del Flexor Hallucis Longus (FHL) es común en bailarines debido al uso repetitivo de posiciones de equino extremo, causando estrés mecánico en los túneles fibroóseos posteromediales. El dolor en esta región puede confundirse con un síndrome de pinzamiento posterior (por ejemplo, os trigonum o compresión de tejidos blandos). Para diferenciarlos clinicamente, la prueba de resistencia del FHL es magistral. Se evalúa la contracción contrarresistencia del hallux en dos posiciones del tobillo: neutra y en flexión plantar. Si el problema es una tendinopatía del FHL, la contracción resistida con el tobillo en neutro (donde el tendón tiene mayor tensión y fricción) provocará dolor. Sin embargo, al realizar la misma contracción con el tobillo en máxima flexión plantar, el tendón del FHL queda mecánicamente destensado (relajado) a nivel retromaleolar, por lo que la prueba se vuelve indolora. Un dolor persistente en flexión plantar apuntaría más hacia un pinzamiento óseo o capsular.",
+      "learning_pearl": "La prueba de resistencia diferencial del FHL utiliza la flexión plantar del tobillo para destensar el tendón; el cese del dolor en esta posición descarta el pinzamiento posterior y confirma la tendinopatía."
+    },
+    {
+      "question_id": "tobillo_case_46",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Una mujer de 52 años reporta dolor crónico plantar medial en el talón. El dolor es muy agudo en los primeros pasos de la mañana, pero a diferencia de episodios anteriores, no disminuye con la actividad ligera y empeora progresivamente al caminar. La palpación revela el punto de máxima sensibilidad justo anterior al borde posterior del talón, con irradiación de dolor (sin déficits sensitivos) al abducir y evertir el pie. ¿Cuál es la entidad patológica más compatible con este razonamiento clínico?",
+      "options": [
+        "A) Fascitis plantar crónica recalcitrante.",
+        "B) Neuropatía de Baxter (atrapamiento de la primera rama del nervio plantar lateral).",
+        "C) Síndrome del túnel tarsiano proximal.",
+        "D) Atrapamiento del nervio plantar medial ('Pie de Trotador')."
+      ],
+      "rationale": "El caso plantea un desafío diagnóstico común de dolor crónico en el talón. Aunque la paciente tiene dolor en 'los primeros pasos' (típico de la fasciopatía plantar), hay características clave que obligan a un diagnóstico diferencial hacia la Neuropatía de Baxter (atrapamiento del nervio del abductor digiti minimi o primera rama del nervio plantar lateral). En la neuropatía de Baxter, el dolor no mejora con la actividad ligera tras el reposo, sino que empeora o se mantiene constante debido a la compresión mecánica sostenida (a menudo entre el abductor del hallux y el cuadrado plantar). El hallazgo clínico más determinante es la localización del punto máximo de sensibilidad: en lugar de estar en el tubérculo medial del calcáneo (inserción de la fascia), se sitúa de forma distintiva justo anterior al borde posterior del talón. Además, la maniobra de eversión y abducción del pie aumenta la tensión sobre las estructuras neurales, provocando dolor irradiado (sin pérdida de sensibilidad, ya que el nervio de Baxter es eminentemente motor y propioceptivo).",
+      "learning_pearl": "La Neuropatía de Baxter causa dolor medial del talón que, a diferencia de la fasciopatía plantar, no mejora tras los primeros pasos y duele anterior al borde posterior del calcáneo, sin déficits puramente sensitivos cutáneos."
+    },
+    {
+      "question_id": "tobillo_case_47",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Durante la evaluación de un atleta con dolor anterior en el primer radio, el fisioterapeuta observa una severa limitación en la extensión de la articulación primera metatarsofalángica (MTP) al examinarla con el tobillo en máxima flexión dorsal. Sin embargo, cuando posiciona el tobillo en flexión plantar pasiva, la amplitud de extensión de la primera MTP se restaura a valores normales. Basado en la integración de la movilidad articular, ¿qué diagnóstico biomecánico explica este fenómeno?",
+      "options": [
+        "A) Hallux rigidus estructural grado 3.",
+        "B) Pseudo hallux rigidus secundario a disfunción o tenosinovitis del FHL.",
+        "C) Esguince de la placa plantar tipo Turf Toe grado II.",
+        "D) Síndrome del túnel tarsiano distal con atrapamiento motor."
+      ],
+      "rationale": "El fenómeno descrito se conoce como 'Pseudo hallux rigidus'. A diferencia del hallux limitus o rigidus verdadero, que implica degeneración articular intrínseca (osteofitos, estrechamiento del espacio articular) y una limitación estructural de la movilidad en cualquier posición del tobillo, el pseudo hallux rigidus es un déficit estrictamente funcional o miofascial. La limitación de la extensión del primer dedo está provocada por la falta de excursión o tenosinovitis del tendón del Flexor Hallucis Longus (FHL). Como el FHL cruza por la parte posterior del tobillo, colocar el tobillo en flexión dorsal máxima somete al tendón a su máxima tensión proximal. Si el tendón no se desliza libremente en su vaina (por nódulos o inflamación), actúa como un tirante y bloquea la extensión de la MTP. Al flexionar plantarmente el tobillo, se introduce holgura (slack) mecánica en el FHL, liberando la restricción y permitiendo mágicamente una extensión normal de la primera MTP.",
+      "learning_pearl": "El 'Pseudo hallux rigidus' es una limitación fascial de la extensión del dedo gordo provocada por tensión del FHL; desaparece al flexionar plantarmente el tobillo, diferenciándolo del daño articular estructural."
+    },
+    {
+      "question_id": "tobillo_case_48",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un atleta se prepara para el alta tras un esguince lateral de tobillo. Para asegurar un retorno a la actividad (RTA) seguro bajo condiciones dinámicas y de impacto, las guías de consenso exigen cumplir múltiples criterios funcionales y de fuerza. De los siguientes conjuntos de métricas, ¿cuál representa los umbrales estándar requeridos por la evidencia clínica para minimizar el riesgo de recidiva?",
+      "options": [
+        "A) Ausencia de laxitud en la prueba de cajón anterior, 100% de puntaje en el FAAM-Sports y marcha sin alteraciones visibles.",
+        "B) Rango de movimiento simétrico, fuerza isométrica mayor al 60% y un salto lateral alterno continuo durante 30 segundos.",
+        "C) Fuerza al 90% de la normalidad, distancia en la prueba de salto a una pierna del 80% comparado al lado sano y Test-T en menos de 13.5 segundos.",
+        "D) Equilibrio unipodal estático de 20 segundos con ojos cerrados y una distancia de alcance en el SEBT del 50% de la longitud de la pierna."
+      ],
+      "rationale": "El retorno a los deportes (RTA) tras un esguince lateral de tobillo no debe basarse únicamente en la desaparición del dolor, sino en la restauración exhaustiva de la estabilidad dinámica, la fuerza y la agilidad neuromuscular. Según las declaraciones de consenso sobre el RTA en lesiones de tobillo, los umbrales funcionales validados incluyen: tener un rango de movimiento (ROM) casi normal, recuperación de la fuerza isométrica e isocinética de al menos un 90% en comparación con la extremidad contralateral ilesa, lograr al menos un 80% de simetría en la distancia de salto unipodal (single-leg hop test), y un rendimiento de agilidad sin compensaciones, tipificado por completar el T-test en menos de 13.5 segundos. También se exige una distancia de alcance del 80% en el SEBT. Exigir un FAAM del 100% no es realista, ya que incluso los atletas sanos pueden puntuar por debajo de este máximo.",
+      "learning_pearl": "Los criterios de RTA para el tobillo exigen >90% de simetría en fuerza, >80% en salto a una pierna (hop test) y SEBT, y umbrales de agilidad (T-test <13.5s) antes de autorizar el impacto no controlado."
+    },
+    {
+      "question_id": "tobillo_case_49",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Una jugadora de baloncesto sufre una lesión aguda del primer radio con un mecanismo de hiperextensión extrema (Turf Toe). Presenta dolor incapacitante al despegue de la marcha, severa hinchazón y equimosis plantar y dorsal. Clínicamente, el sesamoideo ha migrado más de 3 mm proximalmente y la prueba de cajón dorsoplantar es marcadamente positiva. ¿A qué grado de lesión corresponde este cuadro y cuál es la implicación clínica principal para el plan de rehabilitación inicial?",
+      "options": [
+        "A) Grado I: Iniciar carga completa inmediata con ortesis blanda y ejercicios de agilidad.",
+        "B) Grado II: Es un desgarro parcial; requiere vendaje limitante, bicicleta estática y retorno deportivo en 2 semanas.",
+        "C) Grado III: Implica desgarro completo de la placa plantar; requiere inmovilización en flexión plantar, muletas y diferir carrera/impacto de 2 a 6 semanas.",
+        "D) Grado III: Es un desgarro intrínseco del abductor del hallux; requiere tenodesis quirúrgica urgente antes de iniciar fisioterapia pasiva."
+      ],
+      "rationale": "El caso clínico expuesto describe un esguince de la articulación metatarsofalángica tipo 'Turf Toe' Grado III. Las lesiones de Grado III se caracterizan patomecánicamente por el desgarro completo del complejo de la placa plantar y las estructuras capsulares desde su inserción en la cabeza del metatarsiano. Los hallazgos cardinales que diferencian este grado de lesiones menores incluyen: hinchazón severa, extensa equimosis, prueba de Lachman (cajón dorsoplantar) marcadamente positiva demostrando inestabilidad sagital, y lo más indicativo, una migración proximal de los sesamoideos mayor a 3 mm en radiografías (lo que confirma la pérdida de anclaje distal). Para el manejo inicial de un Grado III no operatorio, la terapia física aguda debe centrarse ineludiblemente en el control del dolor y la protección tisular: inmovilización en ligera flexión plantar, marcha en descarga parcial con muletas y restricción absoluta de la carrera y el impacto durante al menos 2 a 6 semanas hasta que se logre estabilidad tisular.",
+      "learning_pearl": "Un Turf Toe Grado III se caracteriza por rotura de la placa plantar y migración proximal de los sesamoideos (>3mm); el manejo inicial prohíbe el impacto y exige inmovilización en flexión plantar."
+    },
+    {
+      "question_id": "tobillo_case_50",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un paciente reporta dolor plantar sordo y difuso en el antepié tras cambiar a calzado de suela muy plana. Al examinarlo, se observa hiperqueratosis bajo las cabezas de los metatarsianos centrales. Se descartaron neuropatías o fracturas. Como parte del tratamiento de la metatarsalgia mecánica, se prescribe una almohadilla metatarsal. Para reducir óptimamente las altas presiones plantares y redirigir la carga, ¿onde y con qué objetivo biomecánico específico debe colocarse anatómicamente esta almohadilla?",
+      "options": [
+        "A) Distal a las cabezas de los metatarsianos, para aumentar la flexión de las articulaciones interfalángicas.",
+        "B) Directamente sobre las cabezas de los metatarsianos, para acolchar el impacto cortical directo.",
+        "C) Justo proximal a las cabezas de los metatarsianos, para elevar el arco transverso y descargar la presión pico sobre las cabezas articulares.",
+        "D) Bajo la base de los metatarsianos en el mediopié, para facilitar la contracción refleja del músculo tibial posterior."
+      ],
+      "rationale": "La metatarsalgia mecánica primaria es un síndrome clínico de sobrecarga repetitiva que produce dolor bajo las cabezas de los metatarsianos menores, a menudo exacerbado por atrofia de la almohadilla grasa plantar, alteraciones del arco transverso o calzado inapropiado. Una intervención conservadora altamente efectiva, recomendada por la evidencia y las guías clínicas, es la modificación del calzado mediante el uso de una almohadilla metatarsal (metatarsal pad). El objetivo biomecánico de esta almohadilla no es amortiguar directamente el hueso, sino redistribuir las fuerzas de carga. Por lo tanto, debe colocarse anatómicamente justo proximal a las cabezas de los metatarsianos (en el cuello o diáfisis distal de los mismos). Esto produce una elevación mecánica que soporta el arco transverso, transfiere la presión plantar máxima desde las cabezas metatarsianas hacia la diáfisis y la almohadilla, reduciendo drásticamente el dolor mecánico y la compresión isquémica local.",
+      "learning_pearl": "Para el manejo de la metatarsalgia, las almohadillas metatarsales siempre se colocan proximales a las cabezas de los metatarsianos para descargar la presión articular y soportar el arco transverso."
+    }
+  ]
+}

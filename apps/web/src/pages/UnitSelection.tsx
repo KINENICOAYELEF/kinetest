@@ -28,7 +28,11 @@ export const UnitSelection = () => {
       if (!currentUser) return;
       try {
         // 1. Fetch Units
-        const q = query(collection(db, 'units'), orderBy('order', 'asc'));
+        const q = query(
+          collection(db, 'units'), 
+          where('isActive', '==', true),
+          orderBy('order', 'asc')
+        );
         const querySnapshot = await getDocs(q);
         const unitsData = querySnapshot.docs.map(doc => ({
           unit_id: doc.id,

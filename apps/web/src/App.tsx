@@ -14,6 +14,7 @@ import { AdminDashboard } from './pages/AdminDashboard';
 import { AdminContent } from './pages/AdminContent';
 import { FridayTests } from './pages/FridayTests';
 import { Debug } from './pages/Debug';
+import { AdminUnits } from './pages/AdminUnits';
 import { AdminSetup } from './pages/AdminSetup';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { Pending } from './pages/Pending';
@@ -43,6 +44,7 @@ function App() {
                         <Route path="/admin" element={<Admin />} />
                         <Route path="/admin/dashboard" element={<AdminDashboard />} />
                         <Route path="/admin/content" element={<AdminContent />} />
+                        <Route path="/admin/units" element={<AdminUnits />} />
                         <Route path="/debug" element={<Debug />} />
                         <Route path="/admin/setup" element={<AdminSetup />} />
                     </Route>

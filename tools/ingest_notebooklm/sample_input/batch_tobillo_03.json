@@ -1,0 +1,144 @@
+{
+  "questions": [
+    {
+      "question_id": "tobillo_motion_01",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un corredor de maratón se presenta a evaluación biomecánica. Durante la bipedestación estática, el fisioterapeuta calcula un índice de postura del pie (FPI-6) de +6. Según los perfiles de movimiento descritos en la literatura, ¿cuál de las siguientes agrupaciones de hallazgos clínicos es más probable identificar en este paciente durante una evaluación clínica exhaustiva?",
+      "options": [
+        "A) Hipomovilidad del mediopié, debilidad de los músculos fibulares y rotación lateral de la extremidad inferior.",
+        "B) Hipermovilidad del mediopié, debilidad del músculo tibial posterior y rotación medial de la extremidad inferior.",
+        "C) Hipermovilidad del mediopié, debilidad de los músculos fibulares y rotación lateral de la extremidad inferior.",
+        "D) Hipomovilidad del mediopié, debilidad del músculo tibial posterior y rotación medial de la extremidad inferior."
+      ],
+      "rationale": "De acuerdo con la Tabla 6 ('Common Findings Related to Abnormal Foot Posture') detallada en las fuentes [1], una Postura de Pie Pronado Anormal se define operativamente por una puntuación en el Índice de Postura del Pie (FPI-6) estrictamente mayor a +4. Este perfil clínico se caracteriza biomecánicamente por tres hallazgos patognomónicos interrelacionados: una profunda hipermovilidad de la articulación del mediopié, una fuerza muscular disminuida (debilidad) específica del músculo tibial posterior, y un posicionamiento de la extremidad inferior en rotación medial. El acoplamiento biomecánico de la pronación del retropié con la rotación medial de la tibia y una postura del pie más flexible es un mecanismo fundamental de la cadena cinética cerrada descrito en el texto [2, 3]. Las demás opciones son incorrectas ya que mezclan hallazgos característicos del perfil supinado (como la debilidad de los fibulares, la hipomovilidad y la rotación lateral).",
+      "learning_pearl": "El perfil de pie pronado anormal (FPI-6 > +4) es un trastorno del sistema de movimiento que asocia hipermovilidad del mediopié, insuficiencia del tibial posterior y una compensación de la cadena cinética en rotación medial."
+    },
+    {
+      "question_id": "tobillo_motion_02",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Una bailarina profesional acude a consulta por dolor lateral del pie y esguinces laterales recurrentes. Al evaluar su postura estática, se obtiene un índice FPI-6 de -2. Basado en la clasificación de trastornos del sistema de movimiento asociados a posturas anormales, ¿qué deficiencias estructurales y funcionales son características en el perfil biomecánico de esta paciente?",
+      "options": [
+        "A) Pie flexible con debilidad primaria del tibial posterior y rotación medial compensatoria del miembro inferior.",
+        "B) Pie rígido con hipomovilidad del mediopié, debilidad de los músculos fibular largo y corto, y rotación lateral de la extremidad inferior.",
+        "C) Hipermovilidad del mediopié con sobreactivación de los fibulares para compensar la rotación lateral del fémur.",
+        "D) Hipomovilidad del mediopié asociada a debilidad severa del tríceps sural y rotación medial del miembro inferior."
+      ],
+      "rationale": "Como se explicita en la Tabla 6 de las fuentes [1], la Postura de Pie Supinado Anormal se identifica por una puntuación negativa en el índice FPI-6 (< 0). Biomecánicamente, este perfil presenta hallazgos muy consistentes: una marcada hipomovilidad del mediopié que hace que la estructura del pie sea significativamente más rígida y menos capaz de atenuar fuerzas de impacto. Las pruebas de rendimiento muscular revelan característicamente debilidad de los músculos eversores, específicamente el fibular largo y el fibular corto. Proximalmente al complejo tobillo-pie, esta postura estática se acopla invariablemente con una posición de rotación lateral de la extremidad inferior en la cadena cinética cerrada [2, 3]. Entender estas disfunciones regionales interrelacionadas es un pilar crítico para evitar intervenciones aisladas y aplicar terapias dirigidas, como movilizaciones para restaurar la dinámica del mediopié.",
+      "learning_pearl": "El pie anormalmente supinado (FPI-6 < 0) genera un sistema de palanca rígida (hipomovilidad), insuficiencia de la musculatura fibular y se acompaña de rotación lateral ascendente del miembro inferior."
+    },
+    {
+      "question_id": "tobillo_motion_03",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Durante la fase de apoyo medio de la marcha (cadena cinética cerrada), un paciente exhibe un acentuado colapso del arco longitudinal asociado a una postura de pie anormalmente pronada. ¿Cuál es la consecuencia cinemática ascendente o mecanismo compensatorio esperado en la extremidad inferior que acompaña directamente a esta hipermovilidad pronatoria?",
+      "options": [
+        "A) Rotación lateral excesiva simultánea en las articulaciones de la cadera y la rodilla.",
+        "B) Rotación medial excesiva y compensatoria en las articulaciones de la cadera y la rodilla.",
+        "C) Extensión prematura de la rodilla acompañada de rotación lateral tibial sostenida.",
+        "D) Supinación de la articulación mediotarsiana bloqueando la rotación tibial proximal."
+      ],
+      "rationale": "En un entorno de cadena cinética cerrada (CKC) como el apoyo en bipedestación o la fase de carga durante la marcha, los movimientos del pie están obligatoriamente acoplados con los segmentos proximales a través de lo que se denomina una 'bisagra en inglete' (mitered hinge) [2, 4]. Según el texto, aquellos individuos con una pronación excesiva tienden a tener un pie más móvil y presentan movimientos compensatorios caracterizados por una rotación medial excesiva en la articulación de la cadera y la rodilla [3]. Esto es directamente respaldado por la Tabla 6 de hallazgos posturales [1], que enumera taxativamente la 'posición de rotación medial de la extremidad inferior' como una consecuencia directa de la postura pronada anormal. Por lo tanto, el clínico debe observar atentamente las articulaciones proximales cuando trata disfunciones originadas por el colapso medial del pie.",
+      "learning_pearl": "La hiperpronación en cadena cinética cerrada no se aísla en el pie; cinemáticamente induce una rotación medial acoplada obligatoria de la tibia, la rodilla y el fémur (cadera)."
+    },
+    {
+      "question_id": "tobillo_motion_04",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un fisioterapeuta estructura el plan de tratamiento muscular para dos pacientes: el Paciente X presenta un perfil de pie anormalmente supinado crónico, y el Paciente Y posee un pie anormalmente pronado e hipermóvil. ¿Qué patrones de déficit de fuerza muscular guiarán, por definición, las intervenciones resistidas para cada uno según los perfiles de movimiento estandarizados?",
+      "options": [
+        "A) El Paciente X presentará debilidad del músculo tibial posterior; el Paciente Y presentará debilidad de los músculos fibulares.",
+        "B) Ambos pacientes presentarán un déficit de fuerza primario en el tibial posterior, diferenciándose únicamente en la alineación patelar.",
+        "C) El Paciente X presentará debilidad de los músculos fibular largo y corto; el Paciente Y presentará debilidad del músculo tibial posterior.",
+        "D) El Paciente X exhibirá hipertrofia de los fibulares para compensar, mientras el Paciente Y presentará debilidad severa del gastrocnemio medial."
+      ],
+      "rationale": "La evaluación de la fuerza debe vincularse directamente con los perfiles morfológicos observados. La Tabla 6 de Posturas Anormales del Pie [1] establece patrones de deficiencia muscular muy nítidos. El Paciente X, con un pie anormalmente supinado (FPI-6 negativo), tendrá de manera característica una disminución en la fuerza de los músculos fibular largo y corto, encargados fisiológicamente de evertir el pie y estabilizar el arco lateral [1, 5]. Por el contrario, el Paciente Y, portador de un pie anormalmente pronado, evidenciará una debilidad o insuficiencia crónica del músculo tibial posterior [1, 6], cuyo rol crítico es estabilizar el retropié, formar el arco longitudinal medial e invertir el pie. Ignorar esta correlación muscular en el desarrollo de la historia clínica impediría prescribir la dosis exacta de ejercicios terapéuticos para estabilizar dinámicamente cada perfil.",
+      "learning_pearl": "La debilidad de los eversores (fibulares largo/corto) es un hallazgo clave en el pie supinado, mientras que la debilidad del inversor principal (tibial posterior) define al pie pronado anormal."
+    },
+    {
+      "question_id": "tobillo_motion_05",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Las articulaciones talocrural y subtalar funcionan en conjunto como una 'bisagra en inglete' (mitered hinge). Si durante la evaluación de alineación estructural un paciente presenta de forma crónica una rotación lateral excesiva y mantenida de la extremidad inferior, ¿qué impacto cinemático acoplado y qué tipo de movilidad se espera encontrar a nivel del complejo tobillo-pie?",
+      "options": [
+        "A) Una pronación acoplada del retropié con hipermovilidad global y un índice FPI-6 mayor a +4.",
+        "B) Una supinación acoplada del retropié con una postura del pie muy rígida (hipomovilidad) y debilidad eversora.",
+        "C) Una supinación acoplada del retropié con marcada hipermovilidad del mediopié compensatoria.",
+        "D) Una pronación acoplada del retropié con aumento dramático en la fuerza propulsiva de los fibulares."
+      ],
+      "rationale": "El diseño de las articulaciones del tobillo impone que los movimientos no ocurran de manera aislada. Según los fundamentos anatómicos citados en las fuentes [2, 4], los ejes oblicuos de las articulaciones talocrural y subtalar generan un mecanismo de acoplamiento obligado. Específicamente, se indica que 'la supinación del retropié estará acoplada con una rotación lateral de la pierna y una postura del pie más rígida'. Este mecanismo proximal-distal correlaciona perfectamente con la Tabla 6 [1], la cual dicta que la rotación lateral de la extremidad inferior pertenece al perfil del Pie Supinado Anormal, asociándose siempre a una hipomovilidad manifiesta del mediopié (pie rígido o cavo varo) y a una consecuente reducción en la capacidad funcional (debilidad) de la musculatura lateral estabilizadora fibular.",
+      "learning_pearl": "El acoplamiento cinemático dicta que la rotación lateral tibial promueve la supinación del retropié y el bloqueo de la articulación transversa del tarso, resultando en un pie estructuralmente rígido."
+    },
+    {
+      "question_id": "tobillo_motion_06",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Durante el examen de un paciente con postura de pie pronado anormal (FPI-6 > +4) y extremidad inferior rotada medialmente, el evaluador pide al paciente que realice la prueba clínica de elevación del talón unipodal repetida. ¿Qué anomalía de movimiento observada en la retropié confirmaría la deficiencia muscular que típicamente subyace a este perfil?",
+      "options": [
+        "A) El paciente demuestra una inversión del calcáneo durante la elevación del talón, revelando debilidad de los tendones fibulares.",
+        "B) El calcáneo permanece en valgo o fracasa en moverse hacia la inversión durante la elevación, evidenciando debilidad del músculo tibial posterior.",
+        "C) El calcáneo se invierte abruptamente debido a espasmos incontrolables en el tríceps sural.",
+        "D) La extremidad inferior rota lateralmente para bloquear compensatoriamente la falta de fuerza del tendón de Aquiles."
+      ],
+      "rationale": "La prueba de elevación del talón sobre una sola pierna no solo sirve para contar las repeticiones y evaluar la resistencia del tríceps sural, sino que es fundamental para observar la cinemática del calcáneo. Normalmente, a medida que el paciente eleva el talón, el calcáneo debe moverse dinámicamente hacia la inversión, un hallazgo que significa una función normal del músculo tibial posterior [7]. En pacientes que presentan el perfil de Postura de Pie Pronado Anormal, la Tabla 6 [1] indica explícitamente una 'disminución de la fuerza del músculo tibial posterior'. Por lo tanto, clínicamente, cuando este músculo está débil o disfuncional, falla en ejercer su acción inversora como supinador principal, causando que el calcáneo permanezca asimétricamente en valgo durante la fase concéntrica de la elevación del talón [8, 9].",
+      "learning_pearl": "La incapacidad de invertir el calcáneo durante una elevación del talón en carga (heel raise) es el marcador clínico primario de disfunción o debilidad del tibial posterior en el pie pronado."
+    },
+    {
+      "question_id": "tobillo_motion_07",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un paciente acude por dolor crónico en el aspecto lateral del pie. Al examinarlo, usted nota una postura de pie anormalmente supinada (FPI-6 < 0), hipomovilidad del mediopié y deficiencia de fuerza en el fibular largo. Debido a esta biomecánica de cadena cinética cerrada, ¿a qué patología compresiva u osteoarticular específica predispone fuertemente este perfil al alterar la estabilización lateral?",
+      "options": [
+        "A) A una deformidad plana colapsante progresiva (PCFD) por tracción patológica sobre el ligamento spring.",
+        "B) Al síndrome del cuboides, caracterizado por dolor lateral del mediopié debido a pérdida de soporte muscular plantar y falla posicional.",
+        "C) A la tendinopatía del flexor largo del dedo gordo por pinzamiento persistente a nivel del nudo de Henry.",
+        "D) Al síndrome de compresión del túnel tarsiano distal con atrapamiento exclusivo del nervio plantar medial."
+      ],
+      "rationale": "El pie supinado anormal presenta una dinámica de apoyo que recarga severamente la columna lateral del pie. Fisiológicamente, el músculo fibular largo discurre distal al maléolo lateral, cruza oblicuamente bajo el cuboides, y lo estabiliza y comprime durante la marcha [5, 10]. Cuando existe debilidad del fibular largo e hipomovilidad asociada a un pie supinado y rotado lateralmente (como lo clasifica la Tabla 6 [1]), la estabilización dinámica lateral se pierde. Las fuentes [11, 12] confirman que tanto las posturas supinadas como las anormalmente pronadas pueden predisponer al síndrome del cuboides, pero la fisiopatología en el pie supinado, acompañada de una disfunción evidente de los fibulares, permite el desplazamiento inferior-medial del cuboides, lo que se manifiesta clínicamente como Síndrome del Cuboides, caracterizado por dolor en la porción lateral del mediopié.",
+      "learning_pearl": "La debilidad del fibular largo en un perfil de pie supinado suprime el soporte plantar dinámico de la columna lateral, siendo un vector clave para el desarrollo del síndrome del cuboides."
+    },
+    {
+      "question_id": "tobillo_motion_08",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Al establecer un diagnóstico basado en disfunciones del sistema de movimiento, usted documenta que su paciente posee una postura pronada anormal con hipermovilidad significativa del mediopié. De acuerdo con los hallazgos de la Tabla 6, ¿qué combinación de intervenciones focalizadas estaría mecánicamente fundamentada para frenar el colapso funcional originado por este perfil?",
+      "options": [
+        "A) Entrenamiento excéntrico masivo de los músculos fibulares para contrarrestar la rotación lateral persistente observada en este paciente.",
+        "B) Ejercicios de resistencia aislados para el músculo tibial posterior (ej. variante de Slocum) para controlar tanto la hipermovilidad tarsiana como la rotación medial del miembro inferior.",
+        "C) Estiramientos profundos de la fascia plantar y prescripción de cuñas de supinación exclusivas para la musculatura intrínseca dorsal.",
+        "D) Liberación y estiramiento intensivo del tibial posterior combinados con movilización grado V del cuboides para tratar la rigidez estructural."
+      ],
+      "rationale": "El manejo basado en deficiencias ('Impairment-based Rehabilitation') dictamina que la intervención debe combatir los mecanismos anómalos identificados. La Tabla 6 de Posturas Anormales del Pie [1] especifica que la postura pronada se asocia indefectiblemente a hipermovilidad del mediopié, marcada debilidad del músculo tibial posterior y una extremidad inferior posicionada en rotación medial. En consecuencia, el tratamiento racional [indicado en las fuentes 108, 109, 110, 115] consiste en restablecer el soporte dinámico del arco medial. Intervenciones como el fortalecimiento específico del tibial posterior (por ejemplo, el ejercicio de Slocum), integradas para contrarrestar la debilidad, controlan de manera retrógrada la hipermovilidad del tarso y mitigan la rotación medial proximal, siendo la opción B la única que une armónicamente diagnóstico patomecánico y tratamiento.",
+      "learning_pearl": "La rehabilitación focalizada para el pie anormalmente pronado se centra en fortalecer el soporte anti-colapso (tibial posterior y músculos intrínsecos) para disminuir la hipermovilidad y atenuar la rotación medial de la pierna."
+    },
+    {
+      "question_id": "tobillo_motion_09",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "La evaluación clínica integral de la extremidad inferior requiere relacionar la postura estática del pie con el alineamiento proximal. Si un individuo adulto registra un Índice de Postura del Pie (FPI-6) de -3 de manera crónica, ¿cuál es el hallazgo posicional ascendente esperado y la alteración de movilidad a nivel del mediopié que completan este perfil de movimiento?",
+      "options": [
+        "A) Rotación medial de la extremidad inferior acoplada con hipermovilidad sintomática del mediopié.",
+        "B) Rotación medial de la extremidad inferior acompañada de una pronunciada hipomovilidad del mediopié.",
+        "C) Rotación lateral de la extremidad inferior acoplada con hipomovilidad estructural del mediopié.",
+        "D) Rotación lateral de la extremidad inferior acompañada por una marcada hipermovilidad en las articulaciones tarsianas."
+      ],
+      "rationale": "Un puntaje en el Índice de Postura del Pie (FPI-6) de -3 cae en el espectro negativo, definiendo inequívocamente una 'Postura de Pie Supinado Anormal'. Al consultar la Tabla 6 de las fuentes [1], este fenotipo estático presenta correlatos biomecánicos muy predecibles. Específicamente, este perfil conlleva una hipomovilidad o rigidez global a nivel de las articulaciones del mediopié. Simultáneamente, a través del modelo de acoplamiento cinemático de la cadena cerrada [2, 3], la supinación obligada del retropié se asocia ascendentemente a una posición de rotación lateral de toda la extremidad inferior. Las opciones que presentan rotación medial o hipermovilidad describen incorrectamente al fenotipo opuesto (pie pronado anormal).",
+      "learning_pearl": "Un puntaje FPI-6 negativo (< 0) certifica un perfil de pie supinado, el cual es ineludiblemente rígido (hipomovilidad) a nivel del mediopié y proyecta una rotación lateral compensatoria a la rodilla y cadera."
+    },
+    {
+      "question_id": "tobillo_motion_10",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un paciente es diagnosticado con un perfil de movimiento de postura de pie anormalmente pronada. Durante la marcha, se observa colapso del arco longitudinal y debilidad demostrable de los estabilizadores dinámicos. Basado en los principios de rehabilitación guiada por deficiencias de la Tabla 6 y las guías de intervención clínica, ¿cuál de las siguientes estrategias de abordaje es la más apropiada e integral?",
+      "options": [
+        "A) Aplicación de técnicas de taping reverso (Reverse low Dye), ejercicios de pivote hacia afuera (outward pivots) y movilizaciones grado V para hipermovilidad cuboidal.",
+        "B) Intervenciones para fortalecer el tibial posterior (ej. Slocum) y estabilizadores intrínsecos (ej. pie corto), en conjunto con taping antipronación (Low Dye modificado) para soportar la hipermovilidad del mediopié.",
+        "C) Prescripción exclusiva de ortesis rígidas sin manipulación de tejidos blandos, acompañada de estiramientos excéntricos progresivos dirigidos únicamente a hipertrofiar los músculos fibulares.",
+        "D) Uso de tracción sostenida del primer radio y liberación extensa del tibial posterior debido al espasmo protector que ocasiona la constante rotación lateral tibial observada."
+      ],
+      "rationale": "El manejo de deficiencias para la Postura de Pie Pronado Anormal busca directamente contrarrestar sus tres pilares (FPI>4, hipermovilidad y debilidad del tibial posterior) [1]. La literatura expuesta [13-19] sugiere categóricamente que para la 'impairment: abnormal pronated foot posture', las intervenciones apropiadas deben apuntar a sostener y levantar el arco, así como a potenciar el control motor. Estos tratamientos incluyen el ejercicio de 'Pie corto' (Short foot) para el entrenamiento de los estabilizadores intrínsecos, el ejercicio de Slocum para la reeducación concéntrica y excéntrica del tibial posterior, y el uso pragmático de vendajes mecánicos de soporte como el Low Dye modificado (anti-pronación) [17, 18]. La opción B sintetiza impecablemente esta terapéutica basada en evidencia descrita en las fuentes, mientras que las otras opciones plantean tratamientos destinados a la supinación (Reverse low Dye, outward pivots) o diagnostican erróneamente rotación lateral.",
+      "learning_pearl": "La tríada de tratamiento conservador basada en deficiencias para el pie hiperprono consiste en: activación de intrínsecos plantares (short foot), fortalecimiento resistido de inversores (Slocum) y control mecánico externo (Low Dye taping)."
+    }
+  ]
+}

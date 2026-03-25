@@ -1,0 +1,144 @@
+{
+  "questions": [
+    {
+      "question_id": "tobillo_eval_01",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un paciente de 35 años acude a consulta por dolor en el tobillo derecho de aparición gradual tras iniciar un nuevo programa de entrenamiento para maratón. El terapeuta realiza la anamnesis para clasificar la lesión como un problema de sobreuso con contribución biomecánica. Para determinar de manera precisa el nivel de 'irritabilidad tisular' y así dosificar las intervenciones, ¿cuál de los siguientes elementos del interrogatorio sobre la inflamación es el más determinante según los protocolos clínicos descritos?",
+      "options": [
+        "A) La presencia concomitante de chasquidos articulares al movilizar activamente la zona.",
+        "B) Si la inflamación fluctúa a lo largo del día o si se mantiene estable de manera constante.",
+        "C) La distribución exacta de cualquier paresthesia que acompañe al edema crónico.",
+        "D) La respuesta de la inflamación ante la toma esporádica de analgésicos de venta libre."
+      ],
+      "rationale": "El proceso de evaluación clínica establece que la anamnesis debe identificar si el cuadro es por sobreuso (inicio gradual asociado a cambios en la actividad) o traumático. Para determinar la irritabilidad tisular (alta, moderada o baja), es fundamental indagar sobre el comportamiento de la inflamación. Según la fuente, el terapeuta debe preguntar al paciente cómo cambia la inflamación a lo largo del día; una inflamación fluctuante se asocia directamente con una mayor irritabilidad de los tejidos, mientras que una inflamación estable indica menor irritabilidad. Reconocer este nivel de irritabilidad es clave para seleccionar el enfoque de las intervenciones y delimitar las demandas físicas que la zona lesionada puede tolerar de manera segura durante el proceso de rehabilitación [1], [2], [3].",
+      "learning_pearl": "La fluctuación diaria de la inflamación es un marcador clínico directo del grado de irritabilidad tisular, guiando la tolerancia al estrés físico en el plan de tratamiento."
+    },
+    {
+      "question_id": "tobillo_eval_02",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Durante la evaluación estática de un corredor con dolor en la cara lateral del pie, el fisioterapeuta utiliza el Foot Posture Index-6 (FPI-6). Tras sumar las seis observaciones, el paciente obtiene un puntaje total de -3. Basado en el modelo de trastornos del sistema de movimiento para este tipo de postura, ¿qué conjunto de deficiencias clínicas se asocia clásicamente con este hallazgo?",
+      "options": [
+        "A) Hipermovilidad del mediopié, debilidad del músculo tibial posterior y una extremidad inferior rotada medialmente.",
+        "B) Hipermovilidad de la articulación talocrural, retracción severa del tríceps sural y valgo de calcáneo.",
+        "C) Hipomovilidad del mediopié, debilidad de los músculos fibulares (largo y corto) y una extremidad inferior rotada lateralmente.",
+        "D) Disminución de la movilidad del primer rayo, deformidad flexible del arco y debilidad del flexor largo del dedo gordo."
+      ],
+      "rationale": "El Foot Posture Index-6 (FPI-6) clasifica la postura del pie asignando puntajes a diversas observaciones. Un puntaje de +4 se considera normal; los valores por debajo de cero indican un pie anormalmente supinado. De acuerdo con el modelo de disfunción del sistema de movimiento detallado en el texto, los pacientes con un pie supinado anormal (FPI-6 < 0) presentan típicamente hipomovilidad del mediopié, debilidad de la musculatura fibular (músculos fibularis longus y brevis) y una posición clínica en rotación lateral de la extremidad inferior. Esto contrasta de forma directa con el pie pronado (FPI-6 > +4), el cual presenta el patrón opuesto: hipermovilidad del mediopié, debilidad del tibial posterior y rotación medial del miembro inferior [4], [5], [6].",
+      "learning_pearl": "Un puntaje FPI-6 negativo define un pie supinado anormal, alertando al clínico sobre la tríada de: hipomovilidad del mediopié, debilidad de fibulares y rotación lateral de la extremidad."
+    },
+    {
+      "question_id": "tobillo_eval_03",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Una paciente sufre un esguince por inversión severa. En la evaluación inicial en urgencias, cumple con los criterios positivos de las Reglas de Ottawa para el tobillo, por lo que se le toma una radiografía que resulta negativa para fracturas. Sin embargo, tras varias semanas de tratamiento conservador, la paciente continúa con sintomatología persistente y el fisioterapeuta sospecha de una lesión osteocondral. Según los Criterios de Adecuación del ACR, ¿cuál es el siguiente estudio de imagen más apropiado?",
+      "options": [
+        "A) Ecografía musculoesquelética de alta resolución para descartar derrames articulares.",
+        "B) Gammagrafía ósea para evaluar la actividad metabólica en la zona del domo talar.",
+        "C) Tomografía computarizada (CT) o Resonancia Magnética (MRI) sin contraste.",
+        "D) Repetir la radiografía en proyecciones con estrés de varo y valgo."
+      ],
+      "rationale": "Las directrices de adecuación del American College of Radiology (ACR Appropriateness Criteria) establecen algoritmos precisos para la toma de decisiones en el uso de imágenes médicas. Ante un traumatismo agudo con Reglas de Ottawa positivas, la radiografía convencional es indiscutiblemente el primer estudio indicado. No obstante, en pacientes donde las radiografías iniciales no muestran alteraciones óseas agudas, pero persisten los síntomas severos a lo largo del tiempo o existe una alta sospecha clínica de una lesión osteocondral subyacente, se considera médicamente apropiado el uso de una Resonancia Magnética (MRI) sin contraste o, en su defecto, una Tomografía Computarizada (CT). Estas modalidades avanzadas permiten visualizar con precisión el daño articular, cartilaginoso o ligamentoso complejo que las radiografías convencionales son incapaces de detectar [7].",
+      "learning_pearl": "Ante sospecha de lesión osteocondral o síntomas persistentes tras una radiografía inicial negativa por Reglas de Ottawa, la resonancia magnética o la tomografía sin contraste son el estándar de oro según el ACR."
+    },
+    {
+      "question_id": "tobillo_eval_04",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Durante la evaluación pasiva del rango de movimiento (ROM) de dorsiflexión del tobillo en decúbito supino, el fisioterapeuta encuentra una restricción significativa. Para discriminar adecuadamente si la limitación proviene de la flexibilidad del tríceps sural o de una hipomovilidad de la cápsula articular talocrural, el evaluador realiza la prueba con la rodilla extendida y luego con la rodilla flexionada a 20 grados. Según los estándares de evaluación clínica, ¿qué maniobra adicional debe incluirse obligatoriamente para confirmar la disfunción capsular?",
+      "options": [
+        "A) Evaluación del deslizamiento posterior del astrágalo (posterior talar glide).",
+        "B) Prueba de cajón anterior con el tobillo en ligera flexión plantar.",
+        "C) Evaluación de la movilidad pasiva de la articulación subtalar en inversión.",
+        "D) Medición del ángulo de dorsiflexión tibiopedal mediante el Weight Bearing Lunge Test (WBLT)."
+      ],
+      "rationale": "Durante la exploración clínica detallada del complejo pie-tobillo, la evaluación del rango de movimiento en dorsiflexión debe realizarse invariablemente en dos posiciones: con la rodilla en extensión completa y con la rodilla flexionada a 20 grados. Esta discriminación posicional permite al clínico aislar el tejido limitante; la rodilla en extensión tensa el gastrocnemio, mientras que la flexión aísla la restricción hacia el sóleo y las estructuras articulares profundas. Además, la literatura especializada subraya que esta evaluación debe incluir de forma indispensable la valoración manual del deslizamiento posterior del astrágalo (posterior talar glide). Esta maniobra accesoria es crucial para confirmar y cuantificar las posibles limitaciones específicas en la movilidad de la cápsula de la articulación talocrural, un déficit biomecánico sumamente común tras lesiones por inversión [8].",
+      "learning_pearl": "La evaluación completa de la dorsiflexión exige medir con la rodilla extendida y flexionada, y debe acoplarse con la prueba de deslizamiento posterior del astrágalo para confirmar rigidez capsular."
+    },
+    {
+      "question_id": "tobillo_eval_05",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un paciente con dolor crónico en el pie se somete a una evaluación funcional mediante el 'Step-down test' desde un escalón estándar. El fisioterapeuta le pide que descienda lentamente hasta tocar el suelo con el talón de la pierna libre. Durante la ejecución, se observa una marcada aducción y rotación medial de la cadera, junto con un notable valgo de rodilla. ¿Qué significado clínico tiene este hallazgo en el proceso de toma de decisiones?",
+      "options": [
+        "A) Es un patrón compensatorio normativo en pacientes con limitación pura de la dorsiflexión talocrural.",
+        "B) Indica la necesidad inminente de derivar a reumatología por sospecha de patología degenerativa sistémica.",
+        "C) Confirma una debilidad aislada de la musculatura intrínseca del pie, específicamente los lumbricales.",
+        "D) Señala que el clínico debe expandir la evaluación para realizar un examen detallado del tronco, pelvis y cadera."
+      ],
+      "rationale": "El step-down test es una prueba funcional dinámica muy valiosa que se utiliza para evaluar simultáneamente múltiples subsistemas de la extremidad inferior en cadena cinética cerrada. Aunque impone una demanda significativa sobre la movilidad sagital del tobillo, la prueba se califica rigurosamente observando desviaciones en seis criterios anatómicos clave: movimientos del tronco, inclinación de la pelvis, postura de la cadera, postura de la rodilla, profundidad de la sentadilla y control global. La observación de movimientos anormales durante la fase excéntrica del descenso, tales como la aducción o rotación medial de la cadera, o la caída de la rodilla hacia el valgo, es un indicador clínico fundamental. Este hallazgo advierte al examinador que la disfunción no se circunscribe al tobillo, sino que señala la imperiosa necesidad de realizar un examen más detallado de los segmentos proximales (tronco, pelvis y cadera) para detectar déficits de control motor o debilidad proximal [9].",
+      "learning_pearl": "Alteraciones cinemáticas proximales (valgo de rodilla, rotación medial de cadera) durante el Step-down test exigen que el fisioterapeuta amplíe su examen hacia la evaluación del complejo lumbopélvico y cadera."
+    },
+    {
+      "question_id": "tobillo_eval_06",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Durante la evaluación de un corredor con metatarsalgia, el terapeuta mide la extensión de la primera articulación metatarsofalángica (MTP). En decúbito supino (sin carga), el paciente logra más de 65° de extensión indolora. Sin embargo, al repetir la maniobra en bipedestación (simulando la carga de la marcha), la extensión se restringe severamente, alterando la fase de despegue (pre-swing). ¿Cómo se interpreta clínicamente esta discrepancia según las fuentes?",
+      "options": [
+        "A) Diagnostica un hallux rigidus degenerativo estructural de grado avanzado.",
+        "B) Indica un 'limitus funcional', lo que sugiere disfunción concurrente del arco longitudinal medial.",
+        "C) Confirma una tenosinovitis restrictiva y aislada del tendón del flexor largo del dedo gordo.",
+        "D) Es un hallazgo patognomónico de una lesión aguda traumática en la placa plantar (turf toe)."
+      ],
+      "rationale": "La evaluación biomecánica de la articulación metatarsofalángica del primer dedo es vital para analizar la marcha normal, requiriéndose una extensión de al menos 65 grados para facilitar adecuadamente la fase de pre-oscilación (pre-swing). El hallazgo clínico de una extensión completa y sin dolor en descarga (cadena cinética abierta) que súbitamente se vuelve restringida y limitante al evaluar al paciente en carga de peso (cadena cinética cerrada) se conceptualiza en la literatura como 'limitus funcional' (functional limitus). Esta discrepancia diagnóstica es sumamente informativa, ya que sugiere fuertemente que la restricción de movilidad no se debe a un bloqueo osteoarticular puro (como ocurriría en un hallux rigidus estructural verdadero), sino que revela una alteración biomecánica más amplia, típicamente una disfunción concurrente en el control o estabilidad del arco longitudinal medial o en la estabilización dinámica del primer rayo bajo la carga del peso corporal [10].",
+      "learning_pearl": "El 'limitus funcional' del primer dedo (movilidad normal sin carga, pero restringida en carga) alerta sobre la pérdida de competencia biomecánica del arco longitudinal medial y el primer rayo, descartando daños articulares rígidos."
+    },
+    {
+      "question_id": "tobillo_eval_07",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un paciente con dolor medial en el mediopié es categorizado con un puntaje FPI-6 de +7. El fisioterapeuta observa una evidente rotación medial de toda la extremidad inferior. Como parte del razonamiento clínico para confirmar las deficiencias musculares asociadas a este síndrome de movimiento (postura pronada anormal), ¿qué prueba clínica se debe realizar y qué hallazgo indicaría insuficiencia muscular?",
+      "options": [
+        "A) Resistencia isométrica de los músculos fibulares; dolor al evertir activamente contra resistencia máxima.",
+        "B) Prueba de elevación del talón unipodal; ausencia de inversión del calcáneo durante el ascenso.",
+        "C) Pivotar hacia afuera en apoyo unipodal (outward pivot test); pérdida del equilibrio pélvico.",
+        "D) Bajar un escalón profundo; levantamiento prematuro del talón por retracción del gastrocnemio."
+      ],
+      "rationale": "Un puntaje francamente elevado en la herramienta Foot Posture Index-6 (por ejemplo, > +4) sirve para clasificar objetivamente la postura del pie del paciente como anormalmente pronada. Dentro del modelo del sistema de movimiento, los hallazgos sistémicos concurrentes para esta postura pronada incluyen una hipermovilidad del complejo del mediopié, una posición compensatoria en rotación medial de la extremidad inferior y, de manera crítica, debilidad o disfunción del músculo tibial posterior. Clínicamente, el rendimiento y la competencia del tendón del tibial posterior se evalúan de manera funcional mediante la prueba de elevación del talón unipodal (single leg heel raise). Durante la ejecución de esta prueba, el clínico debe enfocar su observación en la cinemática del retropié; una contracción sana del tibial posterior se evidencia biomecánicamente por la inversión activa del calcáneo a medida que el talón supe. La falta de esta inversión es un signo clásico que confirma la insuficiencia y debilidad de dicho tendón [11], [5], [6], [12].",
+      "learning_pearl": "En un pie excesivamente pronado, la prueba de elevación del talón unipodal es la herramienta clínica definitiva: la falta de inversión del calcáneo al ascender diagnostica insuficiencia del tibial posterior."
+    },
+    {
+      "question_id": "tobillo_eval_08",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un paciente es derivado a fisioterapia por rigidez articular postraumática en el tobillo. Durante la anamnesis para determinar posibles banderas rojas y contraindicaciones absolutas antes de aplicar movilizaciones articulares (terapia manual), ¿cuál de los siguientes factores encontrados en la historia clínica obligaría a cancelar inmediatamente el uso de técnicas de terapia manual dirigidas a las articulaciones?",
+      "options": [
+        "A) Antecedentes de alergias cutáneas severas a componentes adhesivos.",
+        "B) Disminución de la sensibilidad protectora detectada en la superficie plantar.",
+        "C) Irritabilidad tisular moderada caracterizada por leve rigidez matutina.",
+        "D) Antecedentes de un esguince sindesmótico estabilizado hace más de un año."
+      ],
+      "rationale": "Dentro del proceso estructurado de toma de decisiones clínicas, es un imperativo ético y profesional realizar un minucioso cribado de banderas rojas (red flags) y tener un profundo conocimiento de las contraindicaciones para ciertas modalidades terapéuticas. El documento establece directrices claras al respecto: al planificar y aplicar técnicas de terapia manual específicamente dirigidas a corregir deficiencias en las estructuras articulares del complejo pie-tobillo, el fisioterapeuta debe descartar condiciones subyacentes de alto riesgo. Se catalogan como contraindicaciones absolutas para la terapia manual articular la presencia de fracturas no consolidadas, enfermedades infecciosas locales, sospecha de malignidad, cambios osteoporóticos severos y la disminución o pérdida de la sensibilidad (como la pérdida de sensación protectora típica en pacientes con neuropatía). Por otro lado, la alergia a adhesivos contraindicaría el uso de vendajes (taping), pero de ninguna manera excluye la aplicación de movilizaciones manuales [3], [13].",
+      "learning_pearl": "La pérdida de sensibilidad protectora plantar, junto con la osteoporosis y las infecciones, constituyen banderas rojas y contraindicaciones absolutas para realizar terapia manual articular en el pie."
+    },
+    {
+      "question_id": "tobillo_eval_09",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un deportista universitario está siendo evaluado por Inestabilidad Crónica de Tobillo (CAI). El terapeuta decide administrar el 'Single Limb Balance Test' (SLBT) para obtener una medida objetiva de su control postural estático. Según el protocolo estandarizado de esta prueba, ¿cuál es la condición correcta de ejecución y qué criterio se contabiliza como un error?",
+      "options": [
+        "A) Apoyo de 30 segundos sobre espuma (superficie inestable) con los ojos abiertos; el error es levantar la planta del pie.",
+        "B) Apoyo de 20 segundos sobre una superficie firme con los ojos cerrados; un error incluye mover el tronco excesivamente o abrir los ojos.",
+        "C) Alcanzar la máxima distancia posible con la pierna libre en tres direcciones; el error es perder el apoyo completo del talón base.",
+        "D) Apoyo dinámico saltando de lado a lado durante 10 segundos; el error es pisar la línea demarcatoria."
+      ],
+      "rationale": "La evaluación del control postural y el equilibrio es indispensable en el manejo de la inestabilidad crónica de tobillo. El Single Limb Balance Test (SLBT) es una herramienta clínica validada que deriva de forma simplificada del Balance Error Scoring System (BESS). Para asegurar la validez y reproducibilidad de los resultados, la estandarización del protocolo exige que el paciente se mantenga en apoyo unipodal estricto durante un periodo exacto de 20 segundos, manteniéndose descalzo sobre una superficie firme y, de manera crucial, con los ojos cerrados. Durante este tiempo, el evaluador cuenta cuantitativamente los errores o fallas en el equilibrio. Según las guías clínicas, estos errores están meticulosamente definidos e incluyen acciones como: tocar la superficie con la extremidad contralateral, permanecer fuera de la postura de prueba requerida por más de 5 segundos continuos, realizar un movimiento compensatorio excesivo del tronco, separar las manos de las caderas o abrir los ojos prematuramente [14].",
+      "learning_pearl": "El SLBT requiere 20 segundos de apoyo sobre superficie firme con los ojos cerrados; cuantificar errores como movimientos del tronco o la apertura ocular provee una métrica fidedigna de la inestabilidad propioceptiva."
+    },
+    {
+      "question_id": "tobillo_eval_10",
+      "unit_id": "unit_kine_04",
+      "status": "draft",
+      "content": "Un paciente de 45 años consulta por dolor difuso y constante en el tobillo y retropié que ha persistido ininterrumpidamente durante 8 semanas, sin ningún traumatismo recordable. En la fase de derivación y manejo médico, el fisioterapeuta revisa los criterios de imagen. Según los Criterios de Adecuación del ACR para síntomas crónicos del tobillo y pie, ¿cuál es el abordaje de imagenología considerado como la primera elección apropiada?",
+      "options": [
+        "A) Derivar inmediatamente para una Resonancia Magnética (MRI) con contraste para mapear daños de partes blandas.",
+        "B) Solicitar radiografías convencionales del tobillo, ya que usualmente son el primer estudio de imagen apropiado.",
+        "C) Iniciar con una ecografía musculoesquelética para identificar tendinopatías en tiempo real.",
+        "D) Recomendar una Gammagrafía ósea para descartar un origen neoplásico o fractura por estrés oculta."
+      ],
+      "rationale": "El American College of Radiology (ACR) desarrolla y publica los 'Criterios de Adecuación' (Appropriateness Criteria), los cuales son directrices clínicas basadas en la más sólida evidencia científica disponibles para orientar el uso racional de imágenes médicas. Estas guías estipulan claramente que para pacientes que se presentan con cuadros clínicos crónicos en el tobillo o pie (formalmente definidos como síntomas persistentes de más de 6 semanas de evolución), las radiografías simples convencionales siguen siendo, por lo general, el primer estudio de imagen que resulta apropiado solicitar. Este paso es fundamental para descartar deformidades óseas estructurales o alteraciones articulares gruesas. Sólo si estas radiografías iniciales resultan negativas y persiste una sospecha clínica bien fundamentada de patologías más complejas, como inestabilidad crónica, pinzamiento, lesiones osteocondrales profundas o patología tendinosa intrínseca, se considera apropiado y justificado avanzar hacia el uso de la Resonancia Magnética sin contraste [7].",
+      "learning_pearl": "Incluso en síntomas crónicos (mayores a 6 semanas) sin trauma aparente, las radiografías convencionales son el primer filtro imagenológico dictado por el ACR, reservando la MRI para hallazgos iniciales negativos."
+    }
+  ]
+}
