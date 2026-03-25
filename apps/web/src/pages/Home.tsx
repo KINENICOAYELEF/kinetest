@@ -18,7 +18,7 @@ export const Home = () => {
             <div style={{ marginTop: 30 }} className="flex-col">
                 <h3>Práctica Inteligente</h3>
                 <button onClick={() => navigate('/dashboard')}>
-                    Mi Progreso y Cumplimiento
+                    Mi Pregreso y Cumplimiento
                 </button>
                 <button onClick={() => navigate('/friday')} style={{ background: 'var(--secondary)' }}>
                     Examen de Viernes
@@ -26,6 +26,15 @@ export const Home = () => {
                 <button onClick={() => navigate('/units')} style={{ background: 'var(--accent)' }}>
                     Ir a Practicar por Unidades
                 </button>
+
+                {userProfile?.role === 'admin' && (
+                    <div style={{ marginTop: 24, padding: 20, background: 'rgba(245, 158, 11, 0.1)', borderRadius: 16, border: '1px solid #f59e0b' }}>
+                        <h4 style={{ color: '#f59e0b', marginTop: 0 }}>Modo Administrador</h4>
+                        <button onClick={() => navigate('/admin')} style={{ background: '#f59e0b', marginTop: 10 }}>
+                            Ir al Panel de Control (Aprobaciones)
+                        </button>
+                    </div>
+                )}
             </div>
 
             <div style={{ marginTop: 40 }}>
