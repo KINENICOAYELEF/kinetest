@@ -279,7 +279,7 @@ export const TutorMode = () => {
                         )}
 
                         <div className="flex-col" style={{ gap: 12, marginTop: 24 }}>
-                            {shuffledOptions.map((opt, i) => {
+                            {shuffledOptions.map((opt) => {
                                 const isCorrect = opt.isCorrect;
                                 const isSelected = selectedOption !== null && shuffledOptions[selectedOption] === opt;
                                 let borderColor = 'var(--glass-border)';

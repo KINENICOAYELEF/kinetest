@@ -81,7 +81,7 @@ export const FridayTests = () => {
         if (timerRef.current) clearInterval(timerRef.current);
 
         let correct = 0;
-        questions.forEach((q, i) => {
+        questions.forEach((_, i) => {
             if (answers[i] !== undefined) {
                 const selectedOpt = shuffledOptions[i][answers[i]];
                 if (selectedOpt.isCorrect) correct++;

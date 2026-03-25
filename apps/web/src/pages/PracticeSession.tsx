@@ -171,7 +171,7 @@ export const PracticeSession = () => {
         <h3 style={{ textAlign: 'left', background: 'none', WebkitTextFillColor: 'white', lineHeight: '1.4', margin: 0 }}>{currentQuestion.content}</h3>
         
         <div className="flex-col" style={{ gap: 12, marginTop: 24 }}>
-          {shuffledOptions.map((opt, i) => {
+          {shuffledOptions.map((opt) => {
             let borderColor = 'var(--glass-border)';
             let bg = 'rgba(255,255,255,0.02)';
             let color = 'var(--text-muted)';

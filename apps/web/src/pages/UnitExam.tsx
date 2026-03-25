@@ -118,7 +118,7 @@ export const UnitExam = () => {
 
     // Calculate Results
     let correctCount = 0;
-    questions.forEach((q, idx) => {
+    questions.forEach((_, idx) => {
         const selectedIndex = answers[idx];
         if (selectedIndex !== undefined) {
             const selectedOpt = shuffledOptions[idx][selectedIndex];
