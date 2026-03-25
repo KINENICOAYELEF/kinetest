@@ -207,9 +207,23 @@ export const AdminContent = () => {
                                 </div>
                             </div>
                         ) : (
-                            <>
+                            <div className="card-content">
+                                <div style={{ display: 'flex', gap: 10, marginBottom: 20 }}>
+                                    {q.status !== 'approved' && (
+                                        <button onClick={() => updateStatus(q.question_id, 'approved')} style={{ background: 'var(--accent)', flex: 2, padding: '16px', fontWeight: 'bold', fontSize: '1rem', boxShadow: '0 4px 14px 0 rgba(16, 185, 129, 0.39)' }}>
+                                            ✓ APROBAR ESTA PREGUNTA
+                                        </button>
+                                    )}
+                                    <button onClick={() => startEditing(q)} style={{ background: 'rgba(255,255,255,0.1)', flex: 1 }}>
+                                        ✎ Editar
+                                    </button>
+                                    <button onClick={() => deleteQuestion(q.question_id)} style={{ background: 'transparent', border: '1px solid #f87171', color: '#f87171', flex: 1 }}>
+                                        ✗ Borrar
+                                    </button>
+                                </div>
+
                                 <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 15, fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                                    <span>Unidad: {q.unit_id || 'Global'}</span>
+                                    <span>ID: {q.question_id} | Unidad: {q.unit_id || 'Global'}</span>
                                     <span style={{ 
                                         padding: '2px 8px', borderRadius: 12, fontWeight: 'bold',
                                         background: q.status === 'approved' ? 'rgba(16, 185, 129, 0.2)' : q.status === 'rejected' ? 'rgba(248, 113, 113, 0.2)' : 'rgba(245, 158, 11, 0.2)',
@@ -219,9 +233,9 @@ export const AdminContent = () => {
                                     </span>
                                 </div>
                                 
-                                <p style={{ color: 'white', fontWeight: 500, fontSize: '1.1rem' }}>{q.content}</p>
+                                <p style={{ color: 'white', fontWeight: 500, fontSize: '1.1rem', marginBottom: 15 }}>{q.content}</p>
                                 
-                                <div style={{ marginTop: 15, display: 'grid', gridTemplateColumns: 'minmax(250px, 1fr) minmax(250px, 1fr)', gap: 10 }}>
+                                <div style={{ display: 'grid', gridTemplateColumns: 'minmax(250px, 1fr) minmax(250px, 1fr)', gap: 10 }}>
                                     {q.options.map((opt, i) => (
                                         <div key={i} style={{ 
                                             padding: 12, borderRadius: 8, fontSize: '0.9rem',
@@ -250,21 +264,7 @@ export const AdminContent = () => {
                                         </div>
                                     )}
                                 </div>
-
-                                <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
-                                    <button onClick={() => startEditing(q)} style={{ background: 'rgba(255,255,255,0.1)', flex: 1 }}>
-                                        ✎ Editar
-                                    </button>
-                                    {q.status !== 'approved' && (
-                                        <button onClick={() => updateStatus(q.question_id, 'approved')} style={{ background: 'var(--accent)', flex: 2 }}>
-                                            ✓ Aprobar
-                                        </button>
-                                    )}
-                                    <button onClick={() => deleteQuestion(q.question_id)} style={{ background: 'transparent', border: '1px solid #f87171', color: '#f87171', flex: 1 }}>
-                                        ✗ Eliminar
-                                    </button>
-                                </div>
-                            </>
+                            </div>
                         )}
                     </div>
                 ))}
