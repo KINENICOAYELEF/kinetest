@@ -20,9 +20,7 @@ export const Home = () => {
                 <button onClick={() => navigate('/dashboard')}>
                     Mi Pregreso y Cumplimiento
                 </button>
-                <button onClick={() => navigate('/friday')} style={{ background: 'var(--secondary)' }}>
-                    Examen de Viernes
-                </button>
+                {/* Examen de Viernes desactivado temporalmente — Bible v1 */}
                 <button onClick={() => navigate('/units')} style={{ background: 'var(--accent)' }}>
                     Ir a Practicar por Unidades
                 </button>
