@@ -25,7 +25,7 @@ export const UnitSelection = () => {
   const [masteryData, setMasteryData] = useState<Record<string, Mastery>>({});
   const [unitTotals, setUnitTotals] = useState<Record<string, number>>({});
   const [loading, setLoading] = useState(true);
-  const { currentUser } = useAuth();
+  const { currentUser, userProfile } = useAuth();
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -39,10 +39,16 @@ export const UnitSelection = () => {
           orderBy('order', 'asc')
         );
         const querySnapshot = await getDocs(q);
-        const unitsData = querySnapshot.docs.map(doc => ({
-          unit_id: doc.id,
-          ...doc.data()
-        })) as Unit[];
+        
+        const assignedUnits = userProfile?.assignedUnits || [];
+        // Only show units that the admin assigned to this student
+        const unitsData = querySnapshot.docs
+          .filter(doc => assignedUnits.includes(doc.id))
+          .map(doc => ({
+            unit_id: doc.id,
+            ...doc.data()
+          })) as Unit[];
+          
         setUnits(unitsData);
 
         // 2. Fetch total questions count per unit
@@ -82,16 +88,24 @@ export const UnitSelection = () => {
       }
     };
     fetchData();
-  }, [currentUser]);
+  }, [currentUser, userProfile]);
 
   if (loading) return <div className="container"><p>Cargando unidades...</p></div>;
 
   return (
     <div className="container" style={{ maxWidth: 800 }}>
       <h1>Módulos de Aprendizaje</h1>
-      <p style={{ color: 'var(--text-muted)', marginBottom: 30 }}>
-        Completa el 85% de cobertura respondiendo correctamente las preguntas en cualquier modo para habilitar el Examen Final.
-      </p>
+      {units.length === 0 && !loading && (
+        <div style={{ background: 'rgba(255,165,0,0.1)', border: '1px solid orange', padding: 20, borderRadius: 12, marginTop: 20 }}>
+            <h3 style={{ margin: 0, color: 'orange' }}>Sin Unidades Asignadas</h3>
+            <p style={{ margin: '10px 0 0', color: 'var(--text-muted)' }}>Todavía no se te han asignado módulos de aprendizaje. Por favor contacta a tu administrador.</p>
+        </div>
+      )}
+      {units.length > 0 && (
+        <p style={{ color: 'var(--text-muted)', marginBottom: 30 }}>
+          Completa el 85% de cobertura respondiendo correctamente las preguntas en cualquier modo para habilitar el Examen Final.
+        </p>
+      )}
 
       <div className="flex-col" style={{ gap: 20 }}>
         {units.map((unit) => {

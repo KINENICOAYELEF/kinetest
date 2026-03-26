@@ -10,6 +10,7 @@ export interface UserProfile {
     email: string | null;
     role: Role;
     groupId?: string;
+    assignedUnits?: string[];
 }
 
 interface AuthContextType {

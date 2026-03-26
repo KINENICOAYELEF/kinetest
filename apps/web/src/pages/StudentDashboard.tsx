@@ -6,9 +6,10 @@ import { getComplianceData, DailyCompliance, calculateCompliancePercentage } fro
 import { TagMastery } from '../utils/adaptiveEngine';
 
 export const StudentDashboard = () => {
-    const { currentUser } = useAuth();
+    const { currentUser, userProfile } = useAuth();
     const [compliance, setCompliance] = useState<DailyCompliance[]>([]);
     const [mastery, setMastery] = useState<Record<string, TagMastery>>({});
+    const [globalGrade, setGlobalGrade] = useState<number>(0);
     const [loading, setLoading] = useState(true);
 
     useEffect(() => {
@@ -22,12 +23,31 @@ export const StudentDashboard = () => {
             const compData = await getComplianceData(currentUser.uid, start, end);
             setCompliance(compData);
 
-            // 2. Mastery
+            // 2. Mastery (Tags)
             const mRef = collection(db, 'users', currentUser.uid, 'tag_mastery');
             const mSnap = await getDocs(mRef);
             const mData: Record<string, TagMastery> = {};
             mSnap.docs.forEach(d => { mData[d.id] = d.data() as TagMastery; });
             setMastery(mData);
+
+            // 3. Global Grade
+            const assignedUnits = userProfile?.assignedUnits || [];
+            if (assignedUnits.length > 0) {
+                const uRef = collection(db, 'users', currentUser.uid, 'mastery');
+                const uSnap = await getDocs(uRef);
+                const unitDocs = uSnap.docs.map(d => ({id: d.id, ...(d.data() as any)}));
+                
+                let sumGrades = 0;
+                for (const au of assignedUnits) {
+                    const doc = unitDocs.find(d => d.id === au);
+                    if (doc && doc.finalPassed) {
+                        sumGrades += doc.finalGrade || 1.0;
+                    } else {
+                        sumGrades += 1.0; // Minimum grade if not certified
+                    }
+                }
+                setGlobalGrade(Number((sumGrades / assignedUnits.length).toFixed(1)));
+            }
 
             setLoading(false);
         };
@@ -40,10 +60,25 @@ export const StudentDashboard = () => {
 
     return (
         <div className="container" style={{ maxWidth: 900 }}>
-            <h1>Mi Progreso 📈</h1>
+            <h1 style={{ marginBottom: 30 }}>Mi Progreso 📈</h1>
 
-            <div className="flex-col" style={{ gap: 20 }}>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20 }}>
                 
+                {/* Global Grade Card */}
+                <div style={{ background: 'rgba(255,255,255,0.03)', padding: 25, borderRadius: 16, border: '1px solid var(--glass-border)' }}>
+                    <h3 style={{ margin: 0, textAlign: 'left', background: 'none', WebkitTextFillColor: 'var(--text-muted)', fontSize: '1rem' }}>Nota Práctica Global</h3>
+                    <div style={{ fontSize: '3.5rem', fontWeight: 'bold', color: globalGrade >= 4.0 ? 'var(--accent)' : '#f87171', margin: '10px 0' }}>
+                        {userProfile?.assignedUnits?.length ? globalGrade : 'N/A'}
+                    </div>
+                    {userProfile?.assignedUnits?.length ? (
+                        <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: 12 }}>
+                            Promedio riguroso basado en tus <strong>{userProfile.assignedUnits.length} módulos asignados</strong>.
+                        </p>
+                    ) : (
+                        <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginTop: 12 }}>Sin unidades asignadas.</p>
+                    )}
+                </div>
+
                 {/* Compliance Card */}
                 <div style={{ background: 'rgba(255,255,255,0.03)', padding: 25, borderRadius: 16, border: '1px solid var(--glass-border)' }}>
                     <h3 style={{ margin: 0, textAlign: 'left', background: 'none', WebkitTextFillColor: 'var(--text-muted)', fontSize: '1rem' }}>Cumplimiento Semanal</h3>
@@ -91,10 +126,9 @@ export const StudentDashboard = () => {
                         {Object.keys(mastery).length === 0 && <p style={{ fontSize: '0.9rem' }}>Aún no hay datos de dominio.</p>}
                     </div>
                 </div>
-
             </div>
 
-             {/* Detailed Mastery Table */}
+            {/* Detailed Mastery Table */}
              <div style={{ marginTop: 20, background: 'rgba(255,255,255,0.03)', padding: 25, borderRadius: 16, border: '1px solid var(--glass-border)', overflowX: 'auto' }}>
                 <h3 style={{ margin: 0, textAlign: 'left', background: 'none', WebkitTextFillColor: 'white', fontSize: '1.2rem', marginBottom: 15 }}>Detalle de Skills</h3>
                 <table style={{ width: '100%', borderCollapse: 'collapse', fontSize: '0.9rem' }}>
