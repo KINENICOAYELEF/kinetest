@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { collection, query, where, getDocs, addDoc, serverTimestamp, doc, setDoc } from 'firebase/firestore';
+import { collection, query, where, getDocs, addDoc, serverTimestamp, doc, setDoc, arrayUnion } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import { useAuth } from '../context/AuthContext';
 import { selectAdaptiveQuestions, updateTagMastery, TagMastery } from '../utils/adaptiveEngine';
@@ -103,6 +103,13 @@ export const PracticeSession = () => {
       });
 
       // 2. ADAPTIVE UPDATE: Update Tag Mastery and Family Mastery
+      if (isCorrect && unitId) {
+          await setDoc(doc(db, 'users', currentUser.uid, 'mastery', unitId), {
+              masteredQuestions: arrayUnion(question.question_id),
+              updatedAt: serverTimestamp()
+          }, { merge: true });
+      }
+
       if (question.tags) {
           for (const tag of question.tags) {
               const currentM = userMastery[tag];

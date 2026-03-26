@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { collection, query, where, getDocs, addDoc, serverTimestamp, doc, setDoc, getDoc } from 'firebase/firestore';
+import { collection, query, where, getDocs, addDoc, serverTimestamp, doc, setDoc, getDoc, arrayUnion } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import { useAuth } from '../context/AuthContext';
 
@@ -141,6 +141,13 @@ export const CaseMode = () => {
             timestamp: serverTimestamp(),
             mode: 'case'
         });
+
+        if (isCorrect && currentNode?.question_id && unitId) {
+            await setDoc(doc(db, 'users', currentUser.uid, 'mastery', unitId), {
+                masteredQuestions: arrayUnion(currentNode.question_id),
+                updatedAt: serverTimestamp()
+            }, { merge: true });
+        }
 
         if (currentNode?.reveal) {
             setViewMode('reveal');

@@ -1,6 +1,6 @@
 import { useEffect, useState, useRef, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { collection, query, where, getDocs, addDoc, serverTimestamp, doc, setDoc, getDoc } from 'firebase/firestore';
+import { collection, query, where, getDocs, addDoc, serverTimestamp, doc, setDoc, getDoc, arrayUnion } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import { useAuth } from '../context/AuthContext';
 import { calculateChileanGrade } from '../utils/gradeCalculator';
@@ -184,16 +184,28 @@ export const UnitExam = () => {
     setResults({ score: correctCount, total, percent, grade });
 
     try {
+        // Collect question IDs that were answered correctly
+        const newlyMastered = questions.filter((_, idx) => {
+            const selectedIndex = answers[idx];
+            return selectedIndex !== undefined && shuffledOptions[idx][selectedIndex]?.isCorrect;
+        }).map(q => q.question_id);
+
         // Save results to mastery
         const masteryRef = doc(db, 'users', currentUser.uid, 'mastery', unitId!);
         
-        await setDoc(masteryRef, {
+        const masteryPayload: any = {
             unitId,
             lastScore: percent,
             lastGrade: grade,
             passed,
             updatedAt: serverTimestamp(),
-        }, { merge: true });
+        };
+
+        if (newlyMastered.length > 0) {
+            masteryPayload.masteredQuestions = arrayUnion(...newlyMastered);
+        }
+
+        await setDoc(masteryRef, masteryPayload, { merge: true });
 
         // ADAPTIVE UPDATE: Update Tag Mastery and Family Mastery
         for (let i = 0; i < questions.length; i++) {
