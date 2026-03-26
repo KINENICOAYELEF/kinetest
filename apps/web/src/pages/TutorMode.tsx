@@ -46,6 +46,7 @@ export const TutorMode = () => {
     const [loading, setLoading] = useState(true);
     const [sessionId, setSessionId] = useState<string | null>(null);
     const [userMastery, setUserMastery] = useState<Record<string, TagMastery>>({});
+    const [confidence, setConfidence] = useState<'high'|'medium'|'low'|null>(null);
     
     // Remediation State
     const [remediationQuestion, setRemediationQuestion] = useState<Question | null>(null);
@@ -103,6 +104,7 @@ export const TutorMode = () => {
         setSelectedOption(null);
         setShowFeedback(false);
         setHintsUsed(0);
+        setConfidence(null);
     };
 
     const handleAnswer = async (index: number) => {
@@ -126,6 +128,7 @@ export const TutorMode = () => {
                 sessionId,
                 isCorrect,
                 hintsUsed,
+                confidence,
                 scoreMultiplier,
                 timestamp: serverTimestamp()
             });
@@ -152,6 +155,7 @@ export const TutorMode = () => {
                 setSelectedOption(null);
                 setShowFeedback(false);
                 setHintsUsed(0);
+                setConfidence(null);
             } else {
                 finishCard();
             }
@@ -170,6 +174,7 @@ export const TutorMode = () => {
                 setSelectedOption(null);
                 setShowFeedback(false);
                 setHintsUsed(0);
+                setConfidence(null);
                 return;
             }
         }
@@ -179,6 +184,7 @@ export const TutorMode = () => {
             setSelectedOption(null);
             setShowFeedback(false);
             setHintsUsed(0);
+            setConfidence(null);
         } else {
             finishCard();
         }
@@ -277,6 +283,22 @@ export const TutorMode = () => {
                                 )}
                             </div>
                         )}
+                        
+                        {!confidence && !showFeedback && (
+                            <div style={{ margin: '20px 0', padding: 20, background: 'rgba(255,255,255,0.03)', borderRadius: 12, textAlign: 'center', border: '1px dashed var(--glass-border)' }}>
+                                <p style={{ marginBottom: 15, color: 'var(--text-muted)' }}>¿Qué tan seguro estás de tu conocimiento para esta pregunta?</p>
+                                <div style={{ display: 'flex', gap: 10, justifyContent: 'center' }}>
+                                    <button onClick={() => setConfidence('low')} style={{ background: 'rgba(248, 113, 113, 0.1)', border: '1px solid rgba(248, 113, 113, 0.3)', color: '#f87171', flex: 1, padding: '10px' }}>🔴 Baja</button>
+                                    <button onClick={() => setConfidence('medium')} style={{ background: 'rgba(251, 192, 45, 0.1)', border: '1px solid rgba(251, 192, 45, 0.3)', color: '#fbc02d', flex: 1, padding: '10px' }}>🟡 Media</button>
+                                    <button onClick={() => setConfidence('high')} style={{ background: 'rgba(16, 185, 129, 0.1)', border: '1px solid rgba(16, 185, 129, 0.3)', color: '#10b981', flex: 1, padding: '10px' }}>🟢 Alta</button>
+                                </div>
+                            </div>
+                        )}
+                        {confidence && !showFeedback && (
+                           <div style={{ textAlign: 'center', margin: '15px 0', fontSize: '0.85rem', color: 'var(--text-muted)' }}>
+                               Confianza seleccionada: {confidence === 'high' ? '🟢 Alta' : confidence === 'medium' ? '🟡 Media' : '🔴 Baja'}
+                           </div>
+                        )}
 
                         <div className="flex-col" style={{ gap: 12, marginTop: 24 }}>
                             {shuffledOptions.map((opt) => {
@@ -297,8 +319,13 @@ export const TutorMode = () => {
                                     <button
                                         key={opt.text}
                                         onClick={() => handleAnswer(shuffledOptions.indexOf(opt))}
-                                        disabled={showFeedback}
-                                        style={{ padding: 16, textAlign: 'left', border: '1px solid', borderColor, borderRadius: 12, background: bg, color, cursor: showFeedback ? 'default' : 'pointer', fontSize: '0.95rem' }}
+                                        disabled={showFeedback || !confidence}
+                                        style={{ 
+                                            padding: 16, textAlign: 'left', border: '1px solid', borderColor, borderRadius: 12, background: bg, color, 
+                                            cursor: (showFeedback || !confidence) ? 'default' : 'pointer', 
+                                            fontSize: '0.95rem',
+                                            opacity: !confidence ? 0.5 : 1
+                                        }}
                                     >
                                         {opt.text}
                                     </button>

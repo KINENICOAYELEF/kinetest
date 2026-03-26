@@ -14,6 +14,10 @@ interface Mastery {
   lastGrade?: number;
   lastScore?: number;
   attemptsCount?: number;
+  passed?: boolean;
+  finalPassed?: boolean;
+  finalGrade?: number;
+  finalScore?: number;
 }
 
 export const UnitSelection = () => {
@@ -150,31 +154,40 @@ export const UnitSelection = () => {
                   onClick={() => navigate(`/practice/${unit.unit_id}`)}
                   style={{ background: '#2563eb', fontSize: '13px', padding: '10px' }}
                 >
-                  Practicar
+                  Practicar Libre
                 </button>
                 
                 <div className="flex-col" style={{ gap: 4 }}>
                     <button 
-                        disabled={remainingAttempts <= 0}
-                        onClick={() => navigate(`/exam/${unit.unit_id}`)}
+                        disabled={mastery.passed && (remainingAttempts <= 0)} // If passed, they can still access final
+                        onClick={() => {
+                            if (mastery.passed && !mastery.finalPassed) {
+                                navigate(`/final-exam/${unit.unit_id}`);
+                            } else {
+                                navigate(`/exam/${unit.unit_id}`);
+                            }
+                        }}
                         style={{ 
-                            background: remainingAttempts > 0 ? 'var(--secondary)' : '#334155', 
-                            cursor: remainingAttempts > 0 ? 'pointer' : 'not-allowed',
+                            background: mastery.finalPassed ? 'var(--accent)' : mastery.passed ? '#f59e0b' : (remainingAttempts > 0 ? 'var(--secondary)' : '#334155'), 
+                            cursor: (remainingAttempts > 0 || mastery.passed) ? 'pointer' : 'not-allowed',
                             fontSize: '13px',
-                            padding: '10px'
+                            padding: '10px',
+                            fontWeight: mastery.passed ? 'bold' : 'normal'
                         }}
                     >
-                        Rendir Examen
+                        {mastery.finalPassed ? '⭐ Unidad Certificada' : mastery.passed ? '🏆 Rendir Examen Final' : 'Rendir Examen Parcial'}
                     </button>
-                    <small style={{ 
-                        textAlign: 'center', 
-                        fontSize: '11px',
-                        color: remainingAttempts === 0 ? '#f87171' : 'var(--text-muted)' 
-                    }}>
-                        {remainingAttempts > 0 
-                            ? `Intentos: ${remainingAttempts}` 
-                            : 'Sin intentos'}
-                    </small>
+                    {!mastery.passed && (
+                      <small style={{ 
+                          textAlign: 'center', 
+                          fontSize: '11px',
+                          color: remainingAttempts <= 0 ? '#f87171' : 'var(--text-muted)' 
+                      }}>
+                          {remainingAttempts > 0 
+                              ? `Intentos: ${remainingAttempts}` 
+                              : 'Sin intentos / Necesitas aprobar'}
+                      </small>
+                    )}
                 </div>
               </div>
             </div>

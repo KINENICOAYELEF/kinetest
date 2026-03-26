@@ -7,6 +7,7 @@ import { Admin } from './pages/Admin';
 import { UnitSelection } from './pages/UnitSelection';
 import { PracticeSession } from './pages/PracticeSession';
 import { UnitExam } from './pages/UnitExam';
+import { UnitFinalExam } from './pages/UnitFinalExam';
 import { TutorMode } from './pages/TutorMode';
 import { CaseMode } from './pages/CaseMode';
 import { StudentDashboard } from './pages/StudentDashboard';
@@ -34,6 +35,7 @@ function App() {
                         <Route path="/units" element={<UnitSelection />} />
                         <Route path="/practice/:unitId" element={<PracticeSession />} />
                         <Route path="/exam/:unitId" element={<UnitExam />} />
+                        <Route path="/final-exam/:unitId" element={<UnitFinalExam />} />
                         <Route path="/tutor/:unitId" element={<TutorMode />} />
                         <Route path="/case/:unitId" element={<CaseMode />} />
                         <Route path="/dashboard" element={<StudentDashboard />} />
