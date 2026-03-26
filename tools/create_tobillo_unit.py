@@ -1,21 +1,29 @@
+import sys
+import os
+from pathlib import Path
 import firebase_admin
 from firebase_admin import credentials, firestore
 
-cred = credentials.Certificate('ingest_notebooklm/serviceAccountKey.json')
+def get_cert_path():
+    p1 = Path(__file__).parent / "ingest_notebooklm" / "serviceAccountKey.json"
+    p2 = Path("/Users/nicoayelefparraguez/Downloads/kinetest-9e4c1-firebase-adminsdk-fbsvc-655c29307c.json")
+    return p1 if p1.exists() else p2
+
+cred = credentials.Certificate(str(get_cert_path()))
 if not firebase_admin._apps:
     firebase_admin.initialize_app(cred)
 db = firestore.client()
 
 def create_tobillo_unit():
-    unit_id = 'unit_kine_04'
+    unit_id = 'unit_tobillo_pie'
     unit_ref = db.collection('units').document(unit_id)
     
     # Check if exists
     if not unit_ref.get().exists:
         unit_ref.set({
-            'title': 'Complejo Tobillo y Pie',
+            'title': 'Tobillo y Pie',
             'description': 'Anatomía clínica, biomecánica multisegmentaria y rehabilitación basada en deficiencias del pie y tobillo.',
-            'order': 4,
+            'order': 8,
             'isActive': True
         })
         print(f"Created unit {unit_id}")

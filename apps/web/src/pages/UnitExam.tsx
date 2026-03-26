@@ -16,10 +16,11 @@ interface Question {
   tags: string[];
   family_id?: string;
   difficulty: number;
+  question_type?: string;
   status?: string;
 }
 
-const SECONDS_PER_QUESTION = 90;
+// Removed global SECONDS_PER_QUESTION
 const EXAM_QUESTIONS = 40;
 const PASS_THRESHOLD = 85;
 
@@ -33,7 +34,7 @@ export const UnitExam = () => {
   const [answers, setAnswers] = useState<Record<number, number>>({});
   const [loading, setLoading] = useState(true);
   const [sessionId, setSessionId] = useState<string | null>(null);
-  const [questionTimeLeft, setQuestionTimeLeft] = useState(SECONDS_PER_QUESTION);
+  const [questionTimeLeft, setQuestionTimeLeft] = useState(90);
   const [examFinished, setExamFinished] = useState(false);
   const [results, setResults] = useState<{ score: number; total: number; percent: number; grade: number } | null>(null);
   const [shuffledOptions, setShuffledOptions] = useState<any[][]>([]);
@@ -45,9 +46,11 @@ export const UnitExam = () => {
   const timerRef = useRef<NodeJS.Timeout | null>(null);
   const finishExamRef = useRef<() => void>(() => {});
 
-  const startQuestionTimer = useCallback(() => {
+  const startQuestionTimer = useCallback((forceTime?: number) => {
     if (timerRef.current) clearInterval(timerRef.current);
-    setQuestionTimeLeft(SECONDS_PER_QUESTION);
+    
+    // Si se pasa forceTime, se usa ese valor. Si no, se intenta extraer inteligentemente basado en currentQuestion (aunque useCallback puede que no lo tenga fresco)
+    setQuestionTimeLeft(forceTime || 90);
     timerRef.current = setInterval(() => {
       setQuestionTimeLeft(prev => {
         if (prev <= 1) {
@@ -71,10 +74,13 @@ export const UnitExam = () => {
   const handleAutoAdvance = () => {
     if (timerRef.current) clearInterval(timerRef.current);
     if (currentIndex < questions.length - 1) {
-      setCurrentIndex(prev => prev + 1);
+      const nextIndex = currentIndex + 1;
+      const nextQ = questions[nextIndex];
+      const nextTime = (nextQ?.question_type === 'clinical_case' || nextQ?.question_type === 'integrated') ? 120 : 90;
+      setCurrentIndex(nextIndex);
       setSelectedOption(null);
       setShowFeedback(false);
-      startQuestionTimer();
+      startQuestionTimer(nextTime);
     } else {
       finishExamRef.current();
     }
@@ -121,8 +127,9 @@ export const UnitExam = () => {
         const shuffled = selected.map(q => shuffleArray(q.options));
         setShuffledOptions(shuffled);
         
-        // Start per-question timer
-        startQuestionTimer();
+        // Start per-question timer with correct initial value
+        const firstTime = (selected[0]?.question_type === 'clinical_case' || selected[0]?.question_type === 'integrated') ? 120 : 90;
+        startQuestionTimer(firstTime);
 
       } catch (error) {
         console.error("Error starting exam:", error);
@@ -149,10 +156,13 @@ export const UnitExam = () => {
     // Auto-advance after 2.5 seconds of showing feedback
     setTimeout(() => {
       if (currentIndex < questions.length - 1) {
-        setCurrentIndex(prev => prev + 1);
+        const nextIndex = currentIndex + 1;
+        const nextQ = questions[nextIndex];
+        const nextTime = (nextQ?.question_type === 'clinical_case' || nextQ?.question_type === 'integrated') ? 120 : 90;
+        setCurrentIndex(nextIndex);
         setSelectedOption(null);
         setShowFeedback(false);
-        startQuestionTimer();
+        startQuestionTimer(nextTime);
       } else {
         finishExamRef.current();
       }
