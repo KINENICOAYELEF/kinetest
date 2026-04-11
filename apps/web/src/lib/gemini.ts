@@ -30,7 +30,7 @@ const genAI = new GoogleGenerativeAI(API_KEY || '');
  * - 15 requests por minuto
  */
 export const getFlashLiteModel = () => {
-  return genAI.getGenerativeModel({ model: 'gemini-2.0-flash-lite' });
+  return genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 };
 
 /**
@@ -59,7 +59,7 @@ export async function generateText(prompt: string, systemPrompt?: string): Promi
   }
   
   const modelWithConfig = genAI.getGenerativeModel({ 
-    model: 'gemini-2.0-flash-lite',
+    model: 'gemini-1.5-flash',
     ...config
   });
   
