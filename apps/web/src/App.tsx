@@ -19,6 +19,7 @@ import { AdminUnits } from './pages/AdminUnits';
 import { AdminSetup } from './pages/AdminSetup';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { Pending } from './pages/Pending';
+import { TestGemini } from './pages/TestGemini';
 
 function App() {
     return (
@@ -49,6 +50,7 @@ function App() {
                         <Route path="/admin/units" element={<AdminUnits />} />
                         <Route path="/debug" element={<Debug />} />
                         <Route path="/admin/setup" element={<AdminSetup />} />
+                        <Route path="/admin/test-ai" element={<TestGemini />} />
                     </Route>
 
                     {/* Pending state route */}

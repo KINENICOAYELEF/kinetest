@@ -1,0 +1,1042 @@
+[
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "¿Cuál es el rol biomecánico principal de la articulación subtalar durante la marcha humana según el concepto de 'bisagra ingletada funcional' (functional mitered hinge)?",
+    "options": [
+      {
+        "text": "Acoplar la rotación transversal de la pierna con el movimiento en el plano frontal del pie.",
+        "isCorrect": true
+      },
+      {
+        "text": "Permitir exclusivamente la flexión dorsal y plantar para impulsar el centro de masa corporal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Bloquear la articulación mediotarsiana independientemente de la posición fisiológica del retropié.",
+        "isCorrect": false
+      },
+      {
+        "text": "Absorber el impacto aislando el movimiento del calcáneo sin afectar la rotación tibial.",
+        "isCorrect": false
+      }
+    ],
+    "rationale": "La articulación subtalar funciona como una bisagra ingletada funcional (functional mitered hinge) que acopla el movimiento del plano transversal de la pierna con el movimiento del plano frontal del pie. Esto significa que la pronación del retropié se asocia con la rotación medial de la tibia produciendo un pie flexible, mientras que la supinación se acopla con la rotación lateral de la tibia, creando una palanca rígida para la fase de propulsión. La flexión plantar/dorsal ocurre primariamente en la articulación talocrural, no en la subtalar. El bloqueo mediotarsiano es dependiente de este acoplamiento y no ocurre de manera independiente. Finalmente, la absorción de impacto no aísla el calcáneo, sino que transfiere y disipa las fuerzas hacia las articulaciones proximales.",
+    "learning_pearl": "La articulación subtalar es el conversor mecánico clave que traduce la rotación transversal de la pierna en la pronación o supinación del pie.",
+    "hints": [
+      "Piensa en cómo el movimiento de rotación interna/externa de la pierna influye directamente en la pisada.",
+      "Considera los ejes oblicuos de esta articulación y cómo conectan planos espaciales distintos.",
+      "Relaciona la rotación transversal tibial con la eversión e inversión del retropié durante el ciclo de marcha."
+    ],
+    "difficulty": 4,
+    "content": "¿Cuál es el rol biomecánico principal de la articulación subtalar durante la marcha humana según el concepto de 'bisagra ingletada funcional' (functional mitered hinge)?",
+    "question_id": "tp2_anatomy_extra_01",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "Durante la fase de propulsión de la marcha, ¿qué musculatura es fundamental para contribuir al bloqueo mediotarsiano (articulación de Chopart) comprimiendo mecánicamente el hueso cuboides?",
+    "options": [
+      {
+        "text": "El músculo fibular largo, que además deprime el primer radio y estabiliza el arco plantar.",
+        "isCorrect": true
+      },
+      {
+        "text": "El músculo tibial posterior, que actúa primariamente desacoplando la articulación astragalonavicular.",
+        "isCorrect": false
+      },
+      {
+        "text": "El músculo extensor largo de los dedos, que tensa la aponeurosis plantar para rígida el pie.",
+        "isCorrect": false
+      },
+      {
+        "text": "El músculo cuadrado plantar, cuya tracción proximal optimiza el bloqueo articular directo del cuboides.",
+        "isCorrect": false
+      }
+    ],
+    "rationale": "El tendón del músculo fibular largo pasa por debajo del cuboides para insertarse en el primer metatarsiano y la cuña medial. Durante la marcha, su vigorosa contracción comprime el cuboides, lo que estabiliza y 'bloquea' mecánicamente la articulación mediotarsiana (Chopart), formando así una palanca rígida que es esencial para la fase de propulsión. Además, su acción deprime (flexiona plantarmente) el primer radio, dando un soporte crítico al arco longitudinal. El tibial posterior asiste invirtiendo el retropié, pero no desacopla el mediopié. El extensor largo no ejerce tensión pasiva directa sobre la aponeurosis plantar (esto corresponde a la extensión falángica). El cuadrado plantar solo asiste en alinear la fuerza del flexor largo de los dedos.",
+    "learning_pearl": "El músculo fibular largo actúa como una poderosa cincha dinámica que estabiliza el mediopié lateral comprimiendo el cuboides contra el calcáneo.",
+    "hints": [
+      "Es un músculo extrínseco que se origina en el compartimento lateral de la pierna.",
+      "Su tendón hace un recorrido único cruzando la planta del pie oblicuamente de lateral a medial.",
+      "Su tensión es antagonista y a la vez complementaria a la del músculo tibial anterior en el primer radio."
+    ],
+    "difficulty": 4,
+    "content": "Durante la fase de propulsión de la marcha, ¿qué musculatura es fundamental para contribuir al bloqueo mediotarsiano (articulación de Chopart) comprimiendo mecánicamente el hueso cuboides?",
+    "question_id": "tp2_anatomy_extra_02",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "¿Cuál de los siguientes mecanismos biomecánicos describe con mayor precisión cómo suele producirse una lesión aguda en la articulación de Lisfranc (tarsometatarsiana)?",
+    "options": [
+      {
+        "text": "Supinación del tobillo y del pie sobre un antepié que se encuentra sometido a carga axial o fijo.",
+        "isCorrect": true
+      },
+      {
+        "text": "Hiperflexión dorsal forzada de la primera articulación metatarsofalángica con carga directa.",
+        "isCorrect": false
+      },
+      {
+        "text": "Inversión extrema del retropié combinada con flexión plantar pura sin peso sobre el antepié.",
+        "isCorrect": false
+      },
+      {
+        "text": "Contracción excéntrica explosiva del tríceps sural durante el impacto del aterrizaje del talón.",
+        "isCorrect": false
+      }
+    ],
+    "rationale": "Las lesiones de la articulación de Lisfranc (tarsometatarsianas) ocurren comúnmente debido a un mecanismo de supinación del tobillo y del pie cuando el antepié se encuentra sometido a una fuerte carga axial o está fijado contra la superficie de apoyo. Este torque provoca una traslación dorsal o compresión axial en la columna medial del pie y fuerzas de tracción extremas en la columna lateral, desgarrando los ligamentos dorsales e interóseos. La hiperflexión dorsal forzada de la primera metatarsofalángica describe el mecanismo del 'turf toe'. La inversión pura en flexión plantar, sin carga axial en el antepié, usualmente causa esguinces del ligamento talofibular anterior. Finalmente, la carga durante el impacto del talón no transfiere el estrés destructivo necesario a la base de los metatarsianos.",
+    "learning_pearl": "La lesión de Lisfranc es la consecuencia de soportar fuerzas de torsión y compresión excesivas sobre un antepié firmemente anclado bajo carga axial.",
+    "hints": [
+      "La lesión involucra el punto de transición entre el mediopié y el antepié (base de los metatarsianos).",
+      "Suele presentarse en deportes de alta energía o jinetes donde la punta del pie está atorada.",
+      "Requiere que el peso corporal comprima el antepié mientras la pierna y el retropié giran bruscamente."
+    ],
+    "difficulty": 3,
+    "content": "¿Cuál de los siguientes mecanismos biomecánicos describe con mayor precisión cómo suele producirse una lesión aguda en la articulación de Lisfranc (tarsometatarsiana)?",
+    "question_id": "tp2_anatomy_extra_03",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "¿Qué complejo ligamentoso del pie y tobillo es el estabilizador principal contra las fuerzas de abducción, eversión, pronación y valgo del astrágalo?",
+    "options": [
+      {
+        "text": "El complejo del ligamento deltoideo, que engloba fascículos mediales tanto superficiales como profundos.",
+        "isCorrect": true
+      },
+      {
+        "text": "El ligamento calcaneonavicular plantar (resorte), que sostiene de manera directa la cuña medial.",
+        "isCorrect": false
+      },
+      {
+        "text": "El ligamento tibioperoneo anteroinferior, estabilizador clave de la mortaja en la región anterior.",
+        "isCorrect": false
+      },
+      {
+        "text": "El complejo ligamentoso lateral, integrado predominantemente por el talofibular y calcaneofibular.",
+        "isCorrect": false
+      }
+    ],
+    "rationale": "El complejo del ligamento deltoideo (ubicado en el tobillo medial) está compuesto por una porción superficial (ligamentos tibionavicular, tibioresorte y tibiocalcáneo) y una porción profunda (ligamentos tibiotalar anterior y posterior). En conjunto, estas formidables y fuertes estructuras resisten principalmente las fuerzas de abducción del astrágalo, así como la rotación lateral, la pronación acentuada y la angulación en valgo. El ligamento calcaneonavicular plantar (ligamento resorte) proporciona soporte pasivo al arco medial pero no evita la abducción talocrural. El ligamento tibioperoneo anteroinferior y el complejo lateral no resisten fuerzas mediales ni en valgo, ya que su función es prevenir la excesiva rotación externa de la sindesmosis y el varo/inversión lateral, respectivamente.",
+    "learning_pearl": "El ligamento deltoideo constituye la gran fortaleza medial del tobillo, impidiendo que la articulación colapse hacia la pronación y valgo extremo.",
+    "hints": [
+      "Busca la estructura ubicada en la cara interna (medial) del tobillo.",
+      "Se describe con frecuencia como teniendo forma de abanico o 'delta'.",
+      "Las rupturas aisladas de esta estructura son relativamente poco comunes debido a su enorme grosor y resistencia."
+    ],
+    "difficulty": 2,
+    "content": "¿Qué complejo ligamentoso del pie y tobillo es el estabilizador principal contra las fuerzas de abducción, eversión, pronación y valgo del astrágalo?",
+    "question_id": "tp2_anatomy_extra_04",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "Durante la fase final de apoyo (propulsión) del ciclo de marcha, ¿cómo contribuyen funcionalmente los músculos intrínsecos plantares del pie a la biomecánica requerida?",
+    "options": [
+      {
+        "text": "Se contraen isométricamente para rigidizar el pie y conformar una palanca sólida para la propulsión.",
+        "isCorrect": true
+      },
+      {
+        "text": "Se relajan excéntricamente para maximizar la amortiguación del impacto al levantar el talón del suelo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Realizan una flexión dorsal aislada de las falanges para liberar mecánicamente la fascia plantar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Invierten dinámicamente el calcáneo, sustituyendo por completo la labor del músculo tibial posterior.",
+        "isCorrect": false
+      }
+    ],
+    "rationale": "Según el modelo del subsistema activo ('foot core'), durante la fase de apoyo terminal y pre-oscilación, los músculos intrínsecos de la planta del pie se contraen fuertemente de forma isométrica para contribuir a la rigidez arquitectónica. Esto conforma una palanca rígida fundamental que canaliza de manera eficiente la fuerza propulsiva generada por el tríceps sural contra el suelo. Una relajación excéntrica en esta fase resultaría en un pie hiperlaxo y colapsado (perdiendo energía propulsiva). Además, estos músculos son flexores o abductores/aductores plantares, por lo que no actúan haciendo flexión dorsal. Por último, no invierten el retropié, siendo el músculo tibial posterior el encargado principal de esa función extrínseca.",
+    "learning_pearl": "Los músculos intrínsecos son el 'core' del pie: se contraen para transformar dinámicamente una estructura flexible amortiguadora en un bloque rígido impulsor.",
+    "hints": [
+      "Considera el concepto biomecánico de 'palanca rígida' durante el despegue.",
+      "Su función de control fino es análoga a la que realizan los músculos multífidos en la columna vertebral.",
+      "Trabajan en sintonía isométrica simultáneamente al tensado pasivo de la aponeurosis plantar."
+    ],
+    "difficulty": 3,
+    "content": "Durante la fase final de apoyo (propulsión) del ciclo de marcha, ¿cómo contribuyen funcionalmente los músculos intrínsecos plantares del pie a la biomecánica requerida?",
+    "question_id": "tp2_anatomy_extra_05",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "¿Cuál es el mecanismo de lesión que con mayor frecuencia produce un 'esguince alto de tobillo' (lesión de la sindesmosis) y qué ligamento es el primero en comprometerse?",
+    "options": [
+      {
+        "text": "Rotación lateral del astrágalo con el tobillo dorsiflexionado, dañando el tibioperoneo anteroinferior.",
+        "isCorrect": true
+      },
+      {
+        "text": "Inversión excesiva combinada con flexión plantar, lesionando primariamente el ligamento calcaneofibular.",
+        "isCorrect": false
+      },
+      {
+        "text": "Hiperflexión dorsal de los dedos del pie, lo que resulta en avulsión completa de la placa plantar.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aducción forzada en cadena abierta del antepié, arrancando la apófisis estiloides del quinto metatarsiano.",
+        "isCorrect": false
+      }
+    ],
+    "rationale": "El esguince de la sindesmosis tibioperonea (esguince alto) se produce predominantemente cuando la pierna sufre rotación interna o cuando el pie se ve forzado a una rotación lateral abrupta mientras el tobillo está en posición de dorsiflexión. Esta posición encaja la porción más ancha del astrágalo en la mortaja tibioperonea, forzando la separación del peroné de la tibia. El primer ligamento en fallar bajo esta tensión transversal es el tibioperoneo anteroinferior. La inversión en flexión plantar provoca el clásico esguince lateral, lesionando típicamente el talofibular anterior. La hiperflexión de los dedos es un mecanismo de 'turf toe'. La aducción forzada se relaciona más comúnmente con fracturas de base del 5to metatarsiano o tensión del tendón fibular corto.",
+    "learning_pearl": "La rotación externa forzada del pie en dorsiflexión actúa como una palanca que 'abre' la mortaja del tobillo, produciendo los esguinces de sindesmosis.",
+    "hints": [
+      "Imagina a un atleta cuyo pie queda plantado o atrapado, y el cuerpo sigue girando sobre la pierna.",
+      "El hueso más afectado por la cuña del astrágalo es desplazado separándose lateralmente.",
+      "El dolor no se siente debajo de los maléolos, sino anatómicamente más arriba en la pierna inferior."
+    ],
+    "difficulty": 3,
+    "content": "¿Cuál es el mecanismo de lesión que con mayor frecuencia produce un 'esguince alto de tobillo' (lesión de la sindesmosis) y qué ligamento es el primero en comprometerse?",
+    "question_id": "tp2_anatomy_extra_06",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "En el caso de un esguince lateral agudo del tobillo por inversión típica (flexión plantar y supinación), ¿cuál es la estructura de estabilización pasiva más frecuentemente afectada?",
+    "options": [
+      {
+        "text": "El ligamento talofibular anterior, siendo la banda dañada en el 75% de las lesiones por inversión.",
+        "isCorrect": true
+      },
+      {
+        "text": "El haz superficial del ligamento deltoideo, que se rompe por una intensa distracción lateral.",
+        "isCorrect": false
+      },
+      {
+        "text": "El ligamento calcaneocuboideo dorsal, principal estabilizador que asume toda la tensión del mediopié.",
+        "isCorrect": false
+      },
+      {
+        "text": "El ligamento tibioperoneo posteroinferior, el cual cede bajo la presión que ejerce el hueso calcáneo.",
+        "isCorrect": false
+      }
+    ],
+    "rationale": "La disrupción o el desgarro del ligamento talofibular anterior (ATFL) es el hallazgo patognomónico más frecuente de los esguinces laterales en flexión plantar e inversión, comprometiéndose aproximadamente en un 75% del total de los casos clínicos, al ser la estructura tensa de menor calibre durante esta posición. En traumas de gran velocidad, el ligamento calcaneofibular suele ser el siguiente en lesionarse. El ligamento deltoideo se localiza en la vertiente medial y está involucrado en lesiones por eversión. El ligamento calcaneocuboideo se daña en menor proporción en estos esguinces y no conforma la lesión característica inicial. Por su parte, el tibioperoneo posteroinferior está vinculado a lesiones sindesmales complejas y no cede de manera primaria en una inversión clásica.",
+    "learning_pearl": "El ligamento talofibular anterior es la banda más vulnerable del tobillo: es el primer estabilizador pasivo en fallar durante una inversión del pie en flexión plantar.",
+    "hints": [
+      "Es el ligamento más anterior de los estabilizadores laterales externos.",
+      "Está completamente bajo tensión cuando apuntas los dedos de los pies hacia abajo y doblas la planta hacia adentro.",
+      "Conforma la estructura evaluada con la prueba clínica del 'cajón anterior' del tobillo."
+    ],
+    "difficulty": 1,
+    "content": "En el caso de un esguince lateral agudo del tobillo por inversión típica (flexión plantar y supinación), ¿cuál es la estructura de estabilización pasiva más frecuentemente afectada?",
+    "question_id": "tp2_anatomy_extra_07",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "En la patogénesis de la Deformidad Plana Colapsante Progresiva del Pie (PCFD), ¿qué implicancia biomecánica conlleva la disfunción prematura del músculo tibial posterior?",
+    "options": [
+      {
+        "text": "Incapacidad para supinar las articulaciones del mediopié, sobrecargando estructuras como el ligamento resorte.",
+        "isCorrect": true
+      },
+      {
+        "text": "Fusión ósea traumática súbita entre el astrágalo y calcáneo, provocando un bloqueo mecánico del retropié.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aumento severo y anómalo de la fuerza de propulsión del tríceps sural, originando fracturas por avulsión.",
+        "isCorrect": false
+      },
+      {
+        "text": "Engrosamiento de la fascia lata e isquemia aguda compresiva sobre el paquete nervioso tibial posterior.",
+        "isCorrect": false
+      }
+    ],
+    "rationale": "El músculo tibial posterior es el principal elevador activo del arco longitudinal medial. Su insuficiencia o degeneración patológica produce una pérdida de su capacidad para bloquear en supinación las articulaciones tarsianas transversas durante el ciclo de marcha. Al no poder consolidar una palanca ósea rígida, las enormes fuerzas biomecánicas generadas en el despegue se desvían de manera nociva, aumentando drásticamente el estrés sobre los estabilizadores pasivos, en especial el ligamento resorte (calcaneonavicular plantar), la fascia plantar y el deltoideo. Esta cascada fomenta un colapso del arco. La coalición tarsiana o fusión no es resultado de la PCFD (sino una anomalía congénita). Tampoco incrementa la fuerza propulsiva del tríceps sural, sino que la desperdicia en un pie inestable. La neuropatía compresiva o isquémica del nervio tibial no define la etiología anatómica del colapso del pie.",
+    "learning_pearl": "El músculo tibial posterior es el pilar dinámico fundamental del pie medial; su fallo desata el efecto dominó que colapsa paulatinamente la arquitectura del arco plantar.",
+    "hints": [
+      "Este músculo actúa fundamentalmente como una honda o soporte tipo 'estribo' debajo del escafoides tarsiano.",
+      "Sin su activación excéntrica y luego concéntrica, el pie no transita adecuadamente de amortiguador a propulsor rígido.",
+      "El cese de su función obliga a que tendones y ligamentos estáticos mediales (spring ligament) carguen con todo el peso y cedan con el tiempo."
+    ],
+    "difficulty": 5,
+    "content": "En la patogénesis de la Deformidad Plana Colapsante Progresiva del Pie (PCFD), ¿qué implicancia biomecánica conlleva la disfunción prematura del músculo tibial posterior?",
+    "question_id": "tp2_anatomy_extra_08",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "En relación al mecanismo biomecánico conocido como 'efecto windlass' (molinete), ¿qué acción cinemática es la responsable de producir tensión directa en la aponeurosis plantar para estabilizar el mediopié en el despegue?",
+    "options": [
+      {
+        "text": "La extensión de las articulaciones metatarsofalángicas, enrollando la fascia sobre las cabezas metatarsianas.",
+        "isCorrect": true
+      },
+      {
+        "text": "La contracción máxima concéntrica y aislada de los músculos intrínsecos dorsales sobre los espacios interóseos.",
+        "isCorrect": false
+      },
+      {
+        "text": "La flexión plantar brusca y pronunciada de las falanges distales en la fase final de amortiguación del apoyo.",
+        "isCorrect": false
+      },
+      {
+        "text": "El deslizamiento translatorio del hueso astrágalo forzado mecánicamente por el impacto del tendón de Aquiles.",
+        "isCorrect": false
+      }
+    ],
+    "rationale": "El mecanismo de 'windlass' (molinete) constituye uno de los ejes biomecánicos cardinales del pie para la bipedestación eficiente. Se desencadena activamente durante el despegue del talón (terminal stance) al producirse la extensión de las articulaciones metatarsofalángicas, muy particularmente en el primer dedo. La inserción distal de la aponeurosis plantar actúa como un cable enrollándose alrededor del 'tambor' o polea ósea que forman las cabezas metatarsianas. Este efecto enrollador acorta pasivamente la longitud entre el calcáneo y las cabezas de los metatarsianos, tensando el arco y compactando los huesos del tarso. Ninguna flexión de las falanges, ni el tríceps sural, ni músculos dorsales generan por sí solos esta tensión mecánica directa sobre la aponeurosis para este fin.",
+    "learning_pearl": "La simple extensión del dedo gordo, como una polea de velero, enrolla y tensa la aponeurosis plantar elevando inmediatamente el arco y consolidando el pie.",
+    "hints": [
+      "Imagina un cable (la fascia plantar) que cruza el fondo del pie y se une más allá de los nudillos del pie.",
+      "Ocurre en la fracción de segundo antes de que levantes el pie completamente del suelo en una caminata normal.",
+      "Se detona cuando el dedo gordo apunta rígidamente hacia arriba en relación con su metatarsiano."
+    ],
+    "difficulty": 2,
+    "content": "En relación al mecanismo biomecánico conocido como 'efecto windlass' (molinete), ¿qué acción cinemática es la responsable de producir tensión directa en la aponeurosis plantar para estabilizar el mediopié en el despegue?",
+    "question_id": "tp2_anatomy_extra_09",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "¿Cuál es la alteración biomecánica focal que caracteriza clínicamente al 'síndrome del cuboides', condición frecuentemente diagnosticada como secuela de esguinces laterales de tobillo?",
+    "options": [
+      {
+        "text": "Una micro-subluxación o falla posicional de orientación plantar-medial que limita su movilidad articular dorsolateral.",
+        "isCorrect": true
+      },
+      {
+        "text": "Una luxación dorsal completa, en extremo traumática, que compromete por entero la placa articular y metatarsiana.",
+        "isCorrect": false
+      },
+      {
+        "text": "Una anquilosis reactiva entre las carillas articulares del cuboides y escafoides posterior a un golpe directo agudo.",
+        "isCorrect": false
+      },
+      {
+        "text": "El atrapamiento crónico y directo del nervio fibular superficial dentro de un quiste sinovial calcaneocuboideo.",
+        "isCorrect": false
+      }
+    ],
+    "rationale": "El síndrome del cuboides se caracteriza clínicamente por una alteración menor o 'falla posicional' (micro-subluxación) del hueso cuboides, habitualmente en dirección plantar y medial respecto a sus articulaciones vecinas. Con frecuencia esto es catalizado por la violenta y rápida tracción que efectúa el músculo fibular largo buscando estabilizar el pie tras un súbito esguince de inversión del tobillo. Esta mala ubicación relativa bloquea el desplazamiento osteocinemático del pie alterando el ritmo de la carga del mediopié, lo cual se manifiesta en una significativa restricción para efectuar los clásicos deslizamientos dorsolaterales al examen manual. La anquilosis corresponde a una artrodesis natural o patológica, y la compresión del nervio fibular superficial tiene un cuadro clínico diferente caracterizado por neuropatías de dorso de pie. La luxación dorsal total requeriría altísimos niveles de energía propios de un choque automovilístico, por ejemplo.",
+    "learning_pearl": "El síndrome del cuboides representa un pequeño eslabón del mediopié fuera de su eje, ocasionando la pérdida total de la suavidad natural de la pisada lateral.",
+    "hints": [
+      "Piensa en un hueso del compartimento externo que se desliza milímetros hacia abajo hacia la suela del pie.",
+      "Produce la extraña y vívida sensación descrita por el paciente de tener 'una piedrita atrapada en el zapato'.",
+      "El tratamiento físico a menudo se sirve de una manipulación conocida como el 'látigo' para reposicionarlo de vuelta hacia arriba (dorsal)."
+    ],
+    "difficulty": 4,
+    "content": "¿Cuál es la alteración biomecánica focal que caracteriza clínicamente al 'síndrome del cuboides', condición frecuentemente diagnosticada como secuela de esguinces laterales de tobillo?",
+    "question_id": "tp2_anatomy_extra_10",
+    "status": "draft"
+  },
+  {
+    "question": "De anterior a posterior, ¿cuál es el orden correcto de las estructuras anatómicas que discurren dentro del túnel tarsiano proximal?",
+    "options": [
+      {
+        "text": "Tendón del tibial posterior, FDL, arteria y vena, nervio tibial, FHL",
+        "isCorrect": true
+      },
+      {
+        "text": "Tendón del FHL, nervio tibial, arteria y vena, FDL, tibial posterior",
+        "isCorrect": false
+      },
+      {
+        "text": "Nervio tibial, arteria y vena, tibial posterior, FDL, tendón del FHL",
+        "isCorrect": false
+      },
+      {
+        "text": "Arteria y vena, tibial posterior, tendón del FHL, nervio tibial, FDL",
+        "isCorrect": false
+      }
+    ],
+    "correct_answer": "Tendón del tibial posterior, FDL, arteria y vena, nervio tibial, FHL",
+    "rationale": "El túnel tarsiano es una estructura delimitada por el maléolo medial, el calcáneo, el astrágalo y el retináculo flexor. De anterior a posterior, sus contenidos se disponen en un orden anatómico muy específico: el tendón del músculo tibial posterior, el tendón del flexor largo de los dedos (FDL), la arteria y vena tibiales posteriores, el nervio tibial y, por último, el tendón del flexor largo del dedo gordo (FHL). Este orden es clínicamente relevante para el diagnóstico y abordaje de síndromes compresivos en la región.",
+    "learning_pearl": "\"Tom, Dick, And Very Nervous Harry\" es la regla mnemotécnica clásica para los contenidos del túnel tarsiano (Tibialis posterior, FDL, Artery, Vein, Nerve, FHL).",
+    "hints": [
+      "El tendón más anterior es el principal inversor y supinador del mediopié.",
+      "El paquete neurovascular se encuentra intercalado entre los tendones flexores.",
+      "El tendón del flexor largo del dedo gordo es la estructura más posterior de este túnel."
+    ],
+    "difficulty": 3,
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "content": "De anterior a posterior, ¿cuál es el orden correcto de las estructuras anatómicas que discurren dentro del túnel tarsiano proximal?",
+    "question_id": "tp2_anatomy_extra_11",
+    "status": "draft"
+  },
+  {
+    "question": "¿Cuál es la característica anatómica y clínica principal de la neuropatía de Baxter?",
+    "options": [
+      {
+        "text": "Es la primera rama del nervio plantar lateral y se atrapa junto al cuadrado plantar",
+        "isCorrect": true
+      },
+      {
+        "text": "Es una rama terminal del nervio sural encargada de la inervación sensitiva del talón",
+        "isCorrect": false
+      },
+      {
+        "text": "Es el nervio plantar medial cuando se comprime a nivel del famoso nudo de Henry",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una rama directa del nervio safeno que inerva la fascia plantar medial",
+        "isCorrect": false
+      }
+    ],
+    "correct_answer": "Es la primera rama del nervio plantar lateral y se atrapa junto al cuadrado plantar",
+    "rationale": "La neuropatía de Baxter consiste en el atrapamiento de la primera rama del nervio plantar lateral, también conocido como el nervio del músculo abductor del quinto dedo (abductor digiti minimi). Este atrapamiento suele ocurrir entre la fascia del músculo abductor del dedo gordo y el vientre muscular del cuadrado plantar, o entre el flexor corto de los dedos y el calcáneo. Dado que este nervio es puramente motor, su compresión genera dolor crónico en la región medial y plantar del talón, pero sin presentar alteraciones sensitivas, un detalle clave para el diagnóstico diferencial.",
+    "learning_pearl": "El nervio de Baxter es puramente motor; su compresión causa dolor crónico en el talón pero jamás presenta parestesias o pérdida de sensibilidad cutánea.",
+    "hints": [
+      "Es una rama que se desprende del nervio plantar lateral.",
+      "Inerva primariamente al músculo abductor del quinto dedo.",
+      "Suele quedar atrapado bajo la fascia del abductor del dedo gordo."
+    ],
+    "difficulty": 4,
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "content": "¿Cuál es la característica anatómica y clínica principal de la neuropatía de Baxter?",
+    "question_id": "tp2_anatomy_extra_12",
+    "status": "draft"
+  },
+  {
+    "question": "En el síndrome conocido como 'pie de trotador' (jogger's foot), ¿cuál es el mecanismo de lesión y la estructura neural afectada?",
+    "options": [
+      {
+        "text": "Atrapamiento del nervio plantar medial bajo el abductor del dedo gordo",
+        "isCorrect": true
+      },
+      {
+        "text": "Atrapamiento del nervio plantar lateral cerca del músculo cuadrado plantar",
+        "isCorrect": false
+      },
+      {
+        "text": "Lesión de la primera rama del nervio calcáneo medial por fricción",
+        "isCorrect": false
+      },
+      {
+        "text": "Compresión del nervio peroneo superficial en el dorso del pie",
+        "isCorrect": false
+      }
+    ],
+    "correct_answer": "Atrapamiento del nervio plantar medial bajo el abductor del dedo gordo",
+    "rationale": "El llamado 'pie de trotador' (jogger's foot) es una neuropatía por atrapamiento del nervio plantar medial. Este nervio discurre a lo largo del borde medial del calcáneo, profundo a los músculos abductor del dedo gordo y flexor corto de los dedos. Su compresión suele darse entre la fascia del abductor del dedo gordo y el cuadrado plantar, o bien en el 'nudo de Henry', donde se cruzan los tendones del flexor largo del dedo gordo (FHL) y el flexor largo de los dedos (FDL). Es particularmente común en corredores de larga distancia debido a la eversión repetitiva del retropié.",
+    "learning_pearl": "El 'pie de trotador' afecta al nervio plantar medial, frecuentemente atrapado en el nudo de Henry debido a la pronación y eversión repetitivas en corredores.",
+    "hints": [
+      "Afecta a la rama nerviosa que inerva la porción medial de la planta del pie.",
+      "Suele comprimirse en una zona de cruce tendinoso conocida como el nudo de Henry.",
+      "El dolor empeora con la eversión prolongada típica de las carreras largas."
+    ],
+    "difficulty": 3,
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "content": "En el síndrome conocido como 'pie de trotador' (jogger's foot), ¿cuál es el mecanismo de lesión y la estructura neural afectada?",
+    "question_id": "tp2_anatomy_extra_13",
+    "status": "draft"
+  },
+  {
+    "question": "¿Cuál es el propósito biomecánico de la maniobra de Hubscher (step forward test) durante la evaluación del mecanismo de windlass?",
+    "options": [
+      {
+        "text": "Evaluar la flexibilidad del arco mediante la extensión del primer dedo",
+        "isCorrect": true
+      },
+      {
+        "text": "Bloquear las articulaciones transversas para crear una palanca rígida",
+        "isCorrect": false
+      },
+      {
+        "text": "Medir el grado exacto de dorsiflexión del tobillo en carga de peso",
+        "isCorrect": false
+      },
+      {
+        "text": "Provocar dolor en el túnel tarsiano mediante flexión plantar e inversión",
+        "isCorrect": false
+      }
+    ],
+    "correct_answer": "Evaluar la flexibilidad del arco mediante la extensión del primer dedo",
+    "rationale": "La maniobra de Hubscher (o 'step forward') evalúa la flexibilidad del pie plano mediante la activación del mecanismo de windlass (molinete). Se le pide al paciente que dé un paso adelante con la extremidad no afectada, lo que fuerza la extensión del primer dedo del pie evaluado. En condiciones normales, esta extensión tensa la fascia plantar y provoca la elevación dinámica del arco longitudinal medial. Si el arco se eleva, indica que la deformidad del pie plano es flexible; si el arco permanece colapsado, sugiere una deformidad rígida, lo cual podría indicar afecciones como una coalición tarsiana.",
+    "learning_pearl": "El mecanismo de windlass (molinete) utiliza la fascia plantar como un cable que, al extender el primer dedo, eleva dinámicamente el arco medial del pie.",
+    "hints": [
+      "Esta prueba determina si un pie plano es rígido o flexible.",
+      "Involucra dar un paso adelante para extender de manera forzada la articulación MTP.",
+      "Su resultado positivo esperado es la restitución visible del arco longitudinal medial."
+    ],
+    "difficulty": 4,
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "content": "¿Cuál es el propósito biomecánico de la maniobra de Hubscher (step forward test) durante la evaluación del mecanismo de windlass?",
+    "question_id": "tp2_anatomy_extra_14",
+    "status": "draft"
+  },
+  {
+    "question": "Al realizar la prueba de Windlass como maniobra de provocación para fasciopatía plantar, ¿qué movimiento específico debe ejecutar el examinador?",
+    "options": [
+      {
+        "text": "Extensión pasiva y forzada de la articulación metatarsofalángica del primer dedo en carga",
+        "isCorrect": true
+      },
+      {
+        "text": "Compresión manual simultánea de los espacios intermetatarsianos",
+        "isCorrect": false
+      },
+      {
+        "text": "Percusión directa sobre el recorrido del nervio plantar medial",
+        "isCorrect": false
+      },
+      {
+        "text": "Flexión plantar extrema para evaluar la excursión del tendón FHL",
+        "isCorrect": false
+      }
+    ],
+    "correct_answer": "Extensión pasiva y forzada de la articulación metatarsofalángica del primer dedo en carga",
+    "rationale": "La prueba del mecanismo de windlass se utiliza como una maniobra de provocación clínica específica para evaluar la presencia de fasciopatía plantar. Se realiza con el paciente en bipedestación (soportando peso), y el examinador lleva a cabo una extensión forzada pasiva de la articulación metatarsofalángica del primer dedo. Esta acción tensa mecánicamente la fascia plantar. Un resultado positivo se define por la reproducción del dolor característico en el tubérculo calcáneo medial. Curiosamente, esta prueba tiene una especificidad del cien por ciento, aunque su sensibilidad es bastante baja (31.8%).",
+    "learning_pearl": "La prueba de Windlass en carga tiene una sensibilidad muy baja (apenas 31.8%), pero una especificidad del 100% para confirmar el diagnóstico de fasciopatía plantar.",
+    "hints": [
+      "Se busca reproducir el dolor tensando la aponeurosis plantar al máximo.",
+      "Se requiere que el paciente esté de pie para aplicar carga axial sobre la estructura.",
+      "Implica llevar el dedo gordo hacia el dorso del pie de forma pasiva."
+    ],
+    "difficulty": 2,
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "content": "Al realizar la prueba de Windlass como maniobra de provocación para fasciopatía plantar, ¿qué movimiento específico debe ejecutar el examinador?",
+    "question_id": "tp2_anatomy_extra_15",
+    "status": "draft"
+  },
+  {
+    "question": "En el diagnóstico diferencial de un paciente con sospecha clínica de tendinopatía de Aquiles, ¿cuáles de las siguientes patologías musculares o bursales deben incluirse de inmediato?",
+    "options": [
+      {
+        "text": "Lesión del músculo plantar delgado, bursitis retrocalcánea y os trigonum",
+        "isCorrect": true
+      },
+      {
+        "text": "Síndrome del túnel tarsiano distal y neuropatía de Baxter exclusivamente",
+        "isCorrect": false
+      },
+      {
+        "text": "Fascitis plantar, espolón calcáneo e insuficiencia de la almohadilla grasa",
+        "isCorrect": false
+      },
+      {
+        "text": "Coalición tarsiana, síndrome del cuboides y disfunción del tibial posterior",
+        "isCorrect": false
+      }
+    ],
+    "correct_answer": "Lesión del músculo plantar delgado, bursitis retrocalcánea y os trigonum",
+    "rationale": "Durante la evaluación de un paciente con sospecha de tendinopatía de Aquiles, es imperativo establecer un diagnóstico diferencial exhaustivo de la región posterior del talón. Entre las patologías que pueden mimetizar o presentarse de manera concomitante se encuentra la lesión del músculo y tendón del plantar delgado. Además del plantar delgado, los médicos deben descartar desgarros parciales o completos del tendón de Aquiles, bursitis retrocalcánea, síndrome de pinzamiento posterior del tobillo, síndrome del os trigonum y posible atrapamiento del nervio sural si existen síntomas neurogénicos asociados en la zona.",
+    "learning_pearl": "El dolor posterior del talón no siempre indica patología primaria del tendón de Aquiles; el músculo plantar delgado y la bursa retrocalcánea son sospechosos habituales.",
+    "hints": [
+      "Son estructuras que comparten el compartimento anatómico posterior de la pierna y tobillo.",
+      "Uno es un músculo con un tendón muy largo y fino que corre medial al Aquiles.",
+      "Otra es una estructura sinovial que amortigua la fricción contra el hueso calcáneo."
+    ],
+    "difficulty": 3,
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "content": "En el diagnóstico diferencial de un paciente con sospecha clínica de tendinopatía de Aquiles, ¿cuáles de las siguientes patologías musculares o bursales deben incluirse de inmediato?",
+    "question_id": "tp2_anatomy_extra_16",
+    "status": "draft"
+  },
+  {
+    "question": "¿Qué maniobra ortopédica, cuando se combina con el signo de Tinel, incrementa drásticamente la especificidad (hasta 93.8%) en el diagnóstico del síndrome del túnel tarsiano proximal?",
+    "options": [
+      {
+        "text": "Flexión plantar combinada con inversión del pie (prueba de Trepman)",
+        "isCorrect": true
+      },
+      {
+        "text": "Dorsiflexión forzada combinada con abducción del antepié",
+        "isCorrect": false
+      },
+      {
+        "text": "Flexión plantar combinada con eversión forzada del calcáneo",
+        "isCorrect": false
+      },
+      {
+        "text": "Extensión del primer dedo y percusión del retináculo extensor",
+        "isCorrect": false
+      }
+    ],
+    "correct_answer": "Flexión plantar combinada con inversión del pie (prueba de Trepman)",
+    "rationale": "El síndrome del túnel tarsiano proximal se diagnostica clínicamente combinando varias pruebas provocativas. Una de las más efectivas es la prueba de Trepman (prueba de flexión plantar e inversión). Esta posición mecánica reduce el volumen y el espacio disponible dentro del túnel tarsiano, lo que comprime directamente el nervio plantar lateral y otras ramas del nervio tibial. Cuando los hallazgos positivos de la prueba de Trepman se combinan con un signo de Tinel positivo sobre el recorrido del nervio en el maléolo medial, la especificidad diagnóstica para este síndrome alcanza un notable 93.8 por ciento.",
+    "learning_pearl": "La combinación de la prueba de Trepman (flexión plantar e inversión) con el signo de Tinel asegura una especificidad casi absoluta (93.8%) para el túnel tarsiano proximal.",
+    "hints": [
+      "Busca reducir pasivamente el volumen anatómico del túnel tarsiano.",
+      "Requiere llevar el tobillo 'hacia abajo' y la planta del pie 'hacia adentro'.",
+      "También se le conoce clásicamente como la prueba de Trepman."
+    ],
+    "difficulty": 4,
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "content": "¿Qué maniobra ortopédica, cuando se combina con el signo de Tinel, incrementa drásticamente la especificidad (hasta 93.8%) en el diagnóstico del síndrome del túnel tarsiano proximal?",
+    "question_id": "tp2_anatomy_extra_17",
+    "status": "draft"
+  },
+  {
+    "question": "Biomecánicamente, ¿qué disfunción primaria ocurre en la fase de despegue (push-off) durante la deformidad plana colapsante progresiva causada por insuficiencia del tibial posterior?",
+    "options": [
+      {
+        "text": "Falla en bloquear las articulaciones tarsianas transversas en supinación",
+        "isCorrect": true
+      },
+      {
+        "text": "Exceso de tensión en la aponeurosis plantar que luxa el hueso cuboides",
+        "isCorrect": false
+      },
+      {
+        "text": "Rotura completa del ligamento Lisfranc y caída del arco transverso",
+        "isCorrect": false
+      },
+      {
+        "text": "Hipertrofia del músculo abductor del dedo gordo que desvía el primer rayo",
+        "isCorrect": false
+      }
+    ],
+    "correct_answer": "Falla en bloquear las articulaciones tarsianas transversas en supinación",
+    "rationale": "El músculo tibial posterior juega un papel biomecánico crucial en el mantenimiento de la arquitectura dinámica del pie. Su disfunción es la causa principal de la deformidad plana colapsante progresiva (PCFD o AAFD). Durante la marcha, el tibial posterior es directamente responsable de bloquear las articulaciones tarsianas transversas en posición de supinación. Este bloqueo convierte al pie en una palanca rígida y estable estrictamente necesaria para una fase de despegue (push-off) eficiente. Su falla impide esta rigidez, sometiendo a un estrés excesivo a las estructuras pasivas y llevando al colapso estructural.",
+    "learning_pearl": "El tibial posterior no solo 'levanta el arco', sino que convierte el pie en una palanca rígida indispensable al bloquear las articulaciones mediotarsianas en supinación para el despegue.",
+    "hints": [
+      "El tibial posterior es el principal supinador activo durante la fase de apoyo tardío.",
+      "Esta acción es vital para transformar un pie 'flexible' en una 'palanca dura'.",
+      "Involucra el ensamblaje mecánico de la articulación de Chopart."
+    ],
+    "difficulty": 4,
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "content": "Biomecánicamente, ¿qué disfunción primaria ocurre en la fase de despegue (push-off) durante la deformidad plana colapsante progresiva causada por insuficiencia del tibial posterior?",
+    "question_id": "tp2_anatomy_extra_18",
+    "status": "draft"
+  },
+  {
+    "question": "Según el conocimiento médico actual, ¿por qué el término médico 'fascitis plantar' es considerado un nombre inapropiado (misnomer)?",
+    "options": [
+      {
+        "text": "Es un proceso degenerativo con microdesgarros, no un proceso inflamatorio primario",
+        "isCorrect": true
+      },
+      {
+        "text": "Involucra una inflamación aguda y primaria de la bursa retrocalcánea profunda",
+        "isCorrect": false
+      },
+      {
+        "text": "Resulta de una proliferación autoinmune primaria del tejido conectivo plantar",
+        "isCorrect": false
+      },
+      {
+        "text": "Es una inflamación puramente neurológica secundaria a la compresión del nervio plantar",
+        "isCorrect": false
+      }
+    ],
+    "correct_answer": "Es un proceso degenerativo con microdesgarros, no un proceso inflamatorio primario",
+    "rationale": "Aunque el término 'fascitis plantar' es el más utilizado tanto por pacientes como por profesionales, constituye un término inapropiado clínicamente. La vasta evidencia histológica ha demostrado concluyentemente que esta condición no es un proceso inflamatorio primario. En realidad, se trata de una 'fasciopatía plantar', caracterizada por anomalías biomecánicas que someten al tejido a una carga excesiva, provocando microdesgarros repetitivos, degeneración del colágeno, proliferación capilar y cambios mixoides en la fascia plantar. La inflamación ocasional observada es meramente un evento secundario a la falla estructural y tisular.",
+    "learning_pearl": "La llamada 'fascitis' plantar es un nombre inapropiado de la jerga común; a nivel histológico se trata de una 'fasciopatía' degenerativa sin signos de inflamación aguda primaria.",
+    "hints": [
+      "La terminación '-itis' implica inflamación aguda, lo cual no ocurre de forma primaria aquí.",
+      "El examen de los tejidos muestra degeneración crónica del colágeno y fibrosis.",
+      "Por ello, la literatura prefiere cada vez más el término 'fasciopatía'."
+    ],
+    "difficulty": 2,
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "content": "Según el conocimiento médico actual, ¿por qué el término médico 'fascitis plantar' es considerado un nombre inapropiado (misnomer)?",
+    "question_id": "tp2_anatomy_extra_19",
+    "status": "draft"
+  },
+  {
+    "question": "Si un paciente presenta dolor medial crónico en el talón que empeora con la actividad, pero el examen neurológico muestra ausencia de alteraciones sensitivas, ¿qué patología de nervio plantar es más probable?",
+    "options": [
+      {
+        "text": "Neuropatía de Baxter (atrapamiento de la 1ª rama plantar lateral)",
+        "isCorrect": true
+      },
+      {
+        "text": "Síndrome del Túnel Tarsiano Posterior (atrapamiento de nervio tibial)",
+        "isCorrect": false
+      },
+      {
+        "text": "Neuroma de Morton (atrapamiento en 3er espacio intermetatarsiano)",
+        "isCorrect": false
+      },
+      {
+        "text": "Atrapamiento del nervio plantar medial (Síndrome de Jogger's Foot)",
+        "isCorrect": false
+      }
+    ],
+    "correct_answer": "Produce dolor medial crónico en el talón sin provocar alteraciones sensitivas",
+    "rationale": "El diagnóstico diferencial del dolor plantar del talón es complejo debido a la proximidad de múltiples estructuras. La neuropatía de Baxter (compresión de la primera rama del nervio plantar lateral) puede mimetizar a la perfección a una fasciopatía plantar, presentando dolor crónico que empeora notoriamente con la actividad. Sin embargo, un rasgo anatómico y clínico distintivo fundamental de la neuropatía de Baxter es la ausencia total de ramas sensitivas en este nervio específico. Por lo tanto, el paciente experimentará dolor agudo y profundo (por la inervación motora afectada), pero no presentará entumecimiento ni parestesias.",
+    "learning_pearl": "La neuropatía de Baxter (atrapamiento de la 1ª rama plantar lateral) provoca dolor intenso en el talón que simula una fasciopatía, pero su rasgo distintivo es la absoluta falta de pérdida sensitiva.",
+    "hints": [
+      "Esta lesión afecta a un nervio de naturaleza puramente motora.",
+      "El dolor imita a una afección de la fascia plantar (empeoramiento con la carga).",
+      "No esperes encontrar adormecimiento ni hormigueo en la piel del talón afectado."
+    ],
+    "difficulty": 5,
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "content": "Si un paciente presenta dolor medial crónico en el talón que empeora con la actividad, pero el examen neurológico muestra ausencia de alteraciones sensitivas, ¿qué patología de nervio plantar es más probable?",
+    "question_id": "tp2_anatomy_extra_20",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "¿Cuál es la función biomecánica principal de los músculos lumbricales (segunda capa plantar) durante la fase de apoyo terminal (terminal stance) en la marcha?",
+    "options": [
+      {
+        "text": "Flexionar activamente las articulaciones interfalángicas.",
+        "isCorrect": false
+      },
+      {
+        "text": "Funcionar de manera excéntrica para controlar la extensión de los dedos.",
+        "isCorrect": true
+      },
+      {
+        "text": "Abducir el primer y quinto dedo para ampliar la base de apoyo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Generar el momento principal de flexión plantar del tobillo.",
+        "isCorrect": false
+      }
+    ],
+    "correct_option_index": 1,
+    "rationale": "Los músculos lumbricales, situados en la segunda capa plantar, tienen un origen en el tendón del flexor largo de los dedos y se insertan en las bases de las falanges proximales de los dedos [1]. Durante una cadena cinética cerrada, como en la fase de propulsión o apoyo terminal en la marcha, estos músculos funcionan de manera excéntrica para controlar cuidadosamente la extensión de los dedos, oponiéndose a una hiperextensión brusca [1]. No flexionan las articulaciones interfalángicas en esta fase, sino que modulan la extensión metatarsofalángica [1]. La abducción de los dedos corresponde a otros músculos intrínsecos como los interóseos o los abductores específicos de la primera capa [2, 3]. El momento de flexión plantar del tobillo es generado por la enorme potencia del músculo tríceps sural, no por los pequeños intrínsecos [4]. Por lo tanto, su rol excéntrico es fundamental para estabilizar el antepié y permitir un despegue eficiente.",
+    "learning_pearl": "Los lumbricales del pie actúan como tensores excéntricos en la fase de apoyo terminal, controlando la velocidad y el grado de extensión de los dedos para optimizar la propulsión de la marcha.",
+    "hints": [
+      "Considera que en la fase de apoyo terminal, el peso del cuerpo empuja los dedos hacia la extensión extrema al levantar el talón.",
+      "Recuerda que estos músculos se insertan en las expansiones extensoras de los dedos menores.",
+      "A diferencia de una contracción concéntrica (que acorta el músculo), buscan frenar el estiramiento provocado por el movimiento hacia adelante del cuerpo."
+    ],
+    "difficulty": 4,
+    "content": "¿Cuál es la función biomecánica principal de los músculos lumbricales (segunda capa plantar) durante la fase de apoyo terminal (terminal stance) en la marcha?",
+    "question_id": "tp2_anatomy_extra_21",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "Durante un esguince de la sindesmosis tibioperonea distal (esguince alto de tobillo), ¿cuál es el mecanismo cinemático más común que provoca la diástasis y lesión de estos ligamentos?",
+    "options": [
+      {
+        "text": "Flexión plantar forzada combinada con una severa inversión del retropié.",
+        "isCorrect": false
+      },
+      {
+        "text": "Rotación lateral del astrágalo mientras el tobillo se encuentra en flexión dorsal.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aducción brusca del antepié con el tobillo en una posición neutra.",
+        "isCorrect": false
+      },
+      {
+        "text": "Extensión aislada de la articulación metatarsofalángica del primer dedo.",
+        "isCorrect": false
+      }
+    ],
+    "correct_option_index": 1,
+    "rationale": "La sindesmosis distal, compuesta por los ligamentos tibioperoneos anterior y posterior y el ligamento interóseo, se lesiona con mayor frecuencia cuando el astrágalo rota de forma lateral (externa) mientras el tobillo se encuentra en flexión dorsal [5-7]. Este movimiento de rotación lateral del cuerpo del astrágalo (que es más ancho en su porción anterior) dentro de la mortaja fuerza la separación (diástasis) de la tibia y el peroné, dañando gravemente la sindesmosis [6, 7]. La flexión plantar con inversión es el mecanismo típico del esguince lateral bajo de tobillo (que afecta principalmente al ligamento peroneoastragalino anterior), y no de la sindesmosis alta [8]. La aducción brusca del antepié o la extensión del primer dedo (que causa 'turf toe' o esguince de la metatarsofalángica) no generan la presión rotacional interna de la pierna sobre un tobillo fijo necesaria para abrir violentamente la mortaja tibioperonea [6, 7, 9].",
+    "learning_pearl": "El esguince alto de tobillo (lesión de la sindesmosis) suele ocurrir por la rotación externa forzada del pie y el astrágalo sobre un tobillo en flexión dorsal, lo que 'abre' la mortaja tibioperonea.",
+    "hints": [
+      "Piensa en un mecanismo que introduzca la parte más ancha del hueso del tobillo entre la tibia y el peroné.",
+      "Imagina a un jugador con los tacos clavados en el suelo cuyo cuerpo gira violentamente hacia adentro.",
+      "La flexión plantar con inversión produce el clásico esguince de los ligamentos laterales externos, no el de la sindesmosis."
+    ],
+    "difficulty": 3,
+    "content": "Durante un esguince de la sindesmosis tibioperonea distal (esguince alto de tobillo), ¿cuál es el mecanismo cinemático más común que provoca la diástasis y lesión de estos ligamentos?",
+    "question_id": "tp2_anatomy_extra_22",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "En el contexto de la deformidad plana colapsante progresiva (PCFD), ¿qué consecuencia biomecánica directa tiene la insuficiencia del tendón tibial posterior sobre las articulaciones del mediopié durante la marcha?",
+    "options": [
+      {
+        "text": "Disminuye la capacidad de bloquear las articulaciones tarsianas transversales en supinación.",
+        "isCorrect": true
+      },
+      {
+        "text": "Aumenta excesivamente la altura del arco medial creando un pie cavo extremadamente rígido.",
+        "isCorrect": false
+      },
+      {
+        "text": "Genera una fuerza de aducción incontrolada que desvía el antepié medialmente.",
+        "isCorrect": false
+      },
+      {
+        "text": "Bloquea permanentemente la articulación calcaneocuboidea en un estado de pronación extrema.",
+        "isCorrect": false
+      }
+    ],
+    "correct_option_index": 0,
+    "rationale": "El músculo tibial posterior proporciona un soporte dinámico crítico al arco longitudinal medial del pie mediante sus amplias inserciones plantares [10]. Su insuficiencia da como resultado una capacidad significativamente disminuida para bloquear las articulaciones tarsianas transversales (complejo de Chopart) en supinación [10, 11]. Este bloqueo supinatorio es mecánicamente necesario para convertir el pie flexible en una palanca rígida efectiva durante la fase de despegue (push-off) de la marcha [10, 11]. En lugar de un pie cavo o una aducción del antepié, esta insuficiencia provoca un colapso paulatino del arco medial, acentuación del valgo del retropié y una característica abducción compensatoria del antepié (produciendo el signo clínico de 'demasiados dedos') [10, 11]. El estrés subsecuente daña las estructuras capsuloligamentosas plantares y mediales [10].",
+    "learning_pearl": "El tendón del tibial posterior es el 'motor' que supina y bloquea el mediopié, convirtiéndolo en una palanca rígida. Su fallo impide este bloqueo, provocando un pie plano adquirido en el adulto.",
+    "hints": [
+      "El tendón tibial posterior levanta el arco medial e invierte el retropié.",
+      "Si este tendón falla, el pie se queda 'desbloqueado' y blando al momento de dar el paso.",
+      "Un pie que no puede supinarse durante el despegue perderá su palanca rígida en las articulaciones del mediopié."
+    ],
+    "difficulty": 4,
+    "content": "En el contexto de la deformidad plana colapsante progresiva (PCFD), ¿qué consecuencia biomecánica directa tiene la insuficiencia del tendón tibial posterior sobre las articulaciones del mediopié durante la marcha?",
+    "question_id": "tp2_anatomy_extra_23",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "¿Qué alteración patomecánica muscular intrínseca agrava la desviación lateral de la falange en la deformidad de Hallux Abducto-Valgus (HAV) una vez que las estructuras capsulares mediales se debilitan?",
+    "options": [
+      {
+        "text": "El músculo abductor del dedo gordo tracciona la falange fuertemente hacia la línea media del cuerpo.",
+        "isCorrect": false
+      },
+      {
+        "text": "Las fuerzas del músculo aductor del dedo gordo actúan sin oposición estructural hacia lateral.",
+        "isCorrect": true
+      },
+      {
+        "text": "El músculo tibial anterior altera su vector de inserción causando rotación interna del primer metatarsiano.",
+        "isCorrect": false
+      },
+      {
+        "text": "El músculo flexor corto de los dedos pierde por completo su inserción en los huesos sesamoideos.",
+        "isCorrect": false
+      }
+    ],
+    "correct_option_index": 1,
+    "rationale": "En la patomecánica del Hallux Abducto-Valgus (HAV), la carga repetitiva en valgo debilita progresivamente las estructuras capsulares mediales del primer dedo [12]. Esto lleva a un acortamiento y formación de contracturas en la cápsula articular lateral y en los tendones aductores [12]. Este desequilibrio biomecánico mediolateral hace que las fuerzas del músculo aductor del dedo gordo (que tira del dedo hacia el resto de los dedos) actúen sin oposición (unchecked), traccionando la falange proximal continuamente hacia lateral [12]. Adicionalmente, tendones extrínsecos como el extensor largo del dedo gordo se desplazan lateralmente al eje articular, adoptando el rol patológico de crear aún más fuerza lateral [12]. El músculo abductor del dedo gordo, por otro lado, resbala plantarmente y queda en desventaja mecánica, perdiendo su capacidad para estabilizar medialmente la falange [12].",
+    "learning_pearl": "En el Hallux Valgus, la insuficiencia del retináculo medial 'libera' al aductor del dedo gordo, el cual tira de la falange hacia afuera sin oposición, creando un círculo vicioso de deformidad.",
+    "hints": [
+      "Observa el nombre de la deformidad: 'Hallux Abducto-Valgus', el dedo gordo se desvía alejándose de la línea media corporal (hacia los dedos menores).",
+      "El músculo que se encuentra del lado hacia donde se desvía el dedo se vuelve hiperactivo y se acorta.",
+      "La debilidad ocurre en las estructuras mediales, dejando que los tensores del lado lateral ganen el tira y afloja mecánico."
+    ],
+    "difficulty": 3,
+    "content": "¿Qué alteración patomecánica muscular intrínseca agrava la desviación lateral de la falange en la deformidad de Hallux Abducto-Valgus (HAV) una vez que las estructuras capsulares mediales se debilitan?",
+    "question_id": "tp2_anatomy_extra_24",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "En relación con la primera capa plantar de músculos intrínsecos, ¿cuál es el rol principal del músculo abductor del dedo gordo durante la fase de respuesta a la carga (loading response)?",
+    "options": [
+      {
+        "text": "Funciona concéntricamente para elevar de forma explosiva el arco lateral del pie.",
+        "isCorrect": false
+      },
+      {
+        "text": "Mantiene la articulación interfalángica bloqueada en una hiperflexión rígida y estática.",
+        "isCorrect": false
+      },
+      {
+        "text": "Estabiliza el arco longitudinal medial funcionando excéntricamente para descenderlo suavemente.",
+        "isCorrect": true
+      },
+      {
+        "text": "Ejerce una fuerza máxima de aducción para comprimir y juntar todos los dedos menores.",
+        "isCorrect": false
+      }
+    ],
+    "correct_option_index": 2,
+    "rationale": "El músculo abductor del dedo gordo forma parte de la primera capa, la más superficial de la musculatura intrínseca plantar [3]. Su función biomecánica fundamental durante la fase de impacto o respuesta a la carga (loading response) en el ciclo de la marcha es estabilizar el arco longitudinal medial del pie [3]. Realiza esta estabilización dinámica funcionando de manera excéntrica, es decir, elagando sus fibras bajo tensión para controlar y permitir un descenso mecánico suave del arco a medida que el pie absorbe las fuerzas del cuerpo contra el suelo [3, 13, 14]. No eleva el arco lateral, no causa hiperflexión estática interfalángica ni es responsable de juntar los dedos menores (esto último es función de los interóseos plantares, ubicados en la cuarta capa) [3, 15].",
+    "learning_pearl": "El abductor del dedo gordo funciona como un tirante o resorte inferior: al dar el paso, se contrae de forma excéntrica cediendo poco a poco para que el arco medial baje y absorba el impacto.",
+    "hints": [
+      "Identifica en qué fase se encuentra el pie: acaba de chocar contra el suelo y necesita absorber fuerza, no impulsarse aún.",
+      "El abductor del dedo gordo recorre el lado interno (medial) del pie, desde el talón hasta el primer dedo.",
+      "Las contracciones excéntricas controlan movimientos 'frenándolos', como cuando dejas caer un peso lentamente."
+    ],
+    "difficulty": 2,
+    "content": "En relación con la primera capa plantar de músculos intrínsecos, ¿cuál es el rol principal del músculo abductor del dedo gordo durante la fase de respuesta a la carga (loading response)?",
+    "question_id": "tp2_anatomy_extra_25",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "Durante la flexión dorsal y plantar fisiológica del tobillo en el ciclo normal de la marcha, ¿cómo responde la sindesmosis tibioperonea distal ante las variaciones anatómicas del cuerpo del astrágalo?",
+    "options": [
+      {
+        "text": "Se mantiene completamente rígida y sin cambios, no permitiendo ningún tipo de movimiento del peroné.",
+        "isCorrect": false
+      },
+      {
+        "text": "Permite pequeñas cantidades de rotación y traslación del peroné distal para acomodar el ancho del hueso.",
+        "isCorrect": true
+      },
+      {
+        "text": "El ligamento interóseo empuja activa y bruscamente el peroné hacia una posición de luxación anterior.",
+        "isCorrect": false
+      },
+      {
+        "text": "Se fusiona temporalmente mediante un mecanismo de co-contracción muscular del compartimento lateral.",
+        "isCorrect": false
+      }
+    ],
+    "correct_option_index": 1,
+    "rationale": "A diferencia de las articulaciones estáticas puras, la sindesmosis tibioperonea distal (que incluye los ligamentos tibioperoneos anterior y posterior y el ligamento interóseo) requiere cierta elasticidad funcional [5, 6]. La porción anterior de la cúpula del astrágalo es marcadamente más ancha que su porción posterior [6]. En consecuencia, durante el arco completo de la marcha, especialmente al entrar en flexión dorsal cuando la parte ancha del astrágalo se encaja entre los maléolos, las estructuras ligamentosas de la sindesmosis permiten pequeñas y precisas cantidades de rotación y traslación del peroné distal [6, 16]. Esto acomoda el astrágalo en la mortaja sin perder la estabilidad mecánica [6, 16]. No existe una rigidez absoluta, no se luxa el peroné en estado fisiológico, ni depende de una fusión o compresión temporal inducida por músculos para su adaptabilidad pasiva [6, 16].",
+    "learning_pearl": "La mortaja del tobillo 'respira' de forma pasiva; los ligamentos de la sindesmosis permiten que el peroné ceda unos milímetros y rote sutilmente para acomodar la cuña ancha del astrágalo durante la flexión dorsal.",
+    "hints": [
+      "La estructura del hueso astrágalo no es un cilindro perfecto; es más ancha en la parte de adelante.",
+      "Cuando el pie sube hacia la pierna (flexión dorsal), la parte ancha debe entrar en un espacio estrecho.",
+      "El peroné necesita tener un poco de 'juego' (movimiento leve) guiado por ligamentos para que el tobillo no se bloquee."
+    ],
+    "difficulty": 2,
+    "content": "Durante la flexión dorsal y plantar fisiológica del tobillo en el ciclo normal de la marcha, ¿cómo responde la sindesmosis tibioperonea distal ante las variaciones anatómicas del cuerpo del astrágalo?",
+    "question_id": "tp2_anatomy_extra_26",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "Tras la disfunción primaria e insuficiencia del tendón del músculo tibial posterior, ¿qué estructura pasiva subyacente sufre inicialmente mayor estrés y transferencia de carga, contribuyendo en cascada al colapso del arco longitudinal medial?",
+    "options": [
+      {
+        "text": "El ligamento calcaneocuboideo dorsal situado en la columna lateral externa del pie.",
+        "isCorrect": false
+      },
+      {
+        "text": "El ligamento calcaneonavicular plantar (conocido frecuentemente como ligamento de Spring o resorte).",
+        "isCorrect": true
+      },
+      {
+        "text": "El retináculo peroneo superior ubicado inmediatamente por detrás del maléolo lateral.",
+        "isCorrect": false
+      },
+      {
+        "text": "El ligamento talofibular anterior, componente clave de la articulación talocrural lateral.",
+        "isCorrect": false
+      }
+    ],
+    "correct_option_index": 1,
+    "rationale": "La disfunción o insuficiencia del músculo tibial posterior elimina su soporte dinámico para bloquear el mediopié en supinación [10]. Como resultado directo de la pérdida de este soporte activo en la columna medial, ocurre una enorme transferencia de fuerzas perjudiciales hacia los estabilizadores estáticos o pasivos (tejidos conectivos) en el lado medial del pie [10]. El principal amortiguador de estas fuerzas de tensión y el que sufre sobrecarga más tempranamente es el ligamento calcaneonavicular plantar (o ligamento de Spring/resorte), junto con el ligamento deltoideo, la cápsula de la articulación talonavicular y la fascia plantar [10, 17]. Su falla consecutiva culmina en el hundimiento del arco longitudinal medial, abducción patológica del antepié y valgo del retropié [10, 11]. Estructuras como el ligamento calcaneocuboideo dorsal, el retináculo peroneo superior o el talofibular anterior son principalmente estabilizadores laterales y no previenen primariamente el colapso del arco medial [8, 10].",
+    "learning_pearl": "El ligamento calcaneonavicular plantar (de Spring) es la hamaca pasiva primaria del arco medial. Sin la tracción dinámica del tibial posterior, esta 'hamaca' soporta todo el peso y termina cediendo.",
+    "hints": [
+      "Busca una estructura conectiva situada en el aspecto medial e inferior del mediopié.",
+      "El nombre popular de esta estructura hace referencia a su teórica función como un 'resorte' para la cabeza del astrágalo.",
+      "Las opciones laterales (como el retináculo peroneo o el ligamento peroneoastragalino anterior) no están encargadas de sostener la columna medial del pie."
+    ],
+    "difficulty": 3,
+    "content": "Tras la disfunción primaria e insuficiencia del tendón del músculo tibial posterior, ¿qué estructura pasiva subyacente sufre inicialmente mayor estrés y transferencia de carga, contribuyendo en cascada al colapso del arco longitudinal medial?",
+    "question_id": "tp2_anatomy_extra_27",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "¿Cómo se describe anatómicamente el cambio posicional clave del complejo sesamoideo en una deformidad crónica descompensada de Hallux Abducto-Valgus (HAV) en relación con el primer metatarsiano?",
+    "options": [
+      {
+        "text": "La cabeza del primer metatarsiano se desplaza hacia medial, dejando los sesamoideos estáticamente en su surco plantar simulando una luxación lateral.",
+        "isCorrect": true
+      },
+      {
+        "text": "Los sesamoideos migran proximalmente de forma severa hasta incrustarse en las inserciones más profundas del tendón de Aquiles.",
+        "isCorrect": false
+      },
+      {
+        "text": "El primer metatarsiano rota hacia externo empujando agresivamente a los sesamoideos hacia el compartimento central profundo del pie.",
+        "isCorrect": false
+      },
+      {
+        "text": "Los sesamoideos experimentan una osificación y se fusionan permanentemente con la falange proximal, perdiendo su movilidad articular por completo.",
+        "isCorrect": false
+      }
+    ],
+    "correct_option_index": 0,
+    "rationale": "En la progresión patomecánica de una deformidad de Hallux Abducto-Valgus (HAV) descompensada, la articulación primera metatarsofalángica pierde su congruencia [18]. Clínicamente y en los estudios de imagen se suele describir que los sesamoideos 'se luxan o migran' hacia el aspecto lateral de la articulación [12, 19]. Sin embargo, desde una perspectiva estrictamente anatómica, el complejo sesamoideo es retenido estable en el plano transversal por el ligamento metatarsiano transverso profundo y sus inserciones [12]. El evento central que causa este desalineamiento es que la cabeza del primer metatarsiano (metatarsus primus varus) se desvía y desliza hacia medial, 'abandonando' su posición anatómica superior sobre el complejo estabilizador sesamoideo [12, 19]. Esto exacerba el desequilibrio al modificar los brazos de palanca intrínsecos de flexión plantar, acentuando el colapso medial del primer radio [12, 19]. Las migraciones al tendón de Aquiles o las fusiones directas (hueso con hueso) con la falange no describen la anatomía básica del HAV [12, 19].",
+    "learning_pearl": "En el Juanete avanzado, la ilusión óptica es una 'luxación lateral de sesamoideos', pero la realidad patomecánica es un metatarsiano que resbala y huye hacia medial, dejando los sesamoideos atrás.",
+    "hints": [
+      "Recuerda que en el 'metatarsus primus varus' el primer metatarsiano diverge hacia la otra pierna (hacia medial).",
+      "El complejo sesamoideo está fuertemente amarrado a las estructuras laterales y transversales del pie, por lo que no viaja fácilmente.",
+      "Es como un tren descarrilado: las vías (sesamoideos) se quedan en su sitio, el vagón (cabeza del metatarsiano) es el que se sale."
+    ],
+    "difficulty": 4,
+    "content": "¿Cómo se describe anatómicamente el cambio posicional clave del complejo sesamoideo en una deformidad crónica descompensada de Hallux Abducto-Valgus (HAV) en relación con el primer metatarsiano?",
+    "question_id": "tp2_anatomy_extra_28",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "¿Qué músculo intrínseco de la tercera capa plantar cumple la función biomecánica fundamental de dar soporte al arco transversal distal controlando el esparcimiento o splay excesivo del antepié bajo carga?",
+    "options": [
+      {
+        "text": "El músculo flexor corto del quinto dedo (flexor digiti minimi brevis).",
+        "isCorrect": false
+      },
+      {
+        "text": "El músculo aductor del dedo gordo (adductor hallucis).",
+        "isCorrect": true
+      },
+      {
+        "text": "El músculo cuadrado plantar (quadratus plantae).",
+        "isCorrect": false
+      },
+      {
+        "text": "El músculo extensor corto de los dedos (extensor digitorum brevis).",
+        "isCorrect": false
+      }
+    ],
+    "correct_option_index": 1,
+    "rationale": "La tercera capa plantar agrupa al aductor del dedo gordo, flexor corto del dedo gordo y flexor corto del quinto dedo [20]. Biomecánicamente, el músculo aductor del dedo gordo (específicamente a través de su potente cabeza transversa que cruza perpendicularmente los cuellos metatarsianos) juega un rol vital en la dinámica de carga (cadena cinética cerrada) [20]. Durante la fase de apoyo con carga total del peso, el antepié tiende a aplastarse y esparcirse (foot splay); el aductor del dedo gordo controla este esparcimiento previniendo el ensanchamiento desmesurado y soportando dinámicamente el arco metatarsiano transversal distal [20]. El flexor corto del quinto dedo se limita a flexionar su propio dígito, el cuadrado plantar asiste traccionando el tendón flexor en la segunda capa plantar [1, 20], y el extensor corto está sobre el dorso del pie, no en la planta [2].",
+    "learning_pearl": "La cabeza transversa del aductor del dedo gordo funciona como una verdadera correa o cinturón plantar dinámico: al pisar fuerte, se tensa para evitar que los metatarsianos se abran en abanico.",
+    "hints": [
+      "Este músculo en particular tiene el nombre de una acción que acerca estructuras hacia la línea media central del pie.",
+      "Sus fibras (la cabeza transversa) corren horizontalmente a través de las cabezas de los metatarsianos, cruzando el pie de un lado a otro.",
+      "Está en la tercera capa plantar, así que opciones como el cuadrado plantar (segunda) deben descartarse."
+    ],
+    "difficulty": 2,
+    "content": "¿Qué músculo intrínseco de la tercera capa plantar cumple la función biomecánica fundamental de dar soporte al arco transversal distal controlando el esparcimiento o splay excesivo del antepié bajo carga?",
+    "question_id": "tp2_anatomy_extra_29",
+    "status": "draft"
+  },
+  {
+    "question_type": "knowledge",
+    "unit_id": "unit_tobillo_pie",
+    "question": "Al realizar la evaluación clínica de un paciente con un colapso del arco medial crónico y postura de pie excesivamente pronada (FPI-6 > 4), ¿cuál es el patrón de movimiento compensatorio acoplado que típicamente observarás a nivel proximal en la extremidad inferior?",
+    "options": [
+      {
+        "text": "Rotación medial (interna) de la pierna y el muslo afectando la alineación de rodilla y cadera.",
+        "isCorrect": true
+      },
+      {
+        "text": "Rotación lateral (externa) extrema y rígida de toda la pierna desde la cabeza femoral.",
+        "isCorrect": false
+      },
+      {
+        "text": "Fijación forzada de la cadera en abducción continua para prevenir la inestabilidad distal.",
+        "isCorrect": false
+      },
+      {
+        "text": "Aumento drástico de la rotación externa tibial paralela a una hiperextensión articular del tobillo.",
+        "isCorrect": false
+      }
+    ],
+    "correct_option_index": 0,
+    "rationale": "El pie es el componente final que interactúa con el suelo, por lo que su posición dicta patrones cinemáticos acoplados a lo largo de toda la cadena cinética de la extremidad inferior [5, 21, 22]. En pacientes con postura del pie anormalmente pronada (típicamente con FPI-6 mayor a +4, hipermovilidad en el mediopié y debilidad del tibial posterior), el hundimiento del arco medial y eversión del calcáneo generan un efecto ascendente de 'destornillador' [21, 22]. Este colapso produce de forma natural e inevitable una rotación medial compensatoria (interna) del segmento tibial y de la articulación de la cadera (fémur), lo cual puede ser el origen de patologías asociadas en el síndrome de dolor patelofemoral o cadera [21-23]. Por el contrario, un pie rígido con postura excesivamente supinada acoplaría rotación lateral en la extremidad proximal [21, 22]. La fijación en abducción o la rotación externa tibial combinada con pronación son disociaciones no fisiológicas en este patrón clásico [21, 22].",
+    "learning_pearl": "La cinemática de la pierna está encadenada al arco del pie: cuando el arco medial colapsa hacia el suelo (pronación), toda la extremidad inferior (tibia y fémur) rota internamente en respuesta.",
+    "hints": [
+      "Colapsar el arco del pie hacia adentro crea un efecto en espiral hacia arriba.",
+      "Si pisas forzando tu talón hacia afuera (valgo del retropié) y bajas el arco plantar por completo, nota hacia dónde giran tus rodillas.",
+      "El pie plano adquirido siempre va de la mano funcionalmente con el genu valgo y la rotación interna del fémur."
+    ],
+    "difficulty": 3,
+    "content": "Al realizar la evaluación clínica de un paciente con un colapso del arco medial crónico y postura de pie excesivamente pronada (FPI-6 > 4), ¿cuál es el patrón de movimiento compensatorio acoplado que típicamente observarás a nivel proximal en la extremidad inferior?",
+    "question_id": "tp2_anatomy_extra_30",
+    "status": "draft"
+  }
+]

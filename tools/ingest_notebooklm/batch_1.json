@@ -1,0 +1,172 @@
+[
+  {
+    "unit_id": "unit_tobillo_pie",
+    "question_type": "knowledge",
+    "difficulty": 2,
+    "family_id": "anatomia_biomecanica_tobillo",
+    "content": "¿Qué músculo o grupo muscular asiste significativamente en la estabilización del mediopié tensando la fascia plantar a través del mecanismo de windlass durante la fase de respuesta a la carga en la marcha?",
+    "options": [
+      { "text": "Tríceps surae", "isCorrect": true },
+      { "text": "Tibial anterior", "isCorrect": false },
+      { "text": "Extensor largo del dedo gordo", "isCorrect": false },
+      { "text": "Peroneo corto", "isCorrect": false }
+    ],
+    "rationale": "Durante la fase de respuesta a la carga en la marcha, el pie funciona para disipar las fuerzas de impacto del suelo. El tríceps surae (gastrocnemio medial y lateral, y sóleo) asiste en la estabilización del mediopié al tensar la fascia plantar mediante el mecanismo de windlass (molinete). Además, el músculo tibial posterior se contrae de forma excéntrica para estabilizar el arco longitudinal medial, y los músculos intrínsecos junto con los flexores largos de los dedos se contraen para estabilizar los arcos y disipar las fuerzas en la fase de apoyo.",
+    "learning_pearl": "El tríceps surae es fundamental para tensar la fascia plantar y estabilizar el pie a través del mecanismo de windlass.",
+    "hints": ["Es el músculo principal de la región posterior de la pierna.", "Está compuesto por los gastrocnemios y el sóleo.", "Se inserta distalmente en el tendón de Aquiles."],
+    "tags": ["anatomia", "biomecanica", "marcha", "tobillo"]
+  },
+  {
+    "unit_id": "unit_tobillo_pie",
+    "question_type": "knowledge",
+    "difficulty": 2,
+    "family_id": "evaluacion_clinica_tobillo",
+    "content": "De acuerdo con el Foot Posture Index-6 (FPI-6), ¿cuál de los siguientes hallazgos clínicos es característico de un paciente clasificado con una postura de pie anormalmente pronada (puntuación > +4)?",
+    "options": [
+      { "text": "Hipermovilidad del mediopié y disminución de la fuerza del músculo tibial posterior.", "isCorrect": true },
+      { "text": "Hipomovilidad del mediopié y disminución de la fuerza de los músculos peroneos.", "isCorrect": false },
+      { "text": "Rotación lateral excesiva de la extremidad inferior e hipomovilidad subtalar.", "isCorrect": false },
+      { "text": "Marcha con base de sustentación reducida y aumento de la fuerza del tríceps surae.", "isCorrect": false }
+    ],
+    "rationale": "Una postura anormalmente pronada del pie, definida por una puntuación mayor a +4 en el Foot Posture Index-6 (FPI-6), se asocia comúnmente con hipermovilidad del mediopié, disminución de la fuerza del músculo tibial posterior y una posición rotada medialmente de la extremidad inferior. Estos hallazgos son fundamentales para clasificar el tipo de pie y guiar el plan de tratamiento basado en deficiencias del sistema de movimiento, enfocándose en estabilizar la hipermovilidad y fortalecer los inversores como el tibial posterior.",
+    "learning_pearl": "Un pie anormalmente pronado (> +4 en FPI-6) presenta hipermovilidad del mediopié, debilidad del tibial posterior y rotación medial del miembro inferior.",
+    "hints": ["Piensa en el músculo clave que sostiene el arco longitudinal medial.", "El pie pronado tiende a ser más móvil o flexible.", "La rotación de la tibia acompaña los movimientos de pronación de forma acoplada."],
+    "tags": ["evaluacion", "fpi-6", "postura", "pie"]
+  },
+  {
+    "unit_id": "unit_tobillo_pie",
+    "question_type": "knowledge",
+    "difficulty": 3,
+    "family_id": "patologia_esguince_lateral",
+    "content": "Durante un esguince lateral de tobillo agudo, ¿cuál es la combinación de ligamentos que con mayor frecuencia resulta dañada en conjunto según los hallazgos de resonancia magnética?",
+    "options": [
+      { "text": "Ligamento talofibular anterior y ligamento calcaneofibular.", "isCorrect": true },
+      { "text": "Ligamento talofibular anterior y ligamento deltoideo.", "isCorrect": false },
+      { "text": "Ligamento calcaneofibular y ligamento tibiofibular anteroinferior.", "isCorrect": false },
+      { "text": "Ligamento talofibular posterior y ligamento bifurcado.", "isCorrect": false }
+    ],
+    "rationale": "El daño a los ligamentos laterales es el hallazgo característico en las lesiones por inversión del tobillo. El ligamento talofibular anterior es la estructura más comúnmente afectada (75% de prevalencia). Sin embargo, las lesiones aisladas de este ligamento ocurren solo en un 9% de los casos. Los estudios de resonancia magnética en pacientes tras un esguince lateral agudo han demostrado que el 40% de los individuos presentan evidencia de daño combinado tanto en el ligamento talofibular anterior como en el ligamento calcaneofibular, lo que agrava sustancialmente la inestabilidad de la articulación.",
+    "learning_pearl": "El 40% de los esguinces por inversión agudos afectan conjuntamente a los ligamentos talofibular anterior y calcaneofibular.",
+    "hints": ["Involucra al ligamento más comúnmente lesionado y a su vecino lateral que estabiliza la articulación subtalar.", "Ambos ligamentos residen exclusivamente en el compartimento lateral del tobillo.", "Uno restringe el cajón anterior y el otro la inclinación talar en inversión."],
+    "tags": ["patologia", "esguince", "ligamentos", "tobillo"]
+  },
+  {
+    "unit_id": "unit_tobillo_pie",
+    "question_type": "knowledge",
+    "difficulty": 2,
+    "family_id": "patologia_esguince_alto",
+    "content": "¿Qué mecanismo de lesión está más frecuentemente asociado con la producción de un esguince de la sindesmosis tibioperonea (esguince alto de tobillo)?",
+    "options": [
+      { "text": "Rotación lateral de la pierna sobre un tobillo fijo en dorsiflexión.", "isCorrect": true },
+      { "text": "Inversión forzada del tobillo con el pie en máxima flexión plantar.", "isCorrect": false },
+      { "text": "Hiperextensión pasiva y brusca de la primera articulación metatarsofalángica.", "isCorrect": false },
+      { "text": "Carga axial compresiva combinada con supinación extrema del antepié.", "isCorrect": false }
+    ],
+    "rationale": "El esguince de la sindesmosis (o esguince alto de tobillo) involucra daño a los ligamentos tibiofibulares distales. La lesión ocurre de forma característica cuando el astrágalo rota lateralmente (rotación externa) mientras el tobillo se encuentra en dorsiflexión. Esta posición geométrica provoca que la porción anterior más ancha del astrágalo presione y separe mecánicamente la sindesmosis, alejando la tibia del peroné (diástasis). El diagnóstico a menudo se confirma con la prueba de Kleiger, que reproduce clínicamente este exacto movimiento de rotación lateral.",
+    "learning_pearl": "La rotación lateral del pie con el tobillo en dorsiflexión es el mecanismo clásico del esguince alto de tobillo (sindesmosis).",
+    "hints": ["Es el mecanismo evaluado intencionalmente en la prueba de provocación de Kleiger.", "Implica la separación de la mortaja tibioperonea por la parte ancha del astrágalo.", "Involucra un movimiento rotacional combinado con flexión dorsal del pie."],
+    "tags": ["patologia", "sindesmosis", "esguince", "tobillo"]
+  },
+  {
+    "unit_id": "unit_tobillo_pie",
+    "question_type": "knowledge",
+    "difficulty": 2,
+    "family_id": "tratamiento_tendinopatia_aquiles",
+    "content": "Para el tratamiento de la tendinopatía de Aquiles en su porción media en fase no aguda, ¿qué tipo de intervención recomienda la guía de práctica clínica de la AOPT (2018) como parte del manejo estándar primario?",
+    "options": [
+      { "text": "Ejercicios de carga mecánica progresiva, como entrenamiento excéntrico o de alta carga y baja velocidad.", "isCorrect": true },
+      { "text": "Ejercicios de estiramiento pasivo exclusivo sin la aplicación de carga resistida a los tejidos.", "isCorrect": false },
+      { "text": "Uso aislado y prolongado de inmovilización rígida junto con ultrasonido terapéutico profundo.", "isCorrect": false },
+      { "text": "Entrenamiento pliométrico de muy alta velocidad implementado desde el inicio del proceso de rehabilitación.", "isCorrect": false }
+    ],
+    "rationale": "En casos de síntomas no agudos de tendinopatía aquílea en la porción media, la guía de práctica clínica de la Academy of Orthopaedic Physical Therapy (AOPT) recomienda el uso de ejercicios de carga mecánica. Esto incluye entrenamiento de fuerza excéntrico exclusivo, entrenamiento de fuerza concéntrico/excéntrico y programas de alta carga a velocidad lenta (heavy-load/slow-speed). Estas modalidades han demostrado una efectividad superior para promover el remodelado tendinoso, disminuir el dolor a mediano y largo plazo, y recuperar la función biomecánica normal de la extremidad inferior.",
+    "learning_pearl": "La carga mecánica estructurada (ejercicios excéntricos o de alta carga a baja velocidad) constituye el tratamiento de elección para la tendinopatía de Aquiles no aguda.",
+    "hints": ["Busca readaptar y remodelar la estructura de colágeno del tendón mediante la aplicación de tensión.", "El protocolo clásico de Alfredson se basa en este principio terapéutico.", "La intervención principal involucra el levantamiento de peso de manera controlada."],
+    "tags": ["tratamiento", "tendinopatia", "aquiles", "ejercicio"]
+  },
+  {
+    "unit_id": "unit_tobillo_pie",
+    "question_type": "knowledge",
+    "difficulty": 3,
+    "family_id": "patologia_sindrome_cuboides",
+    "content": "Un paciente bailarín presenta dolor en el mediopié lateral que empeora severamente al pasar de pie plano a media punta (flexión plantar acentuada). La evaluación manual revela disminución notoria de la movilidad dorsolateral del cuboides. ¿Qué diagnóstico describe de manera más precisa este cuadro clínico?",
+    "options": [
+      { "text": "Síndrome del cuboides, secundario a una falla posicional plantar-medial del hueso.", "isCorrect": true },
+      { "text": "Coalición tarsiana calcaneonavicular, presentando una fusión ósea congénita rígida.", "isCorrect": false },
+      { "text": "Tendinopatía de los músculos peroneos, con presencia de desgarros en el retináculo retromaleolar.", "isCorrect": false },
+      { "text": "Enfermedad de Sever, asociada con tracción mecánica en la apófisis calcánea posterior.", "isCorrect": false }
+    ],
+    "rationale": "El síndrome del cuboides se caracteriza típicamente por dolor en la zona del mediopié lateral y pérdida específica de la movilidad del hueso cuboides. Clínicamente, el trastorno se describe como una falla posicional donde el cuboides se desplaza en dirección plantar y medial respecto al calcáneo. Como resultado directo de esta subluxación funcional, la movilidad en dirección dorsolateral se encuentra severamente limitada. Los bailarines son especialmente propensos, y suelen experimentar un dolor agudo e incapacitante al realizar la transición hacia la media punta (flexión plantar del tobillo).",
+    "learning_pearl": "El síndrome del cuboides implica una pérdida sintomática de movilidad dorsolateral del cuboides debido a una disfunción o falla posicional de carácter plantar-medial.",
+    "hints": ["Afecta principalmente la función mecánica de la columna lateral del pie.", "Es una entidad que frecuentemente responde con éxito a una técnica de manipulación rápida conocida como 'cuboid whip'.", "El paciente a menudo describe la sensación como 'tener una roca metida dentro del zapato'."],
+    "tags": ["patologia", "cuboides", "mediopie", "terapia_manual"]
+  },
+  {
+    "unit_id": "unit_tobillo_pie",
+    "question_type": "knowledge",
+    "difficulty": 3,
+    "family_id": "diagnostico_diferencial_talon",
+    "content": "¿Qué característica clínica diferencia de manera más clara a la neuropatía de Baxter (atrapamiento del nervio calcáneo inferior) de una fasciopatía plantar clásica al evaluar a un corredor con dolor en el talón?",
+    "options": [
+      { "text": "El dolor irradiado que se agrava continuamente con la actividad y presenta sensibilidad focal justo anterior al borde posterior del talón.", "isCorrect": true },
+      { "text": "El dolor agudo que ocurre exclusivamente durante los primeros pasos matutinos y que desaparece gradualmente con el inicio de la caminata.", "isCorrect": false },
+      { "text": "La sensibilidad extrema en el tubérculo calcáneo medial al palpar directamente la inserción proximal de la fascia plantar.", "isCorrect": false },
+      { "text": "La presencia de un espolón calcáneo calcificado en la radiografía lateral, la cual es patognomónica de la patología nerviosa.", "isCorrect": false }
+    ],
+    "rationale": "La neuropatía de Baxter (atrapamiento de la primera rama del nervio plantar lateral) puede simular inicialmente una fasciopatía plantar clásica. Sin embargo, la diferenciación clínica radica en la ubicación de los síntomas y en la progresión durante la carga: la sensibilidad a la palpación en la neuropatía de Baxter se localiza de forma más distal o justo anterior al borde posterior del talón, no directamente en la inserción medial de la fascia plantar. Además, a diferencia de la fasciopatía plantar que a menudo mejora tras los primeros pasos, el dolor neural de Baxter empeora de forma continua a medida que progresa la actividad.",
+    "learning_pearl": "A diferencia de la fasciopatía plantar típica, la neuropatía de Baxter tiende a empeorar progresivamente con la carga y el dolor se palpa anterior al borde posterior del talón.",
+    "hints": ["Este trastorno es intrínsecamente un problema de compresión mecánica sobre una estructura neural.", "Los movimientos combinados de eversión y abducción aumentan la tensión sobre esta estructura nerviosa.", "La afectación se localiza en una rama motora del nervio plantar lateral."],
+    "tags": ["diagnostico", "nervio", "talon", "baxter"]
+  },
+  {
+    "unit_id": "unit_tobillo_pie",
+    "question_type": "knowledge",
+    "difficulty": 2,
+    "family_id": "evaluacion_turf_toe",
+    "content": "En el contexto de un esguince agudo de la primera articulación metatarsofalángica (turf toe), ¿qué hallazgo imagenológico indica de manera confiable una lesión grado III (desgarro completo de la placa plantar)?",
+    "options": [
+      { "text": "Migración proximal de los huesos sesamoideos de más de 3 mm en comparación con las radiografías del pie contralateral no lesionado.", "isCorrect": true },
+      { "text": "Leve aumento del espacio articular sin presencia objetiva de migración ósea ni disrupción del cartílago hialino.", "isCorrect": false },
+      { "text": "Fusión ósea parcial asintomática de la primera falange proximal observada en las vistas oblicuas de la articulación.", "isCorrect": false },
+      { "text": "Separación diastásica entre la base del primer y segundo metatarsiano en proyecciones con carga de peso completa.", "isCorrect": false }
+    ],
+    "rationale": "Un esguince de grado III de la articulación metatarsofalángica del dedo gordo, comúnmente llamado 'turf toe', implica una ruptura o desgarro completo de la placa plantar y las estructuras asociadas. A nivel radiográfico, la disrupción severa y completa de estas estructuras capsuloligamentosas plantares se confirma objetivamente observando una migración proximal de los huesos sesamoideos. Una migración superior a los 3 mm, determinada de manera precisa al comparar las imágenes con el pie sano contralateral, es un indicador crítico de lesión de grado III y puede requerir evaluación quirúrgica inmediata.",
+    "learning_pearl": "La migración proximal asimétrica de los sesamoideos (> 3 mm) es un signo radiográfico crítico que confirma la ruptura completa de la placa plantar en el 'turf toe' grado III.",
+    "hints": ["El hallazgo debe evaluarse mediante radiografías bilaterales comparativas de ambos pies.", "Involucra el desplazamiento de dos pequeños huesecillos incrustados en los tendones flexores de la región plantar.", "Cuando la fuerte placa plantar se rompe por completo, pierde la tracción anatómica sobre estas estructuras."],
+    "tags": ["evaluacion", "turftoe", "sesamoideos", "metatarsofalangica"]
+  },
+  {
+    "unit_id": "unit_tobillo_pie",
+    "question_type": "knowledge",
+    "difficulty": 3,
+    "family_id": "diagnostico_coalicion_tarsiana",
+    "content": "Un paciente adolescente se presenta con dolor insidioso en el retropié e historia de esguinces recurrentes del tobillo. El examen revela un pie plano pronunciado. ¿Qué hallazgo específico en las pruebas funcionales sugiere fuertemente una coalición tarsiana en lugar de un pie plano flexible benigno?",
+    "options": [
+      { "text": "Ausencia de inversión del calcáneo durante la prueba de elevación de talones (heel raise test) en bipedestación.", "isCorrect": true },
+      { "text": "Recuperación y elevación notable del arco longitudinal medial en el instante en que el paciente se sienta sin soportar peso.", "isCorrect": false },
+      { "text": "Dolor agudo provocado exclusivamente con la compresión transversal del antepié (prueba de Mulder).", "isCorrect": false },
+      { "text": "Acentuación del arco longitudinal medial secundaria a la extensión manual pasiva del dedo gordo (maniobra de Hubscher).", "isCorrect": false }
+    ],
+    "rationale": "La coalición tarsiana suele volverse asintomática durante la adolescencia cuando las uniones cartilaginosas previas comienzan a osificarse. A diferencia de un pie plano flexible, donde las estructuras anatómicas recuperan la bóveda plantar al retirar la carga del suelo o al tensar la fascia plantar, el pie con coalición osificada es estructuralmente rígido. En la exploración, las pruebas de flexibilidad como el 'heel raise test' (elevación del talón) pondrán en evidencia una completa ausencia de la biomecánica normal de inversión del calcáneo. Esto refleja el bloqueo de las articulaciones subtalares y/o mediotarsianas subyacentes.",
+    "learning_pearl": "La rigidez del retropié evidenciada por la ausencia de inversión del calcáneo en la prueba de elevación del talón diferencia a la coalición tarsiana del pie plano flexible.",
+    "hints": ["Debes buscar el signo que demuestre que el movimiento articular del retropié está rígidamente bloqueado en todas las posiciones.", "La maniobra funcional de pararse de puntillas normalmente invierte el talón sano por la acción del sistema de windlass.", "Involucra un fallo anatómico en la articulación subtalar."],
+    "tags": ["diagnostico", "coaliciontarsiana", "retropie", "pediatria"]
+  },
+  {
+    "unit_id": "unit_tobillo_pie",
+    "question_type": "knowledge",
+    "difficulty": 2,
+    "family_id": "evaluacion_neuroma_morton",
+    "content": "¿Qué combinación de pruebas y hallazgos ortopédicos es considerada la más específica y predictiva para el diagnóstico clínico de un neuroma interdigital (neuroma de Morton)?",
+    "options": [
+      { "text": "Reproducción de los síntomas con la maniobra de Mulder, prueba de percusión plantar positiva y sensibilidad en el espacio interdigital afectado.", "isCorrect": true },
+      { "text": "Aumento del dolor con la prueba del cajón anterior del tobillo combinada con una inclinación talar alterada.", "isCorrect": false },
+      { "text": "Reproducción del dolor en la rotación externa con tobillo en dorsiflexión profunda (prueba de Kleiger positiva).", "isCorrect": false },
+      { "text": "Disminución marcada del rango de movimiento de flexión dorsal, combinada con acortamiento reactivo del tríceps surae.", "isCorrect": false }
+    ],
+    "rationale": "El neuroma interdigital (neuroma de Morton) es un atrapamiento neuro-mecánico del nervio interdigital, típicamente presente entre las cabezas del tercer y cuarto metatarsiano. Clínicamente, el diagnóstico se confirma a través de pruebas de provocación específicas de las estructuras nerviosas. La maniobra de Mulder (que comprime conjuntamente el antepié y el espacio interdigital afectado), la prueba de percusión plantar (análoga a un signo de Tinel en la zona), y la prueba modificada de estiramiento del nervio digital (extendiendo pasivamente las falanges) forman el conjunto clínico con mayor sensibilidad y valor predictivo para esta neuropatía compresiva.",
+    "learning_pearl": "La tríada provocativa de la maniobra de Mulder, la prueba de percusión plantar y la sensibilidad del espacio digital confirma con altísima precisión el diagnóstico de neuroma de Morton.",
+    "hints": ["Una de estas pruebas clave intenta exprimir mecánicamente la masa neural fuera del aspecto plantar del pie.", "Otra prueba evalúa la conducción nerviosa al golpear sobre el trayecto del nervio.", "Todas las pruebas se concentran en el compartimiento anterior e inferior del antepié."],
+    "tags": ["evaluacion", "neuroma", "antepie", "nervio"]
+  }
+]
