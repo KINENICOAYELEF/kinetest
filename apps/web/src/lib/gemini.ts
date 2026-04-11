@@ -53,8 +53,6 @@ export const getEmbeddingModel = () => {
  * @returns El texto generado
  */
 export async function generateText(prompt: string, systemPrompt?: string): Promise<string> {
-  const model = getFlashLiteModel();
-  
   const config: any = {};
   if (systemPrompt) {
     config.systemInstruction = systemPrompt;
