@@ -44,19 +44,42 @@ def validate_question(q: dict, index: int) -> list[str]:
     if not content or len(content) < MIN_CONTENT_LEN:
         errors.append(f"[{qid}] ❌ 'content' tiene {len(content)} chars (mín {MIN_CONTENT_LEN})")
 
-    # 2. options
-    options = q.get("options", [])
-    if len(options) != 4:
-        errors.append(f"[{qid}] ❌ Tiene {len(options)} opciones (debe ser exactamente 4)")
+    # 2. Activity Type Specific Validation
+    activity_type = q.get("activity_type", "mcq")
+    
+    if activity_type in ["mcq", "multi_select"]:
+        options = q.get("options", [])
+        if len(options) != 4 and activity_type == "mcq":
+            errors.append(f"[{qid}] ❌ Tiene {len(options)} opciones (debe ser exactamente 4 para mcq)")
+        else:
+            correct_count = sum(1 for o in options if o.get("isCorrect"))
+            if activity_type == "mcq" and correct_count != 1:
+                errors.append(f"[{qid}] ❌ Tiene {correct_count} opciones correctas (debe ser exactamente 1)")
+            elif activity_type == "multi_select" and correct_count < 1:
+                errors.append(f"[{qid}] ❌ Tiene {correct_count} opciones correctas (debe ser >= 1)")
+            
+            for i, opt in enumerate(options):
+                text = opt.get("text", "")
+                if not text or len(text) < MIN_OPTION_LEN:
+                    errors.append(f"[{qid}] ❌ Opción {i+1} tiene {len(text)} chars (mín {MIN_OPTION_LEN}): '{text[:30]}...'")
+
+    elif activity_type == "classification":
+        if "categories" not in q or "correct_category" not in q:
+            errors.append(f"[{qid}] ❌ 'classification' requiere 'categories' y 'correct_category'")
+    elif activity_type == "ordering":
+        if "items" not in q or "correct_order" not in q:
+            errors.append(f"[{qid}] ❌ 'ordering' requiere 'items' y 'correct_order'")
+    elif activity_type == "dosification":
+        if "fields" not in q:
+            errors.append(f"[{qid}] ❌ 'dosification' requiere 'fields'")
+    elif activity_type == "matching":
+        if "pairs" not in q:
+            errors.append(f"[{qid}] ❌ 'matching' requiere 'pairs'")
+    elif activity_type == "true_false":
+        if "correct_answer" not in q or "justification_options" not in q:
+            errors.append(f"[{qid}] ❌ 'true_false' requiere 'correct_answer' y 'justification_options'")
     else:
-        correct_count = sum(1 for o in options if o.get("isCorrect"))
-        if correct_count != 1:
-            errors.append(f"[{qid}] ❌ Tiene {correct_count} opciones correctas (debe ser exactamente 1)")
-        
-        for i, opt in enumerate(options):
-            text = opt.get("text", "")
-            if not text or len(text) < MIN_OPTION_LEN:
-                errors.append(f"[{qid}] ❌ Opción {i+1} tiene {len(text)} chars (mín {MIN_OPTION_LEN}): '{text[:30]}...'")
+        errors.append(f"[{qid}] ❌ 'activity_type' inválido: {activity_type}")
 
     # 3. rationale
     rationale = q.get("rationale", "")

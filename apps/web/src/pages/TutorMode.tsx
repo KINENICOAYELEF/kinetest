@@ -3,8 +3,7 @@ import { useParams, useNavigate } from 'react-router-dom';
 import { collection, query, where, getDocs, addDoc, serverTimestamp, doc, setDoc, arrayUnion } from 'firebase/firestore';
 import { db } from '../lib/firebase';
 import { useAuth } from '../context/AuthContext';
-import { selectAdaptiveQuestions, updateTagMastery, TagMastery, selectVariant } from '../utils/adaptiveEngine';
-import { shuffleArray } from '../utils/shuffle';
+import { updateTagMastery, TagMastery, selectVariant, selectAdaptiveQuestions } from '../utils/adaptiveEngine';
 
 interface TutorCard {
     id: string;
@@ -13,19 +12,9 @@ interface TutorCard {
     tag: string;
 }
 
-interface Question {
-    question_id: string;
-    content: string;
-    options: { text: string; isCorrect: boolean }[];
-    rationale: string;
-    learning_pearl?: string;
-    difficulty: number;
-    tags: string[];
-    family_id?: string;
-    hints?: string[];
-    status?: string;
-    unit_id?: string;
-}
+import { Activity } from '../types/questions';
+import { ActivityRenderer } from '../components/activities/ActivityRenderer';
+import { ActivityResult } from '../utils/activityGrader';
 
 export const TutorMode = () => {
     const { unitId } = useParams();
@@ -33,14 +22,14 @@ export const TutorMode = () => {
     const navigate = useNavigate();
 
     const [tutorCards, setTutorCards] = useState<TutorCard[]>([]);
-    const [allQuestions, setAllQuestions] = useState<Question[]>([]);
+    const [allQuestions, setAllQuestions] = useState<Activity[]>([]);
     const [currentCardIndex, setCurrentCardIndex] = useState(0);
     const [viewMode, setViewMode] = useState<'card' | 'quiz' | 'remediation'>('card');
     
     // Quiz State
-    const [quizQuestions, setQuizQuestions] = useState<Question[]>([]);
+    const [quizQuestions, setQuizQuestions] = useState<Activity[]>([]);
     const [currentQuizIndex, setCurrentQuizIndex] = useState(0);
-    const [selectedOption, setSelectedOption] = useState<number | null>(null);
+    const [lastResultCorrect, setLastResultCorrect] = useState<boolean | null>(null);
     const [showFeedback, setShowFeedback] = useState(false);
     const [hintsUsed, setHintsUsed] = useState(0);
     const [loading, setLoading] = useState(true);
@@ -49,7 +38,7 @@ export const TutorMode = () => {
     const [confidence, setConfidence] = useState<'high'|'medium'|'low'|null>(null);
     
     // Remediation State
-    const [remediationQuestion, setRemediationQuestion] = useState<Question | null>(null);
+    const [remediationQuestion, setRemediationQuestion] = useState<Activity | null>(null);
 
     useEffect(() => {
         const initTutor = async () => {
@@ -79,7 +68,7 @@ export const TutorMode = () => {
                 // 4. Questions (Filter only approved)
                 const qSnap = await getDocs(query(collection(db, 'questions'), where('unit_id', '==', unitId)));
                 const questions = qSnap.docs
-                    .map(d => ({ question_id: d.id, ...d.data() } as Question))
+                    .map(d => ({ question_id: d.id, ...d.data() } as Activity))
                     .filter(q => q.status === 'approved' || q.status === undefined); // undefined fallback for old data
                 setAllQuestions(questions);
 
@@ -97,22 +86,22 @@ export const TutorMode = () => {
         // Filter questions by card tag
         const tagQuestions = allQuestions.filter(q => q.tags?.includes(currentCard.tag));
         // Use adaptive selection for the microquiz (3-5 questions)
-        const selected = selectAdaptiveQuestions(tagQuestions, userMastery, 3);
-        setQuizQuestions(selected);
+        const selected = selectAdaptiveQuestions(tagQuestions as any, userMastery, 3);
+        setQuizQuestions(selected as unknown as Activity[]);
         setCurrentQuizIndex(0);
         setViewMode('quiz');
-        setSelectedOption(null);
+        setLastResultCorrect(null);
         setShowFeedback(false);
         setHintsUsed(0);
         setConfidence(null);
     };
 
-    const handleAnswer = async (index: number) => {
+    const handleAnswer = async (result: ActivityResult) => {
         if (showFeedback || !currentUser || !sessionId) return;
         const question = viewMode === 'remediation' ? remediationQuestion! : quizQuestions[currentQuizIndex];
-        const isCorrect = question.options[index].isCorrect;
+        const isCorrect = result.isCorrect;
         
-        setSelectedOption(index);
+        setLastResultCorrect(isCorrect);
         setShowFeedback(true);
 
         // Penalty logic for hints
@@ -160,7 +149,7 @@ export const TutorMode = () => {
             if (currentQuizIndex < quizQuestions.length - 1) {
                 setCurrentQuizIndex(currentQuizIndex + 1);
                 setViewMode('quiz');
-                setSelectedOption(null);
+                setLastResultCorrect(null);
                 setShowFeedback(false);
                 setHintsUsed(0);
                 setConfidence(null);
@@ -170,16 +159,16 @@ export const TutorMode = () => {
             return;
         }
 
-        const question = quizQuestions[currentQuizIndex];
-        const lastCorrect = selectedOption !== null && question.options[selectedOption].isCorrect;
+        const currentActivity = quizQuestions[currentQuizIndex];
+        const lastCorrect = lastResultCorrect !== null && lastResultCorrect;
 
         if (!lastCorrect) {
             // FAILED -> REMEDIATION
-            const variant = selectVariant(question, allQuestions);
+            const variant = selectVariant(currentActivity as any, allQuestions as any);
             if (variant) {
-                setRemediationQuestion(variant);
+                setRemediationQuestion(variant as any);
                 setViewMode('remediation');
-                setSelectedOption(null);
+                setLastResultCorrect(null);
                 setShowFeedback(false);
                 setHintsUsed(0);
                 setConfidence(null);
@@ -189,7 +178,7 @@ export const TutorMode = () => {
 
         if (currentQuizIndex < quizQuestions.length - 1) {
             setCurrentQuizIndex(currentQuizIndex + 1);
-            setSelectedOption(null);
+            setLastResultCorrect(null);
             setShowFeedback(false);
             setHintsUsed(0);
             setConfidence(null);
@@ -224,13 +213,6 @@ export const TutorMode = () => {
 
     const currentCard = tutorCards[currentCardIndex];
     const currentQuestion = viewMode === 'remediation' ? remediationQuestion! : quizQuestions[currentQuizIndex];
-    const [shuffledOptions, setShuffledOptions] = useState<any[]>([]);
-
-    useEffect(() => {
-        if (currentQuestion?.options) {
-            setShuffledOptions(shuffleArray(currentQuestion.options));
-        }
-    }, [currentQuestion]);
 
     return (
         <div className="container" style={{ maxWidth: 800 }}>
@@ -308,44 +290,21 @@ export const TutorMode = () => {
                            </div>
                         )}
 
-                        <div className="flex-col" style={{ gap: 12, marginTop: 24 }}>
-                            {shuffledOptions.map((opt) => {
-                                const isCorrect = opt.isCorrect;
-                                const isSelected = selectedOption !== null && shuffledOptions[selectedOption] === opt;
-                                let borderColor = 'var(--glass-border)';
-                                let bg = 'rgba(255,255,255,0.02)';
-                                let color = 'var(--text-muted)';
-
-                                if (showFeedback) {
-                                    if (isCorrect) { borderColor = 'var(--accent)'; bg = 'rgba(16, 185, 129, 0.1)'; color = 'white'; }
-                                    else if (isSelected) { borderColor = '#f44336'; bg = 'rgba(244, 67, 54, 0.1)'; color = 'white'; }
-                                } else if (isSelected) {
-                                    borderColor = 'var(--primary)'; bg = 'rgba(99, 102, 241, 0.1)'; color = 'white';
-                                }
-
-                                return (
-                                    <button
-                                        key={opt.text}
-                                        onClick={() => handleAnswer(shuffledOptions.indexOf(opt))}
-                                        disabled={showFeedback || !confidence}
-                                        style={{ 
-                                            padding: 16, textAlign: 'left', border: '1px solid', borderColor, borderRadius: 12, background: bg, color, 
-                                            cursor: (showFeedback || !confidence) ? 'default' : 'pointer', 
-                                            fontSize: '0.95rem',
-                                            opacity: !confidence ? 0.5 : 1
-                                        }}
-                                    >
-                                        {opt.text}
-                                    </button>
-                                );
-                            })}
+                        {/* ACTIVITY RENDERER */}
+                        <div style={{ marginTop: 24, opacity: !confidence ? 0.3 : 1, transition: 'opacity 0.3s', pointerEvents: !confidence ? 'none' : 'auto' }}>
+                             <ActivityRenderer 
+                                activity={currentQuestion}
+                                showFeedback={showFeedback}
+                                onAnswer={handleAnswer}
+                                disabled={!confidence}
+                             />
                         </div>
 
                         {showFeedback && (
                             <div style={{ marginTop: 25, animation: 'fadeIn 0.5s' }}>
                             <div style={{ background: 'rgba(255,255,255,0.05)', padding: 20, borderRadius: 16, border: '1px solid var(--glass-border)' }}>
-                                <h4 style={{ color: selectedOption !== null && currentQuestion.options[selectedOption].isCorrect ? 'var(--accent)' : '#f87171', marginBottom: 10 }}>
-                                    {selectedOption !== null && currentQuestion.options[selectedOption].isCorrect ? '¡Excelente Razonamiento!' : 'Oportunidad de Aprendizaje'}
+                                <h4 style={{ color: lastResultCorrect ? 'var(--accent)' : '#f87171', marginBottom: 10 }}>
+                                    {lastResultCorrect ? '¡Excelente Razonamiento!' : 'Oportunidad de Aprendizaje'}
                                 </h4>
                                 <p style={{ fontSize: '0.95rem', lineHeight: 1.6 }}>{currentQuestion.rationale}</p>
                                 
