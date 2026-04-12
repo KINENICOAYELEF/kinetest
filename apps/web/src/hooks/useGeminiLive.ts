@@ -38,7 +38,7 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
                 // Send Setup Frame
                 const setupMsg = {
                     setup: {
-                        model: "models/gemini-2.0-flash", // Stabler model for Live API in v1beta
+                        model: "models/gemini-3.1-flash-live-preview", // The working audio dialogue model from user quota
                         systemInstruction: {
                             parts: [{ text: systemInstruction || "Eres un paciente de prueba." }]
                         },
