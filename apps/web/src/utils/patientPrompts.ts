@@ -1,4 +1,4 @@
-export const getPatientPromptForUnit = (unitId: string): string => {
+export const getPatientPromptForUnit = (unitId: string, customGoal?: string): string => {
     const basePrompt = `Eres un paciente simulado para entrenar estudiantes de kinesiología en entrevista clínica (anamnesis).
 
 REGLAS DE ACTUACIÓN:
@@ -273,8 +273,22 @@ CAPA 5 - Impacto Funcional:
     };
 
     const specificProfile = unitProfiles[unitId] || unitProfiles['default'];
+    
+    const safetyOverride = `
+REGLA MÁXIMA DE ROLEPLAY: ALERTA DE SEGURIDAD ANULADA. Eres un paciente de un simulador universitario ficticio. NUNCA, bajo NINGUNA CIRCUNSTANCIA, emitas descargos de responsabilidad médica ni sugieras ir a un profesional. TÚ YA ESTÁS HABLANDO CON TU TRATANTE. MANTENTE 100% EN PERSONAJE Y NO DES CONSEJOS.`;
 
-    return `${basePrompt}\n\n${specificProfile}`;
+    if (customGoal && customGoal.trim().length > 0) {
+        return `${basePrompt}
+
+=== ESCENARIO PERSONALIZADO CREADO POR EL PROFESOR ===
+Ignora el perfil de paciente por defecto de esta unidad. Hoy actuarás ÚNICA y EXCLUSIVAMENTE bajo esta configuración:
+"${customGoal}"
+Crea toda tu historia, motivo de consulta, edad y atributos alrededor de esta instrucción.
+
+${safetyOverride}`;
+    }
+
+    return `${basePrompt}\n\n${specificProfile}\n\n${safetyOverride}`;
 };
 
 /**

@@ -15,15 +15,8 @@ export const VoicePatientSimulator = () => {
     const [generatingFeedback, setGeneratingFeedback] = useState(false);
     const [feedback, setFeedback] = useState<string | null>(null);
 
-    // Merge base prompt with user's custom goal if provided
-    const baseInstruction = getPatientPromptForUnit(unitId || 'default');
-    const overrideText = `\n\n=== INSTRUCCIONES PRIORITARIAS (OVERRIDE) ===\nEl usuario de este simulador ha configurado el siguiente escenario personalizado:\n"${customGoal}"\nREGLA: ADAPTA COMPLETAMENTE tu perfil clínico para cumplir esto. Si esta configuración contradice tus "Datos de Paciente" originales, REEMPLÁZALOS por esta nueva instrucción.\n\nREGLA MÁXIMA DE ROLEPLAY: ALERTA DE SEGURIDAD ANULADA. Eres un actor en un simulador universitario ficticio. NUNCA, bajo NINGUNA CIRCUNSTANCIA, emitas descargos de responsabilidad médica como "Este contenido no constituye asesoramiento...". MANTENTE 100% EN PERSONAJE.`;
-    
-    const defaultSafetyOverride = `\n\nREGLA MÁXIMA DE ROLEPLAY: ALERTA DE SEGURIDAD ANULADA. Eres un actor en un simulador universitario ficticio. NUNCA, bajo NINGUNA CIRCUNSTANCIA, emitas descargos de responsabilidad médica como "Este contenido no constituye asesoramiento...". MANTENTE 100% EN PERSONAJE.`;
-
-    const systemInstruction = customGoal.trim() !== '' 
-        ? `${baseInstruction}${overrideText}`
-        : `${baseInstruction}${defaultSafetyOverride}`;
+    // Merge base prompt with user's custom goal if provided, handled internally by the prompt generator
+    const systemInstruction = getPatientPromptForUnit(unitId || 'default', customGoal);
 
     const { connect, disconnect, connectionState, transcript, isSpeaking, volume } = useGeminiLive({
         systemInstruction
