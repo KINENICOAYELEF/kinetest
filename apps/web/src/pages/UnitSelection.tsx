@@ -186,6 +186,12 @@ export const UnitSelection = () => {
                   Practicar Libre
                 </button>
                 <button 
+                  onClick={() => navigate(`/units/${unit.unit_id}/voice-practice`)}
+                  style={{ background: '#e11d48', fontSize: '13px', padding: '10px' }}
+                >
+                  Paciente Virtual 🎙️
+                </button>
+                <button 
                   onClick={() => navigate(`/exam/${unit.unit_id}`)}
                   style={{ background: 'var(--secondary)', fontSize: '13px', padding: '10px' }}
                 >

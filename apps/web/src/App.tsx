@@ -17,6 +17,7 @@ import { FridayTests } from './pages/FridayTests';
 import { Debug } from './pages/Debug';
 import { AdminUnits } from './pages/AdminUnits';
 import { AdminSetup } from './pages/AdminSetup';
+import { VoicePatientSimulator } from './pages/VoicePatientSimulator';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { Pending } from './pages/Pending';
 import { TestGemini } from './pages/TestGemini';
@@ -34,6 +35,9 @@ function App() {
                     <Route element={<ProtectedRoute allowedRole="student" />}>
                         <Route path="/home" element={<Home />} />
                         <Route path="/units" element={<UnitSelection />} />
+                        <Route path="/units/:unitId/voice-practice" element={<VoicePatientSimulator />} />
+                        <Route path="/units/:unitId/tutor" element={<TutorMode />} />
+                        <Route path="/units/:unitId/exam" element={<UnitExam />} />
                         <Route path="/practice/:unitId" element={<PracticeSession />} />
                         <Route path="/exam/:unitId" element={<UnitExam />} />
                         <Route path="/final-exam/:unitId" element={<UnitFinalExam />} />

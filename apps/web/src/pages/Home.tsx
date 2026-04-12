@@ -24,6 +24,9 @@ export const Home = () => {
                 <button onClick={() => navigate('/units')} style={{ background: 'var(--accent)' }}>
                     Ir a Practicar por Unidades
                 </button>
+                <button onClick={() => navigate('/units/default/voice-practice')} style={{ background: '#e11d48', marginTop: 15 }}>
+                    Simulador Libre de Entrevista por Voz 🎙️
+                </button>
 
                 {userProfile?.role === 'admin' && (
                     <div style={{ marginTop: 24, padding: 20, background: 'rgba(245, 158, 11, 0.1)', borderRadius: 16, border: '1px solid #f59e0b' }}>
