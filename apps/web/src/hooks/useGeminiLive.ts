@@ -208,30 +208,52 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
         if (msg.serverContent) {
             const sc = msg.serverContent;
 
-            // Handle model audio/text turn
+            // Handle model audio/text turn (play audio chunks)
             if (sc.modelTurn && sc.modelTurn.parts) {
                 setIsSpeaking(true);
 
                 sc.modelTurn.parts.forEach((p: any) => {
-                    // Text content
-                    if (p.text) {
-                        setTranscript(prev => [...prev, { role: 'model', text: p.text }]);
-                    }
-                    // Audio content
+                    // Audio content - play it
                     if (p.inlineData && p.inlineData.data) {
                         playAudio(p.inlineData.data);
                     }
                 });
             }
 
-            // Handle transcription of user input (if model sends it)
+            // Buffer user input transcription (arrives word by word)
             if (sc.inputTranscription && sc.inputTranscription.text) {
-                setTranscript(prev => [...prev, { role: 'user', text: sc.inputTranscription.text }]);
+                const fragment = sc.inputTranscription.text;
+                setTranscript(prev => {
+                    // If the last entry is from the user AND we're still in the same turn, append to it
+                    if (prev.length > 0 && prev[prev.length - 1].role === 'user') {
+                        const updated = [...prev];
+                        updated[updated.length - 1] = {
+                            role: 'user',
+                            text: updated[updated.length - 1].text + fragment
+                        };
+                        return updated;
+                    }
+                    // Otherwise start a new user entry
+                    return [...prev, { role: 'user', text: fragment }];
+                });
             }
 
-            // Handle transcription of model output
+            // Buffer model output transcription (arrives word by word)
             if (sc.outputTranscription && sc.outputTranscription.text) {
-                setTranscript(prev => [...prev, { role: 'model', text: sc.outputTranscription.text }]);
+                const fragment = sc.outputTranscription.text;
+                setTranscript(prev => {
+                    // If the last entry is from the model AND we're still in the same turn, append to it
+                    if (prev.length > 0 && prev[prev.length - 1].role === 'model') {
+                        const updated = [...prev];
+                        updated[updated.length - 1] = {
+                            role: 'model',
+                            text: updated[updated.length - 1].text + fragment
+                        };
+                        return updated;
+                    }
+                    // Otherwise start a new model entry
+                    return [...prev, { role: 'model', text: fragment }];
+                });
             }
 
             // Model finished its turn

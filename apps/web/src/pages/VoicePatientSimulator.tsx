@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import { useGeminiLive } from '../hooks/useGeminiLive';
-import { getPatientPromptForUnit } from '../utils/patientPrompts';
+import { getPatientPromptForUnit, getInterviewRubric } from '../utils/patientPrompts';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 export const VoicePatientSimulator = () => {
@@ -38,31 +38,29 @@ export const VoicePatientSimulator = () => {
         disconnect();
         setGeneratingFeedback(true);
         try {
-            // Generate feedback based on the transcript using Gemini Flash
             const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
             const genAI = new GoogleGenerativeAI(apiKey);
             const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
             const formattedTranscript = transcript.map(t => `${t.role === 'user' ? 'Kinesiólogo(a)' : 'Paciente'}: ${t.text}`).join('\n');
+            const rubric = getInterviewRubric();
             
-            const req = `
-                Eres un tutor clínico supervisor. Aquí está la transcripción de una entrevista simulada entre un kinesiólogo (estudiante) y un paciente:
-                
-                --- TRANSCRIPCIÓN ---
-                ${formattedTranscript}
-                ---------------------
+            const req = `${rubric}
 
-                Por favor, evalúa la entrevista:
-                1. ¿El estudiante fue empático?
-                2. ¿Hizo preguntas clave sobre el mecanismo de lesión, intensidad del dolor y tiempo de evolución?
-                3. ¿Omitió banderas rojas o información crítica de la anamnesis?
-                
-                Proporciona un feedback constructivo de máximo 3 párrafos en tono alentador pero riguroso.
-            `;
+--- TRANSCRIPCIÓN DE LA ENTREVISTA ---
+${formattedTranscript}
+--- FIN DE TRANSCRIPCIÓN ---
+
+IMPORTANTE: 
+- Evalúa SOLO lo que aparece en la transcripción.
+- Si una palabra o frase del kinesiólogo no tiene sentido (posible error de reconocimiento de voz), ignórala y no la penalices.
+- Sé riguroso pero justo. Un estudiante que pregunta bien las cosas debe ser reconocido.
+- Usa la escala de notas chilena: 1.0-3.9 reprobado, 4.0 aprobatorio mínimo, 5.0-5.9 bueno, 6.0-6.5 muy bueno, 6.6-7.0 excelente.`;
 
             const result = await model.generateContent(req);
             setFeedback(result.response.text());
         } catch (e) {
+            console.error("Feedback generation error:", e);
             setFeedback("Error al generar el feedback. Revisa tu plan mensual o conexión de IA.");
         } finally {
             setGeneratingFeedback(false);
@@ -145,15 +143,53 @@ export const VoicePatientSimulator = () => {
                     
                     {feedback ? (
                         <div className="fadeIn">
-                            <h3 style={{ color: 'var(--primary)', margin: '0 0 20px 0' }}>🧑‍🏫 Feedback Clínico</h3>
-                            <div style={{ lineHeight: 1.6, fontSize: '0.95rem', color: 'var(--text-main)' }}>
-                                {feedback.split('\n').map((paragraph, idx) => (
-                                    <p key={idx}>{paragraph}</p>
-                                ))}
+                            <h3 style={{ color: 'var(--primary)', margin: '0 0 20px 0' }}>🧑‍🏫 Evaluación Clínica</h3>
+                            <div style={{ 
+                                lineHeight: 1.7, fontSize: '0.9rem', color: 'var(--text-main)',
+                                maxHeight: 500, overflowY: 'auto', paddingRight: 10
+                            }}>
+                                {feedback.split('\n').map((line, idx) => {
+                                    // Style headers
+                                    if (line.startsWith('##')) {
+                                        return <h4 key={idx} style={{ color: 'var(--accent)', marginTop: 20, marginBottom: 5 }}>{line.replace(/^#+\s*/, '')}</h4>;
+                                    }
+                                    // Style check/cross items
+                                    if (line.includes('✅')) {
+                                        return <p key={idx} style={{ margin: '3px 0', color: '#10b981' }}>{line}</p>;
+                                    }
+                                    if (line.includes('❌')) {
+                                        return <p key={idx} style={{ margin: '3px 0', color: '#ef4444' }}>{line}</p>;
+                                    }
+                                    if (line.includes('⚠️')) {
+                                        return <p key={idx} style={{ margin: '3px 0', color: '#f59e0b' }}>{line}</p>;
+                                    }
+                                    // Style grade line
+                                    if (line.toLowerCase().includes('nota') && /[1-7]\.[0-9]/.test(line)) {
+                                        return <p key={idx} style={{ 
+                                            margin: '15px 0', padding: '12px 20px', 
+                                            background: 'rgba(99,102,241,0.15)', borderRadius: 12, 
+                                            fontSize: '1.1rem', fontWeight: 'bold', color: 'var(--primary)',
+                                            border: '1px solid var(--primary)'
+                                        }}>{line}</p>;
+                                    }
+                                    // Bold text
+                                    if (line.startsWith('**') || line.includes('**')) {
+                                        return <p key={idx} style={{ margin: '4px 0', fontWeight: 'bold' }}>{line.replace(/\*\*/g, '')}</p>;
+                                    }
+                                    if (line.trim() === '') return <br key={idx} />;
+                                    return <p key={idx} style={{ margin: '4px 0' }}>{line}</p>;
+                                })}
                             </div>
-                            <button onClick={() => navigate('/units')} style={{ marginTop: 20, background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)' }}>
-                                Volver al Panel
-                            </button>
+                            <div style={{ display: 'flex', gap: 10, marginTop: 20 }}>
+                                <button onClick={() => {
+                                    setFeedback(null);
+                                }} style={{ flex: 1, background: 'var(--primary)' }}>
+                                    🔄 Nueva Entrevista
+                                </button>
+                                <button onClick={() => navigate('/units')} style={{ flex: 1, background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)' }}>
+                                    Volver al Panel
+                                </button>
+                            </div>
                         </div>
                     ) : (
                         <>
