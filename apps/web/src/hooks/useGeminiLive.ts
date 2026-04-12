@@ -6,6 +6,11 @@ interface UseGeminiLiveProps {
     systemInstruction?: string;
 }
 
+// Models available in user's account for Live API:
+// 1. "models/gemini-2.5-flash-native-audio-latest" → "Gemini 2.5 Flash Native Audio Dialog"
+// 2. "models/gemini-3.1-flash-live-preview"         → "Gemini 3 Flash Live"
+const LIVE_MODEL = "models/gemini-2.5-flash-native-audio-latest";
+
 export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
     const [connectionState, setConnectionState] = useState<ConnectionState>('disconnected');
     const [transcript, setTranscript] = useState<{ role: 'user' | 'model', text: string }[]>([]);
@@ -14,8 +19,10 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
 
     const wsRef = useRef<WebSocket | null>(null);
     const audioCtxRef = useRef<AudioContext | null>(null);
+    const playbackCtxRef = useRef<AudioContext | null>(null);
     const streamRef = useRef<MediaStream | null>(null);
     const processorRef = useRef<ScriptProcessorNode | null>(null);
+    const setupDoneRef = useRef(false);
 
     // Audio playback queue
     const playbackNextTimeRef = useRef<number>(0);
@@ -23,8 +30,10 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
     const connect = useCallback(async () => {
         if (connectionState !== 'disconnected') return;
         setConnectionState('connecting');
+        setupDoneRef.current = false;
 
         const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+        // Official endpoint from Google docs: v1beta
         const wsUrl = `wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=${apiKey}`;
 
         try {
@@ -32,31 +41,30 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
             wsRef.current = ws;
 
             ws.onopen = () => {
-                console.log("WebSocket Connected");
-                setConnectionState('connected');
+                console.log("WebSocket Connected. Sending setup...");
                 
-                // Send Setup Frame
+                // Step 1: Send Setup Frame FIRST (required before any data)
+                // Based on official docs: https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket
                 const setupMsg = {
                     setup: {
-                        model: "models/gemini-3.1-flash-live-preview", // The working audio dialogue model from user quota
-                        systemInstruction: {
-                            parts: [{ text: systemInstruction || "Eres un paciente de prueba." }]
-                        },
+                        model: LIVE_MODEL,
                         generationConfig: {
                             responseModalities: ["AUDIO"],
                             speechConfig: {
                                 voiceConfig: {
                                     prebuiltVoiceConfig: {
-                                        voiceName: "Aoede" // Example voice
+                                        voiceName: "Aoede"
                                     }
                                 }
                             }
+                        },
+                        systemInstruction: {
+                            parts: [{ text: systemInstruction || "Eres un paciente de prueba. Responde en español." }]
                         }
                     }
                 };
                 ws.send(JSON.stringify(setupMsg));
-
-                startMicrophone();
+                console.log("Setup message sent for model:", LIVE_MODEL);
             };
 
             ws.onmessage = async (event) => {
@@ -67,6 +75,16 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
                 } else {
                     msg = JSON.parse(event.data);
                 }
+                
+                // The first message back should be a setupComplete
+                if (msg.setupComplete) {
+                    console.log("Setup complete! Starting microphone...");
+                    setupDoneRef.current = true;
+                    setConnectionState('connected');
+                    startMicrophone();
+                    return;
+                }
+
                 handleServerMessage(msg);
             };
 
@@ -78,7 +96,7 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
             ws.onclose = (event) => {
                 console.log("WebSocket Disconnected. Code:", event.code, "Reason:", event.reason);
                 setConnectionState('disconnected');
-                stopMicrophone(); // Make sure to stop mic when closed
+                stopMicrophone();
             };
 
         } catch (e) {
@@ -94,7 +112,6 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
         }
         stopMicrophone();
         setConnectionState('disconnected');
-        // We do not clear transcript so the user can export it
     }, []);
 
     const startMicrophone = async () => {
@@ -107,8 +124,13 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
             } });
             streamRef.current = stream;
 
+            // Create a separate AudioContext for recording at 16kHz
             const audioCtx = new AudioContext({ sampleRate: 16000 });
             audioCtxRef.current = audioCtx;
+
+            // Create a separate playback context at 24kHz for model audio output
+            const playbackCtx = new AudioContext({ sampleRate: 24000 });
+            playbackCtxRef.current = playbackCtx;
 
             const source = audioCtx.createMediaStreamSource(stream);
             const processor = audioCtx.createScriptProcessor(4096, 1, 1);
@@ -118,9 +140,11 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
             processor.connect(audioCtx.destination);
 
             processor.onaudioprocess = (e) => {
+                if (!setupDoneRef.current) return; // Don't send audio until setup is confirmed
+                
                 const inputData = e.inputBuffer.getChannelData(0);
                 
-                // Calculate volume for UI
+                // Calculate volume for UI visualization
                 let sum = 0;
                 for (let i = 0; i < inputData.length; i++) {
                     sum += inputData[i] * inputData[i];
@@ -128,18 +152,15 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
                 const rms = Math.sqrt(sum / inputData.length);
                 setVolume(rms);
 
-                // Convert float32 to PCM 16-bit
+                // Convert float32 to PCM 16-bit little-endian
                 const pcm16 = new Int16Array(inputData.length);
                 for (let i = 0; i < inputData.length; i++) {
-                    let s = Math.max(-1, Math.min(1, inputData[i]));
+                    const s = Math.max(-1, Math.min(1, inputData[i]));
                     pcm16[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
                 }
 
-                // Convert pure binary array to ArrayBuffer, then base64
-                // Uint8Array over Int16Array buffer
+                // Convert to base64
                 const pcm8 = new Uint8Array(pcm16.buffer);
-                
-                // Using a fast binary to base64 conversion
                 let binary = '';
                 const len = pcm8.byteLength;
                 for (let i = 0; i < len; i++) {
@@ -147,17 +168,20 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
                 }
                 const b64Data = btoa(binary);
 
+                // Send using the NEW correct format from official docs:
+                // realtimeInput.audio (NOT realtimeInput.mediaChunks)
                 if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
                     wsRef.current.send(JSON.stringify({
                         realtimeInput: {
-                            mediaChunks: [{
-                                mimeType: "audio/pcm;rate=16000",
-                                data: b64Data
-                            }]
+                            audio: {
+                                data: b64Data,
+                                mimeType: "audio/pcm;rate=16000"
+                            }
                         }
                     }));
                 }
             };
+            console.log("Microphone started. Streaming audio...");
         } catch (e) {
             console.error("Microphone error:", e);
         }
@@ -170,6 +194,10 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
             processorRef.current = null;
             audioCtxRef.current = null;
         }
+        if (playbackCtxRef.current) {
+            playbackCtxRef.current.close();
+            playbackCtxRef.current = null;
+        }
         if (streamRef.current) {
             streamRef.current.getTracks().forEach(track => track.stop());
             streamRef.current = null;
@@ -177,45 +205,47 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
     };
 
     const handleServerMessage = (msg: any) => {
-        // Track the transcript text if the model decides to send it back
-        if (msg.serverContent && msg.serverContent.modelTurn) {
-            const parts = msg.serverContent.modelTurn.parts;
-            setIsSpeaking(true);
-            
-            // Auto turn-off speaking after a small delay
-            // A more robust implementation would hook into audio node 'onended'
-            setTimeout(() => setIsSpeaking(false), 2000); 
+        if (msg.serverContent) {
+            const sc = msg.serverContent;
 
-            let textChunk = "";
-            let audioB64 = "";
+            // Handle model audio/text turn
+            if (sc.modelTurn && sc.modelTurn.parts) {
+                setIsSpeaking(true);
 
-            parts.forEach((p: any) => {
-                if (p.text) textChunk += p.text;
-                if (p.inlineData && p.inlineData.data) {
-                    audioB64 = p.inlineData.data;
-                }
-            });
-
-            if (textChunk) {
-                setTranscript(prev => [...prev, { role: 'model', text: textChunk }]);
+                sc.modelTurn.parts.forEach((p: any) => {
+                    // Text content
+                    if (p.text) {
+                        setTranscript(prev => [...prev, { role: 'model', text: p.text }]);
+                    }
+                    // Audio content
+                    if (p.inlineData && p.inlineData.data) {
+                        playAudio(p.inlineData.data);
+                    }
+                });
             }
 
-            if (audioB64 && audioCtxRef.current) {
-                playAudio(audioB64);
+            // Handle transcription of user input (if model sends it)
+            if (sc.inputTranscription && sc.inputTranscription.text) {
+                setTranscript(prev => [...prev, { role: 'user', text: sc.inputTranscription.text }]);
             }
-        }
-        
-        if (msg.serverContent && msg.serverContent.turnComplete) {
+
+            // Handle transcription of model output
+            if (sc.outputTranscription && sc.outputTranscription.text) {
+                setTranscript(prev => [...prev, { role: 'model', text: sc.outputTranscription.text }]);
+            }
+
             // Model finished its turn
-            setIsSpeaking(false);
+            if (sc.turnComplete) {
+                setIsSpeaking(false);
+            }
         }
     };
 
-    const playAudio = async (base64Audio: string) => {
-        const audioCtx = audioCtxRef.current;
-        if (!audioCtx) return;
+    const playAudio = (base64Audio: string) => {
+        const playbackCtx = playbackCtxRef.current;
+        if (!playbackCtx) return;
 
-        // Convert base64 to array buffer
+        // Convert base64 to raw bytes
         const binaryString = atob(base64Audio);
         const len = binaryString.length;
         const bytes = new Uint8Array(len);
@@ -223,32 +253,35 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
             bytes[i] = binaryString.charCodeAt(i);
         }
 
-        // Decode PCM
-        // The Live API returns raw PCM 24kHz 16-bit by default unless specified
-        // But the WebAudio decodeAudioData requires a valid WAV/MP3 header.
-        // Wait, Gemini raw PCM lacks headers! We have to manually create the AudioBuffer.
-        
-        // Let's assume 16-bit 24kHz 1-channel PCM data (Gemini's default output).
+        // Gemini Live API outputs raw PCM 24kHz 16-bit mono by default
         const sampleRate = 24000;
         const pcm16 = new Int16Array(bytes.buffer);
-        const audioBuffer = audioCtx.createBuffer(1, pcm16.length, sampleRate);
+        
+        if (pcm16.length === 0) return;
+        
+        const audioBuffer = playbackCtx.createBuffer(1, pcm16.length, sampleRate);
         const channelData = audioBuffer.getChannelData(0);
         
         for (let i = 0; i < pcm16.length; i++) {
             channelData[i] = pcm16[i] / 32768.0;
         }
 
-        const source = audioCtx.createBufferSource();
+        const source = playbackCtx.createBufferSource();
         source.buffer = audioBuffer;
-        source.connect(audioCtx.destination);
+        source.connect(playbackCtx.destination);
         
         // Schedule sequentially to avoid overlap
-        if (playbackNextTimeRef.current < audioCtx.currentTime) {
-            playbackNextTimeRef.current = audioCtx.currentTime;
+        if (playbackNextTimeRef.current < playbackCtx.currentTime) {
+            playbackNextTimeRef.current = playbackCtx.currentTime;
         }
         
         source.start(playbackNextTimeRef.current);
         playbackNextTimeRef.current += audioBuffer.duration;
+        
+        // Auto-clear speaking state when playback finishes
+        source.onended = () => {
+            setIsSpeaking(false);
+        };
     };
 
     return {
