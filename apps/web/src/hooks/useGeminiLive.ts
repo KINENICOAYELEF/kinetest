@@ -25,7 +25,7 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
         setConnectionState('connecting');
 
         const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-        const wsUrl = `wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1alpha.GenerativeService.BidiGenerateContent?key=${apiKey}`;
+        const wsUrl = `wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=${apiKey}`;
 
         try {
             const ws = new WebSocket(wsUrl);
@@ -38,7 +38,7 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
                 // Send Setup Frame
                 const setupMsg = {
                     setup: {
-                        model: "models/gemini-2.5-flash", // Good stable model for Live
+                        model: "models/gemini-2.0-flash", // Stabler model for Live API in v1beta
                         systemInstruction: {
                             parts: [{ text: systemInstruction || "Eres un paciente de prueba." }]
                         },
@@ -75,8 +75,8 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
                 setConnectionState('error');
             };
 
-            ws.onclose = () => {
-                console.log("WebSocket Disconnected");
+            ws.onclose = (event) => {
+                console.log("WebSocket Disconnected. Code:", event.code, "Reason:", event.reason);
                 setConnectionState('disconnected');
                 stopMicrophone(); // Make sure to stop mic when closed
             };
