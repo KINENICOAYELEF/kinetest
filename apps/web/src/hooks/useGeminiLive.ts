@@ -9,7 +9,7 @@ interface UseGeminiLiveProps {
 // Models available in user's account for Live API:
 // 1. "models/gemini-2.5-flash-native-audio-latest" → "Gemini 2.5 Flash Native Audio Dialog"
 // 2. "models/gemini-3.1-flash-live-preview"         → "Gemini 3 Flash Live"
-const LIVE_MODEL = "models/gemini-2.5-flash-native-audio-latest";
+const LIVE_MODEL = "models/gemini-3.1-flash-live-preview";
 
 export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
     const [connectionState, setConnectionState] = useState<ConnectionState>('disconnected');

@@ -41,7 +41,7 @@ export const VoicePatientSimulator = () => {
             // Generate feedback based on the transcript using Gemini Flash
             const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
             const genAI = new GoogleGenerativeAI(apiKey);
-            const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+            const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
 
             const formattedTranscript = transcript.map(t => `${t.role === 'user' ? 'Kinesiólogo(a)' : 'Paciente'}: ${t.text}`).join('\n');
             
