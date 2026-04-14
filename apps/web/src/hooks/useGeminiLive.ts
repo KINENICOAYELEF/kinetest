@@ -4,6 +4,7 @@ type ConnectionState = 'disconnected' | 'connecting' | 'connected' | 'error';
 
 interface UseGeminiLiveProps {
     systemInstruction?: string;
+    voiceName?: string;
 }
 
 // Models available in user's account for Live API:
@@ -11,7 +12,7 @@ interface UseGeminiLiveProps {
 // 2. "models/gemini-3.1-flash-live-preview"         → "Gemini 3 Flash Live"
 const LIVE_MODEL = "models/gemini-3.1-flash-live-preview";
 
-export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
+export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGeminiLiveProps = {}) {
     const [connectionState, setConnectionState] = useState<ConnectionState>('disconnected');
     const [transcript, setTranscript] = useState<{ role: 'user' | 'model', text: string }[]>([]);
     const [isSpeaking, setIsSpeaking] = useState(false);
@@ -53,7 +54,7 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
                             speechConfig: {
                                 voiceConfig: {
                                     prebuiltVoiceConfig: {
-                                        voiceName: "Aoede"
+                                        voiceName: voiceName
                                     }
                                 }
                             }
@@ -103,7 +104,7 @@ export function useGeminiLive({ systemInstruction }: UseGeminiLiveProps = {}) {
             console.error(e);
             setConnectionState('error');
         }
-    }, [systemInstruction, connectionState]);
+    }, [systemInstruction, voiceName, connectionState]);
 
     const disconnect = useCallback(() => {
         if (wsRef.current) {
