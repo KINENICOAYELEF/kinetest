@@ -29,7 +29,7 @@ export const VoicePatientSimulator = () => {
     );
     const voiceName = getVoiceForPersona(selectedGender, selectedAge);
 
-    const { connect, disconnect, connectionState, transcript, isSpeaking, volume } = useGeminiLive({
+    const { connect, disconnect, connectionState, transcript, isSpeaking, volume, isMuted, setIsMuted } = useGeminiLive({
         systemInstruction,
         voiceName
     });
@@ -248,20 +248,54 @@ ${formattedTranscript}
                                 )}
                             </div>
 
-                            <div style={{ marginTop: 20, textAlign: 'center' }}>
+                            <div style={{ marginTop: 20, textAlign: 'center', minHeight: 40 }}>
                                 {connectionState === 'connecting' && <p style={{ color: 'var(--accent)' }}>Conectando...</p>}
                                 {connectionState === 'connected' && (
-                                <p style={{ color: 'var(--text-main)', fontWeight: 'bold' }}>
-                                    {isSpeaking ? 'El paciente habla...' : 'Te escucha. ¡Habla!'}
-                                </p>
+                                    <>
+                                        {isSpeaking ? (
+                                            <p style={{ color: 'var(--text-main)', fontWeight: 'bold' }}>El paciente habla...</p>
+                                        ) : isMuted ? (
+                                            <p style={{ color: 'var(--text-muted)' }}>Mantén presionado el botón para hablar</p>
+                                        ) : (
+                                            <p style={{ color: '#10b981', fontWeight: 'bold' }}>Te escucha. ¡Habla!</p>
+                                        )}
+                                    </>
                                 )}
                                 {connectionState === 'disconnected' && <p style={{ color: 'var(--error)' }}>Sesión Terminada</p>}
                             </div>
 
                             {(connectionState === 'connected' || connectionState === 'connecting') && (
-                                <button onClick={disconnect} style={{ width: '100%', marginTop: 20, padding: 12, background: 'rgba(244, 67, 54, 0.2)', border: '1px solid #f44336', color: '#fba9a9' }}>
-                                    ⛔ Finalizar
-                                </button>
+                                <div style={{ display: 'flex', flexDirection: 'column', gap: 10, width: '100%', marginTop: 15 }}>
+                                    
+                                    {connectionState === 'connected' && (
+                                        <button 
+                                            onMouseDown={() => setIsMuted(false)}
+                                            onMouseUp={() => setIsMuted(true)}
+                                            onMouseLeave={() => setIsMuted(true)}
+                                            onTouchStart={(e) => { e.preventDefault(); setIsMuted(false); }}
+                                            onTouchEnd={(e) => { e.preventDefault(); setIsMuted(true); }}
+                                            style={{ 
+                                                width: '100%', padding: 20, 
+                                                background: isMuted ? 'var(--primary)' : '#10b981', 
+                                                color: 'white', borderRadius: 15,
+                                                transform: isMuted ? 'scale(1)' : 'scale(0.98)',
+                                                transition: 'all 0.1s ease',
+                                                boxShadow: isMuted ? 'none' : '0 0 15px rgba(16, 185, 129, 0.5)',
+                                                display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 10,
+                                                userSelect: 'none', WebkitUserSelect: 'none'
+                                            }}
+                                        >
+                                            <span style={{ fontSize: '1.5rem' }}>{isMuted ? '🎙️' : '🔥'}</span>
+                                            <span style={{ fontWeight: 'bold' }}>
+                                                {isMuted ? 'MANTÉN PRESIONADO PARA HABLAR' : 'ESCUCHANDO...'}
+                                            </span>
+                                        </button>
+                                    )}
+
+                                    <button onClick={disconnect} style={{ width: '100%', padding: 12, background: 'rgba(244, 67, 54, 0.2)', border: '1px solid #f44336', color: '#fba9a9' }}>
+                                        ⛔ Finalizar
+                                    </button>
+                                </div>
                             )}
 
                             {transcript.length > 2 && connectionState === 'disconnected' && !feedback && (

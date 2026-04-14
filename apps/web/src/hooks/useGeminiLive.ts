@@ -1,4 +1,4 @@
-import { useState, useRef, useCallback } from 'react';
+import { useState, useRef, useCallback, useEffect } from 'react';
 
 type ConnectionState = 'disconnected' | 'connecting' | 'connected' | 'error';
 
@@ -17,6 +17,9 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
     const [transcript, setTranscript] = useState<{ role: 'user' | 'model', text: string }[]>([]);
     const [isSpeaking, setIsSpeaking] = useState(false);
     const [volume, setVolume] = useState(0);
+    const [isMuted, setIsMuted] = useState(true); // Default to muted for Walkie-Talkie
+
+    const isMutedRef = useRef(true);
 
     const wsRef = useRef<WebSocket | null>(null);
     const audioCtxRef = useRef<AudioContext | null>(null);
@@ -24,6 +27,11 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
     const streamRef = useRef<MediaStream | null>(null);
     const processorRef = useRef<ScriptProcessorNode | null>(null);
     const setupDoneRef = useRef(false);
+
+    // Sync state with ref for audio loop
+    useEffect(() => {
+        isMutedRef.current = isMuted;
+    }, [isMuted]);
 
     // Audio playback queue
     const playbackNextTimeRef = useRef<number>(0);
@@ -142,6 +150,7 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
 
             processor.onaudioprocess = (e) => {
                 if (!setupDoneRef.current) return; // Don't send audio until setup is confirmed
+                if (isMutedRef.current) return; // WALKIE TALKIE: Do not send audio if muted
                 
                 const inputData = e.inputBuffer.getChannelData(0);
                 
@@ -313,6 +322,8 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
         connectionState,
         transcript,
         isSpeaking,
-        volume
+        volume,
+        isMuted,
+        setIsMuted
     };
 }
