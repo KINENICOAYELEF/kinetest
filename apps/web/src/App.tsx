@@ -30,6 +30,9 @@ function App() {
                     {/* Public Routes */}
                     <Route path="/login" element={<Login />} />
                     <Route path="/reset-password" element={<ResetPassword />} />
+                    
+                    {/* Standalone Route para Estudiantes (Sin Auth obligatorio) */}
+                    <Route path="/simulador" element={<VoicePatientSimulator />} />
 
                     {/* Protected Route for Students */}
                     <Route element={<ProtectedRoute allowedRole="student" />}>
