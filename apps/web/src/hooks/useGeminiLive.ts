@@ -150,7 +150,6 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
 
             processor.onaudioprocess = (e) => {
                 if (!setupDoneRef.current) return; // Don't send audio until setup is confirmed
-                if (isMutedRef.current) return; // WALKIE TALKIE: Do not send audio if muted
                 
                 const inputData = e.inputBuffer.getChannelData(0);
                 
@@ -162,10 +161,13 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
                 const rms = Math.sqrt(sum / inputData.length);
                 setVolume(rms);
 
+                // WALKIE TALKIE: If muted, send perfect silence so Gemini detects end of speech instantly
+                const dataToSend = isMutedRef.current ? new Float32Array(inputData.length) : inputData;
+
                 // Convert float32 to PCM 16-bit little-endian
-                const pcm16 = new Int16Array(inputData.length);
-                for (let i = 0; i < inputData.length; i++) {
-                    const s = Math.max(-1, Math.min(1, inputData[i]));
+                const pcm16 = new Int16Array(dataToSend.length);
+                for (let i = 0; i < dataToSend.length; i++) {
+                    const s = Math.max(-1, Math.min(1, dataToSend[i]));
                     pcm16[i] = s < 0 ? s * 0x8000 : s * 0x7FFF;
                 }
 
