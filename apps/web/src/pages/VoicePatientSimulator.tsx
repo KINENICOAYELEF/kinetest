@@ -217,9 +217,13 @@ ${formattedTranscript}
             ) : (
                 <div className="fadeIn" style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 20, marginTop: 30 }}>
                     
-                    {/* LEFT PANEL: Controls & Clinical Guide */}
-                    <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
-                        <div style={{ background: 'rgba(255,255,255,0.03)', padding: 30, borderRadius: 20, border: '1px solid var(--glass-border)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+                    {/* LEFT PANEL: Controls & Clinical Guide - STICKY ON MOBILE */}
+                    <div style={{ 
+                        display: 'flex', flexDirection: 'column', gap: 20,
+                        position: 'sticky', top: 0, zIndex: 50, background: 'var(--bg-main)',
+                        paddingTop: 10, paddingBottom: 10
+                    }}>
+                        <div style={{ background: 'rgba(255,255,255,0.03)', padding: 20, borderRadius: 20, border: '1px solid var(--glass-border)', display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
                             {/* Visualizer Sphere */}
                             <div style={{
                                 width: 120, height: 120, borderRadius: '50%',
@@ -305,9 +309,9 @@ ${formattedTranscript}
                             )}
                         </div>
 
-                        {/* Persistent Clinical Guide */}
+                        {/* Persistent Clinical Guide - Hidden on mobile if sticky is too big, or kept below */}
                         {!feedback && (
-                            <div className="fadeIn" style={{ background: 'rgba(16, 185, 129, 0.03)', padding: 25, borderRadius: 20, border: '1px solid rgba(16, 185, 129, 0.1)' }}>
+                            <div className="fadeIn" style={{ background: 'rgba(16, 185, 129, 0.03)', padding: 20, borderRadius: 20, border: '1px solid rgba(16, 185, 129, 0.1)', display: window.innerWidth < 600 ? 'none' : 'block' }}>
                                 <h3 style={{ fontSize: '0.9rem', color: '#10b981', marginTop: 0, textTransform: 'uppercase', letterSpacing: 1 }}>Ruta Clínica</h3>
                                 <ul style={{ color: 'var(--text-muted)', lineHeight: 1.5, paddingLeft: 18, fontSize: '0.85rem', marginTop: 15 }}>
                                     <li style={{ marginBottom: 8 }}><strong>Rapport:</strong> ¿Te presentaste?</li>
@@ -371,7 +375,12 @@ ${formattedTranscript}
                                 <h3 style={{ margin: '0 0 20px 0', borderBottom: '1px solid var(--glass-border)', paddingBottom: 15 }}>
                                     Transcripción
                                 </h3>
-                                <div style={{ flex: 1, overflowY: 'auto', maxHeight: 400, display: 'flex', flexDirection: 'column', gap: 15, paddingRight: 10 }}>
+                                <div style={{ 
+                                    flex: 1, overflowY: 'auto', 
+                                    maxHeight: window.innerWidth < 600 ? 'calc(100vh - 450px)' : '500px', 
+                                    minHeight: '250px',
+                                    display: 'flex', flexDirection: 'column', gap: 15, paddingRight: 10 
+                                }}>
                                     {transcript.length === 0 ? (
                                         <p style={{ color: 'var(--text-muted)', textAlign: 'center', marginTop: 50, fontStyle: 'italic' }}>
                                             La transcripción de la entrevista aparecerá aquí...
