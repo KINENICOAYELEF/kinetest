@@ -1,22 +1,23 @@
 import { useState, useEffect, useRef } from 'react';
-import { useParams, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { useGeminiLive } from '../hooks/useGeminiLive';
-import { getPatientPromptForUnit, getInterviewRubric } from '../utils/patientPrompts';
+import { generateDynamicPatientPrompt, getInterviewRubric } from '../utils/patientPrompts';
 import { GoogleGenerativeAI } from '@google/generative-ai';
 
 export const VoicePatientSimulator = () => {
-    const { unitId } = useParams();
     const navigate = useNavigate();
     
     // Setup states
     const [hasStarted, setHasStarted] = useState(false);
+    const [selectedArea, setSelectedArea] = useState('Aleatoria');
+    const [selectedDifficulty, setSelectedDifficulty] = useState('Intermedio');
     const [customGoal, setCustomGoal] = useState('');
     
     const [generatingFeedback, setGeneratingFeedback] = useState(false);
     const [feedback, setFeedback] = useState<string | null>(null);
 
     // Merge base prompt with user's custom goal if provided, handled internally by the prompt generator
-    const systemInstruction = getPatientPromptForUnit(unitId || 'default', customGoal);
+    const systemInstruction = generateDynamicPatientPrompt(selectedArea, selectedDifficulty, customGoal);
 
     const { connect, disconnect, connectionState, transcript, isSpeaking, volume } = useGeminiLive({
         systemInstruction
@@ -104,44 +105,83 @@ IMPORTANTE:
             </p>
 
             {!hasStarted ? (
-                <div className="fadeIn" style={{ marginTop: 30, background: 'rgba(255,255,255,0.03)', padding: 30, borderRadius: 20, border: '1px solid var(--glass-border)' }}>
-                    <h2 style={{ color: 'var(--primary)', marginTop: 0 }}>📝 Preparación de la Entrevista</h2>
-                    
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))', gap: 30, marginTop: 20 }}>
-                        <div>
-                            <h3 style={{ fontSize: '1.1rem', color: 'var(--text-main)' }}>Instrucciones Clínicas:</h3>
-                            <ul style={{ color: 'var(--text-muted)', lineHeight: 1.6, paddingLeft: 20 }}>
-                                <li><strong>Prepara el escenario:</strong> Saluda cordialmente y explícale al paciente qué van a hacer.</li>
-                                <li><strong>De Abierto a Cerrado:</strong> Comienza con preguntas amplias ("¿Qué lo trae por aquí?") y luego afina ("¿Ese dolor al agacharse, es punzante?").</li>
-                                <li><strong>Escucha activa:</strong> Si el paciente menciona un miedo o una molestia importante, valídalo antes de saltar a la siguiente pregunta técnica.</li>
-                                <li><strong>No olvides seguridad:</strong> Revisa siempre banderas rojas relevantes antes de pasar a la evaluación física.</li>
-                            </ul>
+                <div style={{ display: 'grid', gridTemplateColumns: 'minmax(300px, 2fr) minmax(250px, 1fr)', gap: 20, marginTop: 30 }}>
+                    <div className="fadeIn" style={{ background: 'rgba(255,255,255,0.03)', padding: 30, borderRadius: 20, border: '1px solid var(--glass-border)' }}>
+                        <h2 style={{ color: 'var(--primary)', marginTop: 0, marginBottom: 25 }}>⚙️ Configura tu caso clínico</h2>
+                        
+                        <div style={{ display: 'flex', gap: 20, marginBottom: 20 }}>
+                            <div style={{ flex: 1 }}>
+                                <label style={{ display: 'block', fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: 8 }}>Área corporal</label>
+                                <select 
+                                    value={selectedArea}
+                                    onChange={(e) => setSelectedArea(e.target.value)}
+                                    style={{
+                                        width: '100%', padding: 12, borderRadius: 10,
+                                        background: 'rgba(0,0,0,0.2)', border: '1px solid var(--glass-border)',
+                                        color: 'white', fontSize: '1rem', outline: 'none'
+                                    }}
+                                >
+                                    <option value="Aleatoria">Aleatoria</option>
+                                    <option value="Hombro">Hombro</option>
+                                    <option value="Rodilla">Rodilla</option>
+                                    <option value="Columna Lumbar">Columna Lumbar</option>
+                                    <option value="Columna Cervical">Columna Cervical</option>
+                                    <option value="Tobillo/Pie">Tobillo/Pie</option>
+                                    <option value="Cadera">Cadera</option>
+                                    <option value="Codo/Muñeca">Codo/Muñeca</option>
+                                    <option value="Caso Deportivo">Caso Deportivo</option>
+                                </select>
+                            </div>
+                            <div style={{ flex: 1 }}>
+                                <label style={{ display: 'block', fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: 8 }}>Dificultad</label>
+                                <select 
+                                    value={selectedDifficulty}
+                                    onChange={(e) => setSelectedDifficulty(e.target.value)}
+                                    style={{
+                                        width: '100%', padding: 12, borderRadius: 10,
+                                        background: 'rgba(0,0,0,0.2)', border: '1px solid var(--glass-border)',
+                                        color: 'white', fontSize: '1rem', outline: 'none'
+                                    }}
+                                >
+                                    <option value="Básico">Básico (Cooperador)</option>
+                                    <option value="Intermedio">Intermedio (Normal)</option>
+                                    <option value="Avanzado">Avanzado (Paciente Difícil)</option>
+                                </select>
+                            </div>
                         </div>
 
-                        <div>
-                            <h3 style={{ fontSize: '1.1rem', color: 'var(--text-main)' }}>Personaliza tu Práctica (Opcional):</h3>
-                            <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: 10 }}>
-                                ¿Hay algo específico que quieras entrenar hoy? Escríbelo y el paciente adaptará sus respuestas para desafiarte en esa área.
-                            </p>
-                            <textarea 
-                                value={customGoal}
-                                onChange={(e) => setCustomGoal(e.target.value)}
-                                placeholder="Ej: Quiero practicar cómo indagar sobre banderas rojas reumatológicas, o cómo tratar a un paciente muy ansioso..."
-                                style={{
-                                    width: '100%', height: 100, padding: 15, borderRadius: 10,
-                                    background: 'rgba(0,0,0,0.2)', border: '1px solid var(--glass-border)',
-                                    color: 'white', resize: 'none', fontFamily: 'inherit'
-                                }}
-                            />
-                        </div>
+                        <label style={{ display: 'block', fontSize: '0.9rem', color: 'var(--text-muted)', marginBottom: 8 }}>Descripción del caso (opcional)</label>
+                        <textarea 
+                            value={customGoal}
+                            onChange={(e) => setCustomGoal(e.target.value)}
+                            placeholder="Ej: Joven deportista con dolor de rodilla bilateral, sospecha de meniscopatía..."
+                            style={{
+                                width: '100%', height: 80, padding: 15, borderRadius: 10,
+                                background: 'rgba(0,0,0,0.2)', border: '1px solid var(--glass-border)',
+                                color: 'white', resize: 'none', fontFamily: 'inherit'
+                            }}
+                        />
+
+                        <button 
+                            onClick={handleStart} 
+                            style={{ width: '100%', padding: 18, marginTop: 25, fontSize: '1.1rem', background: 'var(--primary)', fontWeight: 'bold' }}
+                        >
+                            🎲 Generar Caso Aleatorio (Entrar al Box)
+                        </button>
                     </div>
 
-                    <button 
-                        onClick={handleStart} 
-                        style={{ width: '100%', padding: 20, marginTop: 30, fontSize: '1.1rem', background: 'var(--primary)' }}
-                    >
-                        🚪 Entrar al Box (Iniciar Entrevista)
-                    </button>
+                    {/* Ayudas/Help Panel */}
+                    <div className="fadeIn" style={{ background: 'rgba(16, 185, 129, 0.05)', padding: 25, borderRadius: 20, border: '1px solid rgba(16, 185, 129, 0.2)' }}>
+                        <h3 style={{ fontSize: '1.1rem', color: '#10b981', marginTop: 0 }}>💡 Guía de la Entrevista</h3>
+                        <p style={{ fontSize: '0.9rem', color: 'var(--text-muted)' }}>Sigue esta ruta para no omitir puntos críticos:</p>
+                        <ul style={{ color: 'var(--text-main)', lineHeight: 1.6, paddingLeft: 20, fontSize: '0.95rem', marginTop: 15 }}>
+                            <li style={{ marginBottom: 10 }}><strong>Rapport Inicial:</strong> Saluda, preséntate y explica cómo será la sesión.</li>
+                            <li style={{ marginBottom: 10 }}><strong>Motivo Abierto:</strong> "Cuéntame, ¿qué lo trae por acá?".</li>
+                            <li style={{ marginBottom: 10 }}><strong>Filtro Específico:</strong> Localización, inicio (agudo vs gradual), intensidad de 1 a 10.</li>
+                            <li style={{ marginBottom: 10 }}><strong>Banderas Rojas:</strong> Descarta hormigueos, pérdida de peso, trauma extremo.</li>
+                            <li><strong>Antecedentes:</strong> Cirugías, patologías crónicas, uso de medicamentos.</li>
+                        </ul>
+                    </div>
                 </div>
             ) : (
                 <div className="fadeIn" style={{ display: 'flex', gap: 20, marginTop: 30, flexDirection: 'row', flexWrap: 'wrap' }}>
