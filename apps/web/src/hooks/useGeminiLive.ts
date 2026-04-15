@@ -7,19 +7,34 @@ interface UseGeminiLiveProps {
     voiceName?: string;
 }
 
-// Models available in user's account for Live API:
-// 1. "models/gemini-2.5-flash-native-audio-latest" → "Gemini 2.5 Flash Native Audio Dialog"
-// 2. "models/gemini-3.1-flash-live-preview"         → "Gemini 3 Flash Live"
 const LIVE_MODEL = "models/gemini-3.1-flash-live-preview";
+
+// Known disclaimer patterns to strip from transcript
+const DISCLAIMER_PATTERNS = [
+    /este (servicio|contenido) no proporciona.{0,200}(médic|salud|profesional).*/gi,
+    /siempre (busque|consulte).{0,150}profesional de (la )?salud.*/gi,
+    /no (puedo|debo) (dar|proporcionar|ofrecer).{0,100}(consejo|asesoramiento|diagnóstico) médic.*/gi,
+    /consulte? (con )?(un |a un )?profesional.{0,80}(médic|salud).*/gi,
+    /para (más )?información médica.{0,100}profesional.*/gi,
+    /esto no (es|constituye|reemplaza).{0,100}(asesoramiento|consejo|diagnóstico).*/gi,
+];
+
+function stripDisclaimers(text: string): string {
+    let cleaned = text;
+    for (const pattern of DISCLAIMER_PATTERNS) {
+        cleaned = cleaned.replace(pattern, '');
+    }
+    return cleaned.trim();
+}
 
 export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGeminiLiveProps = {}) {
     const [connectionState, setConnectionState] = useState<ConnectionState>('disconnected');
     const [transcript, setTranscript] = useState<{ role: 'user' | 'model', text: string }[]>([]);
     const [isSpeaking, setIsSpeaking] = useState(false);
     const [volume, setVolume] = useState(0);
-    const [isMuted, setIsMuted] = useState(true); // Default to muted for Walkie-Talkie
+    const [isMicOpen, setIsMicOpen] = useState(false);
 
-    const isMutedRef = useRef(true);
+    const isMicOpenRef = useRef(false);
 
     const wsRef = useRef<WebSocket | null>(null);
     const audioCtxRef = useRef<AudioContext | null>(null);
@@ -30,8 +45,8 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
 
     // Sync state with ref for audio loop
     useEffect(() => {
-        isMutedRef.current = isMuted;
-    }, [isMuted]);
+        isMicOpenRef.current = isMicOpen;
+    }, [isMicOpen]);
 
     // Audio playback queue
     const playbackNextTimeRef = useRef<number>(0);
@@ -42,7 +57,6 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
         setupDoneRef.current = false;
 
         const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
-        // Official endpoint from Google docs: v1beta
         const wsUrl = `wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=${apiKey}`;
 
         try {
@@ -52,8 +66,6 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
             ws.onopen = () => {
                 console.log("WebSocket Connected. Sending setup...");
                 
-                // Step 1: Send Setup Frame FIRST (required before any data)
-                // Based on official docs: https://ai.google.dev/gemini-api/docs/live-api/get-started-websocket
                 const setupMsg = {
                     setup: {
                         model: LIVE_MODEL,
@@ -69,7 +81,14 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
                         },
                         systemInstruction: {
                             parts: [{ text: systemInstruction || "Eres un paciente de prueba. Responde en español." }]
-                        }
+                        },
+                        // Disable all configurable safety filters
+                        safetySettings: [
+                            { category: "HARM_CATEGORY_HARASSMENT", threshold: "OFF" },
+                            { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "OFF" },
+                            { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "OFF" },
+                            { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "OFF" },
+                        ]
                     }
                 };
                 ws.send(JSON.stringify(setupMsg));
@@ -85,7 +104,6 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
                     msg = JSON.parse(event.data);
                 }
                 
-                // The first message back should be a setupComplete
                 if (msg.setupComplete) {
                     console.log("Setup complete! Starting microphone...");
                     setupDoneRef.current = true;
@@ -121,6 +139,11 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
         }
         stopMicrophone();
         setConnectionState('disconnected');
+        setIsMicOpen(false);
+    }, []);
+
+    const toggleMic = useCallback(() => {
+        setIsMicOpen(prev => !prev);
     }, []);
 
     const startMicrophone = async () => {
@@ -133,11 +156,9 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
             } });
             streamRef.current = stream;
 
-            // Create a separate AudioContext for recording at 16kHz
             const audioCtx = new AudioContext({ sampleRate: 16000 });
             audioCtxRef.current = audioCtx;
 
-            // Create a separate playback context at 24kHz for model audio output
             const playbackCtx = new AudioContext({ sampleRate: 24000 });
             playbackCtxRef.current = playbackCtx;
 
@@ -149,20 +170,20 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
             processor.connect(audioCtx.destination);
 
             processor.onaudioprocess = (e) => {
-                if (!setupDoneRef.current) return; // Don't send audio until setup is confirmed
+                if (!setupDoneRef.current) return;
                 
                 const inputData = e.inputBuffer.getChannelData(0);
                 
-                // Calculate volume for UI visualization
+                // Volume visualization (always calculate, even when muted)
                 let sum = 0;
                 for (let i = 0; i < inputData.length; i++) {
                     sum += inputData[i] * inputData[i];
                 }
                 const rms = Math.sqrt(sum / inputData.length);
-                setVolume(rms);
+                setVolume(isMicOpenRef.current ? rms : 0);
 
-                // WALKIE TALKIE: If muted, send perfect silence so Gemini detects end of speech instantly
-                const dataToSend = isMutedRef.current ? new Float32Array(inputData.length) : inputData;
+                // Send real audio or silence depending on mic state
+                const dataToSend = isMicOpenRef.current ? inputData : new Float32Array(inputData.length);
 
                 // Convert float32 to PCM 16-bit little-endian
                 const pcm16 = new Int16Array(dataToSend.length);
@@ -180,8 +201,6 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
                 }
                 const b64Data = btoa(binary);
 
-                // Send using the NEW correct format from official docs:
-                // realtimeInput.audio (NOT realtimeInput.mediaChunks)
                 if (wsRef.current && wsRef.current.readyState === WebSocket.OPEN) {
                     wsRef.current.send(JSON.stringify({
                         realtimeInput: {
@@ -220,23 +239,19 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
         if (msg.serverContent) {
             const sc = msg.serverContent;
 
-            // Handle model audio/text turn (play audio chunks)
             if (sc.modelTurn && sc.modelTurn.parts) {
                 setIsSpeaking(true);
-
                 sc.modelTurn.parts.forEach((p: any) => {
-                    // Audio content - play it
                     if (p.inlineData && p.inlineData.data) {
                         playAudio(p.inlineData.data);
                     }
                 });
             }
 
-            // Buffer user input transcription (arrives word by word)
+            // User input transcription
             if (sc.inputTranscription && sc.inputTranscription.text) {
                 const fragment = sc.inputTranscription.text;
                 setTranscript(prev => {
-                    // If the last entry is from the user AND we're still in the same turn, append to it
                     if (prev.length > 0 && prev[prev.length - 1].role === 'user') {
                         const updated = [...prev];
                         updated[updated.length - 1] = {
@@ -245,30 +260,28 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
                         };
                         return updated;
                     }
-                    // Otherwise start a new user entry
                     return [...prev, { role: 'user', text: fragment }];
                 });
             }
 
-            // Buffer model output transcription (arrives word by word)
+            // Model output transcription — filter disclaimers
             if (sc.outputTranscription && sc.outputTranscription.text) {
                 const fragment = sc.outputTranscription.text;
                 setTranscript(prev => {
-                    // If the last entry is from the model AND we're still in the same turn, append to it
                     if (prev.length > 0 && prev[prev.length - 1].role === 'model') {
                         const updated = [...prev];
                         updated[updated.length - 1] = {
                             role: 'model',
-                            text: updated[updated.length - 1].text + fragment
+                            text: stripDisclaimers(updated[updated.length - 1].text + fragment)
                         };
                         return updated;
                     }
-                    // Otherwise start a new model entry
-                    return [...prev, { role: 'model', text: fragment }];
+                    const cleaned = stripDisclaimers(fragment);
+                    if (cleaned.length === 0) return prev; // Skip empty disclaimer-only fragments
+                    return [...prev, { role: 'model', text: cleaned }];
                 });
             }
 
-            // Model finished its turn
             if (sc.turnComplete) {
                 setIsSpeaking(false);
             }
@@ -279,7 +292,6 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
         const playbackCtx = playbackCtxRef.current;
         if (!playbackCtx) return;
 
-        // Convert base64 to raw bytes
         const binaryString = atob(base64Audio);
         const len = binaryString.length;
         const bytes = new Uint8Array(len);
@@ -287,7 +299,6 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
             bytes[i] = binaryString.charCodeAt(i);
         }
 
-        // Gemini Live API outputs raw PCM 24kHz 16-bit mono by default
         const sampleRate = 24000;
         const pcm16 = new Int16Array(bytes.buffer);
         
@@ -304,7 +315,6 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
         source.buffer = audioBuffer;
         source.connect(playbackCtx.destination);
         
-        // Schedule sequentially to avoid overlap
         if (playbackNextTimeRef.current < playbackCtx.currentTime) {
             playbackNextTimeRef.current = playbackCtx.currentTime;
         }
@@ -312,7 +322,6 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
         source.start(playbackNextTimeRef.current);
         playbackNextTimeRef.current += audioBuffer.duration;
         
-        // Auto-clear speaking state when playback finishes
         source.onended = () => {
             setIsSpeaking(false);
         };
@@ -325,7 +334,7 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
         transcript,
         isSpeaking,
         volume,
-        isMuted,
-        setIsMuted
+        isMicOpen,
+        toggleMic
     };
 }
