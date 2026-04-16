@@ -81,14 +81,7 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
                         },
                         systemInstruction: {
                             parts: [{ text: systemInstruction || "Eres un paciente de prueba. Responde en español." }]
-                        },
-                        // Disable all configurable safety filters
-                        safetySettings: [
-                            { category: "HARM_CATEGORY_HARASSMENT", threshold: "OFF" },
-                            { category: "HARM_CATEGORY_HATE_SPEECH", threshold: "OFF" },
-                            { category: "HARM_CATEGORY_SEXUALLY_EXPLICIT", threshold: "OFF" },
-                            { category: "HARM_CATEGORY_DANGEROUS_CONTENT", threshold: "OFF" },
-                        ]
+                        }
                     }
                 };
                 ws.send(JSON.stringify(setupMsg));
