@@ -58,27 +58,47 @@ export const VoicePatientSimulator = () => {
         try {
             const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
             const genAI = new GoogleGenerativeAI(apiKey);
-            // Using 1.5-flash for maximum reliability and availability
-            const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
+
+            // Cascade Fallback Priority List based on user's Quota (RPD)
+            const modelsToTry = [
+                'gemini-3.1-flash-lite', // Límite: 500 RPD (Prioridad 1)
+                'gemini-2.5-flash',      // Límite: 20 RPD
+                'gemini-3-flash',        // Límite: 20 RPD
+                'gemini-2.5-flash-lite'  // Límite: 20 RPD
+            ];
 
             const formattedTranscript = transcript.map(t => 
                 `${t.role === 'user' ? 'Kinesiólogo(a)' : 'Paciente'}: ${t.text}`
             ).join('\n');
             const rubric = getInterviewRubric();
+            const prompt = `${rubric}\n\n--- TRANSCRIPCIÓN ---\n${formattedTranscript}\n--- FIN ---`;
             
-            const result = await model.generateContent(`${rubric}
+            let finalResult = null;
+            let lastError = null;
 
---- TRANSCRIPCIÓN ---
-${formattedTranscript}
---- FIN ---`);
-            setFeedback(result.response.text());
-        } catch (e: any) {
-            console.error("Feedback error:", e);
-            if (e.message?.includes('503') || e.message?.includes('demand')) {
-                setFeedback("⚠️ Los servidores de IA de Google están sobrecargados en este momento. Por favor, espera unos minutos y vuelve a intentarlo.");
-            } else {
-                setFeedback("Error al generar feedback. Revisa tu consola para más detalles.");
+            for (const modelName of modelsToTry) {
+                try {
+                    const model = genAI.getGenerativeModel({ model: modelName });
+                    const result = await model.generateContent(prompt);
+                    if (result && result.response) {
+                        finalResult = result;
+                        break; // Success! Exit fallback loop.
+                    }
+                } catch (err: any) {
+                    console.warn(`[Fallback] El modelo ${modelName} falló:`, err.message);
+                    lastError = err;
+                }
             }
+
+            if (finalResult && finalResult.response) {
+                setFeedback(finalResult.response.text());
+            } else {
+                throw lastError || new Error("Todos los modelos de respaldo (fallback) fallaron.");
+            }
+
+        } catch (e: any) {
+            console.error("Feedback error completo:", e);
+            setFeedback("⚠️ No se pudo generar el feedback. Los modelos disponibles están sobrecargados (503) o superaron la cuota diaria. Por favor, intenta de nuevo más tarde.");
         } finally {
             setGeneratingFeedback(false);
         }
