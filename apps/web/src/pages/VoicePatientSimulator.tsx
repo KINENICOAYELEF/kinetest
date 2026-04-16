@@ -61,10 +61,10 @@ export const VoicePatientSimulator = () => {
 
             // Cascade Fallback Priority List based on user's Quota (RPD)
             const modelsToTry = [
-                'gemini-3.1-flash-lite', // Límite: 500 RPD (Prioridad 1)
-                'gemini-2.5-flash',      // Límite: 20 RPD
-                'gemini-3-flash',        // Límite: 20 RPD
-                'gemini-2.5-flash-lite'  // Límite: 20 RPD
+                'gemini-3.1-flash-lite-preview', // Límite: 500 RPD (Prioridad 1)
+                'gemini-2.5-flash',              // Límite: 20 RPD
+                'gemini-3-flash-preview',        // Límite: 20 RPD
+                'gemini-2.5-flash-lite'          // Límite: 20 RPD
             ];
 
             const formattedTranscript = transcript.map(t => 
