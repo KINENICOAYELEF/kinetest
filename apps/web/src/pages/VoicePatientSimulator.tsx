@@ -58,7 +58,8 @@ export const VoicePatientSimulator = () => {
         try {
             const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
             const genAI = new GoogleGenerativeAI(apiKey);
-            const model = genAI.getGenerativeModel({ model: 'gemini-2.5-flash' });
+            // Using 1.5-flash for maximum reliability and availability
+            const model = genAI.getGenerativeModel({ model: 'gemini-1.5-flash' });
 
             const formattedTranscript = transcript.map(t => 
                 `${t.role === 'user' ? 'Kinesiólogo(a)' : 'Paciente'}: ${t.text}`
@@ -71,9 +72,13 @@ export const VoicePatientSimulator = () => {
 ${formattedTranscript}
 --- FIN ---`);
             setFeedback(result.response.text());
-        } catch (e) {
+        } catch (e: any) {
             console.error("Feedback error:", e);
-            setFeedback("Error al generar feedback. Revisa tu conexión.");
+            if (e.message?.includes('503') || e.message?.includes('demand')) {
+                setFeedback("⚠️ Los servidores de IA de Google están sobrecargados en este momento. Por favor, espera unos minutos y vuelve a intentarlo.");
+            } else {
+                setFeedback("Error al generar feedback. Revisa tu consola para más detalles.");
+            }
         } finally {
             setGeneratingFeedback(false);
         }
