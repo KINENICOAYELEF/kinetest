@@ -56,6 +56,14 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
         setConnectionState('connecting');
         setupDoneRef.current = false;
 
+        // Solución Android: Pedir permisos de micrófono INMEDIATAMENTE tras el click
+        // para que Chrome reconozca el "User Gesture" y lance el popup de permisos.
+        const micStarted = await startMicrophone();
+        if (!micStarted) {
+            setConnectionState('error');
+            return;
+        }
+
         const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
         const wsUrl = `wss://generativelanguage.googleapis.com/ws/google.ai.generativelanguage.v1beta.GenerativeService.BidiGenerateContent?key=${apiKey}`;
 
@@ -98,10 +106,9 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
                 }
                 
                 if (msg.setupComplete) {
-                    console.log("Setup complete! Starting microphone...");
+                    console.log("Setup complete! Sockets ready.");
                     setupDoneRef.current = true;
                     setConnectionState('connected');
-                    startMicrophone();
                     return;
                 }
 
@@ -139,7 +146,7 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
         setIsMicOpen(prev => !prev);
     }, []);
 
-    const startMicrophone = async () => {
+    const startMicrophone = async (): Promise<boolean> => {
         try {
             const stream = await navigator.mediaDevices.getUserMedia({ audio: {
                 sampleRate: 16000,
@@ -206,8 +213,10 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
                 }
             };
             console.log("Microphone started. Streaming audio...");
+            return true;
         } catch (e) {
             console.error("Microphone error:", e);
+            return false;
         }
     };
 
