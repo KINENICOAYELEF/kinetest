@@ -32,9 +32,9 @@ export function useGeminiLive({ systemInstruction, voiceName = "Aoede" }: UseGem
     const [transcript, setTranscript] = useState<{ role: 'user' | 'model', text: string }[]>([]);
     const [isSpeaking, setIsSpeaking] = useState(false);
     const [volume, setVolume] = useState(0);
-    const [isMicOpen, setIsMicOpen] = useState(false);
+    const [isMicOpen, setIsMicOpen] = useState(true);
 
-    const isMicOpenRef = useRef(false);
+    const isMicOpenRef = useRef(true);
 
     const wsRef = useRef<WebSocket | null>(null);
     const audioCtxRef = useRef<AudioContext | null>(null);
