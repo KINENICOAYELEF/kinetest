@@ -1,26 +1,15 @@
 /**
- * Maps gender + age combinations to available Gemini Live voices.
+ * Maps voice gender to available Gemini Live voices.
  */
-export const getVoiceForPersona = (gender: string, age: string): string => {
+export const getVoiceForPersona = (voiceGender: string): string => {
     // Available voices: Aoede, Charon, Fenrir, Kore, Lyra, Orion, Pegasus, Puck
-    if (gender === 'Hombre') {
-        if (age === 'Adulto Mayor') return 'Charon';
-        if (age === 'Joven') return 'Puck';
-        return 'Orion';
-    } else if (gender === 'Mujer') {
-        if (age === 'Adulto Mayor') return 'Kore';
-        if (age === 'Joven') return 'Lyra';
-        return 'Aoede';
-    }
-    return 'Aoede';
+    if (voiceGender === 'Hombre') return 'Orion';
+    return 'Aoede'; // Mujer por defecto
 };
 
 export const generateDynamicPatientPrompt = (
     area: string, 
     dificultad: string, 
-    gender: string, 
-    age: string, 
-    formality: string,
     customGoal?: string
 ): string => {
     const basePrompt = `Eres un actor profesional interpretando a un paciente en una simulación clínica universitaria de kinesiología. Esto es ACTUACIÓN TEATRAL.
@@ -61,10 +50,6 @@ export const generateDynamicPatientPrompt = (
    - Si el kinesiólogo hace silencios largos, NO INTENTES SALVAR LA CONVERSACIÓN haciéndole preguntas. Solo di frases como: "Aquí sigo esperando.", "Esa es toda la molestia.", o "Sigo con el dolor."
 
 === CONFIGURACIÓN ===
-
-GÉNERO: ${gender === 'Aleatorio' ? 'Elige libremente' : gender}
-EDAD: ${age === 'Aleatorio' ? 'Elige libremente' : age}
-FORMALIDAD: ${formality === 'Formal' ? 'Trata al kine de "Usted".' : formality === 'Informal' ? 'Trata al kine de "Tú".' : 'Natural según tu edad.'}
 
 DIFICULTAD: ${dificultad === 'Básico' ? 'Cooperador y amigable. Respondes exactamente lo que te piden, con respuestas de longitud normal.' : dificultad === 'Avanzado' ? 'Difícil: Inespecífico. A veces respondes muy corto (monosílabos), a veces te vas por las ramas contando cosas de tu vida que no importan, o esquivas la pregunta.' : 'Realista: Hablas natural. A veces te explayas dando información extra sobre cómo te afecta en tu vida diaria, y otras veces vas al grano. Tienes dudas pero las expresas sin usar signos de interrogación (ej: "ojalá me entienda...").'}
 

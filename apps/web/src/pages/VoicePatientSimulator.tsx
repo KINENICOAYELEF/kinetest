@@ -10,9 +10,7 @@ export const VoicePatientSimulator = () => {
     const [hasStarted, setHasStarted] = useState(false);
     const [selectedArea, setSelectedArea] = useState('Aleatoria');
     const [selectedDifficulty, setSelectedDifficulty] = useState('Intermedio');
-    const [selectedGender, setSelectedGender] = useState('Aleatorio');
-    const [selectedAge, setSelectedAge] = useState('Aleatorio');
-    const [selectedFormality, setSelectedFormality] = useState('Aleatorio');
+    const [selectedVoice, setSelectedVoice] = useState('Mujer'); // Solo Mujer o Hombre
     const [customGoal, setCustomGoal] = useState('');
     const [generatingFeedback, setGeneratingFeedback] = useState(false);
     const [feedback, setFeedback] = useState<string | null>(null);
@@ -20,9 +18,9 @@ export const VoicePatientSimulator = () => {
     const [feedbackTab, setFeedbackTab] = useState<'feedback' | 'transcript'>('feedback');
 
     const systemInstruction = generateDynamicPatientPrompt(
-        selectedArea, selectedDifficulty, selectedGender, selectedAge, selectedFormality, customGoal
+        selectedArea, selectedDifficulty, customGoal
     );
-    const voiceName = getVoiceForPersona(selectedGender, selectedAge);
+    const voiceName = getVoiceForPersona(selectedVoice);
 
     const { connect, disconnect, connectionState, transcript, isSpeaking, volume, isMicOpen, toggleMic } = useGeminiLive({
         systemInstruction, voiceName
@@ -134,21 +132,19 @@ ${formattedTranscript}
                 <div className="fadeIn" style={{ background: 'rgba(255,255,255,0.03)', padding: 25, borderRadius: 20, border: '1px solid var(--glass-border)' }}>
                     <h2 style={{ color: 'var(--primary)', marginTop: 0, marginBottom: 20, fontSize: '1.1rem' }}>⚙️ Configura tu caso</h2>
                     
-                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(140px, 1fr))', gap: 12, marginBottom: 15 }}>
-                        <Sel label="Área" value={selectedArea} onChange={setSelectedArea} options={[
+                    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(180px, 1fr))', gap: 12, marginBottom: 15 }}>
+                        <Sel label="Área de Estudio" value={selectedArea} onChange={setSelectedArea} options={[
                             'Aleatoria','Hombro','Rodilla','Columna Lumbar','Columna Cervical','Tobillo/Pie','Cadera','Codo/Muñeca','Caso Deportivo'
                         ]} />
-                        <Sel label="Dificultad" value={selectedDifficulty} onChange={setSelectedDifficulty} options={['Básico','Intermedio','Avanzado']} />
-                        <Sel label="Género" value={selectedGender} onChange={setSelectedGender} options={['Aleatorio','Mujer','Hombre']} />
-                        <Sel label="Edad" value={selectedAge} onChange={setSelectedAge} options={['Aleatorio','Joven','Adulto','Adulto Mayor']} />
-                        <Sel label="Formalidad" value={selectedFormality} onChange={setSelectedFormality} options={['Aleatorio','Formal','Natural','Informal']} />
+                        <Sel label="Nivel de Dificultad" value={selectedDifficulty} onChange={setSelectedDifficulty} options={['Básico','Intermedio','Avanzado']} />
+                        <Sel label="Voz del Simulador" value={selectedVoice} onChange={setSelectedVoice} options={['Mujer','Hombre']} />
                     </div>
 
-                    <label style={labelStyle}>Descripción específica (Opcional)</label>
+                    <label style={labelStyle}>Descripción clínica (Opcional - Esto sobrescribe la aleatoriedad)</label>
                     <textarea 
                         value={customGoal} onChange={(e) => setCustomGoal(e.target.value)}
-                        placeholder="Ej: Karateca de 20 años con dolor de rodilla tras kumite..."
-                        style={{ width: '100%', height: 50, padding: 10, borderRadius: 8, background: 'rgba(0,0,0,0.2)', border: '1px solid var(--glass-border)', color: 'white', resize: 'none', fontFamily: 'inherit', fontSize: '0.85rem' }}
+                        placeholder="Escribe un viñeta o contexto específico (ej: Karateca de 20 años que sufrió trauma en rodilla por pateo. Finge estar muy frustrado...)"
+                        style={{ width: '100%', height: 70, padding: 10, borderRadius: 8, background: 'rgba(0,0,0,0.2)', border: '1px solid var(--glass-border)', color: 'white', resize: 'none', fontFamily: 'inherit', fontSize: '0.85rem' }}
                     />
 
                     <button onClick={handleStart} style={{ width: '100%', padding: 16, marginTop: 20, fontSize: '1rem', background: 'var(--primary)', fontWeight: 'bold' }}>
