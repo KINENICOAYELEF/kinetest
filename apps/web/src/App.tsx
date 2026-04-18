@@ -18,6 +18,7 @@ import { Debug } from './pages/Debug';
 import { AdminUnits } from './pages/AdminUnits';
 import { AdminSetup } from './pages/AdminSetup';
 import { VoicePatientSimulator } from './pages/VoicePatientSimulator';
+import { ClinicalReasoning } from './pages/ClinicalReasoning';
 import { ProtectedRoute } from './components/ProtectedRoute';
 import { Pending } from './pages/Pending';
 import { TestGemini } from './pages/TestGemini';
@@ -48,6 +49,7 @@ function App() {
                         <Route path="/case/:unitId" element={<CaseMode />} />
                         <Route path="/dashboard" element={<StudentDashboard />} />
                         <Route path="/friday" element={<FridayTests />} />
+                        <Route path="/clinical-reasoning" element={<ClinicalReasoning />} />
                     </Route>
 
                     <Route element={<ProtectedRoute allowedRole="admin" />}>
