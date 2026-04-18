@@ -722,21 +722,29 @@ export const ClinicalReasoning = () => {
                 {/* ─── Pronóstico ─── */}
                 <div style={glassCard}>
                     <div style={sectionTitle}>4. Pronóstico</div>
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 12 }}>
-                        <span style={{ fontSize: '0.8rem', color: '#ef4444' }}>Desfavorable</span>
+                    
+                    <div style={{ textAlign: 'center', marginBottom: 10 }}>
+                        <span style={{
+                            fontWeight: 800, fontSize: '1.5rem',
+                            color: pronostico >= 7 ? '#10b981' : pronostico >= 4 ? '#f59e0b' : '#ef4444',
+                        }}>
+                            {pronostico}/10
+                        </span>
+                        <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
+                            {pronostico >= 7 ? 'Favorable' : pronostico >= 4 ? 'Regular' : 'Desfavorable'}
+                        </div>
+                    </div>
+
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
+                        <span style={{ fontSize: '0.8rem', color: '#ef4444', minWidth: 70 }}>Desfavorable</span>
                         <input
                             type="range" min={1} max={10} value={pronostico}
                             onChange={e => setPronostico(Number(e.target.value))}
                             style={{ flex: 1, margin: 0, padding: 0 }}
                         />
-                        <span style={{ fontSize: '0.8rem', color: '#10b981' }}>Favorable</span>
-                        <span style={{
-                            fontWeight: 700, fontSize: '1.2rem', minWidth: 30, textAlign: 'center',
-                            color: pronostico >= 7 ? '#10b981' : pronostico >= 4 ? '#f59e0b' : '#ef4444',
-                        }}>
-                            {pronostico}
-                        </span>
+                        <span style={{ fontSize: '0.8rem', color: '#10b981', minWidth: 70, textAlign: 'right' }}>Favorable</span>
                     </div>
+                    
                     <textarea
                         value={justificacion}
                         onChange={e => setJustificacion(e.target.value)}

@@ -3,9 +3,8 @@ import { GoogleGenerativeAI } from '@google/generative-ai';
 
 // Models ordered by RPD quota (highest first for daily sustainability)
 const TEXT_MODELS = [
-    'gemma-4-26b-it',                // 1,500 RPD — Primary evaluator
-    'gemini-3.1-flash-lite-preview', // 500 RPD — Backup
-    'gemini-2.5-flash',              // 20 RPD — Emergency
+    'gemini-3.1-flash-lite-preview', // 500 RPD — Primary clinical evaluator
+    'gemini-2.5-flash',              // Backup
 ];
 
 interface UseGeminiTextOptions {
