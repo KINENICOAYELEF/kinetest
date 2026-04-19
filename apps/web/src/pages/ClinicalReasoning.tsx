@@ -306,6 +306,21 @@ export const ClinicalReasoning = () => {
         );
     }
 
+    const renderText = (text: string) => {
+        if (!text) return null;
+        return text.split('\n').map((line, i) => (
+            <span key={i}>
+                {line.split(/(\*\*.*?\*\*)/g).map((part, j) => {
+                    if (part.startsWith('**') && part.endsWith('**')) {
+                        return <strong key={j} style={{ color: '#fff' }}>{part.slice(2, -2)}</strong>;
+                    }
+                    return <span key={j}>{part}</span>;
+                })}
+                <br />
+            </span>
+        ));
+    };
+
     // ─── RENDER: Results ──────────────────────────
     if (phase === 'results' && results) {
         const isAuditor = level === 3;
@@ -351,7 +366,9 @@ export const ClinicalReasoning = () => {
                                         {val.puntos}/{val.maximo}
                                     </span>
                                 </div>
-                                <p style={{ fontSize: '0.85rem', margin: 0 }}>{val.feedback}</p>
+                                <div style={{ fontSize: '0.85rem', margin: 0, lineHeight: 1.5 }}>
+                                    {renderText(val.feedback)}
+                                </div>
                             </div>
                         ))}
                     </div>
@@ -379,7 +396,7 @@ export const ClinicalReasoning = () => {
                     <div style={{ ...glassCard, marginTop: 20, borderColor: '#10b981' }}>
                         <div style={sectionTitle}>✅ Fortalezas</div>
                         {results.fortalezas.map((f: string, i: number) => (
-                            <p key={i} style={{ fontSize: '0.85rem', margin: '4px 0' }}>• {f}</p>
+                            <div key={i} style={{ fontSize: '0.85rem', margin: '4px 0' }}>• {renderText(f)}</div>
                         ))}
                     </div>
                 )}
@@ -387,14 +404,14 @@ export const ClinicalReasoning = () => {
                     <div style={{ ...glassCard, borderColor: '#ef4444' }}>
                         <div style={{ ...sectionTitle, color: '#ef4444' }}>❌ Errores Críticos</div>
                         {results.errores_criticos.map((e: string, i: number) => (
-                            <p key={i} style={{ fontSize: '0.85rem', margin: '4px 0' }}>• {e}</p>
+                            <div key={i} style={{ fontSize: '0.85rem', margin: '4px 0' }}>• {renderText(e)}</div>
                         ))}
                     </div>
                 )}
                 {!isAuditor && results.consejo_final && (
                     <div style={{ ...glassCard, borderColor: 'var(--primary)', background: 'rgba(99,102,241,0.05)' }}>
                         <div style={sectionTitle}>💡 Consejo</div>
-                        <p style={{ fontSize: '0.9rem', margin: 0 }}>{results.consejo_final}</p>
+                        <div style={{ fontSize: '0.9rem', margin: 0, lineHeight: 1.5 }}>{renderText(results.consejo_final)}</div>
                     </div>
                 )}
 

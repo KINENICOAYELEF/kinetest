@@ -72,7 +72,8 @@ Responde SOLO con el JSON, sin explicaciones adicionales.`;
  * Takes the original case + the student's response and grades it.
  */
 export function buildEvaluationPrompt(caseData: any, studentResponse: any): string {
-    return `Eres un supervisor clínico ESTRICTO de Kinesiología evaluando el plan de un practicante.
+    return `Eres un tutor clínico universitario exigente pero CONSTRUCTIVO (Estilo Feedback Socrático). 
+Tu objetivo es evaluar el plan kinesiológico de un estudiante, señalando errores con base técnica sólida, pero guiándolo hacia la mejora sin usar lenguaje destructivo ni agresivo.
 
 CASO CLÍNICO ORIGINAL:
 ${JSON.stringify(caseData, null, 2)}
@@ -87,51 +88,68 @@ ${studentResponse.especificos?.map((e: any, i: number) =>
 - Pronóstico: ${studentResponse.pronostico}/10
 - Justificación del pronóstico: ${studentResponse.justificacionPronostico}
 
-RÚBRICA DE EVALUACIÓN (puntaje máximo: 7.0, mínimo: 1.0, escala chilena):
+REGLAS ESTRICTAS DE EVALUACIÓN (Puntaje máximo: 65, mínimo: 0):
 
 1. DIAGNÓSTICO KINESIOLÓGICO (0-15 pts):
-   +5 pts: Usa formato CIF (deficiencia → limitación de actividad → restricción de participación)
-   +4 pts: Coherente con los hallazgos de evaluación presentados
-   +3 pts: Identifica las deficiencias principales del caso
-   +3 pts: Incluye factores contextuales (personales/ambientales)
-   -5 pts: Usa diagnóstico médico puro (ej: "tendinopatía" sin consecuencia funcional)
-   -3 pts: Omite limitaciones funcionales evidentes
+   Se aceptan DOS ESTRUCTURAS VÁLIDAS. El estudiante obtendrá puntaje completo si cumple con la información clínica mínima, sin importar el orden exacto (ej: modelo CIF vs Patokinesiológico).
+   Información mínima esperada:
+   - Identidad funcional y motivo de consulta.
+   - Sistema predominante y estructura comprometida (diferenciada de las funciones).
+   - Funciones corporales alteradas (con nivel de severidad).
+   - Limitaciones de actividad (con severidad).
+   - Restricciones de participación (con severidad).
+   - Factores personales y ambientales (facilitadores/barreras).
+   - Problema principal kinesiológico.
+   PENALIZACIONES:
+   -5 pts: Diagnóstico exclusivamente médico ("Tendinopatía") sin desglose funcional ni contexto.
+   -3 pts: Mezcla "estructuras" con "funciones alteradas" (ej: decir que el 'dolor' es una estructura).
+   -3 pts: Falta cuantificar severidad (leve/moderada/severa) en actividades o funciones alteradas.
 
 2. OBJETIVO GENERAL (0-10 pts):
-   +3 pts: Contiene verbo medible
-   +2 pts: Tiene valor numérico meta
-   +2 pts: Tiene horizonte temporal realista
-   +3 pts: Conecta con función/participación (no solo estructura)
-   -5 pts: No es medible ni verificable
+   Estructura obligatoria: Verbo + problema funcional principal + actividad/participación a recuperar + contexto.
+   Ejemplo válido: "Recuperar la estabilidad funcional de tobillo para permitir cambios de dirección y retorno al fútbol amateur."
+   PENALIZACIONES (hasta -10 pts restando -3 por cada error):
+   - Muy vagos ("Mejorar al paciente", "Disminuir síntomas", "Recuperar funcionalidad").
+   - Solo biomédicos ("Desinflamar", "Curar tendón").
+   - Promesas imposibles ("Eliminar dolor en 1 semana", "Garantizar retorno sin dolor").
+   - Son una lista enorme de específicos ("Mejorar dolor, fuerza, movilidad...").
+   - Confunden el objetivo con la intervención ("Hacer sentadillas", "Aplicar masajes").
+   - No tienen relación con la limitación o restricción de participación principal.
 
 3. OBJETIVOS ESPECÍFICOS (0-15 pts):
-   +5 pts: Cubre TODAS las deficiencias clave del caso
-   +5 pts: Cada específico es coherente con el diagnóstico
-   +5 pts: Son medibles y con plazos intermedios
-   -5 pts: Hay deficiencias del caso que quedaron sin objetivo específico ("huérfanas")
-   -3 pts: Objetivos vagos como "mejorar fuerza" sin especificar qué grupo muscular
+   Estructura obligatoria (SMART simple): Verbo + variable alterada + cambio medible esperado (o categoría clínica) + plazo temporal.
+   Ejemplo válido: "Disminuir el dolor durante sentadilla de 6/10 a <=3/10 en 4 semanas".
+   PENALIZACIONES:
+   -5 pts: No están basados en hallazgos reales del caso (inventa cosas que no se evaluaron).
+   -3 pts: Carencia de plazo o métrica/cambio esperado.
+   -3 pts: Absolutistas ("eliminar dolor por completo").
+   -3 pts: Intervenciones disfrazadas ("aplicar fisioterapia").
+   -3 pts: Quedan deficiencias clave del caso sin abordar ("objetivos huérfanos").
 
 4. OBJETIVOS OPERACIONALES (0-15 pts):
-   +5 pts: Cada específico tiene al menos 1 operacional realista
-   +5 pts: Los operacionales son alcanzables en 1 sesión
-   +5 pts: Incluyen dosificación o parámetros concretos cuando aplica
-   -5 pts: Objetivos específicos sin ningún operacional ("huérfanos")
-   -3 pts: Operacionales imposibles para la fase actual (ej: pliometría en fase aguda)
+   Estructura obligatoria: Tipo de intervención + estructura/función objetivo + dosis mínima + criterio de progresión o tolerancia.
+   Ejemplo válido: "Aplicar ejercicio isométrico de cuádriceps, 3 veces/sem, 3 series x 45 seg, progresando a isotónico según dolor <=3/10".
+   PENALIZACIONES:
+   -5 pts: No indican dosis (frecuencia, series, reps, o intensidad).
+   -3 pts: Prometen curar ("reparar tendón").
+   -3 pts: No indican el criterio clínico para progresar la carga.
+   -3 pts: Contraindicados biológicamente para la fase (ej: pliometría en aguda temprana).
+   -2 pts: Demasiado vagos ("fortalecer", "reeducar").
 
 5. PRONÓSTICO (0-10 pts):
-   +3 pts: Considera factores biológicos (tipo de tejido, fase, severidad)
-   +3 pts: Considera banderas amarillas del caso
-   +2 pts: El slider numérico es coherente con la justificación escrita
-   +2 pts: Identifica factores modificables vs no modificables
-   -5 pts: Ignora completamente las banderas amarillas
-   -3 pts: Pronóstico contradictorio (dice favorable pero el caso tiene factores desfavorables)
+   Debe justificarse explícitamente usando:
+   - Factores biológicos (tipo tejido, severidad, fase).
+   - Banderas amarillas / psicosociales (Kinesiofobia, expectativas, estrés) mencionados en el caso.
+   PENALIZACIONES:
+   -5 pts: Ignora completamente banderas amarillas graves presentadas en el caso.
+   -3 pts: Incoherencia entre el slider (ej: favorable) y los factores biológicos/psicosociales reales del caso.
 
-INSTRUCCIONES DE CALIFICACIÓN:
-- Suma los puntos obtenidos (máximo 65).
+INSTRUCCIONES DE FEEDBACK:
+- Suma los puntos (máx 65).
 - Convierte a nota chilena: nota = 1.0 + (puntos / 65) * 6.0
-- Sé ESPECÍFICO en el feedback: cita exactamente qué dijo el alumno y por qué está bien o mal.
-- Si el alumno infradosificó (prescribió tratamiento insuficiente por miedo), menciónalo explícitamente.
-- Si ignoró banderas amarillas, castígalo severamente.
+- Usa un lenguaje constructivo y socrático. EJ: En vez de "Eres negligente", usa "La dosis prescrita genera un estímulo insuficiente; recuerda que el tendón requiere carga mecánica progresiva...".
+- Usa formato MARKDOWN (**negritas**, viñetas) en las descripciones de 'feedback' para hacerlas muy legibles.
+- Si hay errores en las estructuras de los objetivos, en el 'consejo_final' o en el feedback específico DA UN EJEMPLO de cómo debió redactarse.
 
 FORMATO DE RESPUESTA (JSON estricto):
 {
@@ -139,7 +157,7 @@ FORMATO DE RESPUESTA (JSON estricto):
   "puntos_obtenidos": 0,
   "puntos_maximos": 65,
   "desglose": {
-    "diagnostico": {"puntos": 0, "maximo": 15, "feedback": "..."},
+    "diagnostico": {"puntos": 0, "maximo": 15, "feedback": "Feedback socrático y en formato markdown"},
     "objetivo_general": {"puntos": 0, "maximo": 10, "feedback": "..."},
     "objetivos_especificos": {"puntos": 0, "maximo": 15, "feedback": "..."},
     "objetivos_operacionales": {"puntos": 0, "maximo": 15, "feedback": "..."},
@@ -147,11 +165,10 @@ FORMATO DE RESPUESTA (JSON estricto):
   },
   "fortalezas": ["...", "..."],
   "errores_criticos": ["...", "..."],
-  "consejo_final": "Un consejo breve y directo para mejorar"
+  "consejo_final": "Un consejo clínico constructivo, incluyendo o recordando formatos de redacción si es necesario."
 }
 
-NO inventes referencias bibliográficas. Basa tu feedback en principios fisiopatológicos y biomecánicos.
-Responde SOLO con el JSON.`;
+NO inventes referencias bibliográficas ni agregues texto fuera del JSON. Responde SOLO el JSON.`;
 }
 
 /**
