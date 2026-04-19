@@ -115,20 +115,29 @@ export const ClinicalReasoning = () => {
         if (selectedLevel === 3) {
             // Auditor mode: generate case WITH errors
             const data = await generate(buildAuditorCasePrompt());
-            if (data && data.caso) {
+            if (data && typeof data === 'object' && data.caso) {
                 setAuditorData(data);
                 setCaseData(data.caso);
                 setFoundErrors([false, false, false]);
                 setAuditorNotes(['', '', '']);
+                setTimeLeft(TOTAL_TIME);
+                setPhase('working');
+            } else {
+                alert("Hubo un problema generando la auditoría. Intenta de nuevo.");
+                setPhase('menu');
             }
         } else {
             // Normal mode: generate clean case
             const data = await generate(CASE_GENERATION_PROMPT);
-            if (data) setCaseData(data);
+            if (data && typeof data === 'object' && data.paciente) {
+                setCaseData(data);
+                setTimeLeft(TOTAL_TIME);
+                setPhase('working');
+            } else {
+                alert("Hubo un problema generando el paciente. Intenta de nuevo.");
+                setPhase('menu');
+            }
         }
-
-        setTimeLeft(TOTAL_TIME);
-        setPhase('working');
     }, [generate]);
 
     const resetForm = () => {
@@ -644,10 +653,20 @@ export const ClinicalReasoning = () => {
 
                 {/* ─── Diagnosis ─── */}
                 <div style={glassCard}>
-                    <div style={sectionTitle}>1. Diagnóstico Kinesiológico (CIF)</div>
-                    <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: 8 }}>
-                        Deficiencia → Limitación de Actividad → Restricción de Participación
-                    </p>
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                        <div style={sectionTitle}>1. Diagnóstico Kinesiológico (CIF)</div>
+                        {level === 1 && (
+                            <button onClick={() => setDiagnostico("Paciente [Nombre], [Edad] años, consulta por [Motivo] de [Evolución].\nA nivel estructural, presenta compromiso de [Estructura].\nA nivel funcional, cursa con alteración de [Función] (Severidad: [Leve/Mod/Sev]).\nLo anterior limita actividades como [Actividad] y restringe su participación en [Contexto].\nBarreras: [Contextuales].")}
+                                style={{ padding: '4px 10px', fontSize: '0.75rem', background: 'rgba(99,102,241,0.2)', color: '#a5b4fc', border: '1px solid #6366f1' }}>
+                                🪄 Cargar Plantilla Base
+                            </button>
+                        )}
+                    </div>
+                    {level === 1 && (
+                        <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: 8 }}>
+                            Estructura tu diagnóstico considerando: Estructura → Función Alterada → Actividad → Participación (o viceversa).
+                        </p>
+                    )}
                     <textarea
                         value={diagnostico}
                         onChange={e => setDiagnostico(e.target.value)}
@@ -658,12 +677,20 @@ export const ClinicalReasoning = () => {
 
                 {/* ─── Objetivo General ─── */}
                 <div style={glassCard}>
-                    <div style={sectionTitle}>2. Objetivo General</div>
-                    {level === 1 ? (
+                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
+                        <div style={sectionTitle}>2. Objetivo General</div>
+                        {level === 1 && (
+                            <button onClick={() => setObjGeneral("[Verbo terapéutico] la [Alteración funcional o capacidad] para permitir [Actividad a recuperar] en [Contexto o deporte]")}
+                                style={{ padding: '4px 10px', fontSize: '0.75rem', background: 'rgba(99,102,241,0.2)', color: '#a5b4fc', border: '1px solid #6366f1' }}>
+                                🪄 Cargar Plantilla Base
+                            </button>
+                        )}
+                    </div>
+                    {level === 1 && (
                         <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: 8 }}>
-                            Recuerda: debe ser SMART — Específico, Medible, Alcanzable, Relevante, con Tiempo
+                            Recuerda: NO mezcles con intervenciones. Conecta una función con la participación que recuperarás.
                         </p>
-                    ) : null}
+                    )}
                     <textarea
                         value={objGeneral}
                         onChange={e => setObjGeneral(e.target.value)}
@@ -692,9 +719,17 @@ export const ClinicalReasoning = () => {
                                 <span style={{ fontWeight: 700, fontSize: '0.85rem', color: 'var(--primary)' }}>
                                     OE {espIdx + 1}
                                 </span>
-                                {especificos.length > 1 && (
-                                    <span onClick={() => removeEspecifico(espIdx)} style={{ cursor: 'pointer', color: '#ef4444', fontSize: '0.8rem' }}>✕ Eliminar</span>
-                                )}
+                                <div style={{ display: 'flex', gap: 8 }}>
+                                    {level === 1 && (
+                                        <button onClick={() => updateEspecificoTexto(espIdx, "[Verbo] [Variable alterada del caso] desde [Estado Inicial] a [Métrica Meta] en [Plazo de semanas]")}
+                                            style={{ padding: '2px 8px', fontSize: '0.7rem', background: 'rgba(99,102,241,0.2)', color: '#a5b4fc' }}>
+                                            🪄 Plantilla SMART
+                                        </button>
+                                    )}
+                                    {especificos.length > 1 && (
+                                        <span onClick={() => removeEspecifico(espIdx)} style={{ cursor: 'pointer', color: '#ef4444', fontSize: '0.8rem' }}>✕ Eliminar</span>
+                                    )}
+                                </div>
                             </div>
                             <textarea
                                 value={esp.texto}
@@ -707,9 +742,15 @@ export const ClinicalReasoning = () => {
                             <div style={{ marginLeft: 16, marginTop: 8, borderLeft: '2px solid rgba(99,102,241,0.3)', paddingLeft: 12 }}>
                                 {esp.operacionales.map((op, opIdx) => (
                                     <div key={opIdx} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', marginBottom: 6 }}>
-                                        <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', marginTop: 10, minWidth: 30 }}>
-                                            OO {opIdx + 1}
-                                        </span>
+                                        <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginTop: 10, minWidth: 40 }}>
+                                            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>
+                                                OO {opIdx + 1}
+                                            </span>
+                                            {level === 1 && (
+                                                <span onClick={() => updateOperacional(espIdx, opIdx, "[Intervención] de [Estructura], dosis [Series/Reps/Frecuencia], progresando según [Tolerancia]")}
+                                                    style={{ fontSize: '0.65rem', color: '#a5b4fc', cursor: 'pointer' }}>🪄 Base</span>
+                                            )}
+                                        </div>
                                         <textarea
                                             value={op}
                                             onChange={e => updateOperacional(espIdx, opIdx, e.target.value)}
