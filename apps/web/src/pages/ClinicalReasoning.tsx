@@ -75,6 +75,7 @@ export const ClinicalReasoning = () => {
     const [diagnostico, setDiagnostico] = useState('');
     const [objGeneral, setObjGeneral] = useState('');
     const [especificos, setEspecificos] = useState<Especifico[]>([{ texto: '', operacionales: [''] }]);
+    const [poolOperativos, setPoolOperativos] = useState<{ id: string, texto: string, linkedOEs: number[] }[]>([]);
     const [pronostico, setPronostico] = useState(5);
     const [justificacion, setJustificacion] = useState('');
 
@@ -144,6 +145,7 @@ export const ClinicalReasoning = () => {
         setDiagnostico('');
         setObjGeneral('');
         setEspecificos([{ texto: '', operacionales: [''] }]);
+        setPoolOperativos([]);
         setPronostico(5);
         setJustificacion('');
         setResults(null);
@@ -174,7 +176,10 @@ export const ClinicalReasoning = () => {
             const response: StudentResponse = {
                 diagnostico,
                 objetivoGeneral: objGeneral,
-                especificos,
+                especificos: level === 2 ? especificos.map((esp, i) => ({
+                    texto: esp.texto,
+                    operacionales: poolOperativos.filter(op => op.linkedOEs.includes(i)).map(op => op.texto)
+                })) : especificos,
                 pronostico,
                 justificacionPronostico: justificacion,
             };
@@ -201,10 +206,16 @@ export const ClinicalReasoning = () => {
     }, [level, auditorData, foundErrors, auditorNotes, diagnostico, objGeneral, especificos, pronostico, justificacion, caseData, generate, timeLeft, userProfile]);
 
     // ─── Específicos Management ───────────────────
+    // ─── Específicos & Pool Management ────────────
     const addEspecifico = () => setEspecificos(prev => [...prev, { texto: '', operacionales: [''] }]);
-    const removeEspecifico = (idx: number) => setEspecificos(prev => prev.filter((_, i) => i !== idx));
+    const removeEspecifico = (idx: number) => {
+        setEspecificos(prev => prev.filter((_, i) => i !== idx));
+        setPoolOperativos(prev => prev.map(op => ({ ...op, linkedOEs: op.linkedOEs.filter(oe => oe !== idx).map(oe => oe > idx ? oe - 1 : oe) })));
+    };
     const updateEspecificoTexto = (idx: number, texto: string) =>
         setEspecificos(prev => prev.map((e, i) => i === idx ? { ...e, texto } : e));
+        
+    // Modo 1 (Legacy) Operacional management
     const addOperacional = (espIdx: number) =>
         setEspecificos(prev => prev.map((e, i) => i === espIdx ? { ...e, operacionales: [...e.operacionales, ''] } : e));
     const removeOperacional = (espIdx: number, opIdx: number) =>
@@ -212,11 +223,15 @@ export const ClinicalReasoning = () => {
     const updateOperacional = (espIdx: number, opIdx: number, val: string) =>
         setEspecificos(prev => prev.map((e, i) => i === espIdx ? { ...e, operacionales: e.operacionales.map((o, j) => j === opIdx ? val : o) } : e));
 
-    // ─── Styles ───────────────────────────────────
-    const glassCard: React.CSSProperties = {
-        background: 'rgba(255,255,255,0.03)', border: '1px solid var(--glass-border)',
-        borderRadius: 16, padding: 20, marginBottom: 16,
-    };
+    // Modo 2 (Pool) Operacional management
+    const addPoolOperativo = () => setPoolOperativos(prev => [...prev, { id: Math.random().toString(36).substr(2, 9), texto: '', linkedOEs: [] }]);
+    const removePoolOperativo = (id: string) => setPoolOperativos(prev => prev.filter(op => op.id !== id));
+    const updatePoolOperativoTexto = (id: string, texto: string) => setPoolOperativos(prev => prev.map(op => op.id === id ? { ...op, texto } : op));
+    const togglePoolLink = (opId: string, espIdx: number) => setPoolOperativos(prev => prev.map(op => {
+        if (op.id !== opId) return op;
+        const hasLink = op.linkedOEs.includes(espIdx);
+        return { ...op, linkedOEs: hasLink ? op.linkedOEs.filter(id => id !== espIdx) : [...op.linkedOEs, espIdx] };
+    }));
     const timerStyle: React.CSSProperties = {
         position: 'fixed', top: 16, right: 16, zIndex: 999,
         background: timeLeft <= 60 ? 'rgba(239,68,68,0.9)' : 'rgba(99,102,241,0.9)',
@@ -270,7 +285,7 @@ export const ClinicalReasoning = () => {
                             <span style={{ fontSize: '2rem' }}>🌳</span>
                             <div>
                                 <h3 style={{ margin: 0, fontSize: '1.1rem', background: 'none', WebkitTextFillColor: 'white', textAlign: 'left' }}>
-                                    Nivel 2: Constructor Libre
+                                    Modo 2: Arquitecto Clínico
                                 </h3>
                                 <p style={{ margin: 0, fontSize: '0.85rem' }}>
                                     Árbol dinámico sin guías. Crea los objetivos que necesites.
@@ -506,29 +521,30 @@ export const ClinicalReasoning = () => {
                 </div>
 
                 {/* Error finders */}
-                <div style={sectionTitle}>📝 Marca los 3 errores que encontraste</div>
+                <div style={{...sectionTitle, marginTop: 30}}>🛑 Reportes de Hallazgos de Auditoría</div>
+                <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 20 }}>Márcalos con tu "lápiz rojo" evaluador.</p>
                 {[0, 1, 2].map(i => (
-                    <div key={i} style={{ ...glassCard, borderColor: foundErrors[i] ? '#10b981' : 'var(--glass-border)' }}>
+                    <div key={i} style={{ ...glassCard, background: foundErrors[i] ? 'rgba(239,68,68,0.08)' : 'rgba(0,0,0,0.2)', borderColor: foundErrors[i] ? '#ef4444' : 'rgba(239,68,68,0.2)' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 10, marginBottom: 10 }}>
                             <div
                                 onClick={() => setFoundErrors(prev => prev.map((v, idx) => idx === i ? !v : v))}
                                 style={{
                                     width: 24, height: 24, borderRadius: 6, cursor: 'pointer',
-                                    border: `2px solid ${foundErrors[i] ? '#10b981' : 'var(--glass-border)'}`,
-                                    background: foundErrors[i] ? 'rgba(16,185,129,0.2)' : 'transparent',
+                                    border: `2px solid ${foundErrors[i] ? '#ef4444' : 'rgba(239,68,68,0.4)'}`,
+                                    background: foundErrors[i] ? '#ef4444' : 'transparent',
                                     display: 'flex', alignItems: 'center', justifyContent: 'center',
-                                    fontSize: '0.8rem', fontWeight: 700, color: '#10b981',
+                                    fontSize: '0.8rem', fontWeight: 700, color: '#fff',
                                 }}
                             >
                                 {foundErrors[i] && '✓'}
                             </div>
-                            <span style={{ fontWeight: 600, fontSize: '0.9rem' }}>Error {i + 1}</span>
+                            <span style={{ fontWeight: 800, fontSize: '0.9rem', color: foundErrors[i] ? '#ef4444' : 'var(--text-muted)' }}>HALLAZGO CRÍTICO {i + 1}</span>
                         </div>
                         <textarea
                             value={auditorNotes[i]}
                             onChange={e => setAuditorNotes(prev => prev.map((n, idx) => idx === i ? e.target.value : n))}
-                            placeholder="Describe el error que encontraste y cómo lo corregirías..."
-                            style={{ ...textArea, minHeight: 60 }}
+                            placeholder="Describe con estricto rigor clínico el error fatal y cómo debe corregirse..."
+                            style={{ ...textArea, minHeight: 60, border: '1px solid rgba(239,68,68,0.2)', background: 'transparent' }}
                         />
                     </div>
                 ))}
@@ -549,7 +565,7 @@ export const ClinicalReasoning = () => {
                 <div style={timerStyle}>⏱ {formatTime(timeLeft)}</div>
 
                 <h2 style={{ fontSize: '1.2rem' }}>
-                    {level === 1 ? '🏗️ Nivel 1: Andamio' : '🌳 Nivel 2: Constructor Libre'}
+                    {level === 1 ? '🏗️ Modo 1: Entorno Guiado' : '🌳 Modo 2: Arquitecto Clínico'}
                 </h2>
 
                 {/* ─── Case Display ─── */}
@@ -695,20 +711,7 @@ export const ClinicalReasoning = () => {
                                             </div>
                                             <textarea value={esp.texto} onChange={e => updateEspecificoTexto(espIdx, e.target.value)} placeholder="Meta de la deficiencia..." style={{ width: '100%', minHeight: 40, background: 'transparent', border: 'none', color: '#fff', fontSize: '0.85rem', outline: 'none', resize: 'vertical' }} />
                                             
-                                            {/* Nodos Operativos asociados (Hijos del específico) */}
-                                            <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 10 }}>
-                                                {esp.operacionales.map((op, opIdx) => (
-                                                    <div key={opIdx} style={{ 
-                                                        position: 'relative', background: '#451a03', border: '1px solid #f59e0b', borderRadius: 8, padding: '10px 12px',
-                                                        display: 'flex', alignItems: 'flex-start', gap: 8
-                                                    }}>
-                                                        <div style={{ width: 8, height: 8, borderRadius: 4, background: '#f59e0b', marginTop: 6, flexShrink: 0, boxShadow: '0 0 8px #f59e0b' }} />
-                                                        <textarea value={op} onChange={e => updateOperacional(espIdx, opIdx, e.target.value)} placeholder="Procedimiento..." style={{ width: '100%', minHeight: 30, background: 'transparent', border: 'none', color: '#fde68a', fontSize: '0.8rem', outline: 'none', resize: 'vertical' }} />
-                                                        {esp.operacionales.length > 1 && <span onClick={() => removeOperacional(espIdx, opIdx)} style={{ cursor: 'pointer', color: '#ef4444', fontSize: '0.9rem', lineHeight: 1 }}>×</span>}
-                                                    </div>
-                                                ))}
-                                                <button onClick={() => addOperacional(espIdx)} style={{ alignSelf: 'flex-start', padding: '4px 10px', fontSize: '0.7rem', background: 'transparent', border: '1px solid #f59e0b', color: '#fbbf24', borderRadius: 12 }}>+ Operativo</button>
-                                            </div>
+                                            {/* En el Modo 2 los operativos no van anidados, se vinculan desde la piscina inferior. */}
                                         </div>
                                     </div>
                                 ))}
@@ -718,6 +721,46 @@ export const ClinicalReasoning = () => {
                                 </button>
                             </div>
 
+                                                        {/* PISCINA DE INTERVENCIONES OPERATIVAS */}
+                            <div style={{ position: 'relative', zIndex: 2, marginTop: 40, width: '100%', maxWidth: 600 }}>
+                                <div style={{ 
+                                    background: '#451a03', border: '2px dashed #f59e0b', borderRadius: 16, padding: 20,
+                                    boxShadow: '0 8px 32px rgba(245,158,11,0.2)'
+                                }}>
+                                    <div style={{ textAlign: 'center', marginBottom: 20 }}>
+                                        <div style={{ fontSize: '1.5rem', marginBottom: 5 }}>🏊‍♂️</div>
+                                        <div style={{ fontSize: '0.85rem', fontWeight: 800, color: '#fcd34d', textTransform: 'uppercase', letterSpacing: 1 }}>Piscina de Intervenciones Clínicas</div>
+                                        <p style={{ fontSize: '0.75rem', color: '#fde68a', margin: '4px 0 0' }}>Crea tus intervenciones aquí y asígnalas a los objetivos que atacan.</p>
+                                    </div>
+                                    
+                                    <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                                        {poolOperativos.map((op, opIdx) => (
+                                            <div key={op.id} style={{ display: 'flex', gap: 12, alignItems: 'flex-start', background: 'rgba(0,0,0,0.3)', padding: 12, borderRadius: 12 }}>
+                                                <div style={{ width: 12, height: 12, borderRadius: 6, background: '#f59e0b', marginTop: 12, flexShrink: 0, boxShadow: '0 0 10px #f59e0b' }} />
+                                                <div style={{ flex: 1 }}>
+                                                    <textarea value={op.texto} onChange={e => updatePoolOperativoTexto(op.id, e.target.value)} placeholder="Ej: Ejercicio excéntrico..." style={{ width: '100%', minHeight: 40, background: 'transparent', border: 'none', color: '#fde68a', fontSize: '0.85rem', outline: 'none', resize: 'vertical', borderBottom: '1px solid rgba(245,158,11,0.3)', marginBottom: 8 }} />
+                                                    <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                                                        <span style={{ fontSize: '0.7rem', color: '#f59e0b', display: 'flex', alignItems: 'center' }}>Ataca:</span>
+                                                        {especificos.map((esp, eIdx) => {
+                                                            const isLinked = op.linkedOEs.includes(eIdx);
+                                                            return (
+                                                                <button key={eIdx} onClick={() => togglePoolLink(op.id, eIdx)} style={{ padding: '2px 8px', fontSize: '0.7rem', borderRadius: 12, background: isLinked ? '#3b82f6' : 'rgba(255,255,255,0.1)', color: isLinked ? 'white' : 'var(--text-muted)', border: `1px solid ${isLinked ? '#3b82f6' : 'rgba(255,255,255,0.2)'}` }}>
+                                                                    O.E. {eIdx + 1}
+                                                                </button>
+                                                            );
+                                                        })}
+                                                    </div>
+                                                </div>
+                                                <span onClick={() => removePoolOperativo(op.id)} style={{ cursor: 'pointer', color: '#ef4444', fontSize: '1rem', padding: 4 }}>×</span>
+                                            </div>
+                                        ))}
+                                        <button onClick={addPoolOperativo} style={{ alignSelf: 'center', padding: '8px 24px', fontSize: '0.8rem', background: '#f59e0b', border: 'none', color: '#451a03', borderRadius: 24, fontWeight: 800 }}>
+                                            + Agregar Intervención a la Piscina
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                            
                             {/* NODO FINAL: Pronóstico */}
                             <div style={{ position: 'relative', zIndex: 2, marginTop: 70, width: '100%', maxWidth: 350 }}>
                                 <div style={{ 
@@ -768,15 +811,13 @@ export const ClinicalReasoning = () => {
                             <div style={{ position: 'absolute', top: -14, left: 16, background: 'var(--base)', padding: '0 8px', fontSize: '0.75rem', fontWeight: 800, color: 'var(--primary)', border: '1px solid var(--primary)', borderRadius: 12 }}>PASO 1</div>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
                                 <div style={{...sectionTitle, margin: 0}}>Diagnóstico Kinesiológico (CIF)</div>
-                                <button onClick={() => setDiagnostico("Paciente [Nombre], [Edad] años, consulta por [Motivo] de [Evolución].\nA nivel estructural, presenta compromiso de [Estructura].\nA nivel funcional, cursa con alteración de [Función] (Severidad: [Leve/Mod/Sev]).\nLo anterior limita actividades como [Actividad] y restringe su participación en [Contexto].\nBarreras: [Contextuales].")}
-                                    style={{ padding: '6px 12px', fontSize: '0.75rem', borderRadius: 20, background: 'linear-gradient(45deg, rgba(99,102,241,0.2), rgba(16,185,129,0.2))', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 0 10px rgba(99,102,241,0.3)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
-                                    <span>🪄</span> Inyectar Plantilla Base
-                                </button>
                             </div>
-                            <div style={{ background: 'rgba(0,0,0,0.2)', padding: '8px 12px', borderRadius: 8, marginBottom: 12, borderLeft: '2px solid rgba(99,102,241,0.5)' }}>
-                                <p style={{ fontSize: '0.8rem', color: '#a5b4fc', margin: 0 }}>
-                                    <strong>Estructura requerida:</strong> Estructura Corporal → Función Alterada → Limitación en Actividad → Restricción en Participación.
-                                </p>
+                            <div style={{ background: 'rgba(0,0,0,0.2)', padding: '12px 16px', borderRadius: 8, marginBottom: 12, borderLeft: '2px solid rgba(99,102,241,0.5)' }}>
+                                <p style={{ fontSize: '0.8rem', color: '#a5b4fc', margin: '0 0 6px', fontWeight: 700 }}>Estructuras Clínicas Aceptadas (Elige una):</p>
+                                <ul style={{ fontSize: '0.75rem', color: '#c7d2fe', margin: 0, paddingLeft: 16 }}>
+                                    <li style={{marginBottom: 4}}><strong>A. Top-Down:</strong> Paciente, Edad, Ocupación/Deporte, Motivo, Evolución. Predominio [Sist.], Compromiso [Estructura], Alteración Funcional [Variable], Restricción.</li>
+                                    <li><strong>B. Bottom-Up:</strong> Diagnóstico Médico (Ej. Tendinopatía) cursando con Deficiencia [Variable 1] y [Variable 2] que limita funcionalmente [Actividad] y el retorno [Deporte/Rol].</li>
+                                </ul>
                             </div>
                             <textarea
                                 value={diagnostico}
@@ -791,10 +832,6 @@ export const ClinicalReasoning = () => {
                             <div style={{ position: 'absolute', top: -14, left: 16, background: 'var(--base)', padding: '0 8px', fontSize: '0.75rem', fontWeight: 800, color: '#10b981', border: '1px solid #10b981', borderRadius: 12 }}>PASO 2</div>
                             <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
                                 <div style={{...sectionTitle, margin: 0, color: '#10b981'}}>Objetivo General</div>
-                                <button onClick={() => setObjGeneral("[Verbo terapéutico] la [Alteración funcional o capacidad] para permitir [Actividad a recuperar] en [Contexto o deporte]")}
-                                    style={{ padding: '6px 12px', fontSize: '0.75rem', borderRadius: 20, background: 'linear-gradient(45deg, rgba(16,185,129,0.2), rgba(59,130,246,0.2))', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 0 10px rgba(16,185,129,0.3)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
-                                    <span>🪄</span> Inyectar Plantilla Base
-                                </button>
                             </div>
                             <div style={{ background: 'rgba(0,0,0,0.2)', padding: '8px 12px', borderRadius: 8, marginBottom: 12, borderLeft: '2px solid rgba(16,185,129,0.5)' }}>
                                 <p style={{ fontSize: '0.8rem', color: '#6ee7b7', margin: 0 }}>
@@ -924,7 +961,7 @@ export const ClinicalReasoning = () => {
                 )}
 
                 {/* Submit */}
-                <button onClick={handleSubmit} disabled={aiLoading || !diagnostico || !objGeneral}
+                <button onClick={handleSubmit} disabled={aiLoading || diagnostico.length < 30 || objGeneral.length < 15}
                     style={{ background: 'var(--accent)', marginTop: 10, fontSize: '1.1rem' }}>
                     📨 Enviar Plan para Evaluación
                 </button>
