@@ -725,83 +725,104 @@ export const ClinicalReasoning = () => {
                         </div>
                     </div>
                 ) : (
-                    <>
+                    <div style={{ position: 'relative', marginTop: 20 }}>
                         {/* ─── Level 1: Formulario Estándar Andamio ─── */}
+                        <div style={{ textAlign: 'center', marginBottom: 30 }}>
+                            <h3 style={{ margin: 0, color: 'var(--primary)' }}>🏗️ Zona de Construcción Guiada</h3>
+                            <p style={{ fontSize: '0.85rem', color: 'var(--text-muted)' }}>Utiliza las plantillas mágicas (🪄) para aprender la estructura correcta.</p>
+                        </div>
+
                         {/* Deficiencies chips (scaffolding) */}
-                        <div style={{ ...glassCard, borderColor: '#f59e0b', background: 'rgba(245,158,11,0.05)' }}>
-                            <div style={{ ...sectionTitle, color: '#f59e0b' }}>🎯 Deficiencias Clave Identificadas</div>
-                            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: 8 }}>
-                                Tu diagnóstico y objetivos deben cubrir TODAS estas deficiencias:
+                        <div style={{ ...glassCard, borderColor: 'rgba(245,158,11,0.4)', background: 'linear-gradient(135deg, rgba(245,158,11,0.05) 0%, rgba(245,158,11,0.02) 100%)', boxShadow: '0 4px 20px rgba(245,158,11,0.05)' }}>
+                            <div style={{ ...sectionTitle, color: '#f59e0b', display: 'flex', alignItems: 'center', gap: 8 }}>
+                                <span style={{ background: 'rgba(245,158,11,0.2)', padding: '4px 8px', borderRadius: 8, fontSize: '0.8rem' }}>Paso 0</span>
+                                Deficiencias Clave a Cubrir
+                            </div>
+                            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: 12 }}>
+                                Asegúrate de abordar TODAS estas deficiencias en tus objetivos:
                             </p>
-                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
+                            <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10 }}>
                                 {caseData.deficiencias_clave.map((d, i) => (
-                                    <span key={i} style={{ ...chipStyle(true), background: 'rgba(245,158,11,0.15)', borderColor: '#f59e0b', color: '#fbbf24' }}>
-                                        {d}
+                                    <span key={i} style={{ ...chipStyle(true), background: 'rgba(245,158,11,0.1)', borderColor: '#f59e0b', color: '#fbbf24', boxShadow: '0 2px 8px rgba(245,158,11,0.2)' }}>
+                                        🎯 {d}
                                     </span>
                                 ))}
                             </div>
                         </div>
 
                         {/* ─── Diagnosis ─── */}
-                        <div style={glassCard}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-                                <div style={sectionTitle}>1. Diagnóstico Kinesiológico (CIF)</div>
+                        <div style={{ ...glassCard, position: 'relative', borderLeft: '4px solid var(--primary)' }}>
+                            <div style={{ position: 'absolute', top: -14, left: 16, background: 'var(--base)', padding: '0 8px', fontSize: '0.75rem', fontWeight: 800, color: 'var(--primary)', border: '1px solid var(--primary)', borderRadius: 12 }}>PASO 1</div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                                <div style={{...sectionTitle, margin: 0}}>Diagnóstico Kinesiológico (CIF)</div>
                                 <button onClick={() => setDiagnostico("Paciente [Nombre], [Edad] años, consulta por [Motivo] de [Evolución].\nA nivel estructural, presenta compromiso de [Estructura].\nA nivel funcional, cursa con alteración de [Función] (Severidad: [Leve/Mod/Sev]).\nLo anterior limita actividades como [Actividad] y restringe su participación en [Contexto].\nBarreras: [Contextuales].")}
-                                    style={{ padding: '4px 10px', fontSize: '0.75rem', background: 'rgba(99,102,241,0.2)', color: '#a5b4fc', border: '1px solid #6366f1' }}>
-                                    🪄 Cargar Plantilla Base
+                                    style={{ padding: '6px 12px', fontSize: '0.75rem', borderRadius: 20, background: 'linear-gradient(45deg, rgba(99,102,241,0.2), rgba(16,185,129,0.2))', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 0 10px rgba(99,102,241,0.3)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
+                                    <span>🪄</span> Inyectar Plantilla Base
                                 </button>
                             </div>
-                            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: 8 }}>
-                                Estructura tu diagnóstico considerando: Estructura → Función Alterada → Actividad → Participación (o viceversa).
-                            </p>
+                            <div style={{ background: 'rgba(0,0,0,0.2)', padding: '8px 12px', borderRadius: 8, marginBottom: 12, borderLeft: '2px solid rgba(99,102,241,0.5)' }}>
+                                <p style={{ fontSize: '0.8rem', color: '#a5b4fc', margin: 0 }}>
+                                    <strong>Estructura requerida:</strong> Estructura Corporal → Función Alterada → Limitación en Actividad → Restricción en Participación.
+                                </p>
+                            </div>
                             <textarea
                                 value={diagnostico}
                                 onChange={e => setDiagnostico(e.target.value)}
-                                placeholder="Ej: Deficiencia de ROM y fuerza en rotadores externos del hombro derecho, que limita alcance funcional..."
-                                style={{ ...textArea, minHeight: 100 }}
+                                placeholder="Escribe tu diagnóstico aquí..."
+                                style={{ ...textArea, minHeight: 100, border: '1px dashed rgba(99,102,241,0.4)', background: 'rgba(255,255,255,0.01)' }}
                             />
                         </div>
 
                         {/* ─── Objetivo General ─── */}
-                        <div style={glassCard}>
-                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-                                <div style={sectionTitle}>2. Objetivo General</div>
+                        <div style={{ ...glassCard, position: 'relative', borderLeft: '4px solid #10b981' }}>
+                            <div style={{ position: 'absolute', top: -14, left: 16, background: 'var(--base)', padding: '0 8px', fontSize: '0.75rem', fontWeight: 800, color: '#10b981', border: '1px solid #10b981', borderRadius: 12 }}>PASO 2</div>
+                            <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                                <div style={{...sectionTitle, margin: 0, color: '#10b981'}}>Objetivo General</div>
                                 <button onClick={() => setObjGeneral("[Verbo terapéutico] la [Alteración funcional o capacidad] para permitir [Actividad a recuperar] en [Contexto o deporte]")}
-                                    style={{ padding: '4px 10px', fontSize: '0.75rem', background: 'rgba(99,102,241,0.2)', color: '#a5b4fc', border: '1px solid #6366f1' }}>
-                                    🪄 Cargar Plantilla Base
+                                    style={{ padding: '6px 12px', fontSize: '0.75rem', borderRadius: 20, background: 'linear-gradient(45deg, rgba(16,185,129,0.2), rgba(59,130,246,0.2))', color: '#fff', border: '1px solid rgba(255,255,255,0.2)', boxShadow: '0 0 10px rgba(16,185,129,0.3)', fontWeight: 600, display: 'flex', alignItems: 'center', gap: 6 }}>
+                                    <span>🪄</span> Inyectar Plantilla Base
                                 </button>
                             </div>
-                            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: 8 }}>
-                                Recuerda: NO mezcles con intervenciones. Conecta una función con la participación que recuperarás.
-                            </p>
+                            <div style={{ background: 'rgba(0,0,0,0.2)', padding: '8px 12px', borderRadius: 8, marginBottom: 12, borderLeft: '2px solid rgba(16,185,129,0.5)' }}>
+                                <p style={{ fontSize: '0.8rem', color: '#6ee7b7', margin: 0 }}>
+                                    <strong>Recuerda:</strong> NO incluyas intervenciones (ej. "usar TENS"). Conecta una capacidad funcional directamente con la participación que esperas recuperar a largo plazo.
+                                </p>
+                            </div>
                             <textarea
                                 value={objGeneral}
                                 onChange={e => setObjGeneral(e.target.value)}
-                                placeholder="Ej: Recuperar ROM de flexión glenohumeral activa..."
-                                style={textArea}
+                                placeholder="Escribe el objetivo general aquí..."
+                                style={{ ...textArea, border: '1px dashed rgba(16,185,129,0.4)', background: 'rgba(255,255,255,0.01)' }}
                             />
                         </div>
 
                         {/* ─── Objetivos Específicos + Operacionales ─── */}
-                        <div style={glassCard}>
-                            <div style={sectionTitle}>3. Objetivos Específicos y Operacionales</div>
-                            <p style={{ fontSize: '0.8rem', color: '#f59e0b', marginBottom: 12 }}>
-                                💡 Crea al menos 1 objetivo específico por cada deficiencia identificada arriba. Y para cada específico, agrega los operacionales (lo que harás en la sesión de hoy).
+                        <div style={{ ...glassCard, position: 'relative', borderLeft: '4px solid #3b82f6', background: 'rgba(59,130,246,0.03)' }}>
+                            <div style={{ position: 'absolute', top: -14, left: 16, background: 'var(--base)', padding: '0 8px', fontSize: '0.75rem', fontWeight: 800, color: '#3b82f6', border: '1px solid #3b82f6', borderRadius: 12 }}>PASO 3</div>
+                            <div style={{...sectionTitle, color: '#3b82f6', marginBottom: 12}}>Específicos y Operacionales</div>
+                            
+                            <p style={{ fontSize: '0.8rem', color: 'var(--text-primary)', marginBottom: 20 }}>
+                                💡 Construye un bloque por cada deficiencia. Dentro de cada bloque, anota las operativas para la sesión de hoy.
                             </p>
 
                             {especificos.map((esp, espIdx) => (
-                                <div key={espIdx} style={{ padding: 16, marginBottom: 12, borderRadius: 12, background: 'rgba(99,102,241,0.05)', border: '1px solid rgba(99,102,241,0.2)' }}>
-                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 8 }}>
-                                        <span style={{ fontWeight: 700, fontSize: '0.85rem', color: 'var(--primary)' }}>
-                                            OE {espIdx + 1}
+                                <div key={espIdx} style={{
+                                    padding: '16px 20px', marginBottom: 16, borderRadius: 12,
+                                    background: 'var(--base)', border: '1px solid rgba(59,130,246,0.3)',
+                                    boxShadow: '0 4px 15px rgba(0,0,0,0.2)', position: 'relative'
+                                }}>
+                                    <div style={{ position: 'absolute', top: 0, left: 0, bottom: 0, width: 4, background: '#3b82f6', borderTopLeftRadius: 12, borderBottomLeftRadius: 12 }} />
+                                    <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', marginBottom: 12 }}>
+                                        <span style={{ fontWeight: 800, fontSize: '0.9rem', color: '#3b82f6' }}>
+                                            Objetivo Específico {espIdx + 1}
                                         </span>
                                         <div style={{ display: 'flex', gap: 8 }}>
                                             <button onClick={() => updateEspecificoTexto(espIdx, "[Verbo] [Variable alterada del caso] desde [Estado Inicial] a [Métrica Meta] en [Plazo de semanas]")}
-                                                style={{ padding: '2px 8px', fontSize: '0.7rem', background: 'rgba(99,102,241,0.2)', color: '#a5b4fc' }}>
+                                                style={{ padding: '4px 10px', fontSize: '0.7rem', borderRadius: 20, background: 'rgba(59,130,246,0.1)', color: '#93c5fd', border: '1px solid #3b82f6' }}>
                                                 🪄 Plantilla SMART
                                             </button>
                                             {especificos.length > 1 && (
-                                                <span onClick={() => removeEspecifico(espIdx)} style={{ cursor: 'pointer', color: '#ef4444', fontSize: '0.8rem' }}>✕ Eliminar</span>
+                                                <span onClick={() => removeEspecifico(espIdx)} style={{ cursor: 'pointer', color: '#ef4444', fontSize: '0.8rem', background: 'rgba(239,68,68,0.1)', padding: '2px 8px', borderRadius: 4 }}>✕ Remover Bloque</span>
                                             )}
                                         </div>
                                     </div>
@@ -809,78 +830,84 @@ export const ClinicalReasoning = () => {
                                         value={esp.texto}
                                         onChange={e => updateEspecificoTexto(espIdx, e.target.value)}
                                         placeholder="Ej: Disminuir dolor de hombro de EVA 7 a EVA ≤3 en reposo en 3 semanas"
-                                        style={{ ...textArea, minHeight: 50 }}
+                                        style={{ ...textArea, minHeight: 50, border: '1px dashed rgba(59,130,246,0.4)', background: 'rgba(255,255,255,0.02)' }}
                                     />
 
                                     {/* Operacionales */}
-                                    <div style={{ marginLeft: 16, marginTop: 8, borderLeft: '2px solid rgba(99,102,241,0.3)', paddingLeft: 12 }}>
+                                    <div style={{ marginLeft: 20, marginTop: 16, borderLeft: '2px dotted rgba(245,158,11,0.5)', paddingLeft: 16 }}>
+                                        <div style={{ fontSize: '0.75rem', fontWeight: 700, color: '#f59e0b', marginBottom: 8, textTransform: 'uppercase' }}>Intervenciones para lograr el OE {espIdx + 1}</div>
                                         {esp.operacionales.map((op, opIdx) => (
-                                            <div key={opIdx} style={{ display: 'flex', gap: 8, alignItems: 'flex-start', marginBottom: 6 }}>
-                                                <div style={{ display: 'flex', flexDirection: 'column', gap: 4, marginTop: 10, minWidth: 40 }}>
-                                                    <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)' }}>OO {opIdx + 1}</span>
-                                                    <span onClick={() => updateOperacional(espIdx, opIdx, "[Intervención] de [Estructura], dosis [Series/Reps/Frecuencia], progresando según [Tolerancia]")}
-                                                        style={{ fontSize: '0.65rem', color: '#a5b4fc', cursor: 'pointer' }}>🪄 Base</span>
+                                            <div key={opIdx} style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 12, background: 'rgba(245,158,11,0.05)', padding: '8px 12px', borderRadius: 8 }}>
+                                                <div style={{ display: 'flex', flexDirection: 'column', gap: 6, minWidth: 50 }}>
+                                                    <span style={{ fontSize: '0.75rem', fontWeight: 800, color: '#fcd34d' }}>OO {espIdx + 1}.{opIdx + 1}</span>
+                                                    <span onClick={() => updateOperacional(espIdx, opIdx, "[Intervención] en [Estructura], dosis [Series/Reps/Frecuencia], progresando según [Tolerancia]")}
+                                                        style={{ fontSize: '0.65rem', color: '#fbbf24', cursor: 'pointer', display: 'flex', alignItems: 'center', gap: 2, background: 'rgba(245,158,11,0.1)', padding: '2px 4px', borderRadius: 4 }}>🪄 Ayuda</span>
                                                 </div>
                                                 <textarea
                                                     value={op}
                                                     onChange={e => updateOperacional(espIdx, opIdx, e.target.value)}
-                                                    placeholder="Ej: Aplicar crioterapia 15 min + ejercicios isométricos..."
-                                                    style={{ ...textArea, minHeight: 40, flex: 1 }}
+                                                    placeholder="Ej: Aplicar ejercicios isométricos..."
+                                                    style={{ ...textArea, minHeight: 40, flex: 1, border: 'none', background: 'rgba(0,0,0,0.2)', padding: '8px 12px' }}
                                                 />
                                                 {esp.operacionales.length > 1 && (
                                                     <span onClick={() => removeOperacional(espIdx, opIdx)}
-                                                        style={{ cursor: 'pointer', color: '#ef4444', fontSize: '0.75rem', marginTop: 10 }}>✕</span>
+                                                        style={{ cursor: 'pointer', color: '#ef4444', fontSize: '0.85rem', padding: 4 }}>✕</span>
                                                 )}
                                             </div>
                                         ))}
                                         <button onClick={() => addOperacional(espIdx)}
-                                            style={{ width: 'auto', padding: '4px 12px', fontSize: '0.75rem', background: 'rgba(99,102,241,0.1)', border: '1px solid var(--primary)', marginTop: 4 }}>
-                                            + Agregar Operacional
+                                            style={{ width: 'auto', padding: '6px 14px', fontSize: '0.75rem', borderRadius: 20, background: 'transparent', border: '1px dashed #f59e0b', color: '#fbbf24', marginTop: 4, display: 'flex', alignItems: 'center', gap: 6 }}>
+                                            <span>+</span> Añadir Operacional (OO)
                                         </button>
                                     </div>
                                 </div>
                             ))}
 
                             <button onClick={addEspecifico}
-                                style={{ background: 'rgba(16,185,129,0.1)', border: '1px solid #10b981', color: '#10b981' }}>
-                                + Nuevo Objetivo Específico
+                                style={{ width: '100%', padding: '12px', background: 'rgba(59,130,246,0.1)', border: '2px dashed #3b82f6', color: '#60a5fa', borderRadius: 12, fontWeight: 700, marginTop: 8 }}>
+                                + Agregar Nuevo Bloque Específico
                             </button>
                         </div>
 
                         {/* ─── Pronóstico ─── */}
-                        <div style={glassCard}>
-                            <div style={sectionTitle}>4. Pronóstico</div>
+                        <div style={{ ...glassCard, position: 'relative', borderLeft: '4px solid #8b5cf6' }}>
+                            <div style={{ position: 'absolute', top: -14, left: 16, background: 'var(--base)', padding: '0 8px', fontSize: '0.75rem', fontWeight: 800, color: '#8b5cf6', border: '1px solid #8b5cf6', borderRadius: 12 }}>PASO FINAL</div>
+                            <div style={{...sectionTitle, color: '#8b5cf6'}}>Pronóstico Kinesiológico</div>
                             
-                            <div style={{ textAlign: 'center', marginBottom: 10 }}>
-                                <span style={{
-                                    fontWeight: 800, fontSize: '1.5rem',
-                                    color: pronostico >= 7 ? '#10b981' : pronostico >= 4 ? '#f59e0b' : '#ef4444',
-                                }}>
-                                    {pronostico}/10
-                                </span>
-                                <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>
-                                    {pronostico >= 7 ? 'Favorable' : pronostico >= 4 ? 'Regular' : 'Desfavorable'}
+                            <div style={{ background: 'rgba(0,0,0,0.2)', padding: 16, borderRadius: 12, marginBottom: 16 }}>
+                                <div style={{ textAlign: 'center', marginBottom: 16 }}>
+                                    <span style={{
+                                        fontWeight: 800, fontSize: '2.5rem',
+                                        color: pronostico >= 7 ? '#10b981' : pronostico >= 4 ? '#f59e0b' : '#ef4444',
+                                        textShadow: '0 0 20px rgba(0,0,0,0.5)'
+                                    }}>
+                                        {pronostico}
+                                    </span>
+                                    <div style={{ fontSize: '0.9rem', fontWeight: 700, color: pronostico >= 7 ? '#10b981' : pronostico >= 4 ? '#f59e0b' : '#ef4444', textTransform: 'uppercase', letterSpacing: 2 }}>
+                                        {pronostico >= 7 ? 'Evidencia Favorable' : pronostico >= 4 ? 'Evolución Regular' : 'Alto Riesgo (Desfavorable)'}
+                                    </div>
+                                </div>
+
+                                <div style={{ display: 'flex', alignItems: 'center', gap: 20 }}>
+                                    <span style={{ fontSize: '0.8rem', color: '#ef4444', fontWeight: 700 }}>Desfavorable</span>
+                                    <input
+                                        type="range" min={1} max={10} value={pronostico}
+                                        onChange={e => setPronostico(Number(e.target.value))}
+                                        style={{ flex: 1, margin: 0, height: 6, borderRadius: 3, accentColor: pronostico >= 7 ? '#10b981' : pronostico >= 4 ? '#f59e0b' : '#ef4444' }}
+                                    />
+                                    <span style={{ fontSize: '0.8rem', color: '#10b981', fontWeight: 700 }}>Favorable</span>
                                 </div>
                             </div>
-
-                            <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 16 }}>
-                                <span style={{ fontSize: '0.8rem', color: '#ef4444', minWidth: 70 }}>Desfavorable</span>
-                                <input
-                                    type="range" min={1} max={10} value={pronostico}
-                                    onChange={e => setPronostico(Number(e.target.value))}
-                                    style={{ flex: 1, margin: 0, padding: 0 }}
-                                />
-                                <span style={{ fontSize: '0.8rem', color: '#10b981', minWidth: 70, textAlign: 'right' }}>Favorable</span>
-                            </div>
                             
+                            <p style={{ fontSize: '0.8rem', color: 'var(--text-muted)', marginBottom: 8 }}>Justificación Biopsicosocial:</p>
                             <textarea
                                 value={justificacion}
                                 onChange={e => setJustificacion(e.target.value)}
-                                placeholder="Justifica tu pronóstico considerando: factores biológicos (tipo de tejido, fase, severidad), banderas amarillas (psicosociales), y factores contextuales..."
-                                style={{ ...textArea, minHeight: 70 }}
+                                placeholder="Justifica tu pronóstico considerando: factores biológicos (tejido, severidad), cognitivo-conductuales (miedo, catastrofización) y contextuales..."
+                                style={{ ...textArea, minHeight: 80, border: '1px dashed rgba(139,92,246,0.4)', background: 'rgba(255,255,255,0.01)' }}
                             />
                         </div>
-                    </>
+                    </div>
                 )}
 
                 {/* Submit */}
