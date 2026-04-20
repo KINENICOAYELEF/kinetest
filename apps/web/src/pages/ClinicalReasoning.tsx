@@ -631,95 +631,108 @@ export const ClinicalReasoning = () => {
                     </span>
                 </div>
 
-                {/* ─── Level 2: Visual Node Builder (Árbol) ─── */}
+                {/* ─── Level 2: Visual Mind Map Canvas (Flujograma Libre) ─── */}
                 {level === 2 ? (
-                    <div style={{ position: 'relative', marginTop: 30, paddingBottom: 40 }}>
-                        <p style={{ textAlign: 'center', color: 'var(--text-muted)', fontSize: '0.9rem', marginBottom: 40 }}>
-                            Construye tu mapa mental clínico conectando los nodos: Diagnóstico → General → Específicos → Operacionales. No hay plantillas mágicas aquí.
+                    <div style={{
+                        position: 'relative', marginTop: 30, padding: '40px 20px',
+                        background: 'radial-gradient(circle at 50% 0%, rgba(99,102,241,0.1) 0%, transparent 80%), url("data:image/svg+xml,%3Csvg width=\\\'20\\\' height=\\\'20\\\' xmlns=\\\'http://www.w3.org/2000/svg\\\'%3E%3Ccircle cx=\\\'2\\\' cy=\\\'2\\\' r=\\\'1\\\' fill=\\\'rgba(255,255,255,0.05)\\\'% /%3E%3C/svg%3E")',
+                        borderRadius: 24, border: '1px solid rgba(255,255,255,0.05)',
+                        boxShadow: 'inset 0 0 40px rgba(0,0,0,0.5)', overflow: 'hidden'
+                    }}>
+                        <p style={{ textAlign: 'center', color: '#a5b4fc', fontSize: '0.95rem', fontWeight: 600, marginBottom: 50, textShadow: '0 2px 4px rgba(0,0,0,0.5)' }}>
+                            🧠 Lienzo de Razonamiento Clínico<br/>
+                            <span style={{ fontSize: '0.75rem', color: 'var(--text-muted)', fontWeight: 400 }}>Conecta los nodos de tu red de diagnóstico a tratamiento. Modo experto activado: no hay ayudas.</span>
                         </p>
 
-                        {/* NODO Diagnóstico */}
-                        <div style={{ position: 'relative', marginBottom: 40 }}>
-                            <div style={{ position: 'absolute', left: 24, top: 40, bottom: -40, width: 2, background: 'rgba(99,102,241,0.5)' }} />
-                            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}>
-                                <div style={{ width: 50, height: 50, borderRadius: 25, zIndex: 2, background: 'var(--base)', border: '3px solid var(--primary)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', boxShadow: '0 0 15px rgba(99,102,241,0.3)' }}>🎯</div>
-                                <div style={{ flex: 1, ...glassCard, margin: 0, borderColor: 'var(--primary)', background: 'rgba(99,102,241,0.05)' }}>
-                                    <div style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--primary)', textTransform: 'uppercase', marginBottom: 8, letterSpacing: 1 }}>Nodo Raíz: Diagnóstico Kinesiológico</div>
-                                    <textarea value={diagnostico} onChange={e => setDiagnostico(e.target.value)} placeholder="Construye tu diagnóstico CIF aquí..." style={{ ...textArea, minHeight: 80, border: 'none', background: 'rgba(0,0,0,0.3)' }} />
+                        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', position: 'relative' }}>
+                            {/* Línea Central Troncal */}
+                            <div style={{ position: 'absolute', top: 30, bottom: 0, left: '50%', width: 4, marginLeft: -2, background: 'linear-gradient(to bottom, #6366f1, #10b981, #f59e0b, #7c3aed)', zIndex: 0 }} />
+
+                            {/* NODO RAÍZ: Diagnóstico */}
+                            <div style={{ position: 'relative', zIndex: 2, marginBottom: 60, width: '100%', maxWidth: 400 }}>
+                                <div style={{ 
+                                    background: '#1e1b4b', border: '2px solid #6366f1', borderRadius: 16, padding: 20,
+                                    boxShadow: '0 8px 32px rgba(99,102,241,0.3), inset 0 0 20px rgba(99,102,241,0.1)',
+                                    textAlign: 'center'
+                                }}>
+                                    <div style={{ position: 'absolute', top: -20, left: '50%', transform: 'translateX(-50%)', width: 40, height: 40, borderRadius: 20, background: '#1e1b4b', border: '3px solid #6366f1', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', boxShadow: '0 0 15px #6366f1' }}>🎯</div>
+                                    <div style={{ fontSize: '0.65rem', fontWeight: 800, color: '#818cf8', textTransform: 'uppercase', letterSpacing: 2, marginTop: 10, marginBottom: 12 }}>Diagnóstico Kinesiológico</div>
+                                    <textarea value={diagnostico} onChange={e => setDiagnostico(e.target.value)} placeholder="Construye tu diagnóstico CIF aquí..." style={{ width: '100%', minHeight: 80, background: 'transparent', border: 'none', color: '#fff', fontSize: '0.9rem', textAlign: 'center', outline: 'none', resize: 'vertical' }} />
                                 </div>
                             </div>
-                        </div>
 
-                        {/* NODO General */}
-                        <div style={{ position: 'relative', marginBottom: 40 }}>
-                            <div style={{ position: 'absolute', left: 24, top: 40, bottom: -40, width: 2, background: 'rgba(16,185,129,0.5)' }} />
-                            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}>
-                                <div style={{ width: 50, height: 50, borderRadius: 25, zIndex: 2, background: 'var(--base)', border: '3px solid #10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', boxShadow: '0 0 15px rgba(16,185,129,0.3)' }}>🏆</div>
-                                <div style={{ flex: 1, ...glassCard, margin: 0, borderColor: '#10b981', background: 'rgba(16,185,129,0.05)' }}>
-                                    <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#10b981', textTransform: 'uppercase', marginBottom: 8, letterSpacing: 1 }}>Nodo Principal: Objetivo General</div>
-                                    <textarea value={objGeneral} onChange={e => setObjGeneral(e.target.value)} placeholder="Redacta el objetivo general clínico..." style={{ ...textArea, minHeight: 60, border: 'none', background: 'rgba(0,0,0,0.3)' }} />
+                            {/* NODO PRINCIPAL: General */}
+                            <div style={{ position: 'relative', zIndex: 2, marginBottom: 60, width: '100%', maxWidth: 350 }}>
+                                <div style={{ 
+                                    background: '#022c22', border: '2px solid #10b981', borderRadius: 16, padding: 20,
+                                    boxShadow: '0 8px 32px rgba(16,185,129,0.3)', textAlign: 'center'
+                                }}>
+                                    <div style={{ position: 'absolute', top: -20, left: '50%', transform: 'translateX(-50%)', width: 40, height: 40, borderRadius: 20, background: '#022c22', border: '3px solid #10b981', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', boxShadow: '0 0 15px #10b981' }}>🏆</div>
+                                    <div style={{ fontSize: '0.65rem', fontWeight: 800, color: '#34d399', textTransform: 'uppercase', letterSpacing: 2, marginTop: 10, marginBottom: 12 }}>Objetivo General</div>
+                                    <textarea value={objGeneral} onChange={e => setObjGeneral(e.target.value)} placeholder="El fin funcional último..." style={{ width: '100%', minHeight: 60, background: 'transparent', border: 'none', color: '#fff', fontSize: '0.9rem', textAlign: 'center', outline: 'none', resize: 'vertical' }} />
                                 </div>
                             </div>
-                        </div>
 
-                        {/* RAMAS Específicas / Operacionales */}
-                        <div style={{ position: 'relative' }}>
-                            {especificos.map((esp, espIdx) => (
-                                <div key={espIdx} style={{ position: 'relative', marginBottom: 40 }}>
-                                    {/* Vertical branch continuing from general if it's the last one? No, just a branch line */}
-                                    <div style={{ position: 'absolute', left: 24, top: -40, bottom: 20, width: 2, background: 'rgba(255,255,255,0.1)' }} />
-                                    {/* Horizontal connector to Específico */}
-                                    <div style={{ position: 'absolute', left: 24, top: 20, width: 30, height: 2, background: 'rgba(255,255,255,0.1)' }} />
-                                    
-                                    <div style={{ display: 'flex', alignItems: 'flex-start', gap: 12, paddingLeft: 42 }}>
-                                        <div style={{ width: 36, height: 36, borderRadius: 8, zIndex: 2, background: 'var(--base)', border: '2px solid rgba(255,255,255,0.5)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1rem', marginTop: 2 }}>📍</div>
-                                        <div style={{ flex: 1, ...glassCard, margin: 0, borderColor: 'rgba(255,255,255,0.2)' }}>
-                                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 8 }}>
-                                                <div style={{ fontSize: '0.75rem', fontWeight: 800, color: 'var(--text-muted)', textTransform: 'uppercase', letterSpacing: 1 }}>Nodo Secundario: Objetivo Específico {espIdx + 1}</div>
-                                                {especificos.length > 1 && <span onClick={() => removeEspecifico(espIdx)} style={{ cursor: 'pointer', color: '#ef4444', fontSize: '0.75rem' }}>✕ Eliminar Rama</span>}
-                                            </div>
-                                            <textarea value={esp.texto} onChange={e => updateEspecificoTexto(espIdx, e.target.value)} placeholder="Redacta la variable específica a modificar..." style={{ ...textArea, minHeight: 50, border: 'none', background: 'rgba(0,0,0,0.3)' }} />
+                            {/* RAMAS: Específicos & Operativos */}
+                            <div style={{ width: '100%', position: 'relative', zIndex: 2 }}>
+                                {especificos.map((esp, espIdx) => (
+                                    <div key={espIdx} style={{ position: 'relative', marginBottom: 50, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', paddingLeft: '50%' }}>
+                                        
+                                        {/* Nodo Específico (Derecha) */}
+                                        <div style={{ 
+                                            position: 'relative', width: '90%', maxWidth: 300,
+                                            background: '#172554', border: '2px solid #3b82f6', borderRadius: 16, padding: 16,
+                                            boxShadow: '0 8px 24px rgba(59,130,246,0.2)', marginLeft: 30
+                                        }}>
+                                            {/* Conector horizontal desde el tronco central */}
+                                            <div style={{ position: 'absolute', left: -32, top: 30, width: 30, height: 4, background: '#3b82f6' }} />
+                                            {/* Punto de unión */}
+                                            <div style={{ position: 'absolute', left: -36, top: 26, width: 12, height: 12, borderRadius: 6, background: '#3b82f6', boxShadow: '0 0 10px #3b82f6' }} />
                                             
-                                            {/* Sub-nodos Operacionales */}
-                                            <div style={{ marginTop: 20, paddingLeft: 20, position: 'relative' }}>
-                                                <div style={{ position: 'absolute', left: 5, top: 0, bottom: 20, width: 2, background: 'rgba(255,255,255,0.1)' }} />
+                                            <div style={{ display: 'flex', justifyContent: 'space-between', marginBottom: 12, borderBottom: '1px solid rgba(59,130,246,0.5)', paddingBottom: 8 }}>
+                                                <span style={{ fontSize: '0.65rem', fontWeight: 800, color: '#93c5fd', textTransform: 'uppercase', letterSpacing: 1 }}>📍 Objetivo Específico</span>
+                                                {especificos.length > 1 && <span onClick={() => removeEspecifico(espIdx)} style={{ cursor: 'pointer', color: '#ef4444', fontSize: '1rem', lineHeight: 1 }}>×</span>}
+                                            </div>
+                                            <textarea value={esp.texto} onChange={e => updateEspecificoTexto(espIdx, e.target.value)} placeholder="Meta de la deficiencia..." style={{ width: '100%', minHeight: 40, background: 'transparent', border: 'none', color: '#fff', fontSize: '0.85rem', outline: 'none', resize: 'vertical' }} />
+                                            
+                                            {/* Nodos Operativos asociados (Hijos del específico) */}
+                                            <div style={{ marginTop: 20, display: 'flex', flexDirection: 'column', gap: 10 }}>
                                                 {esp.operacionales.map((op, opIdx) => (
-                                                    <div key={opIdx} style={{ position: 'relative', marginBottom: 16, display: 'flex', alignItems: 'center', gap: 12 }}>
-                                                        <div style={{ position: 'absolute', left: -15, top: '50%', width: 15, height: 2, background: 'rgba(255,255,255,0.1)' }} />
-                                                        <div style={{ width: 14, height: 14, borderRadius: 7, zIndex: 2, background: 'var(--base)', border: '4px solid #f59e0b' }}></div>
-                                                        <textarea value={op} onChange={e => updateOperacional(espIdx, opIdx, e.target.value)} placeholder="Intervención clínica, dosis y criterio..." style={{ ...textArea, minHeight: 40, flex: 1, border: '1px solid rgba(245,158,11,0.2)', background: 'rgba(245,158,11,0.02)', padding: '10px 14px' }} />
-                                                        {esp.operacionales.length > 1 && <span onClick={() => removeOperacional(espIdx, opIdx)} style={{ cursor: 'pointer', color: '#ef4444', fontSize: '0.75rem' }}>✕</span>}
+                                                    <div key={opIdx} style={{ 
+                                                        position: 'relative', background: '#451a03', border: '1px solid #f59e0b', borderRadius: 8, padding: '10px 12px',
+                                                        display: 'flex', alignItems: 'flex-start', gap: 8
+                                                    }}>
+                                                        <div style={{ width: 8, height: 8, borderRadius: 4, background: '#f59e0b', marginTop: 6, flexShrink: 0, boxShadow: '0 0 8px #f59e0b' }} />
+                                                        <textarea value={op} onChange={e => updateOperacional(espIdx, opIdx, e.target.value)} placeholder="Procedimiento..." style={{ width: '100%', minHeight: 30, background: 'transparent', border: 'none', color: '#fde68a', fontSize: '0.8rem', outline: 'none', resize: 'vertical' }} />
+                                                        {esp.operacionales.length > 1 && <span onClick={() => removeOperacional(espIdx, opIdx)} style={{ cursor: 'pointer', color: '#ef4444', fontSize: '0.9rem', lineHeight: 1 }}>×</span>}
                                                     </div>
                                                 ))}
-                                                <button onClick={() => addOperacional(espIdx)} style={{ marginLeft: 20, padding: '6px 14px', fontSize: '0.8rem', background: 'transparent', border: '1px dashed rgba(255,255,255,0.3)', color: 'var(--text-secondary)', borderRadius: 20 }}>+ Nodo Operativo (Intervención)</button>
+                                                <button onClick={() => addOperacional(espIdx)} style={{ alignSelf: 'flex-start', padding: '4px 10px', fontSize: '0.7rem', background: 'transparent', border: '1px solid #f59e0b', color: '#fbbf24', borderRadius: 12 }}>+ Operativo</button>
                                             </div>
                                         </div>
                                     </div>
-                                </div>
-                            ))}
-                            
-                            <button onClick={addEspecifico} style={{ marginLeft: 65, padding: '8px 20px', fontSize: '0.85rem', background: 'transparent', border: '2px dashed rgba(255,255,255,0.2)', color: 'var(--text-primary)', borderRadius: 20, fontWeight: 700 }}>
-                                + Abrir Nueva Rama (Objetivo Específico)
-                            </button>
-                        </div>
-                        
-                        {/* NODO Pronóstico Cierre */}
-                        <div style={{ position: 'relative', marginTop: 40 }}>
-                            <div style={{ position: 'absolute', left: 24, top: -70, bottom: '50%', width: 2, background: 'rgba(255,255,255,0.1)' }} />
-                            <div style={{ display: 'flex', alignItems: 'flex-start', gap: 16 }}>
-                                <div style={{ width: 50, height: 50, borderRadius: 25, zIndex: 2, background: 'var(--base)', border: '3px solid #7c3aed', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', boxShadow: '0 0 15px rgba(124,58,237,0.3)' }}>🔮</div>
-                                <div style={{ flex: 1, ...glassCard, margin: 0, borderColor: '#7c3aed', background: 'rgba(124,58,237,0.05)' }}>
-                                    <div style={{ fontSize: '0.75rem', fontWeight: 800, color: '#c4b5fd', textTransform: 'uppercase', marginBottom: 16, letterSpacing: 1 }}>Nodo Cierre: Integración y Pronóstico</div>
-                                    <div style={{ textAlign: 'center', marginBottom: 16 }}>
-                                        <span style={{ fontWeight: 800, fontSize: '1.5rem', color: pronostico >= 7 ? '#10b981' : pronostico >= 4 ? '#f59e0b' : '#ef4444' }}>{pronostico}/10</span>
-                                        <div style={{ fontSize: '0.8rem', color: 'var(--text-muted)' }}>{pronostico >= 7 ? 'Favorable' : pronostico >= 4 ? 'Regular' : 'Desfavorable'}</div>
+                                ))}
+
+                                <button onClick={addEspecifico} style={{ position: 'relative', left: '50%', transform: 'translateX(-50%)', padding: '10px 24px', fontSize: '0.85rem', background: '#0f172a', border: '2px solid #64748b', color: '#cbd5e1', borderRadius: 24, fontWeight: 700, boxShadow: '0 4px 15px rgba(0,0,0,0.3)', zIndex: 3, marginTop: -10 }}>
+                                    + Bifurcar Nueva Rama (O. Específico)
+                                </button>
+                            </div>
+
+                            {/* NODO FINAL: Pronóstico */}
+                            <div style={{ position: 'relative', zIndex: 2, marginTop: 70, width: '100%', maxWidth: 350 }}>
+                                <div style={{ 
+                                    background: '#2e1065', border: '2px solid #8b5cf6', borderRadius: 16, padding: 20,
+                                    boxShadow: '0 8px 32px rgba(139,92,246,0.3)', textAlign: 'center'
+                                }}>
+                                    <div style={{ position: 'absolute', top: -20, left: '50%', transform: 'translateX(-50%)', width: 40, height: 40, borderRadius: 20, background: '#2e1065', border: '3px solid #8b5cf6', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: '1.2rem', boxShadow: '0 0 15px #8b5cf6' }}>🔮</div>
+                                    <div style={{ fontSize: '0.65rem', fontWeight: 800, color: '#c4b5fd', textTransform: 'uppercase', letterSpacing: 2, marginTop: 10, marginBottom: 16 }}>Nodo Cierre: Pronóstico</div>
+                                    
+                                    <div style={{ marginBottom: 16 }}>
+                                        <div style={{ fontWeight: 800, fontSize: '2rem', color: pronostico >= 7 ? '#10b981' : pronostico >= 4 ? '#f59e0b' : '#ef4444', lineHeight: 1 }}>{pronostico}/10</div>
                                     </div>
-                                    <div style={{ display: 'flex', alignItems: 'center', gap: 16, marginBottom: 20 }}>
-                                        <span style={{ fontSize: '0.75rem', color: '#ef4444' }}>Desfavorable</span>
-                                        <input type="range" min={1} max={10} value={pronostico} onChange={e => setPronostico(Number(e.target.value))} style={{ flex: 1, margin: 0 }} />
-                                        <span style={{ fontSize: '0.75rem', color: '#10b981' }}>Favorable</span>
-                                    </div>
-                                    <textarea value={justificacion} onChange={e => setJustificacion(e.target.value)} placeholder="Justifica fisiológicamente el mapa clínico superior..." style={{ ...textArea, minHeight: 70, border: 'none', background: 'rgba(0,0,0,0.3)' }} />
+                                    <input type="range" min={1} max={10} value={pronostico} onChange={e => setPronostico(Number(e.target.value))} style={{ width: '100%', marginBottom: 20, accentColor: '#8b5cf6' }} />
+                                    
+                                    <textarea value={justificacion} onChange={e => setJustificacion(e.target.value)} placeholder="Justificación biológica y funcional de la red..." style={{ width: '100%', minHeight: 60, background: 'transparent', border: 'none', borderTop: '1px solid rgba(139,92,246,0.3)', paddingTop: 16, color: '#ddd', fontSize: '0.85rem', textAlign: 'center', outline: 'none', resize: 'vertical' }} />
                                 </div>
                             </div>
                         </div>
