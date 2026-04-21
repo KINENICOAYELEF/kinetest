@@ -34,6 +34,7 @@ function App() {
                     
                     {/* Standalone Route para Estudiantes (Sin Auth obligatorio) */}
                     <Route path="/simulador" element={<VoicePatientSimulator />} />
+                    <Route path="/auditoria" element={<ClinicalReasoning standaloneMode={3} />} />
 
                     {/* Protected Route for Students */}
                     <Route element={<ProtectedRoute allowedRole="student" />}>

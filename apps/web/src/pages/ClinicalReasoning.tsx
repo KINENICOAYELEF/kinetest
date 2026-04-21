@@ -58,7 +58,8 @@ type Phase = 'menu' | 'loading' | 'working' | 'evaluating' | 'results';
 const TOTAL_TIME = 600; // 10 minutes in seconds
 
 // ─── Component ────────────────────────────────────
-export const ClinicalReasoning = () => {
+interface CRProps { standaloneMode?: Level }
+export const ClinicalReasoning = ({ standaloneMode }: CRProps = {}) => {
     const { userProfile } = useAuth();
     const navigate = useNavigate();
     const { generate, loading: aiLoading } = useGeminiText({ parseJson: true });
@@ -261,69 +262,58 @@ export const ClinicalReasoning = () => {
 
     // ─── RENDER: Menu ─────────────────────────────
     if (phase === 'menu') {
+        const renderModeCard = (mode: Level, emoji: string, title: string, desc: string, color: string) => {
+            if (standaloneMode && standaloneMode !== mode) return null;
+            return (
+                <div key={mode} style={{ ...glassCard, borderColor: color }}>
+                    <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 16 }}>
+                        <span style={{ fontSize: '2rem' }}>{emoji}</span>
+                        <div>
+                            <h3 style={{ margin: 0, fontSize: '1.1rem', background: 'none', WebkitTextFillColor: 'white', textAlign: 'left', color }}>
+                                {title}
+                            </h3>
+                            <p style={{ margin: 0, fontSize: '0.85rem' }}>
+                                {desc}
+                            </p>
+                        </div>
+                    </div>
+                    <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+                        <input
+                            type="text"
+                            value={customTopic}
+                            onChange={(e) => setCustomTopic(e.target.value)}
+                            onClick={(e) => e.stopPropagation()}
+                            placeholder={standaloneMode ? "Escribe el tema de tu examen clínico..." : "Tema específico del caso (Ej: Esguince)..."}
+                            style={{ flex: 1, padding: '10px 14px', borderRadius: 8, background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', fontSize: '0.85rem', outline: 'none' }}
+                        />
+                        <button
+                            onClick={() => startSession(mode)}
+                            disabled={aiLoading}
+                            style={{ padding: '10px 20px', background: color, color: '#fff', border: 'none', borderRadius: 8, fontWeight: 700, cursor: aiLoading ? 'wait' : 'pointer' }}
+                        >
+                            {aiLoading ? '...' : 'Entrar'}
+                        </button>
+                    </div>
+                </div>
+            );
+        };
+
         return (
             <div className="container" style={{ maxWidth: 600 }}>
                 <h1>🧠 Razonamiento Clínico</h1>
                 <p style={{ textAlign: 'center' }}>Diagnóstico, Objetivos y Pronóstico — Casos MSK/Deportivos generados por IA</p>
 
-                <div style={{ marginTop: 24, padding: 16, background: 'rgba(255,255,255,0.03)', borderRadius: 16, border: '1px solid var(--glass-border)' }}>
-                    <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 8, fontWeight: 700 }}>TEMA DEL CASO (Opcional)</label>
-                    <input 
-                        type="text" 
-                        value={customTopic} 
-                        onChange={(e) => setCustomTopic(e.target.value)} 
-                        placeholder="Ej: Lumbago mecánico en oficinista, o Parálisis facial..." 
-                        style={{ width: '100%', padding: '12px 16px', borderRadius: 8, background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', fontSize: '0.9rem', outline: 'none' }}
-                    />
-                </div>
-
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginTop: 30 }}>
-                    <div onClick={() => startSession(1)} style={{ ...glassCard, cursor: 'pointer', borderColor: 'var(--primary)' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                            <span style={{ fontSize: '2rem' }}>🏗️</span>
-                            <div>
-                                <h3 style={{ margin: 0, fontSize: '1.1rem', background: 'none', WebkitTextFillColor: 'white', textAlign: 'left' }}>
-                                    Modo 1: Entorno Guiado
-                                </h3>
-                                <p style={{ margin: 0, fontSize: '0.85rem' }}>
-                                    Guías visuales + tarjetas por deficiencia. Para aprender la estructura.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div onClick={() => startSession(2)} style={{ ...glassCard, cursor: 'pointer' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                            <span style={{ fontSize: '2rem' }}>🌳</span>
-                            <div>
-                                <h3 style={{ margin: 0, fontSize: '1.1rem', background: 'none', WebkitTextFillColor: 'white', textAlign: 'left' }}>
-                                    Modo 2: Arquitecto Clínico
-                                </h3>
-                                <p style={{ margin: 0, fontSize: '0.85rem' }}>
-                                    Árbol dinámico sin guías. Crea los objetivos que necesites.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div onClick={() => startSession(3)} style={{ ...glassCard, cursor: 'pointer' }}>
-                        <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
-                            <span style={{ fontSize: '2rem' }}>🔍</span>
-                            <div>
-                                <h3 style={{ margin: 0, fontSize: '1.1rem', background: 'none', WebkitTextFillColor: 'white', textAlign: 'left' }}>
-                                    Nivel 3: Auditor Clínico
-                                </h3>
-                                <p style={{ margin: 0, fontSize: '0.85rem' }}>
-                                    Encuentra y corrige 3 errores en el plan de otro practicante.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
+                    {renderModeCard(1, '🏗️', 'Modo 1: Entorno Guiado', 'Para aprender la estructura de evaluación.', 'var(--primary)')}
+                    {renderModeCard(2, '🌳', 'Modo 2: Arquitecto Clínico', 'Crea objetivos y enlázalos en tu piscina quirúrgica.', '#10b981')}
+                    {renderModeCard(3, '🔍', 'Modo 3: Auditoría Clínica', 'Audita un caso de otro practicante.', '#f59e0b')}
                 </div>
 
-                <button onClick={() => navigate('/home')} style={{ marginTop: 20, background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)' }}>
-                    ← Volver al Inicio
-                </button>
+                {!standaloneMode && (
+                    <button onClick={() => navigate('/home')} style={{ marginTop: 20, background: 'rgba(255,255,255,0.05)', border: '1px solid var(--glass-border)' }}>
+                        ← Volver al Inicio
+                    </button>
+                )}
             </div>
         );
     }
