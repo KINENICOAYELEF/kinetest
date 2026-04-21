@@ -9,11 +9,11 @@
  * Generates a random MSK/Sports clinical case for the student.
  * Returns structured JSON with patient data, findings, and hidden yellow flags.
  */
-export const CASE_GENERATION_PROMPT = `Eres un generador de casos clínicos de Kinesiología Musculoesquelética y Deportiva.
+export const CASE_GENERATION_PROMPT = (customTopic?: string) => `Eres un generador de casos clínicos de Kinesiología Musculoesquelética y Deportiva.
 
 INSTRUCCIONES:
-1. Genera UN caso clínico ALEATORIO. Alterna entre patologías agudas, subagudas y crónicas.
-2. Varía: edad (18-70), sexo, ocupación, deporte (si aplica), mecanismo de lesión.
+1. Genera UN caso clínico ALEATORIO. Alterna entre patologías agudas, subagudas y crónicas. ${customTopic ? `\n¡ATENCIÓN! EL USUARIO HA SOLICITADO ESPECÍFICAMENTE QUE EL CASO SE TRATE DE: "${customTopic}". PRIORIZA ESTE TEMA COMO NÚCLEO CENTRAL DEL CASO.` : ""}
+2. Crea una anamnesis DETALLADA Y EXTENSA. No te limites, incluye rutinas de la persona, cómo le afecta en su día a día, y miedos específicos.
 3. SIEMPRE incluye al menos 1 bandera amarilla psicosocial (kinesiofobia, catastrofización, mal sueño, estrés laboral, baja autoeficacia, problemas familiares).
 4. SIEMPRE incluye al menos 1 comorbilidad o factor contextual relevante (diabetes, HTA, obesidad, sedentarismo, embarazo, edad avanzada, deportista de élite vs recreativo).
 5. Los hallazgos de evaluación DEBEN ser específicos con números (ROM en grados, EVA numérico, tests con resultado +/-).
@@ -174,11 +174,11 @@ NO inventes referencias bibliográficas ni agregues texto fuera del JSON. Respon
 /**
  * Prompt for Auditor Mode: generates a clinical plan WITH intentional errors.
  */
-export function buildAuditorCasePrompt(): string {
+export function buildAuditorCasePrompt(customTopic?: string): string {
     return `Eres un generador de casos clínicos de Kinesiología MSK/Deportiva.
 
-TAREA: Genera un caso clínico COMPLETO que incluya:
-1. Los datos del paciente y hallazgos (misma estructura que un caso normal)
+TAREA: Genera un caso clínico MUY EXTENSO Y DETALLADO que incluya:
+1. Los datos del paciente y hallazgos (usa la misma estructura JSON de un caso clínico normal, pero haz la historia y evaluación MUY NARRATIVA Y RICA EN DETALLES, al menos el triple de largo que lo normal). ${customTopic ? `\n\n¡ATENCIÓN! EL USUARIO PIDIÓ ESTE TEMA ESPECÍFICO: "${customTopic}". El caso debe girar en torno a esto.` : ""}
 2. Un "Plan Kinesiológico" supuestamente escrito por un practicante novato, que contenga EXACTAMENTE 3 ERRORES CLÍNICOS OCULTOS.
 
 TIPOS DE ERRORES A INYECTAR (elige 3 distintos):

@@ -66,6 +66,7 @@ export const ClinicalReasoning = () => {
     // State
     const [level, setLevel] = useState<Level>(1);
     const [phase, setPhase] = useState<Phase>('menu');
+    const [customTopic, setCustomTopic] = useState('');
     const [caseData, setCaseData] = useState<CaseData | null>(null);
     const [timeLeft, setTimeLeft] = useState(TOTAL_TIME);
     const [results, setResults] = useState<any>(null);
@@ -115,7 +116,7 @@ export const ClinicalReasoning = () => {
 
         if (selectedLevel === 3) {
             // Auditor mode: generate case WITH errors
-            const data = await generate(buildAuditorCasePrompt());
+            const data = await generate(buildAuditorCasePrompt(customTopic));
             if (data && typeof data === 'object' && data.caso) {
                 setAuditorData(data);
                 setCaseData(data.caso);
@@ -129,7 +130,7 @@ export const ClinicalReasoning = () => {
             }
         } else {
             // Normal mode: generate clean case
-            const data = await generate(CASE_GENERATION_PROMPT);
+            const data = await generate(CASE_GENERATION_PROMPT(customTopic));
             if (data && typeof data === 'object' && data.paciente) {
                 setCaseData(data);
                 setTimeLeft(TOTAL_TIME);
@@ -265,13 +266,24 @@ export const ClinicalReasoning = () => {
                 <h1>🧠 Razonamiento Clínico</h1>
                 <p style={{ textAlign: 'center' }}>Diagnóstico, Objetivos y Pronóstico — Casos MSK/Deportivos generados por IA</p>
 
+                <div style={{ marginTop: 24, padding: 16, background: 'rgba(255,255,255,0.03)', borderRadius: 16, border: '1px solid var(--glass-border)' }}>
+                    <label style={{ display: 'block', fontSize: '0.85rem', color: 'var(--text-muted)', marginBottom: 8, fontWeight: 700 }}>TEMA DEL CASO (Opcional)</label>
+                    <input 
+                        type="text" 
+                        value={customTopic} 
+                        onChange={(e) => setCustomTopic(e.target.value)} 
+                        placeholder="Ej: Lumbago mecánico en oficinista, o Parálisis facial..." 
+                        style={{ width: '100%', padding: '12px 16px', borderRadius: 8, background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', fontSize: '0.9rem', outline: 'none' }}
+                    />
+                </div>
+
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginTop: 30 }}>
                     <div onClick={() => startSession(1)} style={{ ...glassCard, cursor: 'pointer', borderColor: 'var(--primary)' }}>
                         <div style={{ display: 'flex', alignItems: 'center', gap: 12 }}>
                             <span style={{ fontSize: '2rem' }}>🏗️</span>
                             <div>
                                 <h3 style={{ margin: 0, fontSize: '1.1rem', background: 'none', WebkitTextFillColor: 'white', textAlign: 'left' }}>
-                                    Nivel 1: El Andamio
+                                    Modo 1: Entorno Guiado
                                 </h3>
                                 <p style={{ margin: 0, fontSize: '0.85rem' }}>
                                     Guías visuales + tarjetas por deficiencia. Para aprender la estructura.
