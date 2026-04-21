@@ -234,6 +234,13 @@ export const ClinicalReasoning = ({ standaloneMode }: CRProps = {}) => {
         const hasLink = op.linkedOEs.includes(espIdx);
         return { ...op, linkedOEs: hasLink ? op.linkedOEs.filter(id => id !== espIdx) : [...op.linkedOEs, espIdx] };
     }));
+    
+    const glassCard: React.CSSProperties = {
+        padding: 24, borderRadius: 16, background: 'rgba(255,255,255,0.03)',
+        border: '1px solid var(--glass-border)', boxShadow: '0 8px 32px rgba(0,0,0,0.2)',
+        backdropFilter: 'blur(12px)', WebkitBackdropFilter: 'blur(12px)',
+        marginBottom: 20, position: 'relative', overflow: 'hidden'
+    };
     const timerStyle: React.CSSProperties = {
         position: 'fixed', top: 16, right: 16, zIndex: 999,
         background: timeLeft <= 60 ? 'rgba(239,68,68,0.9)' : 'rgba(99,102,241,0.9)',
@@ -736,14 +743,14 @@ export const ClinicalReasoning = ({ standaloneMode }: CRProps = {}) => {
                                     </div>
                                     
                                     <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                                        {poolOperativos.map((op, opIdx) => (
+                                        {poolOperativos.map((op) => (
                                             <div key={op.id} style={{ display: 'flex', gap: 12, alignItems: 'flex-start', background: 'rgba(0,0,0,0.3)', padding: 12, borderRadius: 12 }}>
                                                 <div style={{ width: 12, height: 12, borderRadius: 6, background: '#f59e0b', marginTop: 12, flexShrink: 0, boxShadow: '0 0 10px #f59e0b' }} />
                                                 <div style={{ flex: 1 }}>
                                                     <textarea value={op.texto} onChange={e => updatePoolOperativoTexto(op.id, e.target.value)} placeholder="Ej: Ejercicio excéntrico..." style={{ width: '100%', minHeight: 40, background: 'transparent', border: 'none', color: '#fde68a', fontSize: '0.85rem', outline: 'none', resize: 'vertical', borderBottom: '1px solid rgba(245,158,11,0.3)', marginBottom: 8 }} />
                                                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 8 }}>
                                                         <span style={{ fontSize: '0.7rem', color: '#f59e0b', display: 'flex', alignItems: 'center' }}>Ataca:</span>
-                                                        {especificos.map((esp, eIdx) => {
+                                                        {especificos.map((_, eIdx) => {
                                                             const isLinked = op.linkedOEs.includes(eIdx);
                                                             return (
                                                                 <button key={eIdx} onClick={() => togglePoolLink(op.id, eIdx)} style={{ padding: '2px 8px', fontSize: '0.7rem', borderRadius: 12, background: isLinked ? '#3b82f6' : 'rgba(255,255,255,0.1)', color: isLinked ? 'white' : 'var(--text-muted)', border: `1px solid ${isLinked ? '#3b82f6' : 'rgba(255,255,255,0.2)'}` }}>
