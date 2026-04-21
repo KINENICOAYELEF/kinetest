@@ -284,19 +284,19 @@ export const ClinicalReasoning = ({ standaloneMode }: CRProps = {}) => {
                             </p>
                         </div>
                     </div>
-                    <div style={{ display: 'flex', gap: 10, alignItems: 'center' }}>
+                    <div style={{ display: 'flex', gap: 10, alignItems: 'stretch' }}>
                         <input
                             type="text"
                             value={customTopic}
                             onChange={(e) => setCustomTopic(e.target.value)}
                             onClick={(e) => e.stopPropagation()}
                             placeholder={standaloneMode ? "Escribe el tema de tu examen clínico..." : "Tema específico del caso (Ej: Esguince)..."}
-                            style={{ flex: 1, padding: '10px 14px', borderRadius: 8, background: 'rgba(0,0,0,0.2)', border: '1px solid rgba(255,255,255,0.1)', color: 'white', fontSize: '0.85rem', outline: 'none' }}
+                            style={{ flex: 1, minWidth: '100px', width: '100%', padding: '12px 14px', borderRadius: 8, background: 'rgba(255,255,255,0.05)', border: '1px solid rgba(255,255,255,0.2)', color: 'white', fontSize: '0.9rem', outline: 'none' }}
                         />
                         <button
                             onClick={() => startSession(mode)}
                             disabled={aiLoading}
-                            style={{ padding: '10px 20px', background: color, color: '#fff', border: 'none', borderRadius: 8, fontWeight: 700, cursor: aiLoading ? 'wait' : 'pointer' }}
+                            style={{ padding: '12px 24px', background: color, color: '#fff', border: 'none', borderRadius: 8, fontWeight: 700, cursor: aiLoading ? 'wait' : 'pointer', whiteSpace: 'nowrap', width: 'auto', flexShrink: 0 }}
                         >
                             {aiLoading ? '...' : 'Entrar'}
                         </button>

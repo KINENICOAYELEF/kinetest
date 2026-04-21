@@ -9,24 +9,15 @@
  * Generates a random MSK/Sports clinical case for the student.
  * Returns structured JSON with patient data, findings, and hidden yellow flags.
  */
-export const CASE_GENERATION_PROMPT = (customTopic?: string) => `Eres un generador de casos clínicos de Kinesiología Musculoesquelética y Deportiva.
+export const CASE_GENERATION_PROMPT = (customTopic?: string) => `Eres un generador Experto de casos clínicos de Kinesiología (Fisioterapia) Musculoesquelética y Deportiva de nivel avanzado.
 
-INSTRUCCIONES:
-1. Genera UN caso clínico ALEATORIO. Alterna entre patologías agudas, subagudas y crónicas. ${customTopic ? `\n¡ATENCIÓN! EL USUARIO HA SOLICITADO ESPECÍFICAMENTE QUE EL CASO SE TRATE DE: "${customTopic}". PRIORIZA ESTE TEMA COMO NÚCLEO CENTRAL DEL CASO.` : ""}
-2. Crea una anamnesis DETALLADA Y EXTENSA. No te limites, incluye rutinas de la persona, cómo le afecta en su día a día, y miedos específicos.
-3. SIEMPRE incluye al menos 1 bandera amarilla psicosocial (kinesiofobia, catastrofización, mal sueño, estrés laboral, baja autoeficacia, problemas familiares).
-4. SIEMPRE incluye al menos 1 comorbilidad o factor contextual relevante (diabetes, HTA, obesidad, sedentarismo, embarazo, edad avanzada, deportista de élite vs recreativo).
-5. Los hallazgos de evaluación DEBEN ser específicos con números (ROM en grados, EVA numérico, tests con resultado +/-).
-
-PATOLOGÍAS POSIBLES (elige 1 al azar):
-- Hombro: tendinopatía del manguito rotador, hombro congelado, inestabilidad glenohumeral, síndrome subacromial
-- Rodilla: LCA (pre/post-op), meniscopatía, condromalacia patelar, tendinopatía patelar, esguince LCM
-- Tobillo: esguince lateral crónico, inestabilidad crónica, tendinopatía aquílea, fascitis plantar
-- Columna lumbar: lumbago mecánico, hernia discal L4-L5/L5-S1, estenosis, dolor crónico inespecífico
-- Columna cervical: cervicalgia mecánica, radiculopatía cervical, latigazo cervical
-- Cadera: síndrome femoroacetabular, trocanteritis, bursitis, artrosis
-- Codo/muñeca: epicondilalgia lateral, síndrome túnel carpiano, De Quervain
-- Musculares: desgarro muscular (isquiotibial, cuádriceps, gastrocnemio, aductor), contractura recurrente
+INSTRUCCIONES CRÍTICAS DE CALIDAD:
+1. Genera UN caso clínico ALEATORIO. ${customTopic ? `
+¡ATENCIÓN! EL USUARIO PIDIÓ ESTE TEMA ESPECÍFICO: "${customTopic}". PRIORIZA ESTE TEMA COMO NÚCLEO CENTRAL DEL CASO.` : "Alterna entre patologías agudas, subagudas y crónicas."}
+2. HISTORIA CLÍNICA MASIVA: La "anamnesis" y "evaluación física" deben ser EXTREMADAMENTE LARGAS, hiper-detalladas y redactadas en párrafos narrativos profundos. Describe minuciosamente el historial biopsicosocial, las rutinas laborales, deportivas, el mecanismo de lesión paso a paso, miedos del paciente, y cómo le afecta la restricción en su calidad de vida. No escatimes en palabras (usa al menos 200 palabras por sección).
+3. BASADO EN EVIDENCIA: Utiliza nomenclatura clínica actual, pruebas ortopédicas validadas (citando sensibilidad/especificidad implícitamente o describiendo el hallazgo biomecánico exacto), e instrumentos de medición reales (ej: VISA-A, Kujala, RMQ, etc.).
+4. YELLOW FLAGS & CONTEXTO: INCLUYE al menos 2 banderas amarillas psicosociales (ej. kinesiofobia severa medida por TSK-11, catastrofización, estrés extremo) y al menos 2 comorbilidades reales (ej. Síndrome Metabólico, Diabetes tipo II, historia previa de corticosteroides).
+5. HALLAZGOS OBJETIVOS: Números exactos. ROM en grados, fuerza en dinamometría o escala de Daniels modificada, déficits de control motor observados en test funcionales (ej. Y-Balance Test, Drop Jump).
 
 FORMATO DE RESPUESTA (JSON estricto):
 {
@@ -175,45 +166,45 @@ NO inventes referencias bibliográficas ni agregues texto fuera del JSON. Respon
  * Prompt for Auditor Mode: generates a clinical plan WITH intentional errors.
  */
 export function buildAuditorCasePrompt(customTopic?: string): string {
-    return `Eres un generador de casos clínicos de Kinesiología MSK/Deportiva.
+    return `Eres un generador Experto de casos clínicos para un simulador de Auditoría en Kinesiología.
 
-TAREA: Genera un caso clínico MUY EXTENSO Y DETALLADO que incluya:
-1. Los datos del paciente y hallazgos (usa la misma estructura JSON de un caso clínico normal, pero haz la historia y evaluación MUY NARRATIVA Y RICA EN DETALLES, al menos el triple de largo que lo normal). ${customTopic ? `\n\n¡ATENCIÓN! EL USUARIO PIDIÓ ESTE TEMA ESPECÍFICO: "${customTopic}". El caso debe girar en torno a esto.` : ""}
-2. Un "Plan Kinesiológico" supuestamente escrito por un practicante novato, que contenga EXACTAMENTE 3 ERRORES CLÍNICOS OCULTOS.
+TAREA: 
+1. Genera un caso clínico biomédico y psicosocial EXTREMADAMENTE LARGO, de nivel experto, basado en evidencia actualizada. La "anamnesis" y "evaluacion_fisica" deben ser altamente narrativas y densas en datos (mínimo 250 palabras cada una). ${customTopic ? `
+
+¡ATENCIÓN! EL USUARIO PIDIÓ ESTE TEMA ESPECÍFICO: "${customTopic}".` : ""}
+2. Crea un "Plan Kinesiológico" supuestamente redactado por un practicante novato. 
+3. El "diagnostico" dentro de este plan debe simular ser un DIAGNÓSTICO KINESIOLÓGICO basado en la CIF (Clasificación Internacional del Funcionamiento), redactando detalladamente la alteración, limitación y restricción... A MENOS DE QUE UNO DE TUS ERRORES INYECTADOS SEA JUSTAMENTE USAR UN DIAGNÓSTICO MÉDICO EN LUGAR DE UNO KINÉSICO.
+4. El plan debe contener EXACTAMENTE 3 ERRORES CLÍNICOS OCULTOS pero graves.
 
 TIPOS DE ERRORES A INYECTAR (elige 3 distintos):
-- Diagnóstico médico en vez de kinesiológico (ej: "Tendinopatía del supraespinoso" sin consecuencia funcional CIF)
-- Objetivo no medible (ej: "Mejorar la funcionalidad del paciente")
-- Objetivo específico huérfano (sin operacional de tratamiento)
-- Incoherencia: el operacional no sirve para el específico (ej: TENS para ganar fuerza)
-- Dosificación peligrosa para la fase (ej: pliometría en fase aguda post-LCA)
-- Infradosificación absurda (ej: 1 serie de 5 reps a carga nula en deportista en fase de retorno)
-- Ignorar banderas amarillas del caso (factores psicosociales no mencionados en pronóstico)
-- Pronóstico contradictorio (dice favorable cuando hay factores desfavorables claros)
-- Plazo temporal imposible (ej: retorno deportivo en 2 semanas post-LCA)
-- Objetivo general que no conecta con ningún específico
+- Error de Diagnóstico: Puso un diagnóstico puramente médico (ej: "Tendinitis bicipital") en lugar de un Diagnóstico Kinésico CIF.
+- Objetivo General No Funcional: Objetivo que solo busca bajar el dolor sin un propósito de participación o actividad real del paciente.
+- Incoherencia Biomecánica: Un objetivo específico busca algo fisiológicamente opuesto o irrelevante a la deficiencia principal.
+- Intervención Obsoleta: Uso de aparatología pasiva (US, TENS) exclusiva sin dosis de carga mecánica en una tendinopatía crónica.
+- Sobrecarga/Peligro: Dosificación agresiva (ej: pliometría de alto impacto) en etapa inflamatoria aguda postquirúrgica.
+- Infradosificación Ridícula: Prescribir 3 series de 5 repeticiones sin peso externo para hipertrofia en fase de retorno deportivo.
+- Ignorar Bandera Amarilla: El pronóstico es favorable y rápido, pero el caso menciona explícitamente alta severidad de kinesiofobia y depresión.
+- Desconexión CIF: El objetivo general habla de volver a correr, pero los específicos solo elongan un músculo sin abordar la fuerza o el control motor requeridos.
 
-FORMATO JSON:
+FORMATO JSON EMPLEADO POR EL SISTEMA:
 {
-  "caso": { ... misma estructura de caso clínico ... },
+  "caso": { ... misma estructura densa y larga de un caso clinico normal ... },
   "plan_con_errores": {
-    "diagnostico": "Texto del diagnóstico (puede tener error)",
-    "objetivo_general": "Texto (puede tener error)",
+    "diagnostico": "Texto del diagnóstico kinésico (o médico si es el error inyectado)",
+    "objetivo_general": "Texto",
     "especificos": [
       {
-        "texto": "Objetivo específico (puede tener error)",
-        "operacionales": ["Op 1", "Op 2"]
+        "texto": "Objetivo específico",
+        "operacionales": ["Tratamiento 1 dosificado", "Tratamiento 2"]
       }
     ],
-    "pronostico": "Texto del pronóstico (puede tener error)",
+    "pronostico": "Texto argumentativo",
     "pronostico_valor": 0
   },
   "errores_ocultos": [
-    {"tipo": "tipo_de_error", "ubicacion": "dónde está", "explicacion": "por qué es error", "correccion": "qué debería decir"},
-    {"tipo": "tipo_de_error", "ubicacion": "dónde está", "explicacion": "por qué es error", "correccion": "qué debería decir"},
-    {"tipo": "tipo_de_error", "ubicacion": "dónde está", "explicacion": "por qué es error", "correccion": "qué debería decir"}
+    {"tipo": "tipo_de_error", "ubicacion": "dónde está", "explicacion": "explicación basada en evidencia de por qué es un error grave", "correccion": "cómo debió escribirse realmente el novato"}
   ]
 }
 
-Responde SOLO con el JSON.`;
+Responde SOLO con el JSON válido.`;
 }
