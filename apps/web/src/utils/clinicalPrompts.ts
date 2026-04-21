@@ -188,7 +188,20 @@ TIPOS DE ERRORES A INYECTAR (elige 3 distintos):
 
 FORMATO JSON EMPLEADO POR EL SISTEMA:
 {
-  "caso": { ... misma estructura densa y larga de un caso clinico normal ... },
+  "caso": { 
+    "paciente": {
+      "nombre": "Nombre", "edad": 0, "sexo": "M/F", "ocupacion": "...", "deporte": "...", "motivo_consulta": "..."
+    },
+    "anamnesis": {
+      "mecanismo": "...", "evolucion": "...", "dolor_eva": 0, "patron_dolor": "...", "tratamientos_previos": "...", "banderas_amarillas": [], "comorbilidades": []
+    },
+    "evaluacion_fisica": {
+      "observacion": "...", "rom_activo": {}, "rom_pasivo": {}, "fuerza_muscular": {}, "tests_especiales": [], "palpacion": "...", "funcional": "..."
+    },
+    "deficiencias_clave": [],
+    "fase_actual": "...",
+    "dificultad": "avanzado"
+  },
   "plan_con_errores": {
     "diagnostico": "Texto del diagnóstico kinésico (o médico si es el error inyectado)",
     "objetivo_general": "Texto",
